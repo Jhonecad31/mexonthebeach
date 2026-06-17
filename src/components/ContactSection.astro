@@ -1,0 +1,308 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<!-- Contact Page Layout Wrapper -->
+<div>
+  <!-- 2. Main Content Grid Section (Light Background) -->
+  <section class="bg-[#fcfbf7] py-20 relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        
+        <!-- Left Column: Location Details -->
+        <div class="lg:col-span-6 space-y-8">
+          <div>
+            <h2 class="font-serif text-2xl md:text-3xl font-extrabold text-secondary tracking-wider uppercase">
+              {t('contact.leftTitle')}
+            </h2>
+            <p class="text-gray-500 font-light mt-4 text-xs md:text-sm leading-relaxed max-w-md">
+              {t('contact.leftDescription')}
+            </p>
+          </div>
+
+          <!-- Contact items matching mockup details -->
+          <div class="space-y-6">
+            
+            <!-- Item 1: Location -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-[10px] text-primary tracking-widest uppercase">{t('contact.info.address.title')}</h4>
+                <p class="text-xs text-gray-700 font-semibold mt-0.5">{t('contact.info.address.value')}</p>
+              </div>
+            </div>
+
+            <!-- Item 2: Phone -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-[10px] text-primary tracking-widest uppercase">{t('contact.info.phone.title')}</h4>
+                <p class="text-xs text-gray-700 font-semibold mt-0.5">{t('contact.info.phone.value')}</p>
+              </div>
+            </div>
+
+            <!-- Item 3: Email -->
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 bg-secondary/10 text-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-[10px] text-primary tracking-widest uppercase">{t('contact.info.email.title')}</h4>
+                <p class="text-xs text-gray-700 font-semibold mt-0.5">{t('contact.info.email.value')}</p>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Social share links -->
+          <div class="pt-6">
+            <h5 class="text-[10px] font-bold text-gray-400 tracking-widest uppercase mb-3">FOLLOW</h5>
+            <div class="flex space-x-3">
+              <a href="#web" class="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+              </a>
+              <a href="#instagram" class="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+              </a>
+              <a href="#share" class="w-8 h-8 rounded-full border border-primary flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-colors duration-300">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M8.684 10.742l4.636-2.22m-4.636 4.962l4.636 2.22m3.664-4.893a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm4.5 7.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0zm-15-7.5a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Oval Pebble Form Container -->
+        <div class="lg:col-span-6 flex justify-center w-full animate-fade-in-up">
+          <div class="bg-sand-light/60 border border-dark/5 rounded-[100px_100px_100px_100px] p-10 md:p-14 shadow-lg max-w-md w-full relative">
+            <h3 class="font-serif text-primary font-extrabold text-center text-xl tracking-wider mb-8 uppercase">
+              {t('contact.form.title')}
+            </h3>
+            
+            <form class="space-y-6" onsubmit={`event.preventDefault(); alert("${t('contact.form.successAlert')}"); this.reset();`}>
+              
+              <!-- Full Name Field -->
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  {t('contact.form.name')}
+                </label>
+                <input 
+                  type="text" 
+                  required
+                  placeholder={t('contact.form.placeholderName')}
+                  class="w-full bg-white text-gray-700 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
+                />
+              </div>
+              
+              <!-- Email Field -->
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  {t('contact.form.email')}
+                </label>
+                <input 
+                  type="email" 
+                  required
+                  placeholder={t('contact.form.placeholderEmail')}
+                  class="w-full bg-white text-gray-700 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
+                />
+              </div>
+
+              <!-- Message Field -->
+              <div>
+                <label class="block text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1.5">
+                  {t('contact.form.message')}
+                </label>
+                <textarea 
+                  rows="4" 
+                  required
+                  placeholder={t('contact.form.placeholderMessage')}
+                  class="w-full bg-white text-gray-700 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)] resize-none"
+                ></textarea>
+              </div>
+
+              <!-- Submit button -->
+              <button 
+                type="submit" 
+                class="bg-primary hover:bg-primary-hover text-white py-3.5 px-8 rounded-full font-bold text-xs tracking-widest uppercase w-full shadow-md hover:shadow-lg transition-all duration-300 mt-2 cursor-pointer"
+              >
+                {t('contact.form.send').toUpperCase()}
+              </button>
+
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <section class="relative w-full overflow-hidden bg-[#ede9df]">
+  {/* Full-bleed two-column grid — beige/card left, map right */}
+  <div class="grid min-h-[460px] grid-cols-1 md:grid-cols-[42%_1fr]">
+    {/* LEFT COLUMN — beige background */}
+    <div class="flex items-center justify-center px-6 py-10 md:pl-12 md:pr-6">
+      {/* White rounded card */}
+      <div
+        class="flex w-full max-w-full flex-col gap-[1.35rem] rounded-[20px] bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.09),0_2px_10px_rgba(0,0,0,0.04)] md:max-w-[310px]"
+      >
+        {/* TITLE */}
+        <h2
+          class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#1b5c57]"
+        >
+          {i18n.PUERTO_MORELOS.FIND_US.title}
+        </h2>
+        <a
+          href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-start gap-3 rounded-xl p-2 -mx-2 transition-colors duration-200 hover:bg-[rgba(27,92,87,0.04)] no-underline"
+        >
+          <span
+            class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(211,66,50,0.12)] text-[#d34232] transition-transform duration-200 group-hover:scale-105"
+          >
+            <svg
+              class="h-[0.88rem] w-[0.88rem]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+              ></path>
+              <circle cx="12" cy="9" r="2.5"></circle>
+            </svg>
+          </span>
+          <div>
+            <p
+              class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+            >
+              {i18n.PUERTO_MORELOS.FIND_US.strategic_location_label}
+            </p>
+            <p
+              class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
+            >
+              Heriberto Frías, Supermanzana 2, Manzana 14 L3, 77580 Puerto Morelos, Q.R.
+            </p>
+          </div>
+        </a>
+
+        {/* Times row */}
+        <div class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(196,128,36,0.12)] text-[#c07e22]"
+          >
+            <svg
+              class="h-[0.88rem] w-[0.88rem]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="9"></circle>
+              <polyline points="12 7 12 12 15.5 15.5"></polyline>
+            </svg>
+          </span>
+          <div class="flex-1">
+            <p
+              class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+            >
+              {i18n.PUERTO_MORELOS.FIND_US.travel_times_label}
+            </p>
+            <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
+              {
+                i18n.PUERTO_MORELOS.FIND_US.travel_times.map((item) => (
+                  <li class="flex items-center justify-between gap-2">
+                    <span class="text-[0.74rem] font-normal text-[#6b6055]">
+                      {item.from}
+                    </span>
+                    <span class="text-[0.74rem] font-bold text-[#1b5c57] whitespace-nowrap">
+                      {item.time}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+        {/* CTA BUTTON */}
+        <a
+          href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
+          id="find-us-maps-btn"
+        >
+          {i18n.PUERTO_MORELOS.FIND_US.open_maps_button}
+        </a>
+      </div>
+    </div>
+    {/* RIGHT COLUMN — Map fills edge to edge */}
+    <div class="relative min-h-[280px] overflow-hidden md:min-h-full">
+      <div
+        class="pointer-events-none absolute top-1/2 left-1/2 z-10 inline-flex -translate-x-1/2 -translate-y-2/3 items-center gap-[0.3rem] rounded-full bg-white px-[0.85rem] py-[0.38rem] pl-[0.55rem] text-[0.7rem] font-bold text-[#1b5c57] whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.15)] after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-top-white"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-[0.75rem] w-[0.75rem] fill-[#1b5c57]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+          ></path>
+        </svg>
+        Mex on the Beach
+      </div>
+
+      {/* Iframe — Calibrado exactamente en la cuadrícula de la Smza 2 */}
+      <iframe
+        id="find-us-map-iframe"
+        title="Mex on the Beach Location Map"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-86.8795%2C20.8490%2C-86.8655%2C20.8590&layer=mapnik&marker=20.8541%2C-86.8726"
+        class="absolute inset-0 h-full w-full border-none saturate-[0.65] brightness-[1.04] sepia-[0.12]"
+      ></iframe>
+
+      <div
+        class="pointer-events-none absolute inset-0 z-0 hidden bg-gradient-to-r from-[#ede9df] via-[rgba(237,233,223,0.4)] to-transparent md:block md:w-[22%]"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+  </div>
+</div>
+</section>

@@ -1,0 +1,96 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<section id="menu" class="py-24 bg-white relative overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Title Section -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+      <div>
+        <span class="text-primary uppercase tracking-wider font-bold text-sm mb-3 block">{t('favorites.tag')}</span>
+        <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
+          {t('favorites.title')}
+        </h2>
+        <p class="max-w-xl text-gray-500 font-light mt-3">
+          {t('favorites.description')}
+        </p>
+      </div>
+      <div class="mt-6 md:mt-0">
+        <a href="#menu" class="text-primary hover:text-primary-hover font-bold flex items-center gap-2 group transition-all">
+          <span>{t('favorites.seeFullMenu')}</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+          </svg>
+        </a>
+      </div>
+    </div>
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
+        <div class="h-80 overflow-hidden relative">
+          <img 
+            src="/img-food/IMG_5621.webp" 
+            alt="Tequila Tropical" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.tequila.title')}</h3>
+            <span class="text-primary font-bold text-lg">$16</span>
+          </div>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">
+            {t('favorites.items.tequila.description')}
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
+        <div class="h-80 overflow-hidden relative">
+          <img 
+            src="/img-food/IMG_5419.webp" 
+            alt="Caribbean Tiki" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.tiki.title')}</h3>
+            <span class="text-primary font-bold text-lg">$22</span>
+          </div>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">
+            {t('favorites.items.tiki.description')}
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
+        <div class="h-80 overflow-hidden relative">
+          <img 
+            src="/img-food/IMG_5588.webp" 
+            alt="Mex on the Beach Cocktail" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+        <div class="p-8">
+          <div class="flex justify-between items-baseline mb-3">
+            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.mex.title')}</h3>
+            <span class="text-primary font-bold text-lg">$20</span>
+          </div>
+          <p class="text-gray-500 text-sm font-light leading-relaxed">
+            {t('favorites.items.mex.description')}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

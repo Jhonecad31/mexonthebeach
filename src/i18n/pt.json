@@ -1,0 +1,401 @@
+{
+  "SEO": {
+    "HOME_PAGE": {
+      "TITLE": "Mex on the Beach | Beach Club Premium & Lounge Cancún",
+      "DESCRIPTION": "Viva a experiência definitiva à beira-mar onde o sol, a areia e as boas vibrações se misturam com perfeição. Espreguiçadeiras premium, paraíso de coquetéis e gastronomia exclusiva.",
+      "META_TITLE": "Mex on the Beach | Beach Club Premium & Lounge"
+    }
+  },
+  "nav": {
+    "home": "Início",
+    "experience": "Experiências",
+    "reservations": "Reservas",
+    "gallery": "Puerto Morelos",
+    "contact": "Contato",
+    "bookNow": "Reservar Agora"
+  },
+  "hero": {
+    "title": "Garanta Seu Paraíso",
+    "subtitle": "Viva a escapada definitiva à beira-mar, onde o sol, a areia e as boas vibrações se misturam com perfeição para criar seu próprio santuário de paz e luxo."
+  },
+  "experience": {
+    "tag": "A Experiência",
+    "title": "Sabor, Sol e Mar em Perfeita Harmonia",
+    "description": "Entre em um reino onde o ritmo do oceano encontra a energia sofisticada do beach club mais exclusivo de Cancún. De rituais ao amanhecer a celebrações ao pôr do sol, curamos cada momento para torná-lo uma escapada inesquecível.",
+    "benefits": {
+      "dj": {
+        "title": "Sets de DJ Exclusivos",
+        "description": "Ritmos atmosféricos selecionados por DJs residentes de classe mundial para uma jornada rítmica."
+      },
+      "mixology": {
+        "title": "Maestria em Mixologia",
+        "description": "Coquetéis artesanais elaborados com destilados locais e botânicos tropicais exóticos."
+      },
+      "wellness": {
+        "title": "Bem-estar Marinho",
+        "description": "Tratamentos revitalizantes e sessões de ioga sobre a areia macia do Caribe."
+      }
+    }
+  },
+  "booking": {
+    "tag": "Reservas",
+    "title": "Escolha Seu Lugar",
+    "description": "Encontre o espaço perfeito para relaxar hoje. Selecione o número de pessoas, a data e sua experiência favorita.",
+    "fields": {
+      "people": "Número de Pessoas",
+      "peopleOptions": [
+        "2 Pessoas",
+        "1 Pessoa",
+        "3-4 Pessoas",
+        "5-6 Pessoas",
+        "7+ Pessoas"
+      ],
+      "date": "Data",
+      "time": "Hora de Chegada",
+      "timeOptions": [
+        "11:00 AM",
+        "09:00 AM",
+        "01:00 PM",
+        "03:00 PM",
+        "05:00 PM",
+        "Pôr do sol"
+      ],
+      "activity": "Filtro de Serviços",
+      "activityOptions": [
+        "Todos os Serviços",
+        "Lounge e Espreguiçadeiras",
+        "Cabana Privada",
+        "Villa Exclusiva"
+      ]
+    },
+    "spots": {
+      "popular": "Populares",
+      "premium": "Premium",
+      "vip": "VIP",
+      "details": "Detalhes",
+      "cabana": {
+        "title": "Cabanas Frente ao Mar",
+        "description": "Desfrute da máxima privacidade com nossas camas balinesas frente ao mar, cortinas de linho e serviço de garçom exclusivo.",
+        "features": [
+          "Para grupos de até 6 pessoas",
+          "Toalhas e garrafa de boas-vindas incluídas"
+        ]
+      },
+      "sunbeds": {
+        "title": "Espreguiçadeiras Premium",
+        "description": "Camas acolchoadas com guarda-sóis vibrantes na melhor localização da praia, perfeitas para tomar sol e relaxar o dia todo.",
+        "features": [
+          "Camas individuais ou de casal",
+          "Vista direta para o pôr do sol"
+        ]
+      },
+      "villa": {
+        "title": "Villas Privadas",
+        "description": "Exclusivos bangalôs com ar-condicionado, piscina privada, banheiro privativo e serviço VIP de mixologia e chef pessoal.",
+        "features": [
+          "Área totalmente privada e isolada",
+          "Acesso ao menu ultra-premium"
+        ]
+      }
+    },
+    "disclaimer": "* Os preços variam de acordo com a sessão e localização. Os pacotes premium incluem crédito para alimentos e bebidas. Sujeito a disponibilidade.",
+    "action": "Reservar Agora",
+    "alert": "Obrigado por escolher o Mex on the Beach! Entraremos em contato em breve para confirmar sua reserva."
+  },
+  "favorites": {
+    "tag": "Nossos Favoritos",
+    "title": "Nossos Favoritos",
+    "description": "Uma seleção cuidadosa de coquetéis artesanais e pratos exclusivos preparados no momento por nossos chefs de praia.",
+    "seeFullMenu": "VER MENU COMPLETO",
+    "items": {
+      "tequila": {
+        "title": "Tequila Tropical",
+        "description": "Tequila reposado infusionada com maracujá fresco, néctar de agave orgânico e um toque de limão com borda de pimenta piquín e sal de gusano."
+      },
+      "tiki": {
+        "title": "Caribbean Tiki",
+        "description": "Rum envelhecido premium, xarope de abacaxi grelhado com especiarias, suco de laranja espremido na hora, licor de coco e Angostura bitters."
+      },
+      "mex": {
+        "title": "Mex on the Beach",
+        "description": "Nossa especialidade da casa: Blue Curaçao premium, tequila blanco, rum de coco, suco de abacaxi clarificado e um toque refrescante de soda cítrica."
+      }
+    }
+  },
+  "gallery": {
+    "title": "Momentos de Evasão",
+    "subtitle": "Uma jornada visual através da alma do Mex on the Beach.",
+    "curatedVibes": "Vibrações Selecionadas",
+    "curatedVibesDesc": "Cada detalhe é projetado para transportá-lo a um estado de relaxamento puro e autêntico."
+  },
+  "contact": {
+    "tag": "Contato",
+    "title": "Entre em Contato",
+    "leftTitle": "ONDE ESTAMOS",
+    "leftDescription": "Mergulhe na essência do Caribe. Estamos localizados no coração da Zona Hoteleira, onde o sol e o mar se encontram com a elegância mexicana.",
+    "info": {
+      "address": {
+        "title": "LOCALIZAÇÃO",
+        "value": "Km 14.5, Zona Hoteleira, Cancún"
+      },
+      "phone": {
+        "title": "RESERVAS",
+        "value": "+52 (998) 455-7199"
+      },
+      "email": {
+        "title": "E-MAIL",
+        "value": "hola@mexonthebeach.com"
+      },
+      "hours": {
+        "title": "Horários",
+        "value": "Todos os dias: 10:00 AM - 10:00 PM"
+      }
+    },
+    "form": {
+      "title": "ENTRE EM CONTATO",
+      "name": "Nome Completo",
+      "email": "E-mail",
+      "message": "Mensagem",
+      "placeholderName": "Nome",
+      "placeholderEmail": "seu-email@exemplo.com",
+      "placeholderMessage": "Como podemos ajudar?",
+      "send": "Enviar Mensagem",
+      "successAlert": "Obrigado! Sua mensagem foi enviada com sucesso. Entraremos em contato em breve."
+    },
+    "paradise": {
+      "title": "ESPERAMOS POR VOCÊ NO PARAÍSO",
+      "description": "Nosso club está aberto todos os dias das 10:00 às 22:00. Venha desfrutar da melhor gastronomia e dos melhores coquetéis com vista para o Mar do Caribe.",
+      "cardTitle": "Horário do Beach Club",
+      "days1": "Segunda - Quinta",
+      "hours1": "12:00 - 20:00",
+      "days2": "Sexta - Domingo",
+      "hours2": "10:00 - 22:00"
+    },
+    "map": {
+      "title": "MEX ON THE BEACH",
+      "subtitle": "Km 14.5, Zona Hoteleira, 77500 Cancún, Q.R."
+    }
+  },
+  "PUERTO_MORELOS": {
+    "HERO": {
+      "text": "Descubra Puerto Morelos: Um tesouro escondido no Caribe entre Cancún e a Riviera Maya"
+    },
+    "DESCRIPTION": {
+      "title": "Puerto Morelos",
+      "P1": "Localizado entre Cancún e Playa del Carmen, Puerto Morelos é um dos destinos costeiros mais encantadores da Riviera Maya. Enquanto muitos viajantes seguem direto para os grandes centros turísticos, quem visita Puerto Morelos costuma descobrir um lado mais tranquilo do Caribe Mexicano, repleto de beleza natural, cultura local autêntica e vistas deslumbrantes para o mar.",
+      "P2": "Conhecido por sua atmosfera relaxante e comunidade acolhedora, Puerto Morelos oferece o equilíbrio perfeito entre aventura e tranquilidade. Os visitantes podem passar os dias explorando praias paradisíacas, fazendo snorkel em recifes de corais vibrantes, saboreando a culinária local e vivenciando o ritmo desacelerado que torna este destino tão especial.",
+      "P3": "Seja planejando um passeio de um dia saindo de Cancún ou buscando experiências memoráveis durante suas férias na Riviera Maya, Puerto Morelos convida você a desacelerar, conectar-se com a natureza e descobrir um dos segredos mais bem guardados da região.",
+      "P4": "Para os clientes que visitam o Mex On The Beach, a beleza de Puerto Morelos se faz presente em cada momento, desde a brisa suave do mar até a deslumbrante paisagem caribenha que envolve este destino único."
+    },
+    "OVERVIEW": {
+      "title": "Puerto Morelos",
+      "block_1": {
+        "title": "Um Tesouro Escondido no Caribe",
+        "description": "Localizado entre Cancún e Playa del Carmen, Puerto Morelos é um dos destinos costeiros mais encantadores da Riviera Maya. Enquanto muitos viajantes seguem direto para os grandes centros turísticos, quem visita Puerto Morelos costuma descobrir um lado mais tranquilo do Caribe Mexicano, repleto de beleza natural, cultura local autêntica e vistas deslumbrantes para o mar."
+      },
+      "block_2": {
+        "title": "Aventura e Tranquilidade",
+        "description": "Conhecido por sua atmosfera relaxante e comunidade acolhedora, Puerto Morelos oferece o equilíbrio perfeito. Os visitantes podem passar os dias explorando praias paradisíacas, fazendo snorkel em recifes de corais vibrantes, saboreando a culinária local e vivenciando o ritmo desacelerado que torna este destino tão especial."
+      }
+    },
+    "DESCRIPTION_H2": {
+      "title": "Praias de Puerto Morelos e a Beleza Natural do Caribe",
+      "p1": "As praias de Puerto Morelos estão entre os maiores tesouros do destino. Ao contrário de algumas das praias mais movimentadas da Riviera Maya, a praia de Puerto Morelos oferece um cenário tranquilo onde os visitantes podem realmente apreciar a beleza do Mar Caribe.",
+      "p2": "A areia branca e macia se estende ao longo da costa, enquanto as águas turquesas criam vistas dignas de cartão-postal durante todo o dia. As condições calmas tornam a área ideal para nadar, relaxar e desfrutar de atividades ao ar livre com a família e amigos.",
+      "p3": "Uma das atrações naturais mais marcantes é o Parque Nacional Recife de Puerto Morelos, que abriga parte do Sistema de Recifes Mesoamericano, a segunda maior barreira de corais do mundo. Este ecossistema protegido atrai visitantes de todo o planeta que vêm vivenciar uma incrível vida marinha e paisagens subaquáticas.",
+      "p4": "Além da orla, os viajantes podem descobrir selvas exuberantes, habitats de vida selvagem e a famosa Ruta de los Cenotes. Esta rota cênica conecta os visitantes a cenotes de água doce, florestas tropicais e experiências únicas de aventura que mostram a diversidade natural da Riviera Maya.",
+      "p5": "Para os viajantes que pesquisam o que fazer em Puerto Morelos, México, explorar tanto a costa quanto a natureza ao redor é uma experiência imperdível."
+    },
+    "DESCRIPTION_H3": {
+      "title": "Explorando o Coração e a Cultura de Puerto Morelos",
+      "p1": "Embora as praias geralmente sejam o que mais chama a atenção dos visitantes, a cidade em si oferece uma atmosfera acolhedora, cheia de caráter local e charme cultural.",
+      "p2": "O icônico farol inclinado é um dos marcos mais reconhecíveis de Puerto Morelos e serve como um lembrete da história e resiliência da cidade. Nas proximidades, a praça principal ganha vida com eventos locais, mercados de artesanato e oportunidades para experimentar a autêntica cultura mexicana.",
+      "p3": "Caminhar por Puerto Morelos permite aos visitantes descobrir murais coloridos, pequenas boutiques, restaurantes familiares e cantos escondidos que refletem a identidade única da área. O ritmo mais lento convida os viajantes a desfrutar de experiências significativas em vez de correr de uma atração para outra.",
+      "p4": "Muitos visitantes que chegam para um passeio de um dia saindo de Cancún decidem voltar para estadias mais longas depois de descobrir tudo o que o destino tem a oferecer. Desde relaxamento à beira-mar até aventuras ao ar livre e exploração cultural, Puerto Morelos oferece uma experiência completa na Riviera Maya.",
+      "p5": "Para os hóspedes que ficam nas proximidades ou visitam o Mex On The Beach, a beleza de Puerto Morelos se faz presente em cada momento, desde a brisa suave do mar até as deslumbrantes paisagens caribenhas que cercam este destino único."
+    },
+    "WHAT_TO_EXPECT": {
+      "title": "Os visitantes podem esperar:",
+      "items": [
+        "Lindas praias de areia branca",
+        "Águas cristalinas do Caribe",
+        "Uma atmosfera local relaxante",
+        "Acesso à natureza e à vida marinha",
+        "Atividades ideais para toda a família",
+        "Frutos do mar frescos e autêntica culinária mexicana",
+        "Fácil deslocamento de Cancún a Puerto Morelos",
+        "Paisagens inesquecíveis da Riviera Maya"
+      ]
+    },
+    "EXPERIENCES_SECTION": {
+      "title": "Experiences Mex on the Beach",
+      "subtitle": "Os visitantes podem esperar:",
+      "cards": {
+        "card_1": {
+          "title": "Praias e Águas Cristalinas",
+          "description": "Lindas praias de areia branca e águas cristalinas do Caribe.",
+          "action": "VER DETALHES"
+        },
+        "card_2": {
+          "title": "Atmosfera e Natureza",
+          "description": "Uma atmosfera local relaxante e acesso à natureza e à vida marinha.",
+          "action": "EXPLORAR MAIS"
+        },
+        "card_3": {
+          "title": "Culinária e Conectividade",
+          "description": "Atividades ideais para toda a família, frutos do mar frescos, autêntica culinária mexicana e fácil deslocamento de Cancún a Puerto Morelos com paisagens inesquecíveis da Riviera Maya.",
+          "action": "VER MENU"
+        }
+      }
+    },
+    "QUESTIONS": {
+      "title": "Perguntas Frequentes",
+      "q1": {
+        "question": "Por que Puerto Morelos é considerado um dos melhores destinos da Riviera Maya?",
+        "answer": "Puerto Morelos combina praias belíssimas, áreas naturais protegidas, cultura local autêntica e uma atmosfera relaxante que oferece uma experiência totalmente diferente dos grandes centros turísticos."
+      },
+      "q2": {
+        "question": "Qual é a distância entre Puerto Morelos e Cancún?",
+        "answer": "Puerto Morelos está convenientemente localizado entre Cancún e Playa del Carmen, sendo um passeio de um dia fácil e muito procurado por visitantes hospedados em qualquer parte da Riviera Maya."
+      },
+      "q3": {
+        "question": "Quais são as atividades mais populares em Puerto Morelos?",
+        "answer": "Os viajantes aproveitam o snorkel, dias de praia, visitas a cenotes, passeios ecológicos, gastronomia local e caminhadas pelas charmosas ruas e pela orla da cidade."
+      },
+      "q4": {
+        "question": "As praias de Puerto Morelos são boas para famílias?",
+        "answer": "Sim. A atmosfera tranquila, a bela orla e o ambiente acolhedor fazem da praia de Puerto Morelos um destino maravilhoso para visitantes de todas as idades desfrutarem da beleza natural, da cultura local e da hospitalidade."
+      }
+    },
+    "reef": {
+      "title": "O Grande Recite de Corais",
+      "description": "Nossas costas são protegidas pelo Parque Nacional Recife de Puerto Morelos, um santuário subaquático perfeito para a prática de snorkel, onde você poderá nadar ao lado de tartarugas marinhas, corais coloridos e uma deslumbrante vida marinha tropical."
+    },
+    "vibe": {
+      "title": "Um Refúgio Exclusivo e Sofisticado",
+      "description": "No Mex on the Beach, escolhemos este canto paradisíaco porque ele incorpora perfeitamente o escapismo sofisticado. Longe das grandes multidões, você desfrutará de águas calmas e cristalinas, areia branca e fina, e uma conexão direta com a pura essência do Caribe."
+    },
+    "action": "Reserve Sua Experiência",
+    "FIND_US": {
+      "title": "Encontre Mex on the Beach",
+      "strategic_location_label": "Localização Estratégica",
+      "strategic_location_value": "Av Huayacán, 77533 Cancún, Q.R",
+      "travel_times_label": "Tempos de Deslocamento",
+      "travel_times": [
+        { "from": "Aeroporto de Cancún", "time": "20 min" },
+        { "from": "Playa del Carmen", "time": "30 min" },
+        { "from": "Zona Hoteleira", "time": "35 min" }
+      ],
+      "open_maps_button": "Abrir no Google Maps"
+    }
+  },
+  "footer": {
+    "privacy": "Política de Privacidade",
+    "terms": "Termos de Serviço",
+    "press": "Dossier de Imprensa",
+    "contact": "Contato",
+    "copyright": "© 2026 Mex on the Beach Cancún. Sophisticated Escapism."
+  },
+  "menu": {
+    "seo": {
+      "title": "Nosso Menu Premium | Mex on the Beach",
+      "description": "Desfrute de coquetéis artesanais exclusivos, cozinha costeira fresca, vinhos selecionados e entradas requintadas para compartilhar de frente para o mar."
+    },
+    "tabs": {
+      "cocktails": "Coquetéis",
+      "cuisine": "Cozinha Costeira",
+      "wine": "Carta de Vinhos",
+      "appetizers": "Entradas"
+    },
+    "cocktails": {
+      "tag": "O BAR DE MIXOLOGIA",
+      "title": "COQUETÉIS ASSINATURA",
+      "desc": "Inspirados na botânica local e em destilados artesanais, nossos coquetéis são criados para refrescar a alma sob o sol.",
+      "happyHour": "HAPPY HOUR",
+      "happyHourDesc": "Todos os dias das 17h às 19h. Seleção de drinks da casa compre um leve dois.",
+      "items": {
+        "mule": {
+          "title": "MASAH MULE",
+          "desc": "Mezcal Espadín, gengibre fresco, suco de limão, pepino e redução de hibisco."
+        },
+        "cristal": {
+          "title": "CARIBE CRISTAL",
+          "desc": "Tequila Añejo, vermute branco, suco de toranja clarificado e solução salina."
+        },
+        "saltpeter": {
+          "title": "SAND & SALTPETER",
+          "desc": "Gin London Dry, néctar de alecrim, sementes de coentro e brisa aromática de água do mar."
+        }
+      }
+    },
+    "cuisine": {
+      "tag": "PEIXE DO DIA",
+      "title": "COZINHA COSTEIRA",
+      "action": "Reservar uma Mesa",
+      "items": {
+        "aguachile": {
+          "title": "AGUACHILE TULUM",
+          "desc": "Camarão cru, tomatillo verde morno, alface do mar, cebola roxa e emulsão de abacate."
+        },
+        "pastor": {
+          "title": "POLVO AO PASTOR",
+          "desc": "Polvo grelhado marinado em achiote, chutney de abacaxi, cebola grelhada e azeite de coentro."
+        },
+        "snapper": {
+          "title": "HUACHINANGO YUCATECO",
+          "desc": "Peixe inteiro grelhado em folhas de bananeira, molho xnipek e toque de orégano silvestre."
+        }
+      }
+    },
+    "wine": {
+      "tag": "SELEÇÃO DO SOMMELIER",
+      "title": "CARTA DE VINHOS",
+      "items": {
+        "white": {
+          "title": "BRANCO VALLE DE GUADALUPE",
+          "desc": "Chenin Blanc e Grenache Blanc. Fresco, cítrico, com final mineral."
+        },
+        "rose": {
+          "title": "ROSÉ RIVIERA MAYA",
+          "desc": "Grenache. Morango, sal marinho, final refrescante."
+        },
+        "syrah": {
+          "title": "SYRAH MEXICANO",
+          "desc": "Intenso, frutas negras, notas sutis de fumo, taninos aveludados."
+        },
+        "champagne": {
+          "title": "CHAMPAGNE DEUTZ",
+          "desc": "Brut Classic. Elegância, bolha fina, notas de brioche tostado."
+        }
+      }
+    },
+    "appetizers": {
+      "tag": "PARA COMPARTILHER",
+      "title": "ENTRADAS",
+      "items": {
+        "shishitos": {
+          "title": "SHISHITOS GRELHADOS",
+          "desc": "Sal Maldon, raspas de limão e páprica defumada em pó."
+        },
+        "guacamole": {
+          "title": "GUACAMOLE COM TRUFAS",
+          "desc": "Láminas de trufa negra, romã fresca e totopos crioulos feitos à mão."
+        },
+        "croquettes": {
+          "title": "CROQUETES DE LAGOSTA",
+          "desc": "Lagosta infusionada com açafrão, empanado panko e mel de pimenta habanero."
+        },
+        "calamari": {
+          "title": "LULA CROCANTE",
+          "desc": "Anéis de lula da baía, jalapeños em conserva e salsa fresca."
+        }
+      }
+    },
+    "magic": {
+      "title": "VIVA A MAGIA",
+      "desc": "Junte-se a nós para um jantar ao pôr do sol que você nunca esquecerá.",
+      "book": "Reservar Mesa",
+      "gallery": "Ver Galeria"
+    }
+  }
+}

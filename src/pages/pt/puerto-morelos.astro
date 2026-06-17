@@ -1,0 +1,18 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Navbar from '../../components/Navbar.astro';
+import PuertoMorelosSection from '../../components/PuertoMorelosSection.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'pt';
+const t = useTranslations(lang);
+---
+
+<Layout title={`${t('puertoMorelos.title')} | Mex on the Beach`} description={t('puertoMorelos.subtitle')} lang={lang}>
+	<Navbar lang={lang} />
+	<main class="flex-grow pt-20">
+		<PuertoMorelosSection lang={lang} />
+	</main>
+	<Footer lang={lang} />
+</Layout>

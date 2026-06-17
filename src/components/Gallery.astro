@@ -1,0 +1,81 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<section id="gallery" class="py-24 bg-sand-light/50 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto px-6">
+    
+    <!-- Title -->
+    <div class="text-center mb-20">
+      <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
+        {t('gallery.title')}
+      </h2>
+      <p class="text-gray-500 font-light text-sm md:text-base mt-3">
+        {t('gallery.subtitle')}
+      </p>
+    </div>
+
+    <!-- Organic Pillars Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-16">
+      
+      <!-- Column 1 -->
+      <div class="relative overflow-hidden organic-pill-1 shadow-xl h-[460px] md:h-[480px] group transition-all duration-500 mt-12">
+        <img 
+          src="/images/puerto-morelos.webp" 
+          alt="Puerto Morelos beach" 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+
+      <!-- Column 2 (Center, shorter, floating high, with callout underneath) -->
+      <div class="flex flex-col h-full justify-between">
+        <div class="relative overflow-hidden organic-pill-2 shadow-xl h-[280px] md:h-[300px] group transition-all duration-500">
+          <img 
+            src="/images/puerto-morelos-2.webp" 
+            alt="Puerto Morelos view" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+        
+        <!-- Curated Vibes Callout - Desktop only (hidden on mobile) -->
+        <div class="hidden md:block mt-12 pl-5 border-l-[3px] border-primary text-left max-w-[280px] self-start">
+          <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1.5">{t('gallery.curatedVibes')}</h4>
+          <p class="text-[#374151] font-normal text-[11px] leading-relaxed">
+            {t('gallery.curatedVibesDesc')}
+          </p>
+        </div>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="relative overflow-hidden organic-pill-3 shadow-xl h-[500px] md:h-[520px] group transition-all duration-500">
+        <img 
+          src="/images/Puerto-Morelos-Aerial.webp" 
+          alt="Puerto Morelos aerial view" 
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        />
+      </div>
+    </div>
+
+    <!-- Curated Vibes Callout - Mobile only (block md:hidden, renders after the grid) -->
+    <div class="block md:hidden mt-8 pl-5 border-l-[3px] border-primary text-left max-w-xs mx-auto">
+      <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1.5">{t('gallery.curatedVibes')}</h4>
+      <p class="text-[#374151] font-normal text-[11px] leading-relaxed">
+        {t('gallery.curatedVibesDesc')}
+      </p>
+    </div>
+  </div>
+
+  <!-- Decorative separating-->
+  <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+    <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z" fill="#ffffff"></path>
+      <path d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25" stroke="var(--color-secondary)" stroke-width="2" fill="none"></path>
+    </svg>
+  </div>
+</section>

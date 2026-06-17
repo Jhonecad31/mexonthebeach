@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Outfit:wght@200;300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Outfit", sans-serif;
+  --color-primary: #f15d2a; /* Vibrant Tropical Orange from Logo */
+  --color-primary-hover: #d1491a;
+  --color-secondary: #0b7c75; /* Elegant Deep Teal from Logo */
+  --color-secondary-hover: #085e59;
+  --color-dark: #13110f; /* Obsidian Sand */
+  --color-accent: #c39b62; /* Champagne Gold */
+  --color-accent-hover: #b08852;
+  /* --color-sand-light: #fcfbf7; Light Sand */
+}
+
+/* Base custom definitions */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-sand-light);
+  color: var(--color-dark);
+  overflow-x: hidden;
+}
+
+/* Custom organic shapes */
+.organic-blob {
+  border-radius: 60% 40% 60% 40% / 40% 60% 40% 60%;
+  transition: border-radius 8s ease-in-out infinite alternate;
+}
+
+.organic-blob:hover {
+  border-radius: 40% 60% 40% 60% / 60% 40% 60% 40%;
+}
+
+.organic-pill-1 {
+  border-radius: 120px 240px 120px 240px;
+}
+
+.organic-pill-2 {
+  border-radius: 160px 120px 100px 160px;
+}
+
+.organic-pill-3 {
+  border-radius: 240px 120px 240px 120px;
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glassmorphism-dark {
+  background: rgba(17, 24, 39, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-secondary);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}

@@ -1,0 +1,58 @@
+---
+import { useTranslations, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+<section id="home" class="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden pt-20">
+  
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="/images/Puerto-Morelos-Aerial.webp" 
+      alt="Mex on the Beach views" 
+      class="w-full h-full object-cover scale-105 animate-[pulse_10s_infinite_alternate]"
+    />
+    <!-- Rich warm gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-dark/65 via-dark/40 to-dark/50"></div>
+  </div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white mt-12 md:mt-20">
+    
+    <!-- Title -->
+    <h1 class="font-serif text-4xl md:text-7xl font-bold tracking-wider uppercase mb-6 leading-tight drop-shadow-md">
+      {t('hero.title')}
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="max-w-2xl mx-auto text-sm md:text-base text-white/90 leading-relaxed font-light tracking-wide mb-10 drop-shadow-sm">
+      {t('hero.subtitle')}
+    </p>
+
+    <!-- Down Arrow Icon Link to next section -->
+    <a href="#experience" class="inline-block p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all duration-300 animate-bounce">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
+        <path d="m6 9 6 6 6-6"/>
+      </svg>
+    </a>
+
+  </div>
+
+  <!-- Decorative bottom wave vector as in the prototype -->
+  <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+      <!-- Pinkish-beige wave background layer matching mockup -->
+      <path d="M0,60 C360,100 720,100 1080,60 L1440,40 L1440,120 L0,120 Z" fill="#fbf7f4"></path>
+      <!-- Main white/off-white background transition -->
+      <path d="M0,96 C240,112 480,128 720,112 C960,96 1200,48 1440,80 L1440,120 L0,120 Z" fill="#fcfbf7"></path>
+      <!-- Warm stylized stroke divider matching prototype -->
+      <path d="M0,86 C240,102 480,118 720,102 C960,86 1200,38 1440,70" stroke="var(--color-primary)" stroke-width="2" fill="none"></path>
+    </svg>
+  </div>
+
+</section>

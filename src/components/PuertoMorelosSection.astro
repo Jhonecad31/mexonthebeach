@@ -1,0 +1,680 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = "en" } = Astro.props;
+const t = useTranslations(lang);
+const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
+---
+
+<div>
+  <section
+    class="bg-[#FAF6EE] relative h-[60vh] flex items-center justify-center overflow-hidden py-24 bg-sand-light/50 relative overflow-hidden"
+  >
+    <div class="relative w-full h-[85vh] bg-[#FAF6EE]">
+      <div
+        class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
+      >
+        <img
+          src="/images/puerto-morelos-2.webp"
+          alt="Puerto Morelos Aerial View"
+          class="w-full h-full object-cover scale-105"
+        />
+        <div
+          class="absolute inset-x-0 bottom-0 h-1/2"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(255, 255, 255, 1) 30%, rgba(255, 255, 255, 0) 100%)",
+          }}
+        >
+        </div>
+      </div>
+      <div
+        class="relative z-10 flex flex-col items-center justify-center h-full text-center px-4"
+      >
+        <p
+          class="max-w-2xl text-white font-light text-base md:text-lg drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]"
+        >
+          {i18n.PUERTO_MORELOS.HERO.text}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {/* 2. INTRODUCTION SECTION WITH PEBBLE IMAGES */}
+  <section class="py-24 bg-white relative">
+    <div class="max-w-6xl mx-auto px-6">
+      <div
+        class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
+      >
+        <div class="lg:col-span-6 space-y-6">
+          <h2
+            class="font-serif text-2xl md:text-3xl font-extrabold text-secondary tracking-wider uppercase"
+          >
+            {i18n.PUERTO_MORELOS.DESCRIPTION.title}
+          </h2>
+
+          <div class="space-y-4 pt-4">
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 bg-secondary/10 text-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-xs text-primary tracking-wide uppercase"
+                >
+                  {i18n.PUERTO_MORELOS.OVERVIEW.block_1.title}
+                </h4>
+                <p
+                  class="text-xs text-gray-500 font-light mt-1 leading-relaxed"
+                >
+                  {i18n.PUERTO_MORELOS.OVERVIEW.block_1.description}
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div
+                class="w-10 h-10 bg-secondary/10 text-secondary rounded-full flex items-center justify-center flex-shrink-0 shadow-sm"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-5 w-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <h4
+                  class="font-bold text-xs text-primary tracking-wide uppercase"
+                >
+                  {i18n.PUERTO_MORELOS.OVERVIEW.block_2.title}
+                </h4>
+                <p
+                  class="text-xs text-gray-500 font-light mt-1 leading-relaxed"
+                >
+                  {i18n.PUERTO_MORELOS.OVERVIEW.block_2.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 flex justify-center relative">
+          <div class="relative w-[320px] h-[400px] sm:w-[380px] sm:h-[480px]">
+            <div
+              class="absolute inset-0 rounded-[140px_40px_140px_40px] overflow-hidden shadow-2xl"
+            >
+              <img
+                src="/images/puerto-morelos.webp"
+                alt="Puerto Morelos beach beauty"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-750"
+              />
+            </div>
+            <div
+              class="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10 animate-pulse"
+            >
+            </div>
+            <div
+              class="absolute -top-6 -left-6 w-24 h-24 bg-secondary/10 rounded-full -z-10"
+            >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* 3. EXPERIENCIAS Mex (GRID DE TARJETAS) */}
+  <section class="w-full bg-[#FAF6EE] py-20 px-4 md:px-8">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2
+          class="font-serif font-extrabold text-3xl md:text-4xl text-[#1E6B65] mb-4 tracking-wide"
+        >
+          {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.title}
+        </h2>
+        <p
+          class="text-[#5C5549] font-light text-sm md:text-base leading-relaxed"
+        >
+          {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.subtitle}
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"></div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div
+          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
+        >
+          <div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#1E6B65] mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl text-[#2C2519] mb-3 tracking-wide">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.title}
+            </h3>
+            <p class="text-[#6B6355] font-light text-sm leading-relaxed mb-6">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.description}
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-flex items-center text-xs font-medium text-[#1E6B65] hover:underline tracking-wider uppercase group"
+          >
+            Ver detalles
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-3 h-3 ml-1.5 transition-transform group-hover:translate-x-1"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
+        >
+          <div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#1E6B65] mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.433-2.14-.356-2.755.432a2.25 2.25 0 0 0 0 2.97c.616.788 1.865.865 2.755.432"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl text-[#2C2519] mb-3 tracking-wide">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.title}
+            </h3>
+            <p class="text-[#6B6355] font-light text-sm leading-relaxed mb-6">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.description}
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-flex items-center text-xs font-medium text-[#1E6B65] hover:underline tracking-wider uppercase group"
+          >
+            Explorar más
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-3 h-3 ml-1.5 transition-transform group-hover:translate-x-1"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+        <div
+          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
+        >
+          <div>
+            <div
+              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#1E6B65] mb-6"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-5 h-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3-3.75h6M12 3v3m0 0a3 3 0 0 1-3 3v2.25M12 6a3 3 0 0 0 3 3v2.25"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="font-serif text-xl text-[#2C2519] mb-3 tracking-wide">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.title}
+            </h3>
+            <p class="text-[#6B6355] font-light text-sm leading-relaxed mb-6">
+              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.description}
+            </p>
+          </div>
+          <a
+            href="#"
+            class="inline-flex items-center text-xs font-medium text-[#1E6B65] hover:underline tracking-wider uppercase group"
+          >
+            Ver menú
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="w-3 h-3 ml-1.5 transition-transform group-hover:translate-x-1"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="w-full pb-36 pt-4 px-4 md:px-8 bg-[#FDFBF7]"> 
+  <div class="max-w-6xl mx-auto"> 
+    
+    {/* Título de la sección: Centrado en móviles, alineado a la izquierda en escritorio si lo prefieres */}
+    <div class="text-center md:text-left mb-12">
+      <h2 class="font-serif text-2xl md:text-3xl font-extrabold text-[#2C2519] mb-3 mt-10 tracking-wide uppercase">
+        {i18n.PUERTO_MORELOS.QUESTIONS.title}
+      </h2>
+      <div class="w-16 h-[2px] bg-[#1E6B65] mx-auto md:mx-0"></div>
+    </div>
+
+    {/* Contenedor Principal en Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+      
+      {/* COLUMNA DE LA IMAGEN (Ocupa 5 de 12 columnas) */}
+      <div class="md:col-span-5 relative order-last md:order-first mt-8 md:mt-0">
+        {/* Círculo decorativo azul claro de fondo */}
+        <div class="absolute -top-4 -left-4 w-24 h-24 bg-[#EAF2F2] rounded-full -z-10 opacity-70"></div>
+        
+        {/* Contenedor de la imagen principal con bordes redondeados */}
+        <div class="overflow-hidden rounded-[2rem] shadow-lg aspect-[4/4]">
+          <img 
+            src="/images/Puerto-Morelos-Aerial.webp" 
+            alt="Puerto Morelos" 
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Bloque Naranja Flotante (Relax. We have the answers) */}
+        <div class="absolute -bottom-6 -right-4 md:-right-8 bg-[#FF5A2B] text-white p-6 rounded-2xl shadow-xl max-w-[260px]">
+          <p class="font-sans font-black text-sm tracking-widest uppercase mb-1">
+            RELAX.
+          </p>
+          <p class="font-sans font-medium text-xs tracking-wider opacity-90">
+            WE HAVE THE ANSWERS.
+          </p>
+        </div>
+      </div>
+
+      <div class="md:col-span-7 space-y-4">
+        {
+          Object.entries(i18n.PUERTO_MORELOS.QUESTIONS)
+            .filter(
+              ([key, value]) =>
+                key.startsWith("q") && typeof value === "object",
+            )
+            .map(([key, faq]: [string, any], index: number) => (
+              <details
+                key={key}
+                data-key={key}
+                name="faq-accordion"
+                open={index === 0}
+                class="group bg-white rounded-xl border border-black/5 shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
+              >
+                <summary class="flex items-center justify-between p-6 text-left cursor-pointer select-none list-none group">
+                  <div class="flex items-center space-x-4">
+                    {/* Iconos Personalizados dinámicamente por pregunta */}
+                    <div class="text-[#1E6B65] shrink-0">
+                      {key === "q1" && (
+                        /* q1: Destino / Riviera Maya (Icono de Medalla / Destacado) */
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-5 h-5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M11.48 3.499c.172-.435.744-.435.916 0l1.828 4.695a.423.423 0 0 0 .307.293l5.017.54c.471.05.659.63.298.962l-3.777 3.466a.422.422 0 0 0-.117.404l1.201 5.101c.113.481-.392.848-.803.593l-4.29-2.682a.422.422 0 0 0-.443 0l-4.29 2.682c-.411.255-.916-.112-.803-.593l1.201-5.101a.422.422 0 0 0-.117-.404L3.467 10.99c-.36-.332-.172-.912.298-.962l5.017-.54a.422.422 0 0 0 .307-.293l1.828-4.695Z"
+                          />
+                        </svg>
+                      )}
+                      {key === "q2" && (
+                        /* q2: Distancia / Cancún (Icono de Mapa / Distancia) */
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-5 h-5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M9 6.75V15m6-6v8.25m.503-3.46 3.66-1.077a.75.75 0 0 1 .957.583l1.25 5.25a.75.75 0 0 1-.505.89l-5.25 1.5a.75.75 0 0 1-.842-.423L15 17.25M3.385 19.46A2.25 2.25 0 0 1 2.25 17.5V5.51A2.25 2.25 0 0 1 4.54 3.32l5.228 1.56a2.25 2.25 0 0 0 1.464 0l5.228-1.56A2.25 2.25 0 0 1 18.75 5.51v10.51a2.25 2.25 0 0 1-2.29 2.234l-5.227-1.56a2.25 2.25 0 0 0-1.464 0l-6.383 1.91Z"
+                          />
+                        </svg>
+                      )}
+                      {key === "q3" && (
+                        /* q3: Actividades populares (Icono de Brújula / Aventura) */
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-5 h-5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M10.5 6a7.5 7.5 0 1 0 7.5 7.5h-7.5V6Z"
+                          />
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M13.5 10.5H21A7.5 7.5 0 0 0 13.5 3v7.5Z"
+                          />
+                        </svg>
+                      )}
+                      {key === "q4" && (
+                        /* q4: Playas familiares (Icono de Sombrilla de playa o Sol) */
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke-width="1.5"
+                          stroke="currentColor"
+                          class="w-5 h-5"
+                        >
+                          <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            d="M12 3v1.5m0 15V21m9-9h-1.5M4.5 12H3m15.364-6.364l-1.06 1.06m-12.02 12.02l-1.06 1.06m12.02 0l1.06-1.06M6.343 6.343l1.06 1.06M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+                          />
+                        </svg>
+                      )}
+                    </div>
+                    <span class="font-sans font-semibold text-base text-[#2C2519] tracking-wide group-hover:text-[#1E6B65] transition-colors duration-200">
+                      {faq.question}
+                    </span>
+                  </div>
+                  {/* Flecha de apertura */}
+                  <div class="text-[#6B6355] transition-transform duration-300 group-open:rotate-180 group-open:text-[#1E6B65]">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="2"
+                      stroke="currentColor"
+                      class="w-4 h-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                      />
+                    </svg>
+                  </div>
+                </summary>
+                {/* Contenedor de respuesta */}
+                <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-black/5">
+                  {faq.answer}
+                </div>
+              </details>
+            ))
+        }
+      </div>
+
+    </div>
+  </div>
+</section>
+  
+  <section class="relative w-full overflow-hidden bg-[#ede9df]">
+  {/* Full-bleed two-column grid — beige/card left, map right */}
+  <div class="grid min-h-[460px] grid-cols-1 md:grid-cols-[42%_1fr]">
+    {/* LEFT COLUMN — beige background */}
+    <div class="flex items-center justify-center px-6 py-10 md:pl-12 md:pr-6">
+      {/* White rounded card */}
+      <div
+        class="flex w-full max-w-full flex-col gap-[1.35rem] rounded-[20px] bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.09),0_2px_10px_rgba(0,0,0,0.04)] md:max-w-[310px]"
+      >
+        {/* TITLE */}
+        <h2
+          class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#1b5c57]"
+        >
+          {i18n.PUERTO_MORELOS.FIND_US.title}
+        </h2>
+
+        {/* Location row — Convertido en enlace interactivo con efectos hover */}
+        <a
+          href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group flex items-start gap-3 rounded-xl p-2 -mx-2 transition-colors duration-200 hover:bg-[rgba(27,92,87,0.04)] no-underline"
+        >
+          <span
+            class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(211,66,50,0.12)] text-[#d34232] transition-transform duration-200 group-hover:scale-105"
+          >
+            <svg
+              class="h-[0.88rem] w-[0.88rem]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+              ></path>
+              <circle cx="12" cy="9" r="2.5"></circle>
+            </svg>
+          </span>
+          <div>
+            <p
+              class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+            >
+              {i18n.PUERTO_MORELOS.FIND_US.strategic_location_label}
+            </p>
+            <p
+              class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
+            >
+              Heriberto Frías, Supermanzana 2, Manzana 14 L3, 77580 Puerto Morelos, Q.R.
+            </p>
+          </div>
+        </a>
+
+        {/* Times row */}
+        <div class="flex items-start gap-3">
+          <span
+            class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(196,128,36,0.12)] text-[#c07e22]"
+          >
+            <svg
+              class="h-[0.88rem] w-[0.88rem]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="9"></circle>
+              <polyline points="12 7 12 12 15.5 15.5"></polyline>
+            </svg>
+          </span>
+          <div class="flex-1">
+            <p
+              class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+            >
+              {i18n.PUERTO_MORELOS.FIND_US.travel_times_label}
+            </p>
+            <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
+              {
+                i18n.PUERTO_MORELOS.FIND_US.travel_times.map((item) => (
+                  <li class="flex items-center justify-between gap-2">
+                    <span class="text-[0.74rem] font-normal text-[#6b6055]">
+                      {item.from}
+                    </span>
+                    <span class="text-[0.74rem] font-bold text-[#1b5c57] whitespace-nowrap">
+                      {item.time}
+                    </span>
+                  </li>
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+
+        {/* CTA BUTTON */}
+        <a
+          href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
+          id="find-us-maps-btn"
+        >
+          {i18n.PUERTO_MORELOS.FIND_US.open_maps_button}
+        </a>
+      </div>
+    </div>
+
+    {/* RIGHT COLUMN — Map fills edge to edge */}
+    <div class="relative min-h-[280px] overflow-hidden md:min-h-full">
+      {/* Floating label "Mex on the Beach" */}
+      <div
+        class="pointer-events-none absolute top-1/2 left-1/2 z-10 inline-flex -translate-x-1/2 -translate-y-2/3 items-center gap-[0.3rem] rounded-full bg-white px-[0.85rem] py-[0.38rem] pl-[0.55rem] text-[0.7rem] font-bold text-[#1b5c57] whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.15)] after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-top-white"
+        aria-hidden="true"
+      >
+        <svg
+          class="h-[0.75rem] w-[0.75rem] fill-[#1b5c57]"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+          ></path>
+        </svg>
+        Mex on the Beach
+      </div>
+
+      {/* Iframe — Calibrado exactamente en la cuadrícula de la Smza 2 */}
+      <iframe
+        id="find-us-map-iframe"
+        title="Mex on the Beach Location Map"
+        loading="lazy"
+        allowfullscreen
+        referrerpolicy="no-referrer-when-downgrade"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=-86.8795%2C20.8490%2C-86.8655%2C20.8590&layer=mapnik&marker=20.8541%2C-86.8726"
+        class="absolute inset-0 h-full w-full border-none saturate-[0.65] brightness-[1.04] sepia-[0.12]"
+      ></iframe>
+
+      {/* Blend edge gradient */}
+      <div
+        class="pointer-events-none absolute inset-0 z-0 hidden bg-gradient-to-r from-[#ede9df] via-[rgba(237,233,223,0.4)] to-transparent md:block md:w-[22%]"
+        aria-hidden="true"
+      >
+      </div>
+    </div>
+  </div>
+</section>
+  {/* 6. PARADISE CTA SECTION */}
+  <section class="py-24 pb-40 bg-[#FAF6EE] relative overflow-hidden text-dark">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-6">
+      <h2
+        class="font-serif text-3xl md:text-4xl font-extrabold text-dark tracking-wider uppercase"
+      >
+        {i18n.PUERTO_MORELOS.ACTION.title}
+      </h2>
+      <p
+        class="text-gray-500 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed"
+      >
+        {i18n.PUERTO_MORELOS.ACTION.description}
+      </p>
+      <div class="pt-4">
+        <a
+          href={bookingUrl}
+          class="inline-block bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+        >
+          {i18n.PUERTO_MORELOS.ACTION.book_button}
+        </a>
+      </div>
+    </div>
+    <!-- Decorative separating line (exactly like the home page gallery footer divider) -->
+    <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+      <svg
+        viewBox="0 0 1440 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full h-auto"
+      >
+        <path
+          d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
+          fill="#ffffff"></path>
+        <path
+          d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
+          stroke="var(--color-secondary)"
+          stroke-width="2"
+          fill="none"></path>
+      </svg>
+    </div>
+  </section>
+</div>

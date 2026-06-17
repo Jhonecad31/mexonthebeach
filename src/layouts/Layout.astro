@@ -1,0 +1,37 @@
+---
+import '../styles/global.css';
+
+interface Props {
+	title?: string;
+	description?: string;
+	lang?: string;
+}
+
+const { 
+	title = "Mex on the Beach | Premium Beach Club", 
+	description = "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly. Premium sunbeds, mixology heaven, and curated culinary experiences.",
+	lang = "en"
+} = Astro.props;
+---
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<!-- SEO Tags -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content="/images/beach-clud.jpeg" />
+		<!-- Preload critical assets -->
+		<link rel="preload" href="/images/beach-clud.jpeg" as="image" />
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<slot />
+	</body>
+</html>
