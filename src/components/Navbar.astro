@@ -57,11 +57,9 @@ const bookingUrl = lang === 'en' ? '/#booking' : `/${lang}#booking`;
         <nav class="flex items-center space-x-6 text-sm font-semibold text-dark/70">
           <a href={homeUrl} class="hover:text-secondary transition-colors">{t('nav.home')}</a>
           <a href={menuUrl} class="hover:text-secondary transition-colors">{lang === 'es' ? 'Menú' : lang === 'pt' ? 'Menu' : 'Menu'}</a>
-          <a href={bookingUrl} class="text-primary font-bold border-b-2 border-primary pb-0.5 transition-colors">{t('nav.reservations')}</a>
-          <a href={pmUrl} class="hover:text-secondary transition-colors">Puerto Morelos</a>
+          <a href={pmUrl} class="text-primary font-bold border-b-2 border-primary pb-0.5 transition-colors">Puerto Morelos</a>
           <a href={contactUrl} class="hover:text-secondary transition-colors">{t('nav.contact')}</a>
         </nav>
-
         <!-- Separator -->
         <div class="h-4 w-[1px] bg-gray-200"></div>
         <!-- Language Switcher Dropdown (Desktop) -->

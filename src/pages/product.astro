@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import ProductComponent from '../components/Product.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'es';
+const t = useTranslations(lang);
+---
+
+<Layout title={t('SEO.HOME_PAGE.TITLE')} description={t('SEO.HOME_PAGE.DESCRIPTION')} lang={lang}>
+	<Navbar lang={lang} />
+	<main class="flex-grow pt-20">
+		<ProductComponent lang={lang} />
+	</main>
+	<Footer lang={lang} />
+</Layout>
