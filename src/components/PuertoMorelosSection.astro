@@ -11,7 +11,6 @@ const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
-
 <div>
   <section
     class="bg-[#FAF6EE] relative h-[60vh] flex items-center justify-center overflow-hidden py-24 bg-sand-light/50 relative overflow-hidden"
@@ -45,7 +44,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       </div>
     </div>
   </section>
-
   {/* 2. INTRODUCTION SECTION WITH PEBBLE IMAGES */}
   <section class="py-24 bg-white relative">
     <div class="max-w-6xl mx-auto px-6">
