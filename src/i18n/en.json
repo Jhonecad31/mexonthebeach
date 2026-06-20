@@ -14,9 +14,26 @@
     "contact": "Contact",
     "bookNow": "Book Now"
   },
-  "hero": {
-    "title": "Secure Your Paradise",
-    "subtitle": "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly to create your own sanctuary of peace and luxury."
+  "HOME": {
+    "HERO": {
+      "title": "Puerto morelos beach club experience at Mex On The Beach",
+      "subtitle": "The Authentic Beach Club Experience in Puerto Morelos",
+      "p1": "Welcome to Mex On The Beach, a relaxing oceanfront destination where visitors can enjoy the beauty of the Puerto Morelos beach while discovering one of the most charming coastal towns in the Riviera Maya. Located between Cancun and Playa del Carmen, Puerto Morelos offers a peaceful atmosphere, crystal-clear waters, soft white sand, and a more authentic Caribbean experience.",
+      "p2": "For travelers searching for the perfect Puerto Morelos beach club, this beachfront space combines comfort, local culture, and natural beauty in one unforgettable setting. Whether you are planning a day trip from Cancun, exploring the Riviera Maya, or enjoying a longer vacation, Mex On The Beach provides a welcoming environment to relax by the sea and experience the true essence of Puerto Morelos",
+      "p3": "From beachside dining and refreshing drinks to stunning ocean views and memorable moments with family and friends, this is a place where every visit feels connected to the natural beauty of the Mexican Caribbean"
+    },
+    "WHAT_TO_EXPECT": {
+      "title": "What to expect?",
+      "p1": "Visitors arriving at Mex On The Beach can expect a relaxing and authentic beach experience surrounded by the beauty of the Riviera Maya. The beach club sits directly on the shoreline, allowing guests to enjoy panoramic views of the Caribbean Sea while spending the day in comfort.",
+      "p2": "Unlike crowded tourist areas, Puerto Morelos maintains its traditional fishing village charm. As a result, guests can experience a quieter atmosphere while still enjoying modern amenities. The beach is ideal for swimming, sunbathing, photography, and simply appreciating the peaceful rhythm of coastal life.",
+      "p3": "Many travelers visiting from Cancun are surprised by how easy the journey is. The drive from Cancun to Puerto Morelos takes less than 30 minutes, making it one of the most convenient day-trip destinations in the region. Because of its location, visitors can easily combine a beach day with other popular activities in Puerto Morelos, including snorkeling, exploring local restaurants, shopping for handmade crafts, and discovering nearby cenotes."
+    },
+    "TEXT_H2": {
+      "title": "Why Puerto Morelos Is One of the Best Beach Destinations in the Riviera Maya",
+      "p1": "Many travelers searching for the best beaches in the Mexican Caribbean immediately think of Cancun or Playa del Carmen. However, Puerto Morelos Mexico beach offers something different. It provides a more relaxed environment where visitors can enjoy the coastline without the crowds often found in larger destinations.",
+      "p2": "The beaches in Puerto Morelos are known for their soft sand, turquoise water, and close proximity to the world-famous Mesoamerican Reef. This reef system helps protect the shoreline from large waves, creating calm swimming conditions throughout much of the year.",
+      "p3": "In addition, Puerto Morelos offers a unique balance between nature and convenience. Visitors can spend the morning relaxing at the beach club, enjoy fresh seafood for lunch, and then explore the town's local culture during the afternoon."
+    }
   },
   "experience": {
     "tag": "The Experience",
@@ -160,6 +177,26 @@
       "q4": {
         "question": "Is Mex On The Beach suitable for families and couples?",
         "answer": "Absolutely. The peaceful environment, pool access, beach facilities, and friendly service make it an excellent option for couples, families, groups, and solo travelers."
+      }
+    },
+    "BAKLINKS": {
+      "title": "More Activities for you to enjoy",
+      "subtitle": "Discover more exciting activities and tours to enhance your experience in Puerto Morelos and the Rivera Maya.",
+      "TACO_TOUR" : {
+       "title": "Beach Taco Tour",
+       "subtitle": "Beachside Tacos & Town Tour with Tequila Tasting From Cancun"
+      },
+      "SNORKELING" : {
+        "title": "Snorkeling Adventure",
+        "subtitle": "Snorkel the biggest reef in “The Americas”"
+      },
+      "EXTREME" : {
+        "title": "Extreme Adventuring",
+        "subtitle": "ATV, zipline, cenote and mayan show"
+      },
+      "CENOTE" : {
+        "title": "Cenote Adventuring",
+        "subtitle": "3 cenote boutique Experience, Mayan Show with Snack"
       }
     }
   },

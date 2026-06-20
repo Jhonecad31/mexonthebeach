@@ -16,74 +16,174 @@ const promoAction = lang === 'es' ? 'Consultar Disponibilidad'
   : lang === 'pt' ? 'Verificar Disponibilidade'
   : 'Check Availability';
 ---
-<section id="booking" class="py-24 bg-sand-light/50 relative overflow-hidden">
- <div class="grid lg:grid-cols-2 md:grid-cols-3 gap-8 mb-12">
-  
-  <a 
-    href="/experience" 
-    class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer"
-  >
-    <div>
-      <div class="h-64 overflow-hidden relative">
-        <img 
-          src="/images/Camastos iA.webp" 
-          alt="Oceanfront Cabana" 
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
-        <span class="absolute top-4 left-4 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.popular')}</span>
+
+<!-- SECCIÓN 1: BOOKING CARDS (Mantenemos tu bloque superior intacto) -->
+<section id="booking" class="py-12 bg-sand-light/50 relative overflow-hidden flex justify-center items-center">
+  <div class="grid lg:grid-cols-2 md:grid-cols-3 gap-6 mb-4 w-full max-w-5xl px-4 items-start">
+    <a 
+      href="/experience" 
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer max-h-[450px]"
+    >
+      <div>
+        <div class="h-40 overflow-hidden relative">
+          <img 
+            src="/img-beach-club/half-day-beach-pass.webp" 
+            alt="Oceanfront Cabana" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.popular')}</span>
+        </div>
+        
+        <div class="p-4 pb-2">
+          <h3 class="font-serif font-bold text-lg text-dark mb-1">{t('booking.spots.cabana.title')}</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed mb-2 line-clamp-2">
+            {t('booking.spots.cabana.description')}
+          </p>
+          <ul class="text-xs text-gray-600 font-medium space-y-1">
+            {cabanaFeatures.map(feature => (
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
-      <div class="p-6">
-        <h3 class="font-serif font-bold text-xl text-dark mb-2">{t('booking.spots.cabana.title')}</h3>
-        <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">
-          {t('booking.spots.cabana.description')}
-        </p>
-        <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
-          {cabanaFeatures.map(feature => (
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
-            </li>
-          ))}
-        </ul>
+      
+      <div class="p-4 pt-0">
+        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2 px-4 rounded-xl text-xs transition-all duration-300">
+          {t('booking.spots.details')}
+        </span>
       </div>
-    </div>
-    <div class="p-6 pt-0">
-      <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-3 px-4 rounded-xl text-sm transition-all duration-300">
-        {t('booking.spots.details')}
+    </a>
+
+    <a 
+      href="/experience" 
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer max-h-[450px]"
+    >
+      <div>
+        <div class="h-40 overflow-hidden relative">
+          <img 
+            src="/img-beach-club/mex-beach-club-relaxation.webp" 
+            alt="Premium Sunbeds" 
+            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <span class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.premium')}</span>
+        </div>
+        <div class="p-4 pb-2">
+          <h3 class="font-serif font-bold text-lg text-dark mb-1">{t('booking.spots.sunbeds.title')}</h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed mb-2 line-clamp-2">
+            {t('booking.spots.sunbeds.description')}
+          </p>
+          <ul class="text-xs text-gray-600 font-medium space-y-1">
+            {sunbedsFeatures.map(feature => (
+              <li class="flex items-center gap-2">
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <div class="p-4 pt-0">
+        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2 px-4 rounded-xl text-xs transition-all duration-300">
+          {t('booking.spots.details')}
+        </span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- SECCIÓN 2: WHAT TO EXPECT (RÉPLICA EXACTA NIKKI BEACH) -->
+<section class="py-24 bg-white text-neutral-900">
+  <div class="max-w-6xl mx-auto px-4 md:px-6">
+    
+    <!-- Encabezado Estilo Editorial -->
+    <div class="text-center mb-16">
+      <span class="text-xs uppercase tracking-[0.4em] text-neutral-400 font-medium block mb-3">
+        The Journey
       </span>
+      <h2 class="font-serif text-3xl md:text-4xl text-neutral-900 font-normal tracking-wide mb-4">
+        What to Expect
+      </h2>
+      <div class="w-12 h-[1px] bg-neutral-300 mx-auto"></div>
     </div>
-  </a>
-  <a 
-    href="/experience" 
-    class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer"
-  >
-    <div>
-      <div class="h-64 overflow-hidden relative">
+
+    <!-- Grid de Tarjetas de Ubicación/Experiencia -->
+    <div class="grid md:grid-cols-3 gap-8">
+      
+      <!-- Bloque 1: El Ambiente -->
+      <a href="/experience" class="group relative flex flex-col justify-end h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer">
+        <!-- Imagen con capa superior clara que se desvanece al hacer hover -->
         <img 
-          src="/images/Camastos-iA2.webp" 
-          alt="Premium Sunbeds" 
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          src="/img-beach-club/half-day-beach-pass.webp" 
+          alt="The Shoreline Experience" 
+          class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
         />
-        <span class="absolute top-4 left-4 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.premium')}</span>
-      </div>
-      <div class="p-6">
-        <h3 class="font-serif font-bold text-xl text-dark mb-2">{t('booking.spots.sunbeds.title')}</h3>
-        <p class="text-sm text-gray-500 font-light leading-relaxed mb-4">
-          {t('booking.spots.sunbeds.description')}
-        </p>
-        <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
-          {sunbedsFeatures.map(feature => (
-            <li class="flex items-center gap-2">
-              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
-            </li>
-          ))}
-        </ul>
-      </div>
+        <!-- Degradado sutil inferior para legibilidad -->
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90" />
+        
+        <!-- Contenido -->
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-white z-10">
+          <span class="text-xs uppercase tracking-[0.2em] text-secondary font-semibold mb-2">01</span>
+          <h3 class="font-serif text-2xl tracking-wider uppercase mb-3">
+            The Shoreline Experience
+          </h3>
+          <p class="text-xs text-neutral-200 font-light leading-relaxed mb-6 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100">
+            Unwind on pristine white sands right on the shoreline. Enjoy panoramic views of the Caribbean Sea, a peaceful atmosphere, and a quieter coastal rhythm.
+          </p>
+          
+          <!-- Botón Nikki Beach original (aparece al hacer hover) -->
+          <div class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-3 px-4 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
+            Explore Location
+          </div>
+        </div>
+      </a>
+
+      <!-- Bloque 2: La Ubicación -->
+      <a href="/experience" class="group relative flex flex-col justify-end h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer">
+        <img 
+          src="/img-beach-club/mex-beach-club-relaxation.webp" 
+          alt="A Perfect Day Trip" 
+          class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90" />
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-white z-10">
+          <span class="text-xs uppercase tracking-[0.2em] text-secondary font-semibold mb-2">02</span>
+          <h3 class="font-serif text-2xl tracking-wider uppercase mb-3">
+            A Perfect Day Trip
+          </h3>
+          <p class="text-xs text-neutral-200 font-light leading-relaxed mb-6 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100">
+            Escape the bustle with ease. Located less than 30 minutes away from Cancun, Mex On The Beach is the most convenient beachfront getaway in Puerto Morelos.
+          </p>
+          
+          <div class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-3 px-4 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
+            Explore Location
+          </div>
+        </div>
+      </a>
+
+      <!-- Bloque 3: Alrededores/Actividades -->
+      <a href="/experience" class="group relative flex flex-col justify-end h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer">
+        <img 
+          src="/img-beach-club/mex-beach-club-relaxation.webp" 
+          alt="Coastal Adventures" 
+          class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90" />
+        
+        <div class="absolute inset-0 flex flex-col justify-end p-8 text-white z-10">
+          <span class="text-xs uppercase tracking-[0.2em] text-secondary font-semibold mb-2">03</span>
+          <h3 class="font-serif text-2xl tracking-wider uppercase mb-3">
+            Coastal Adventures
+          </h3>
+          <p class="text-xs text-neutral-200 font-light leading-relaxed mb-6 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100">
+            Make the most of your visit. Our location allows you to seamlessly combine a relaxing beach day with local snorkeling, nearby cenotes, and fishing village charm.
+          </p>
+          <div class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-3 px-4 text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white">
+            Explore Location
+          </div>
+        </div>
+      </a>
     </div>
-    <div class="p-6 pt-0">
-      <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-3 px-4 rounded-xl text-sm transition-all duration-300">
-        {t('booking.spots.details')}
-      </span>
-    </div>
-  </a>
-</div>
+  </div>
 </section>
