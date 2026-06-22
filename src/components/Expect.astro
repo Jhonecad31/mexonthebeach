@@ -1,0 +1,79 @@
+---
+import { useTranslations, type Lang } from "../i18n/utils";
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+
+const blocks = [
+  {
+    tag: i18n.HOME.WHAT_TO_EXPECT.beach_club.tag,
+    title: i18n.HOME.WHAT_TO_EXPECT.beach_club.title,
+    description: i18n.HOME.WHAT_TO_EXPECT.beach_club.description,
+    image: "/img-beach-club/mex-beach-club-lounge-depth.webp",
+    imageAlt:
+      "Exclusive beach club lounge with modern architecture in Puerto Morelos",
+    reverse: false,
+  },
+  {
+    tag: i18n.HOME.WHAT_TO_EXPECT.puerto_morelos.tag,
+    title: i18n.HOME.WHAT_TO_EXPECT.puerto_morelos.title,
+    description: i18n.HOME.WHAT_TO_EXPECT.puerto_morelos.description,
+    image: "/img-puerto-morelos/Puerto-Morelos-aerial.webp",
+    imageAlt: "Stunning aerial view of Puerto Morelos coastline",
+    reverse: true,
+  },
+  {
+    tag: i18n.HOME.WHAT_TO_EXPECT.local_culture.tag,
+    title: i18n.HOME.WHAT_TO_EXPECT.local_culture.title,
+    description: i18n.HOME.WHAT_TO_EXPECT.local_culture.description,
+    image: "/img-beach-club/the-marketplace-in-puerto-morelos.webp",
+    imageAlt: "Gourmet dishes at The Marketplace",
+    reverse: false,
+  },
+];
+---
+
+<section class="py-20 px-6 md:px-12 lg:px-24 selection:bg-stone-200">
+  <div class="max-w-5xl mx-auto flex flex-col gap-20 md:gap-24">
+    <!-- <div>
+            <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
+              {i18n.HOME.WHAT_TO_EXPECT.title}
+            </h2>
+            <p class="max-w-xl text-gray-500 font-light mt-3">
+              {i18n.HOME.WHAT_TO_EXPECT.subtitle}
+            </p>
+          </div> -->
+    {
+      blocks.map((block) => (
+        /* items-center centra el texto verticalmente con la imagen; reducimos el gap */
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
+          {/* Bloque de Texto */}
+          <div
+            class={`flex flex-col justify-center ${block.reverse ? "md:order-2 md:pl-6" : "md:order-1 md:pr-6"}`}
+          >
+            <h2 class="font-serif text-2xl md:text-3xl text-dark tracking-wide mb-1">
+              {block.tag}
+            </h2>
+            <h3 class="font-serif italic text-xs md:text-sm text-[#6b6255] tracking-wide mb-4 font-normal">
+              {block.title}
+            </h3>
+            <p class="font-sans text-xs md:text-sm text-[#7a7266] font-light leading-relaxed tracking-wide text-justify">
+              {block.description}
+            </p>
+          </div>
+          {/* Bloque de Imagen - Proporción más equilibrada y compacta */}
+          <div
+            class={`overflow-hidden aspect-[4/3.5] w-full bg-stone-100 shadow-sm ${block.reverse ? "md:order-1" : "md:order-2"}`}
+          >
+            <img
+              src={block.image}
+              alt={block.imageAlt}
+              class="w-full h-full object-cover transition-transform duration-[1200ms] ease-out hover:scale-102"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</section>
