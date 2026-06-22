@@ -9,63 +9,83 @@ interface Props {
 
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
+const slides = [
+  {
+    src: "/img-beach-club/mex-beach-club-sunset-horizon.webp",
+    alt: "Puerto Morelos beach life",
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-sunset.webp",
+    alt: "Mex on the Beach lounge setup",
+    aspect: "aspect-[16/10] w-[400px] md:w-[550px]", // Horizontal amplio
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-lifestyle.webp",
+    alt: "Aerial view of Puerto Morelos",
+    aspect: "aspect-square w-[320px] md:w-[420px]", // Cuadrado perfecto
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-lounge-depth.webp",
+    alt: "Exclusive beach club lounge area",
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-couple-cocktail.webp",
+    alt: "Exclusive beach club lounge area",
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-couple-closeup.webp",
+    alt: "Exclusive beach club lounge area",
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+  }
+]
 ---
 
-<section id="gallery" class="py-24 bg-sand-light/50 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-20">
-      <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
-        {i18n.GALLERY.title}
-      </h2>
-      <p class="text-gray-500 font-light text-sm md:text-base mt-3">
-        {i18n.GALLERY.subtitle}
-      </p>
+<section class="py-24 bg-[#f9f6f0] overflow-hidden relative">
+  <div class="max-w-6xl mx-auto px-6 mb-12">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div class="max-w-xl">
+        <span class="text-xs uppercase tracking-[0.25em] text-[#6b6255] font-medium block mb-3">
+          {i18n.GALLERY?.subtitle || "Visual Journey"}
+        </span>
+        <h2 class="font-serif text-3xl md:text-5xl text-[#3c3730] tracking-wide leading-tight">
+          {i18n.GALLERY?.title || "Captured Moments"}
+        </h2>
+      </div>
+      
+      <div class="flex items-center space-x-4 mb-2">
+        <button id="prev-slide" class="p-2 border border-[#3c3730]/20 rounded-full hover:border-[#3c3730] text-[#3c3730] transition-colors duration-300 focus:outline-none" aria-label="Previous slide">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+          </svg>
+        </button>
+        <button id="next-slide" class="p-2 border border-[#3c3730]/20 rounded-full hover:border-[#3c3730] text-[#3c3730] transition-colors duration-300 focus:outline-none" aria-label="Next slide">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
     </div>
+  </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start mb-16">
-      <div class="relative overflow-hidden organic-pill-1 shadow-xl h-[460px] md:h-[480px] group transition-all duration-500 mt-12">
+  <div 
+    id="carousel-track"
+    class="flex gap-6 md:gap-10 overflow-x-auto snap-x snap-mandatory scrollbar-none px-6 md:px-[calc((100vw-1152px)/2+24px)] pb-8 cursor-grab select-none active:cursor-grabbing"
+    style="scrollbar-width: none; -ms-overflow-style: none;"
+  >
+    {slides.map((slide) => (
+      <div class={`shrink-0 snap-start relative overflow-hidden bg-stone-100 shadow-md group transition-all duration-500 ${slide.aspect}`}>
         <img
-          src="/images/puerto-morelos.webp"
-          alt="Puerto Morelos beach"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          src={slide.src}
+          alt={slide.alt}
+          class="w-full h-full object-cover transition-transform duration-[1400ms] ease-out pointer-events-none" 
+          loading="lazy"
         />
+        <div class="absolute inset-0 bg-black/[0.02] pointer-events-none"></div>
       </div>
-
-      <div class="flex flex-col h-full justify-between">
-        <div class="relative overflow-hidden organic-pill-2 shadow-xl h-[280px] md:h-[300px] group transition-all duration-500">
-          <img
-            src="/images/puerto-morelos-2.webp"
-            alt="Puerto Morelos view"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-          />
-        </div>
-        <div class="hidden md:block mt-12 pl-5 border-l-[3px] border-primary text-left max-w-[280px] self-start">
-          <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1.5">
-            {t("gallery.curatedVibes")}
-          </h4>
-          <p class="text-[#374151] font-normal text-[11px] leading-relaxed">
-            {i18n.GALLERY.subtitle}
-          </p>
-        </div>
-      </div>
-
-      <div class="relative overflow-hidden organic-pill-3 shadow-xl h-[500px] md:h-[520px] group transition-all duration-500">
-        <img
-          src="/images/Puerto-Morelos-Aerial.webp"
-          alt="Puerto Morelos aerial view"
-          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-        />
-      </div>
-    </div>
-
-    <div class="block md:hidden mt-8 pl-5 border-l-[3px] border-primary text-left max-w-xs mx-auto">
-      <h4 class="text-sm font-bold uppercase tracking-wider text-primary mb-1.5">
-        {t("gallery.curatedVibes")}
-      </h4>
-      <p class="text-[#374151] font-normal text-[11px] leading-relaxed">
-        {t("gallery.curatedVibesDesc")}
-      </p>
-    </div>
+    ))}
   </div>
 </section>
 
@@ -154,3 +174,61 @@ const t = useTranslations(lang);
     </svg>
   </div>
 </section>
+<style>
+  div::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  const track = document.getElementById('carousel-track') as HTMLDivElement;
+  const prevBtn = document.getElementById('prev-slide');
+  const nextBtn = document.getElementById('next-slide');
+
+  if (track) {
+    let isDown = false;
+    let startX: number;
+    let scrollLeft: number;
+
+    // --- Efecto "Arrastrar con la mano" (Mouse Drag) ---
+    track.addEventListener('mousedown', (e) => {
+      isDown = true;
+      track.classList.remove('snap-x', 'snap-mandatory'); // Quitamos el snap temporalmente para que el arrastre sea suave
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener('mouseleave', () => {
+      if (!isDown) return;
+      isDown = false;
+      track.classList.add('snap-x', 'snap-mandatory'); // Devolvemos el imán
+    });
+
+    track.addEventListener('mouseup', () => {
+      isDown = false;
+      track.classList.add('snap-x', 'snap-mandatory'); // Devolvemos el imán
+    });
+
+    track.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - track.offsetLeft;
+      const walk = (x - startX) * 1.5; // El multiplicador ajusta la sensibilidad de la mano
+      track.scrollLeft = scrollLeft - walk;
+    });
+
+    // --- Botones de navegación (Flechas) ---
+    if (prevBtn && nextBtn) {
+      // Calculamos cuánto avanzar según el tamaño promedio de las tarjetas de la galería
+      const getScrollAmount = () => window.innerWidth < 768 ? 300 : 450;
+
+      prevBtn.addEventListener('click', () => {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', () => {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
+    }
+  }
+</script>
