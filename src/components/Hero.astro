@@ -1,6 +1,8 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
-
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
@@ -17,13 +19,10 @@ const t = useTranslations(lang);
     />
     <div class="absolute inset-0 bg-gradient-to-t from-dark/65 via-dark/40 to-dark/50"></div>
   </div>
-  <div class="relative z-10 max-w-5xl mx-auto px-4 text-center text-white mt-12 md:mt-20">
-    <h1 class="font-serif text-4xl md:text-7xl font-bold tracking-wider uppercase mb-6 leading-tight drop-shadow-md">
-      {t('hero.title')}
-    </h1>
-    <p class="max-w-2xl mx-auto text-sm md:text-base text-white/90 leading-relaxed font-light tracking-wide mb-10 drop-shadow-sm">
-      {t('hero.subtitle')}
-    </p>
+  <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white mt-12 md:mt-20">
+    <h2 class="font-serif text-4xl font-bold tracking-wider mb-6 leading-tight drop-shadow-md">
+      {i18n.HOME.HERO.subtitle}
+    </h3>
     <a href="#experience" class="inline-block p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all duration-300 animate-bounce">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
         <path d="m6 9 6 6 6-6"/>

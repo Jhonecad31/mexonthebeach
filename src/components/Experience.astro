@@ -1,9 +1,12 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
-
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
+
 
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
@@ -31,10 +34,10 @@ const t = useTranslations(lang);
       <div class="lg:col-span-6 flex flex-col justify-center">
         <span class="text-primary uppercase tracking-wider font-bold text-xs mb-3">{t('experience.tag')}</span>
         <h2 class="font-serif text-3xl md:text-4xl font-bold mb-5 text-dark leading-tight">
-          {t('experience.title')}
+          {i18n.HOME.HERO.title}
         </h2>
         <p class="text-gray-500 font-light leading-relaxed mb-6 text-sm">
-          {t('experience.description')}
+          {i18n.HOME.HERO.subtitle}
         </p>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-8 mt-4">
           <div class="flex items-start space-x-3.5">
