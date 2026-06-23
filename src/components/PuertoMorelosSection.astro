@@ -20,7 +20,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
       >
         <img
-          src="/images/puerto-morelos-2.webp"
+          src="/img-puerto-morelos/puerto-morelos-beach.webp"
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
@@ -131,7 +131,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               class="absolute inset-0 rounded-[140px_40px_140px_40px] overflow-hidden shadow-2xl"
             >
               <img
-                src="/images/puerto-morelos.webp"
+                src="/img-puerto-morelos/torre-puerto-morelos.webp"
                 alt="Puerto Morelos beach beauty"
                 class="w-full h-full object-cover hover:scale-105 transition-transform duration-750"
               />
@@ -432,7 +432,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           <h2
             class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#1b5c57]"
           >
-            {i18n.PUERTO_MORELOS.FIND_US.title}
+            {i18n.PUERTO_MORELOS.MAPS.title}
           </h2>
           {
             /* Location row — Convertido en enlace interactivo con efectos hover */
@@ -466,7 +466,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               <p
                 class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
               >
-                {i18n.PUERTO_MORELOS.FIND_US.strategic_location_label}
+                {i18n.PUERTO_MORELOS.MAPS.strategic_location_label}
               </p>
               <p
                 class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
@@ -499,11 +499,11 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               <p
                 class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
               >
-                {i18n.PUERTO_MORELOS.FIND_US.travel_times_label}
+                {i18n.PUERTO_MORELOS.MAPS.travel_times_label}
               </p>
               <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
                 {
-                  i18n.PUERTO_MORELOS.FIND_US.travel_times.map((item) => (
+                  i18n.PUERTO_MORELOS.MAPS.travel_times.map((item) => (
                     <li class="flex items-center justify-between gap-2">
                       <span class="text-[0.74rem] font-normal text-[#6b6055]">
                         {item.from}
@@ -525,7 +525,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
             class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
             id="find-us-maps-btn"
           >
-            {i18n.PUERTO_MORELOS.FIND_US.open_maps_button}
+            {i18n.PUERTO_MORELOS.MAPS.open_maps_button}
           </a>
         </div>
       </div>

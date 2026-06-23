@@ -18,10 +18,10 @@ const t = useTranslations(lang);
         <div class="lg:col-span-6 space-y-8">
           <div>
             <h2 class="font-serif text-2xl md:text-3xl font-extrabold text-secondary tracking-wider uppercase">
-              {t('contact.leftTitle')}
+              {i18n.CONTACT.title}
             </h2>
             <p class="text-gray-500 font-light mt-4 text-xs md:text-sm leading-relaxed max-w-md">
-              {t('contact.leftDescription')}
+              {i18n.CONTACT.subtitle}
             </p>
           </div>
           <div class="space-y-6">
@@ -157,7 +157,7 @@ const t = useTranslations(lang);
         <h2
           class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#1b5c57]"
         >
-          {i18n.PUERTO_MORELOS.FIND_US.title}
+          {i18n.PUERTO_MORELOS.MAPS.title}
         </h2>
         <a
           href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
@@ -188,7 +188,7 @@ const t = useTranslations(lang);
             <p
               class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
             >
-              {i18n.PUERTO_MORELOS.FIND_US.strategic_location_label}
+              {i18n.PUERTO_MORELOS.MAPS.strategic_location_label}
             </p>
             <p
               class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
@@ -221,11 +221,11 @@ const t = useTranslations(lang);
             <p
               class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
             >
-              {i18n.PUERTO_MORELOS.FIND_US.travel_times_label}
+              {i18n.PUERTO_MORELOS.MAPS.travel_times_label}
             </p>
             <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
               {
-                i18n.PUERTO_MORELOS.FIND_US.travel_times.map((item) => (
+                i18n.PUERTO_MORELOS.MAPS.travel_times.map((item) => (
                   <li class="flex items-center justify-between gap-2">
                     <span class="text-[0.74rem] font-normal text-[#6b6055]">
                       {item.from}
@@ -247,7 +247,7 @@ const t = useTranslations(lang);
           class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
           id="find-us-maps-btn"
         >
-          {i18n.PUERTO_MORELOS.FIND_US.open_maps_button}
+          {i18n.PUERTO_MORELOS.MAPS.open_maps_button}
         </a>
       </div>
     </div>
