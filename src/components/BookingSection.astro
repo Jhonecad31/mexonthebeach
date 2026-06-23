@@ -1,95 +1,153 @@
 ---
-import { useTranslations, type Lang } from '../i18n/utils';
-
+import { useTranslations, type Lang } from "../i18n/utils";
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
-const peopleOptions = t('booking.fields.peopleOptions') as string[];
-const timeOptions = t('booking.fields.timeOptions') as string[];
-const activityOptions = t('booking.fields.activityOptions') as string[];
-const cabanaFeatures = t('booking.spots.cabana.features') as string[];
-const sunbedsFeatures = t('booking.spots.sunbeds.features') as string[];
-
-const promoAction = lang === 'es' ? 'Consultar Disponibilidad'
-  : lang === 'pt' ? 'Verificar Disponibilidade'
-  : 'Check Availability';
+const cabanaFeatures = t("BOOKING.spots.cabana.features") as string[];
+const sunbedsFeatures = t("BOOKING.spots.sunbeds.features") as string[];
 ---
+<section
+  id="booking"
+  class="py-12 bg-sand-light/50 relative overflow-hidden flex flex-col justify-center items-center"
+>
+  <div class="w-full text-center mb-10">
+    <h2 class="font-serif text-2xl md:text-3xl font-extrabold text-dark mb-3 tracking-wide">
+      {i18n.BOOKING.title}
+    </h2>
+    <div class="w-16 h-[2px] bg-[#1E6B65] mx-auto"></div>
+    <p class="text-gray-500 font-light mt-3 text-sm leading-relaxed max-w-2xl text-center mx-auto">
+      {i18n.BOOKING.description}
+    </p>
+  </div>
 
-<!-- SECCIÓN 1: BOOKING CARDS (Mantenemos tu bloque superior intacto) -->
-<section id="booking" class="py-12 bg-sand-light/50 relative overflow-hidden flex justify-center items-center mt-30">
-  <div class="grid lg:grid-cols-2 md:grid-cols-3 gap-6 mb-4 w-full max-w-5xl px-4 items-start">
-    <a 
-      href="/experience" 
-      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer max-h-[450px]"
+  <div class="grid lg:grid-cols-2 md:grid-cols-3 gap-6 mb-4 w-full max-w-5xl px-4 items-start mt-10">
+    
+    <a
+      href="/experience"
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer min-h-[420px] max-h-[480px]"
     >
       <div>
         <div class="h-40 overflow-hidden relative">
-          <img 
-            src="/img-beach-club/half-day-beach-pass.webp" 
-            alt="Oceanfront Cabana" 
+          <img
+            src="/img-beach-club/half-day-beach-pass.webp"
+            alt="Oceanfront Cabana"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.popular')}</span>
+          <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            {t("BOOKING.labels.popular")}
+          </span>
         </div>
-        
-        <div class="p-4 pb-2">
-          <h3 class="font-serif font-bold text-lg text-dark mb-1">{t('booking.spots.cabana.title')}</h3>
-          <p class="text-xs text-gray-500 font-light leading-relaxed mb-2 line-clamp-2">
-            {t('booking.spots.cabana.description')}
+
+        <div class="p-5 pb-2">
+          <h3 class="font-serif font-bold text-xl text-dark mb-2">
+            {t("BOOKING.spots.cabana.title")}
+          </h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
+            {t("BOOKING.spots.cabana.description")}
           </p>
-          <ul class="text-xs text-gray-600 font-medium space-y-1">
-            {cabanaFeatures.map(feature => (
+          
+          <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
+            {t("BOOKING.spots.cabana.features", { returnObjects: true }).map((feature: string) => (
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
+                <span class="w-1.5 h-1.5 rounded-full bg-[#1E6B65]"></span> 
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      
-      <div class="p-4 pt-0">
-        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2 px-4 rounded-xl text-xs transition-all duration-300">
-          {t('booking.spots.details')}
+
+      <div class="p-5 pt-0">
+        <span class="block text-center w-full border-2 border-primary/30 group-hover:border-primary text-primary group-hover:bg-primary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
+          {t("BOOKING.labels.book_now")}
         </span>
       </div>
     </a>
 
-    <a 
-      href="/experience" 
-      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer max-h-[450px]"
+    <a
+      href="/experience"
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer min-h-[420px] max-h-[480px]"
     >
       <div>
         <div class="h-40 overflow-hidden relative">
-          <img 
-            src="/img-beach-club/mex-beach-club-relaxation.webp" 
-            alt="Premium Sunbeds" 
+          <img
+            src="/img-beach-club/mex-beach-club-relaxation.webp"
+            alt="Premium Sunbeds"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
-          <span class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">{t('booking.spots.premium')}</span>
+          <span class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+            {t("BOOKING.labels.premium")}
+          </span>
         </div>
-        <div class="p-4 pb-2">
-          <h3 class="font-serif font-bold text-lg text-dark mb-1">{t('booking.spots.sunbeds.title')}</h3>
-          <p class="text-xs text-gray-500 font-light leading-relaxed mb-2 line-clamp-2">
-            {t('booking.spots.sunbeds.description')}
+        <div class="p-5 pb-2">
+          <h3 class="font-serif font-bold text-xl text-dark mb-2">
+            {t("BOOKING.spots.sunbeds.title")}
+          </h3>
+          <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
+            {t("BOOKING.spots.sunbeds.description")}
           </p>
-          <ul class="text-xs text-gray-600 font-medium space-y-1">
-            {sunbedsFeatures.map(feature => (
+          
+          <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
+            {t("BOOKING.spots.sunbeds.features", { returnObjects: true }).map((feature: string) => (
               <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> {feature}
+                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 
+                <span>{feature}</span>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div class="p-4 pt-0">
-        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2 px-4 rounded-xl text-xs transition-all duration-300">
-          {t('booking.spots.details')}
+      <div class="p-5 pt-0">
+        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
+          {t("BOOKING.labels.book_now")}
         </span>
       </div>
     </a>
   </div>
 </section>
+<section class="w-full bg-[#F7FCFD] py-16 md:py-24 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
+  <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+    <div class="flex flex-col items-start space-y-6 max-w-xl">
+      <span class="text-primary font-sans text-xs md:text-sm font-semibold uppercase tracking-widest">
+        {i18n.HOME.TITLE_H3.title}
+      </span>
+      <h2 class="font-serif text-4xl md:text-5xl lg:text-5xl font-normal text-[#1A252C] leading-[1.15] tracking-tight">
+        {i18n.HOME.TITLE_H3.title}
+      </h2>
+      <p class="text-[#4A5560] font-light text-sm md:text-base leading-relaxed">
+        {i18n.HOME.TITLE_H3.p1}
+      </p>
+      <a 
+        href="#map" 
+        class="inline-flex items-center gap-2 text-primary hover:text-primary font-sans text-sm font-medium py-3 px-6 rounded-full transition-all duration-300 group shadow-md hover:shadow-lg"
+      >
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke-width="2" 
+          stroke="currentColor" 
+          class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25" />
+        </svg>
+      </a>
+    </div>
 
+    <!-- Bloque de Imagen (Derecha) -->
+    <div class="w-full aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden rounded-[2.5rem] shadow-sm">
+      <img 
+        src="/img-beach-club/mex-beach-club-signature-drinks.webp" 
+        alt="Experience Puerto Morelos" 
+        class="w-full h-full object-cover"
+        loading="lazy"
+      />
+    </div>
 
+  </div>
+</section>

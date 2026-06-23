@@ -2,14 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/Navbar.astro';
 import Hero from '../components/Hero.astro';
-import Experience from '../components/Experience.astro';
+import Experience from '../components/sections/Experience.astro';
 import BookingSection from '../components/BookingSection.astro';
-import Favorites from '../components/Favorites.astro';
-import Gallery from '../components/Gallery.astro';
+import Favorites from '../components/sections/Favorites.astro';
+import Gallery from '../components/sections/Gallery.astro';
 import Footer from '../components/Footer.astro';
-import Expect from '../components/Expect.astro'
+// import Expect from '../components/Expect.astro'
 import { useTranslations } from '../i18n/utils';
-
 const lang = 'en';
 const t = useTranslations(lang);
 ---
@@ -17,11 +16,10 @@ const t = useTranslations(lang);
 	<Navbar lang={lang} />
 	<main class="flex-grow">
 		<Hero lang={lang} />
-		<Experience lang={lang} />
+		<Experience lang={lang} /> 
 		<Favorites lang={lang} />
-		<Expect lang={lang} />
+		<!-- <Expect lang={lang} /> -->
 		<BookingSection lang={lang} />
 		<Gallery lang={lang} />
-	</main>
-	<Footer lang={lang} />
+	</main>	<Footer lang={lang} />
 </Layout>

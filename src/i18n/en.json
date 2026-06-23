@@ -20,7 +20,7 @@
       "p1": "Welcome to Mex On The Beach, a relaxing oceanfront destination where visitors can enjoy the beauty of the Puerto Morelos beach while discovering one of the most charming coastal towns in the Riviera Maya. Located between Cancun and Playa del Carmen, Puerto Morelos offers a peaceful atmosphere, crystal-clear waters, soft white sand, and a more authentic Caribbean experience.",
       "p2": "For travelers searching for the perfect Puerto Morelos beach club, this beachfront space combines comfort, local culture, and natural beauty in one unforgettable setting. Whether you are planning a day trip from Cancun, exploring the Riviera Maya, or enjoying a longer vacation, Mex On The Beach provides a welcoming environment to relax by the sea and experience the true essence of Puerto Morelos",
       "p3": "From beachside dining and refreshing drinks to stunning ocean views and memorable moments with family and friends, this is a place where every visit feels connected to the natural beauty of the Mexican Caribbean"
-    },
+    },  
     "WHAT_TO_EXPECT": {
       "title": "What to expect?",
       "subtitle": "Where casual luxury meets the authentic rhythm of the Mexican Caribbean",
@@ -40,11 +40,18 @@
         "description": "Many travelers visiting from Cancun are surprised by how easy the journey is. The drive from Cancun to Puerto Morelos takes less than 30 minutes, making it one of the most convenient day-trip destinations in the region. Because of its location, visitors can easily combine a beach day with other popular activities in Puerto Morelos, including snorkeling, exploring local restaurants, shopping for handmade crafts, and discovering nearby cenotes."
       }
     },
-    "TEXT_H2": {
+    "TITLE_H2": {
       "title": "Why Puerto Morelos Is One of the Best Beach Destinations in the Riviera Maya",
       "p1": "Many travelers searching for the best beaches in the Mexican Caribbean immediately think of Cancun or Playa del Carmen. However, Puerto Morelos Mexico beach offers something different. It provides a more relaxed environment where visitors can enjoy the coastline without the crowds often found in larger destinations.",
       "p2": "The beaches in Puerto Morelos are known for their soft sand, turquoise water, and close proximity to the world-famous Mesoamerican Reef. This reef system helps protect the shoreline from large waves, creating calm swimming conditions throughout much of the year.",
       "p3": "In addition, Puerto Morelos offers a unique balance between nature and convenience. Visitors can spend the morning relaxing at the beach club, enjoy fresh seafood for lunch, and then explore the town's local culture during the afternoon."
+    },
+    "TITLE_H3": {
+      "title": "Discover the Authentic Charm of Mex On The Beach in Puerto Morelos",
+      "p1": "Among the various beach clubs in Puerto Morelos, Mex On The Beach stands out because it focuses on providing an authentic coastal experience that reflects the character of the destination itself. The atmosphere encourages visitors to slow down and enjoy the moment. Rather than rushing between attractions, guests can spend the day appreciating the sea breeze, listening to the sound of the waves, and enjoying the spectacular scenery that surrounds them.",
+      "p2": "For many travelers, the beach club becomes one of the highlights of their Puerto Morelos vacation. Its convenient location allows easy access from nearby hotels and accommodations, while its beachfront setting provides direct access to one of the most beautiful stretches of coastline in the region.",
+      "p3": "Visitors planning vacation packages to Puerto Morelos often include beach club experiences as part of their itinerary because they provide a perfect combination of relaxation and local culture. In addition, guests can complement their visit with snorkeling tours, cenote adventures, or excursions throughout the Riviera Maya.",
+      "p4": "The area also attracts travelers searching for Puerto Morelos beach rentals, beach activities, and family-friendly destinations. As a result, Mex On The Beach serves as an ideal starting point for exploring everything the region has to offer. "
     },
     "QUESTIONS": {
       "title": "Frequently Asked Questions",
@@ -66,10 +73,9 @@
       }
     }
   },
-  "booking": {
-    "tag": "Reservations",
-    "title": "Choose Your Spot",
-    "description": "Find the perfect space to relax today. Select the number of people, date, and preferred experience.",
+  "BOOKING": {
+    "title": "Explore the Natural Beauty of Puerto Morelos Mexico Beach",
+    "description": "Discover a paradise surrounded by natural treasures at Puerto Morelos Mexico beach. Nestled near the world's second-largest barrier reef and the famous Ruta de los Cenotes, Mex On The Beach is the ideal spot to reconnect with nature. Slow down, enjoy our comfortable beachfront amenities, and take in the unforgettable views of the Mexican Caribbean.",
     "fields": {
       "people": "Number of People",
       "peopleOptions": [
@@ -97,36 +103,33 @@
         "Exclusive Villa"
       ]
     },
-    "spots": {
+    "labels": {
       "popular": "Popular",
       "premium": "Premium",
-      "vip": "VIP",
-      "details": "Details",
+      "book_now": "Book Now"
+    },
+    "spots": {
       "cabana": {
-        "title": "Half-Day Beach Pass",
-        "description": "Enjoy ultimate privacy with our beachfront Balinese beds, linen curtains and dedicated waiter service.",
+        "title": "Oceanfront Private Cabana",
+        "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
         "features": [
-          "For groups of up to 6 people",
-          "Towels and welcome bottle included"
+          "Up to 4 people included",
+          "Dedicated beach concierge",
+          "Welcome tropical drink",
+          "Shaded premium lounge area"
         ]
       },
       "sunbeds": {
-        "title": "Full-Day Beach Experience",
-        "description": "Cushioned beds with vibrant umbrellas in the best beach location, perfect for sunbathing and relaxing all day.",
-        "features": ["Single or double beds", "Direct view of the sunset"]
-      },
-      "villa": {
-        "title": "Private Villas",
-        "description": "Exclusive bungalows with air conditioning, private pool, private bathroom and VIP mixology and personal chef service.",
+        "title": "Premium Lounge & Sunbeds",
+        "description": "Soak up the sun in comfort with premium padding, ideal for pairs or solo sunseekers.",
         "features": [
-          "Fully private and isolated area",
-          "Access to ultra-premium menu"
+          "High-end padded single bed",
+          "Fresh beach towels included",
+          "Direct access to beach service",
+          "Umbrella shade adjustment"
         ]
       }
-    },
-    "disclaimer": "* Prices vary by session and location. Premium packages include food and drink credit. Subject to availability.",
-    "action": "BOOK NOW",
-    "alert": "Thank you for choosing Mex on the Beach! We will contact you shortly to confirm your reservation."
+    }
   },
   "HALF_DAY_PRODUCT": {
     "HERO": {
@@ -212,10 +215,10 @@
       }
     }
   },
-  "favorites": {
-    "tag": "Our Favorites",
+  "FAVORITIES": {
+    "tag": "Coastal Flavors",
     "title": "Our Favorites",
-    "description": "A careful selection of artisanal cocktails and exclusive dishes prepared on the spot by our beach chefs.",
+    "description": "A fresh selection inspired by the essence of Puerto Morelos, created to pair perfectly with the Caribbean sun and breeze.",
     "seeFullMenu": "SEE FULL MENU",
     "items": {
       "tequila": {
@@ -287,7 +290,7 @@
   "CONTACT": {
     "title": "Get in touch with us",
     "subtitle": "We love hearing from you! Whether you want to reserve the best beach chair right on the water or simply have a question about our offerings, our team is here to help. Leave us a message and start planning your perfect day in the sun.",
-    "info": {
+    "INFO": {
       "address": {
         "title": "LOCATION",
         "value": "Km 14.5, Zona Hotelera, Cancún"
@@ -305,7 +308,7 @@
         "value": "Daily: 10:00 AM - 10:00 PM"
       }
     },
-    "form": {
+    "FORM": {
       "title": "CONTACT US",
       "name": "Full Name",
       "email": "Email",
@@ -316,7 +319,7 @@
       "send": "Send Message",
       "successAlert": "Thank you! Your message has been sent successfully. We will get in touch soon."
     },
-    "paradise": {
+    "PARADISE": {
       "title": "WE'RE WAITING FOR YOU IN PARADISE",
       "description": "Our club is open every day from 10:00 a.m. to 10:00 p.m. Come enjoy the finest cuisine and the best cocktails with views of the Caribbean Sea.",
       "cardTitle": "Beach Club Hours",
@@ -325,7 +328,7 @@
       "days2": "Friday - Sunday",
       "hours2": "10:00 - 22:00"
     },
-    "map": {
+    "MAP": {
       "title": "MEX ON THE BEACH",
       "subtitle": "Km 14.5, Zona Hotelera, 77500 Cancún, Q.R."
     }

@@ -1,6 +1,8 @@
 ---
-import { useTranslations, type Lang } from '../i18n/utils';
-
+import { useTranslations, type Lang } from '../../i18n/utils';
+import { getI18N } from '../../i18n/index';
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
@@ -15,7 +17,7 @@ const t = useTranslations(lang);
       <div>
         <span class="text-primary uppercase tracking-wider font-bold text-sm mb-3 block">{t('favorites.tag')}</span>
         <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
-          {t('favorites.title')}
+          {i18n.HOME.title}
         </h2>
         <p class="max-w-xl text-gray-500 font-light mt-3">
           {t('favorites.description')}
