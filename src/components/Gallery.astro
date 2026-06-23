@@ -6,44 +6,42 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const slides = [
   {
     src: "/img-beach-club/mex-beach-club-sunset-horizon.webp",
     alt: "Puerto Morelos beach life",
-    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", 
   },
   {
     src: "/img-beach-club/mex-beach-club-sunset.webp",
     alt: "Mex on the Beach lounge setup",
-    aspect: "aspect-[16/10] w-[400px] md:w-[550px]", // Horizontal amplio
+    aspect: "aspect-[16/10] w-[400px] md:w-[550px]", 
   },
   {
     src: "/img-beach-club/mex-beach-club-lifestyle.webp",
     alt: "Aerial view of Puerto Morelos",
-    aspect: "aspect-square w-[320px] md:w-[420px]", // Cuadrado perfecto
+    aspect: "aspect-square w-[320px] md:w-[420px]", 
   },
   {
     src: "/img-beach-club/mex-beach-club-lounge-depth.webp",
     alt: "Exclusive beach club lounge area",
-    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", 
   },
   {
     src: "/img-beach-club/mex-beach-club-couple-cocktail.webp",
     alt: "Exclusive beach club lounge area",
-    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", 
   },
   {
     src: "/img-beach-club/mex-beach-club-couple-closeup.webp",
     alt: "Exclusive beach club lounge area",
-    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", // Vertical elegante
+    aspect: "aspect-[3/4] w-[280px] md:w-[360px]", 
   }
 ]
 ---
-
-<section class="py-24 bg-[#f9f6f0] overflow-hidden relative">
+<section class="py-24 bg-[#f9f6f0] overflow-hidden relative mt-30">
   <div class="max-w-6xl mx-auto px-6 mb-12">
     <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div class="max-w-xl">
@@ -54,7 +52,6 @@ const slides = [
           {i18n.GALLERY?.title || "Captured Moments"}
         </h2>
       </div>
-      
       <div class="flex items-center space-x-4 mb-2">
         <button id="prev-slide" class="p-2 border border-[#3c3730]/20 rounded-full hover:border-[#3c3730] text-[#3c3730] transition-colors duration-300 focus:outline-none" aria-label="Previous slide">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -69,7 +66,6 @@ const slides = [
       </div>
     </div>
   </div>
-
   <div 
     id="carousel-track"
     class="flex gap-6 md:gap-10 overflow-x-auto snap-x snap-mandatory scrollbar-none px-6 md:px-[calc((100vw-1152px)/2+24px)] pb-8 cursor-grab select-none active:cursor-grabbing"
@@ -88,7 +84,6 @@ const slides = [
     ))}
   </div>
 </section>
-
 <section class="w-full pb-24 pt-4 px-4 md:px-8 mt-20 relative bg-transparent">
   <div class="max-w-3xl mx-auto">
     <div class="text-center mb-12">
@@ -97,7 +92,6 @@ const slides = [
       </h2>
       <div class="w-16 h-[2px] bg-[#1E6B65] mx-auto"></div>
     </div>
-
     <div class="space-y-4">
       {
         (() => {
@@ -123,13 +117,11 @@ const slides = [
               </svg>
             ),
           };
-
           const fallbackIcon = (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
             </svg>
           );
-
           return Object.keys(i18n.PUERTO_MORELOS.QUESTIONS)
             .filter((key) => key.startsWith("q"))
             .map((key, index) => {
@@ -167,12 +159,17 @@ const slides = [
     </div>
   </div>
 
+  <section class="w-full pb-36 pt-4 px-4 md:px-8 mt-20 relative bg-transparent">
+  <div class="max-w-3xl mx-auto">
+    </div>
+
   <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none w-full translate-y-[1px]">
     <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto block">
       <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z" fill="#ffffff"></path>
       <path d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25" stroke="#1E6B65" stroke-width="2" fill="none"></path>
     </svg>
   </div>
+</section>
 </section>
 <style>
   div::-webkit-scrollbar {

@@ -6,10 +6,9 @@
       "META_TITLE": "Mex on the Beach | Premium Beach Club & Lounge"
     }
   },
-  "nav": {
+  "NAV": {
     "home": "Home",
-    "experience": "Experiences",
-    "reservations": "Reservations",
+    "reservations": "The Mex-Caribbean Palate",
     "gallery": "Puerto Morelos",
     "contact": "Contact",
     "bookNow": "Book Now"
@@ -64,25 +63,6 @@
       "q4": {
         "question": "Why should I visit a Puerto Morelos beach club?",
         "answer": "A Puerto Morelos beach club offers a relaxing environment with ocean views, beach access,local cuisine, and a more authentic Caribbean atmosphere compared to larger tourist destinations. It is an excellent way to enjoy the natural beauty of Puerto Morelos while experiencing local culture and hospitality."
-      }
-    }
-  },
-  "experience": {
-    "tag": "The Experience",
-    "title": "Flavor, Sun and Sea in Perfect Harmony",
-    "description": "Step into a realm where the rhythmic pulse of the ocean meets the sophisticated energy of Cancun's most exclusive beach sanctuary. From sunrise rituals to sunset celebrations, we curate every moment to be an unforgettable escape.",
-    "benefits": {
-      "dj": {
-        "title": "Curated DJ Sets",
-        "description": "Atmospheric beats selected by world-class resident DJs for a rhythmic journey."
-      },
-      "mixology": {
-        "title": "Mixology Mastery",
-        "description": "Artisanal cocktails crafted with local spirits and exotic tropical botanicals."
-      },
-      "wellness": {
-        "title": "Ocean Wellness",
-        "description": "Revitalizing treatments and yoga sessions right on the soft Caribbean sands."
       }
     }
   },
@@ -306,13 +286,7 @@
   },
   "CONTACT": {
     "title": "Get in touch with us",
-    "subtitle": "We love hearing from you! Whether you want to reserve the best beach chair right on the water or simply have a question about our offerings, our team is here to help. Leave us a message and start planning your perfect day in the sun."
-  },
-  "contact": {
-    "tag": "Contact Us",
-    "title": "Contact Us",
-    "leftTitle": "WHERE WE ARE",
-    "leftDescription": "Immerse yourself in the essence of the Caribbean. We are located in the heart of the Hotel Zone, where the sun and the sea meet Mexican elegance.",
+    "subtitle": "We love hearing from you! Whether you want to reserve the best beach chair right on the water or simply have a question about our offerings, our team is here to help. Leave us a message and start planning your perfect day in the sun.",
     "info": {
       "address": {
         "title": "LOCATION",
@@ -461,7 +435,7 @@
       "book_button": "Book your experience",
       "gallery": "View Gallery"
     },
-    "FIND_US": {
+    "MAPS": {
       "title": "Find Mex on the Beach",
       "strategic_location_label": "Strategic Location",
       "strategic_location_value": "Av Huayacán, 77533 Cancún, Q.R",
@@ -474,113 +448,10 @@
       "open_maps_button": "Open in Google Maps"
     }
   },
-  "footer": {
+  "FOOTER": {
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",
-    "press": "Press Kit",
     "contact": "Contact Us",
-    "copyright": "© 2026 Mex on the Beach Cancun. Sophisticated Escapism."
-  },
-  "menu": {
-    "seo": {
-      "title": "Our Premium Menu | Mex on the Beach",
-      "description": "Indulge in artisanal craft cocktails, fresh coastal cuisine, fine wines, and delicious shareable appetizers by the ocean."
-    },
-    "tabs": {
-      "cocktails": "Cocktails",
-      "cuisine": "Coastal Cuisine",
-      "wine": "Wine List",
-      "appetizers": "Appetizers"
-    },
-    "cocktails": {
-      "tag": "THE MIXOLOGY BAR",
-      "title": "CRAFT COCKTAILS",
-      "desc": "Inspired by local botanicals and artisanal distillates, our cocktails are designed to refresh the soul under the sun.",
-      "happyHour": "HAPPY HOUR",
-      "happyHourDesc": "Daily from 5 PM - 7 PM. Selection of signature drinks 2-for-1.",
-      "items": {
-        "mule": {
-          "title": "MASAH MULE",
-          "desc": "Mezcal Espadin, fresh ginger, lime juice, cucumber, and hibiscus reduction."
-        },
-        "cristal": {
-          "title": "CARIBE CRISTAL",
-          "desc": "Aged Tequila, white vermouth, clarified grapefruit juice, and saline solution."
-        },
-        "saltpeter": {
-          "title": "SAND & SALTPETER",
-          "desc": "London Dry Gin, rosemary nectar, coriander seeds, and sea spray aromatic mist."
-        }
-      }
-    },
-    "cuisine": {
-      "tag": "CATCH OF THE DAY",
-      "title": "COASTAL CUISINE",
-      "action": "Reserve a Table",
-      "items": {
-        "aguachile": {
-          "title": "TULUM AGUACHILE",
-          "desc": "Raw shrimp, warm heirloom tomatillo, sea lettuce, red onion, and avocado emulsion."
-        },
-        "pastor": {
-          "title": "OCTOPUS AL PASTOR",
-          "desc": "Grilled octopus marinated in achiote, pineapple chutney, charred onion, and cilantro oil."
-        },
-        "snapper": {
-          "title": "YUCATECAN RED SNAPPER",
-          "desc": "Whole fish grilled in banana leaves, xnipek salsa, and wild oregano ram."
-        }
-      }
-    },
-    "wine": {
-      "tag": "SOMMELIER'S SELECTION",
-      "title": "THE WINE LIST",
-      "items": {
-        "white": {
-          "title": "VALLE DE GUADALUPE WHITE",
-          "desc": "Chenin Blanc & Grenache Blanc. Crisp, citrus, mineral finish."
-        },
-        "rose": {
-          "title": "RIVIERA MAYA ROSÉ",
-          "desc": "Grenache. Strawberry, sea salt, refreshing finish."
-        },
-        "syrah": {
-          "title": "MEXICAN SYRAH",
-          "desc": "Bold, dark fruits, subtle smoke, velvet tannins."
-        },
-        "champagne": {
-          "title": "CHAMPAGNE DEUTZ",
-          "desc": "Brut Classic. Elegance, fine bubbles, toasted brioche."
-        }
-      }
-    },
-    "appetizers": {
-      "tag": "TO SHARE",
-      "title": "APPETIZERS",
-      "items": {
-        "shishitos": {
-          "title": "CHARRED SHISHITOS",
-          "desc": "Maldon salt, lime zest, and smoked paprika dust."
-        },
-        "guacamole": {
-          "title": "TRUFFLE GUACAMOLE",
-          "desc": "Black truffle shavings, fresh pomegranate, and heirloom chips."
-        },
-        "croquettes": {
-          "title": "LOBSTER CROQUETTES",
-          "desc": "Saffron-infused lobster, panko crust, and habanero honey."
-        },
-        "calamari": {
-          "title": "CRISPY CALAMARI",
-          "desc": "Bahia squid rings, pickled jalapeños, and fresh parsley."
-        }
-      }
-    },
-    "magic": {
-      "title": "EXPERIENCE THE MAGIC",
-      "desc": "Join us for a sunset dining experience you won't forget.",
-      "book": "Book a Table",
-      "gallery": "View Gallery"
-    }
+    "copyright": "© 2026 Mex on the beach In Puerto Morelos. All Rights Reserved. Design by Grupo Extreme"
   }
 }
