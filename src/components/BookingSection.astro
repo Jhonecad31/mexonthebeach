@@ -11,119 +11,20 @@ const t = useTranslations(lang);
 const cabanaFeatures = t("BOOKING.spots.cabana.features") as string[];
 const sunbedsFeatures = t("BOOKING.spots.sunbeds.features") as string[];
 ---
-<section
-  id="booking"
-  class="py-12 bg-sand-light/50 relative overflow-hidden flex flex-col justify-center items-center mt-30"
->
-  <div class="w-full text-center mb-10">
-    <h2 class="font-serif text-4xl font-extrabold text-dark mb-3 tracking-wide">
-      {i18n.BOOKING.title}
-    </h2>
-    <div class="w-16 h-[2px] bg-[#1E6B65] mx-auto"></div>
-    <p class="text-gray-500 font-light mt-3 text-sm leading-relaxed max-w-2xl text-center mx-auto">
-      {i18n.BOOKING.description}
-    </p>
-  </div>
-
-  <div class="grid lg:grid-cols-2 md:grid-cols-3 gap-6 mb-4 w-full max-w-5xl px-4 items-start mt-10">
-    
-    <a
-      href="/experience"
-      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer min-h-[420px] max-h-[480px]"
-    >
-      <div>
-        <div class="h-40 overflow-hidden relative">
-          <img
-            src="/img-beach-club/half-day-beach-pass.webp"
-            alt="Oceanfront Cabana"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            {t("BOOKING.labels.popular")}
-          </span>
-        </div>
-
-        <div class="p-5 pb-2">
-          <h3 class="font-serif font-bold text-xl text-dark mb-2">
-            {t("BOOKING.spots.cabana.title")}
-          </h3>
-          <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
-            {t("BOOKING.spots.cabana.description")}
-          </p>
-          
-          <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
-            {t("BOOKING.spots.cabana.features", { returnObjects: true }).map((feature: string) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-[#1E6B65]"></span> 
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-
-      <div class="p-5 pt-0">
-        <span class="block text-center w-full border-2 border-primary/30 group-hover:border-primary text-primary group-hover:bg-primary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
-          {t("BOOKING.labels.book_now")}
-        </span>
-      </div>
-    </a>
-
-    <a
-      href="/experience"
-      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col justify-between cursor-pointer min-h-[420px] max-h-[480px]"
-    >
-      <div>
-        <div class="h-40 overflow-hidden relative">
-          <img
-            src="/img-beach-club/mex-beach-club-relaxation.webp"
-            alt="Premium Sunbeds"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-          <span class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
-            {t("BOOKING.labels.premium")}
-          </span>
-        </div>
-        <div class="p-5 pb-2">
-          <h3 class="font-serif font-bold text-xl text-dark mb-2">
-            {t("BOOKING.spots.sunbeds.title")}
-          </h3>
-          <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
-            {t("BOOKING.spots.sunbeds.description")}
-          </p>
-          
-          <ul class="text-xs text-gray-600 font-medium space-y-2 mb-4">
-            {t("BOOKING.spots.sunbeds.features", { returnObjects: true }).map((feature: string) => (
-              <li class="flex items-center gap-2">
-                <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
-      <div class="p-5 pt-0">
-        <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
-          {t("BOOKING.labels.book_now")}
-        </span>
-      </div>
-    </a>
-  </div>
-</section>
 <section class="w-full bg-[#F7FCFD] py-16 md:py-24 px-4 sm:px-6 lg:px-8 flex justify-center items-center">
   <div class="max-w-6xl w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
     <div class="flex flex-col items-start space-y-6 max-w-xl">
-      <span class="text-primary font-sans text-xs md:text-sm font-semibold uppercase tracking-widest">
-        {i18n.HOME.TITLE_H3.title}
+      <span class="text-primary uppercase tracking-wider font-bold text-sm mb-3 block">
+        {i18n.HOME.TITLE_H3.subtitle}
       </span>
-      <h2 class="font-serif text-4xl md:text-5xl lg:text-5xl font-normal text-[#1A252C] leading-[1.15] tracking-tight">
+      <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
         {i18n.HOME.TITLE_H3.title}
       </h2>
       <p class="text-[#4A5560] font-light text-sm md:text-base leading-relaxed">
         {i18n.HOME.TITLE_H3.p1}
       </p>
       <a 
-        href="#map" 
+        href="contact" 
         class="inline-flex items-center gap-2 text-primary hover:text-primary font-sans text-sm font-medium py-3 px-6 rounded-full transition-all duration-300 group shadow-md hover:shadow-lg"
       >
         <svg 
@@ -149,5 +50,109 @@ const sunbedsFeatures = t("BOOKING.spots.sunbeds.features") as string[];
       />
     </div>
 
+  </div>
+</section>
+<section
+  id="booking"
+  class="py-12 bg-sand-light/50 relative overflow-hidden flex flex-col justify-center items-center mt-20"
+>
+  <div class="w-full text-center mb-10">
+    <h2 class="font-serif text-4xl font-extrabold text-dark mb-3 tracking-wide">
+      {i18n.BOOKING.title}
+    </h2>
+    <div class="w-16 h-[2px] bg-[#1E6B65] mx-auto"></div>
+    <p class="text-gray-500 font-light mt-3 text-sm leading-relaxed max-w-2xl text-center mx-auto">
+      {i18n.BOOKING.description}
+    </p>
+  </div>
+
+  <!-- CORRECCIÓN: grid-cols-1 md:grid-cols-2 para mantener simetría si son 2 tarjetas -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-4 w-full max-w-4xl px-4 items-stretch mt-10">
+    
+    <!-- TARJETA 1 -->
+    <a
+      href="/experience"
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer"
+    >
+      <div class="h-48 overflow-hidden relative flex-shrink-0">
+        <img
+          src="/img-beach-club/half-day-beach-pass.webp"
+          alt="Oceanfront Cabana"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <span class="absolute top-3 left-3 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          {t("BOOKING.labels.popular")}
+        </span>
+      </div>
+
+      <!-- CORRECCIÓN: flex-grow obliga a este contenedor a ocupar todo el espacio disponible empujando el botón abajo -->
+      <div class="p-6 flex flex-col flex-grow">
+        <h3 class="font-serif font-bold text-xl text-dark mb-2">
+          {t("BOOKING.spots.cabana.title")}
+        </h3>
+        <!-- El line-clamp-2 asegura que las descripciones ocupen el mismo espacio visual (máx 2 líneas) -->
+        <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
+          {t("BOOKING.spots.cabana.description")}
+        </p>
+        
+        <!-- flex-grow en la lista asegura que se expanda uniformemente -->
+        <ul class="text-xs text-gray-600 font-medium space-y-2 mb-6 flex-grow">
+          {t("BOOKING.spots.cabana.features", { returnObjects: true }).map((feature: string) => (
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-[#1E6B65] flex-shrink-0"></span> 
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+
+        <!-- El botón ahora se queda al final del contenedor flex-grow de manera natural -->
+        <div class="mt-auto">
+          <span class="block text-center w-full border-2 border-primary/30 group-hover:border-primary text-primary group-hover:bg-primary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
+            {t("BOOKING.labels.book_now")}
+          </span>
+        </div>
+      </div>
+    </a>
+
+    <!-- TARJETA 2 -->
+    <a
+      href="/experience"
+      class="bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100 hover:shadow-2xl transition-all duration-300 group flex flex-col h-full cursor-pointer"
+    >
+      <div class="h-48 overflow-hidden relative flex-shrink-0">
+        <img
+          src="/img-beach-club/mex-beach-club-relaxation.webp"
+          alt="Premium Sunbeds"
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <span class="absolute top-3 left-3 bg-secondary text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+          {t("BOOKING.labels.premium")}
+        </span>
+      </div>
+
+      <!-- CORRECCIÓN: flex-grow para consistencia -->
+      <div class="p-6 flex flex-col flex-grow">
+        <h3 class="font-serif font-bold text-xl text-dark mb-2">
+          {t("BOOKING.spots.sunbeds.title")}
+        </h3>
+        <p class="text-xs text-gray-500 font-light leading-relaxed mb-4 line-clamp-2">
+          {t("BOOKING.spots.sunbeds.description")}
+        </p>
+        
+        <ul class="text-xs text-gray-600 font-medium space-y-2 mb-6 flex-grow">
+          {t("BOOKING.spots.sunbeds.features", { returnObjects: true }).map((feature: string) => (
+            <li class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary flex-shrink-0"></span> 
+              <span>{feature}</span>
+            </li>
+          ))}
+        </ul>
+        <div class="mt-auto">
+          <span class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-secondary group-hover:bg-secondary/5 font-semibold py-2.5 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider">
+            {t("BOOKING.labels.book_now")}
+          </span>
+        </div>
+      </div>
+    </a>
   </div>
 </section>
