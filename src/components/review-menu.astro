@@ -103,7 +103,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               const item = i18n.PUERTO_MORELOS.QUESTIONS[key];
               return (
                 <details
-                  key={key}
                   name="faq-accordion"
                   open={index === 0}
                   class="group bg-white rounded-xl border border-black/[0.03] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
@@ -113,7 +112,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
                   >
                     <div class="flex items-center space-x-4">
                       <div class="text-[#1E6B65] shrink-0">
-                        {icons[key] || fallbackIcon}
                       </div>
                       <span
                         class="font-sans font-semibold text-base text-[#2C2519] tracking-wide group-hover:text-[#1E6B65] transition-colors duration-200"
