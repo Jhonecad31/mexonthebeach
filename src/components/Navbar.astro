@@ -71,18 +71,18 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           class="flex items-center space-x-6 text-sm font-semibold text-dark/70"
         >
           <a href={homeUrl} class="hover:text-secondary transition-colors"
-            >{t("NAV.home")}</a
+            >{i18n.NAV.home}</a
           >
           <a href={menuUrl} class="hover:text-secondary transition-colors"
-            >{t("NAV.reservations")}</a
+            >{i18n.NAV.reservations}</a
           >
           <a
             href={pmUrl}
             class="text-primary font-bold border-b-2 border-primary pb-0.5 transition-colors"
-            >{t("NAV.gallery")}</a
+            >{i18n.NAV.gallery}</a
           >
           <a href={contactUrl} class="hover:text-secondary transition-colors"
-            >{t("NAV.contact")}</a
+            >{i18n.NAV.contact}</a
           >
         </nav>
         <!-- Separator -->
@@ -362,7 +362,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       href={homeUrl}
       class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isHomePage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
     >
-      {t("nav.home")}
+      {i18n.NAV.home}
     </a>
 
     <a
@@ -383,7 +383,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       href={contactUrl}
       class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isContactPage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
     >
-      {t("nav.contact")}
+      {i18n.NAV.contact}
     </a>
 
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
