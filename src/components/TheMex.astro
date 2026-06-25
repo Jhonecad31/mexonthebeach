@@ -1,0 +1,123 @@
+---
+import Layout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import { useTranslations } from "../i18n/utils";
+
+const lang = "en";
+const t = useTranslations(lang);
+
+const wineList = [
+  { key: "white", price: "$16 / $59" },
+  { key: "rose", price: "$14 / $55" },
+  { key: "syrah", price: "$19 / $75" },
+  { key: "champagne", price: "$24 / $110" },
+];
+
+const appList = [
+  { key: "shishitos", price: "$12" },
+  { key: "guacamole", price: "$16" },
+  { key: "croquettes", price: "$22" },
+  { key: "calamari", price: "$19" },
+];
+---
+<main>
+  <!-- <section
+    class="relative h-[65vh] flex items-center justify-center overflow-hidden"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/img-beach-club/mex-beach-drinks.webp"
+        alt="Premium Beach Drinks"
+        class="w-full h-full object-cover scale-105"
+      />
+    </div>
+  </section> -->
+  <section
+    id="home"
+    class="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden pt-20"
+  >
+    <div class="absolute inset-0 z-0">
+      <img
+        src="/img-beach-club/mex-beach-drinks.webp"
+        alt="Mex on the Beach views"
+        class="w-full h-full object-cover scale-105 animate-[pulse_10s_infinite_alternate]"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-dark/65 via-dark/40 to-dark/50"
+      >
+      </div>
+    </div>
+    <div
+      class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white mt-12 md:mt-20"
+    >
+      <h2
+        class="font-serif text-4xl font-bold tracking-wider mb-6 leading-tight drop-shadow-md"
+      >
+      </h2>
+      <a
+        href="#experience"
+        class="inline-block p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all duration-300 animate-bounce"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="lucide lucide-chevron-down"
+        >
+          <path d="m6 9 6 6 6-6"></path>
+        </svg>
+      </a>
+    </div>
+  </section>
+  <!-- separamiento por secciones -->
+  <div
+    class="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 shadow-xs"
+  >
+    <div
+      class="max-w-4xl mx-auto px-4 flex overflow-x-auto scrollbar-none whitespace-nowrap justify-start md:justify-center gap-6 md:gap-12 text-xs font-bold tracking-widest uppercase text-gray-500"
+    >
+      <a
+        href="#cocktails"
+        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
+        >{t("menu.tabs.cocktails")}</a
+      >
+      <a
+        href="#cuisine"
+        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
+        >{t("menu.tabs.cuisine")}</a
+      >
+      <a
+        href="#wine"
+        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
+        >{t("menu.tabs.wine")}</a
+      >
+      <a
+        href="#appetizers"
+        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
+        >{t("menu.tabs.appetizers")}</a
+      >
+    </div>
+  </div>
+</main>
+<style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .scrollbar-none {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
