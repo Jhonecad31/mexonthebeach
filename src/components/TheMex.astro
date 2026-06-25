@@ -1,26 +1,15 @@
 ---
-import Layout from "../layouts/BaseLayout.astro";
-import Navbar from "../components/Navbar.astro";
-import Footer from "../components/Footer.astro";
-import { useTranslations } from "../i18n/utils";
-
-const lang = "en";
+import { useTranslations, type Lang } from "../i18n/utils";
+import { getI18N } from "../i18n/index";
+const {currentLocale} = Astro;
+const i18n = getI18N({currentLocale}) as any;
+interface Props {
+  lang?: Lang;
+}
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
-
-const wineList = [
-  { key: "white", price: "$16 / $59" },
-  { key: "rose", price: "$14 / $55" },
-  { key: "syrah", price: "$19 / $75" },
-  { key: "champagne", price: "$24 / $110" },
-];
-
-const appList = [
-  { key: "shishitos", price: "$12" },
-  { key: "guacamole", price: "$16" },
-  { key: "croquettes", price: "$22" },
-  { key: "calamari", price: "$19" },
-];
 ---
+
 <main>
   <!-- <section
     class="relative h-[65vh] flex items-center justify-center overflow-hidden"
@@ -54,6 +43,7 @@ const appList = [
       <h2
         class="font-serif text-4xl font-bold tracking-wider mb-6 leading-tight drop-shadow-md"
       >
+      {i18n.CONTACT.TITLE}
       </h2>
       <a
         href="#experience"
@@ -76,35 +66,6 @@ const appList = [
       </a>
     </div>
   </section>
-  <!-- separamiento por secciones -->
-  <div
-    class="sticky top-16 md:top-20 z-40 bg-white/95 backdrop-blur-md border-b border-gray-100 py-4 shadow-xs"
-  >
-    <div
-      class="max-w-4xl mx-auto px-4 flex overflow-x-auto scrollbar-none whitespace-nowrap justify-start md:justify-center gap-6 md:gap-12 text-xs font-bold tracking-widest uppercase text-gray-500"
-    >
-      <a
-        href="#cocktails"
-        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
-        >{t("menu.tabs.cocktails")}</a
-      >
-      <a
-        href="#cuisine"
-        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
-        >{t("menu.tabs.cuisine")}</a
-      >
-      <a
-        href="#wine"
-        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
-        >{t("menu.tabs.wine")}</a
-      >
-      <a
-        href="#appetizers"
-        class="hover:text-primary transition-colors py-1 border-b-2 border-transparent hover:border-primary"
-        >{t("menu.tabs.appetizers")}</a
-      >
-    </div>
-  </div>
 </main>
 <style>
   html {
