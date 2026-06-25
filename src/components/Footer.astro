@@ -1,7 +1,9 @@
 ---
 import logoMex from '../assets/logos/logo-mex.svg';
 import { useTranslations, type Lang } from '../i18n/utils';
-
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
@@ -22,9 +24,9 @@ const t = useTranslations(lang);
       </a>
       <!-- Footer Menu Links -->
       <div class="flex flex-wrap justify-center gap-6 md:gap-12 mb-8 text-sm font-medium tracking-wide text-dark/80">
-        <a href="#privacy" class="hover:text-primary transition-colors">{t('footer.privacy')}</a>
-        <a href="#terms" class="hover:text-primary transition-colors">{t('footer.terms')}</a>
-        <a href={lang === 'es' ? '/es/contacto' : '/contact'} class="hover:text-primary transition-colors">{t('footer.contact')}</a>
+        <a href="#privacy" class="hover:text-primary transition-colors">{i18n.FOOTER.privacy}</a>
+        <a href="#terms" class="hover:text-primary transition-colors">{i18n.FOOTER.terms}</a>
+        <a href={lang === 'es' ? '/es/contacto' : '/contact'} class="hover:text-primary transition-colors">{i18n.FOOTER.contact}</a>
       </div>
       <!-- Social Icons matching prototype mockup with brand colors -->
       <div class="flex space-x-6 mb-10">
@@ -51,7 +53,7 @@ const t = useTranslations(lang);
       </div>
       <!-- Copyright Section matching screenshot -->
       <div class="text-xs text-gray-400 font-light tracking-wide">
-        <p>{t('footer.copyright')}</p>
+        <p>{i18n.FOOTER.copyright}</p>
       </div>
     </div>
   </div>

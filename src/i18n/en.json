@@ -15,11 +15,26 @@
   },
   "HOME": {
     "HERO": {
+      "tag": "The experience",
       "title": "Puerto morelos beach club experience at Mex On The Beach",
       "subtitle": "The Authentic Beach Club Experience in Puerto Morelos",
       "p1": "Welcome to Mex On The Beach, a relaxing oceanfront destination where visitors can enjoy the beauty of the Puerto Morelos beach while discovering one of the most charming coastal towns in the Riviera Maya. Located between Cancun and Playa del Carmen, Puerto Morelos offers a peaceful atmosphere, crystal-clear waters, soft white sand, and a more authentic Caribbean experience.",
       "p2": "For travelers searching for the perfect Puerto Morelos beach club, this beachfront space combines comfort, local culture, and natural beauty in one unforgettable setting. Whether you are planning a day trip from Cancun, exploring the Riviera Maya, or enjoying a longer vacation, Mex On The Beach provides a welcoming environment to relax by the sea and experience the true essence of Puerto Morelos",
-      "p3": "From beachside dining and refreshing drinks to stunning ocean views and memorable moments with family and friends, this is a place where every visit feels connected to the natural beauty of the Mexican Caribbean"
+      "p3": "From beachside dining and refreshing drinks to stunning ocean views and memorable moments with family and friends, this is a place where every visit feels connected to the natural beauty of the Mexican Caribbean",
+      "BENEFITS": {
+      "dj": {
+        "title": "Beachside Vibes & Music",
+        "description": "Relax to a curated musical atmosphere that perfectly complements a welcoming environment by the sea."
+      },
+      "mixology": {
+        "title": "Signature Mixology",
+        "description": "Sip on refreshing drinks and cocktails crafted to elevate your Puerto Morelos beach club experience."
+      },
+      "wellness": {
+        "title": "Authentic Caribbean Relaxation",
+        "description": "Disconnect along a peaceful coastline of crystal-clear waters, soft white sand, and natural beauty."
+      }
+    }
     },  
     "WHAT_TO_EXPECT": {
       "title": "What to expect?",
@@ -239,6 +254,8 @@
   "THE_MEX": {
     "title": "Mex On The Beach Menu: Tacos, Drinks and Beachfront Flavors in Puerto Morelos",
     "subtitle": "Welcome to a Day of Sun, Flavor, and Relaxation in Puerto Morelos",
+    "menu_food": "Explore our food menu",
+    "menu_drinks": "Explore the drinks menu",
     "p1": "There is something special about spending the day by the Caribbean Sea with a refreshing drink in hand and delicious food just steps from the water. At Mex On The Beach, visitors can enjoy exactly that while discovering one of the most beautiful spots in Puerto Morelos.",
     "p2": "Located on the shores of Puerto Morelos beach, this beach club offers the perfect setting to unwind, connect with nature, and enjoy the relaxed atmosphere that makes the Riviera Maya so popular with travelers from around the world. Whether you arrive from Cancun for the day or are enjoying a longer Puerto Morelos vacation, this is the kind of place where time seems to slow down.",
     "p3": "The sound of the waves, the ocean breeze, and the warm Caribbean sunshine create the perfect backdrop for enjoying fresh seafood, authentic Mexican flavors, tropical drinks, and unforgettable moments with family and friends.",
@@ -255,7 +272,7 @@
     "p3": "Of course, no visit would be complete without tacos. The shrimp tacos have become a favorite among visitors who want to enjoy authentic Mexican flavors while overlooking the sea. Meanwhile, classics like guacamole and shrimp nachos are perfect for sharing with friends and family.",
     "p4": "Whether you are spending the day exploring nearby attractions, visiting the famous Puerto Morelos beach, or simply relaxing at the club, these flavors help create memorable moments throughout your visit."
   },
-  "TILTLE_H3": {
+  "TITLE_H3": {
     "title": "Tropical Drinks, Ocean Views, and Good Times",
     "p1": "A day at the beach feels even better with a refreshing drink in hand. That's why the drink menu at Mex On The Beach is designed to capture the spirit of the Caribbean and the relaxed lifestyle of Puerto Morelos.",
     "p2": "Guests can choose from colorful tropical creations, refreshing cocktails, classic margaritas, cold beers, and handcrafted beverages inspired by local ingredients. Every drink is made to complement the atmosphere of the beach club and the beautiful surroundings of the Riviera Maya.",
