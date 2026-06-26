@@ -4,9 +4,26 @@ import Layout from '../layouts/BaseLayout.astro';
 // 1. Definimos las rutas de las imágenes que tienes en tu carpeta public/menu-folder/
 const menuImages = [
   '/menu-folder/menu-food1.webp',
-  '/menu-folder/menu-food2.webp',
-  '/menu-folder/menu-food3.webp',
-  '/menu-folder/menu-food4.webp',
+  '/menu-folder/menu-foodp2.webp',
+  '/menu-folder/menu-foodp3.webp',
+  '/menu-folder/menu-foodp4.webp',
+];
+
+const sections = [
+  {
+    title: "THI IS PUERTO MORELOS",
+    actionText: "VIEW PERTO MORELOS",
+    link: "/menu",
+    bgImage: "img-puerto-morelos/Puerto-Morelos-aerial.webp", // Reemplazar por foto de platillos
+    alt: "Menú de alimentos y bebidas del beach club"
+  },
+  {
+    title: "FIND US",
+    actionText: "OUR LOCATION",
+    link: "/location",
+    bgImage: "", // Reemplazar por foto de las instalaciones en Puerto Morelos / Cancún
+    alt: "Instalaciones de Mex on the Beach"
+  }
 ];
 
 const labels = {
@@ -18,7 +35,7 @@ const labels = {
 };
 ---
 <Layout title="Menu - Mex On The Beach">
-  <div class="bg-[#e6e4d3] min-h-screen text-[#1a1a1a]">
+  <div class="bg-[#fcfbf7] min-h-screen text-[#1a1a1a]">
     
     <section 
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
@@ -56,5 +73,40 @@ const labels = {
         </div>
       ))}
     </main>
+    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16">
+  <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    {sections.map((section) => (
+      <a 
+        href={section.link}
+        class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300 walk-fade"
+      >
+        {/* Imagen de fondo con zoom suave en hover */}
+        <img 
+          src={section.bgImage} 
+          alt={section.alt}
+          class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
+          loading="lazy"
+        />
+
+        {/* Capa de oscurecimiento (Overlay) que se intensifica en hover */}
+        <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
+
+        {/* Contenido de Texto */}
+        <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
+          <h3 class="font-serif text-3xl tracking-wide md:text-4xl lg:text-5xl mb-2">
+            {section.title}
+          </h3>
+          <div class="inline-flex flex-col items-start">
+            <span class="text-xs font-medium tracking-widest uppercase md:text-sm">
+              {section.actionText}
+            </span>
+            {/* Línea decorativa inferior (Underline) */}
+            <span class="h-[1.5px] w-full bg-white mt-1 transform scale-x-100 transition-transform duration-300 origin-left" />
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
   </div>
 </Layout>

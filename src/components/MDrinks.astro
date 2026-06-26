@@ -3,8 +3,25 @@ import Layout from '../layouts/BaseLayout.astro';
 
 // 1. Definimos las rutas de las imágenes que tienes en tu carpeta public/menu-folder/
 const menuImages = [
-  '/menu-folder/menu-drinks1.webp',
-  '/menu-folder/menu-drinks2.webp',
+  '/menu-folder/menu-drinksp1.webp',
+  '/menu-folder/menu-drinksp2.webp',
+];
+
+const sections = [
+  {
+    title: "OUR MENUS",
+    actionText: "VIEW MENUS",
+    link: "/menu",
+    bgImage: "https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop", // Reemplazar por foto de platillos
+    alt: "Menú de alimentos y bebidas del beach club"
+  },
+  {
+    title: "FIND US",
+    actionText: "OUR LOCATION",
+    link: "/location",
+    bgImage: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800&auto=format&fit=crop", // Reemplazar por foto de las instalaciones en Puerto Morelos / Cancún
+    alt: "Instalaciones de Mex on the Beach"
+  }
 ];
 
 const labels = {
@@ -16,11 +33,11 @@ const labels = {
 };
 ---
 <Layout title="Menu - Mex On The Beach">
-  <div class="bg-[#e6e4d3] min-h-screen text-[#1a1a1a]">
+  <div class="bg-[#fcfbf7] min-h-screen text-[#1a1a1a]">
     
     <section 
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
-      style="background-image: url('/img-beach-club/mex-beach-drinks.webp');"
+      style="background-image: url('/img-drinks/mex-beach-drinks-coct.webp');"
     >
       <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
       
@@ -40,7 +57,6 @@ const labels = {
         {labels.sectionDesc}
       </p>
     </section>
-
     <main class="max-w-3xl mx-auto px-4 pb-24 flex flex-col gap-y-6">
       {menuImages.map((src, index) => (
         <div class="shadow-md md:shadow-xl border border-black/5 overflow-hidden rounded-sm">
@@ -54,5 +70,40 @@ const labels = {
         </div>
       ))}
     </main>
+    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16">
+  <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6">
+    {sections.map((section) => (
+      <a 
+        href={section.link}
+        class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300 walk-fade"
+      >
+        {/* Imagen de fondo con zoom suave en hover */}
+        <img 
+          src={section.bgImage} 
+          alt={section.alt}
+          class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
+          loading="lazy"
+        />
+
+        {/* Capa de oscurecimiento (Overlay) que se intensifica en hover */}
+        <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
+
+        {/* Contenido de Texto */}
+        <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
+          <h3 class="font-serif text-3xl tracking-wide md:text-4xl lg:text-5xl mb-2">
+            {section.title}
+          </h3>
+          <div class="inline-flex flex-col items-start">
+            <span class="text-xs font-medium tracking-widest uppercase md:text-sm">
+              {section.actionText}
+            </span>
+            {/* Línea decorativa inferior (Underline) */}
+            <span class="h-[1.5px] w-full bg-white mt-1 transform scale-x-100 transition-transform duration-300 origin-left" />
+          </div>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
   </div>
 </Layout>
