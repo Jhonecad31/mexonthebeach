@@ -1,43 +1,28 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
-import MenuInteractive from '../components/Interactive/MenuInteractive';
 
-const menuData = {
-  "passport-collection": {
-    title: "Passport Collection",
-    items: [
-      { name: "Sardinian Negroni", description: "Mirto Foam | Bombay Sapphire Gin | Campari Martini Riserva Speciale Rubino" },
-      { name: "Caleta Sip", description: "Café Caleta Liqueur | Belvedere Vodka | Espresso | Vanilla & Orange Essence" },
-      { name: "Royal Riviera", description: "Veuve Clicquot Cuvée | Malfy Rosa Gin | Fresh Raspberry | Hibiscus Syrup" },
-      { name: "Thai Daiquiri", description: "Bacardi Carta Blanca Rum | Banana Oleo Saccharum | Lemongrass-Infused" }
-    ]
-  },
-  "mexican-classics": {
-    title: "Mexican Beach Classics",
-    items: [
-      { name: "Mex On The Beach Margarita", description: "Tezon Blanco Tequila | Mezcal Unión | Fresh Lime Juice | Agave Nectar | Tajín Rim" }
-    ]
-  }
-};
+// 1. Definimos las rutas de las imágenes que tienes en tu carpeta public/menu-folder/
+const menuImages = [
+  '/menu-folder/menu-food1.webp',
+  '/menu-folder/menu-food2.webp',
+  '/menu-folder/menu-food3.webp',
+  '/menu-folder/menu-food4.webp',
+];
 
-// Textos fijos de interfaz que puedes jalar de tu es.json / pt.json / en.json
 const labels = {
   heroTag: "The Cocktail Club",
   heroTitle: "Our Menus",
   breadcrumb: "Mex on the beach home / Menus",
   sectionTitle: "Explore our menus",
   sectionDesc: "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
-  menuTitle: "Menus",
-  footerBanner: "Experience a new perspective on mixology, open daily from 11AM – 11PM."
 };
 ---
 <Layout title="Menu - Mex On The Beach">
-  <div class="bg-[#fcf9f5] min-h-screen text-[#1a1a1a]">
+  <div class="bg-[#e6e4d3] min-h-screen text-[#1a1a1a]">
     
-    {/* 1. HERO SECTION */}
     <section 
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
-      style="background-image: url('/images/hero-menu-bg.jpg');"
+      style="background-image: url('/img-beach-club/mex-beach-drinks.webp');"
     >
       <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
       
@@ -47,12 +32,10 @@ const labels = {
       </div>
     </section>
 
-    {/* BREADCRUMBS */}
     <div class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200">
       {labels.breadcrumb}
     </div>
 
-    {/* 2. INTRODUCTORY SECTION */}
     <section class="max-w-3xl mx-auto text-center px-6 py-16">
       <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">{labels.sectionTitle}</h2>
       <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl mx-auto font-light">
@@ -60,9 +43,18 @@ const labels = {
       </p>
     </section>
 
-    {/* 3. MAIN CONTENT (Isla de interactividad) */}
-    <main class="max-w-7xl mx-auto px-6 pb-24">
-      <MenuInteractive client:load menuData={menuData} labels={labels} />
+    <main class="max-w-3xl mx-auto px-4 pb-24 flex flex-col gap-y-6">
+      {menuImages.map((src, index) => (
+        <div class="shadow-md md:shadow-xl border border-black/5 overflow-hidden rounded-sm">
+          <img 
+            src={src} 
+            alt={`Menu page ${index + 1}`} 
+            class="w-full h-auto block select-none"
+            loading={index === 0 ? "eager" : "lazy"} 
+            decoding="async"
+          />
+        </div>
+      ))}
     </main>
   </div>
 </Layout>
