@@ -1,14 +1,13 @@
 ---
-import Layout from '../../layouts/BaseLayout.astro';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import Menu from '../../components/MFood.astro';
-import { useTranslations } from '../../i18n/utils';
+import Layout from '../layouts/BaseLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import Menu from '../components/MDrinks.astro'
+import { useTranslations } from '../i18n/utils';
 
 const lang = 'es';
 const t = useTranslations(lang);
 ---
-
 <Layout title={`${t('puertoMorelos.title')} | Mex on the Beach`} description={t('puertoMorelos.subtitle')} lang={lang}>
 	<Navbar lang={lang} />
 		<Menu lang={lang} />
