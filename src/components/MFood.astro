@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/BaseLayout.astro';
 
-// 1. Definimos las rutas de las imágenes que tienes en tu carpeta public/menu-folder/
 const menuImages = [
   '/menu-folder/menu-food1.webp',
   '/menu-folder/menu-foodp2.webp',
@@ -11,17 +10,17 @@ const menuImages = [
 
 const sections = [
   {
-    title: "THI IS PUERTO MORELOS",
-    actionText: "VIEW PERTO MORELOS",
-    link: "/menu",
-    bgImage: "img-puerto-morelos/Puerto-Morelos-aerial.webp", // Reemplazar por foto de platillos
+    title:"THIS IS PUERTO MORELOS", 
+    actionText:"VIEW PUERTO MORELOS", 
+    link:"/menu",
+    bgImage:"/img-puerto-morelos/Puerto-Morelos-aerial.webp", 
     alt: "Menú de alimentos y bebidas del beach club"
   },
   {
     title: "FIND US",
     actionText: "OUR LOCATION",
     link: "/location",
-    bgImage: "", // Reemplazar por foto de las instalaciones en Puerto Morelos / Cancún
+    bgImage: "/img-food/beach-club-in-puerto-morelos.jpeg", 
     alt: "Instalaciones de Mex on the Beach"
   }
 ];
@@ -29,7 +28,7 @@ const sections = [
 const labels = {
   heroTag: "The Cocktail Club",
   heroTitle: "Our Menus",
-  breadcrumb: "Mex on the beach home / Menus",
+  breadcrumb: "The Mex-Caribbean Palate / Menus",
   sectionTitle: "Explore our menus",
   sectionDesc: "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
 };
@@ -37,6 +36,7 @@ const labels = {
 <Layout title="Menu - Mex On The Beach">
   <div class="bg-[#fcfbf7] min-h-screen text-[#1a1a1a]">
     
+    {/* HERO SECTION */}
     <section 
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
       style="background-image: url('/img-beach-club/mex-beach-drinks.webp');"
@@ -49,10 +49,12 @@ const labels = {
       </div>
     </section>
 
+    {/* BREADCRUMB */}
     <div class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200">
       {labels.breadcrumb}
     </div>
 
+    {/* INTRO SECTION */}
     <section class="max-w-3xl mx-auto text-center px-6 py-16">
       <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">{labels.sectionTitle}</h2>
       <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl mx-auto font-light">
@@ -60,53 +62,59 @@ const labels = {
       </p>
     </section>
 
-    <main class="max-w-3xl mx-auto px-4 pb-24 flex flex-col gap-y-6">
-      {menuImages.map((src, index) => (
-        <div class="shadow-md md:shadow-xl border border-black/5 overflow-hidden rounded-sm">
-          <img 
-            src={src} 
-            alt={`Menu page ${index + 1}`} 
-            class="w-full h-auto block select-none"
-            loading={index === 0 ? "eager" : "lazy"} 
-            decoding="async"
-          />
-        </div>
-      ))}
-    </main>
-    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16">
-  <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6">
-    {sections.map((section) => (
-      <a 
-        href={section.link}
-        class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300 walk-fade"
-      >
-        {/* Imagen de fondo con zoom suave en hover */}
-        <img 
-          src={section.bgImage} 
-          alt={section.alt}
-          class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
-          loading="lazy"
-        />
-
-        {/* Capa de oscurecimiento (Overlay) que se intensifica en hover */}
-        <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
-
-        {/* Contenido de Texto */}
-        <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
-          <h3 class="font-serif text-3xl tracking-wide md:text-4xl lg:text-5xl mb-2">
-            {section.title}
-          </h3>
-          <div class="inline-flex flex-col items-start">
-            <span class="text-xs font-medium tracking-widest uppercase md:text-sm">
-              {section.actionText}
-            </span>
-            {/* Línea decorativa inferior (Underline) */}
-            <span class="h-[1.5px] w-full bg-white mt-1 transform scale-x-100 transition-transform duration-300 origin-left" />
+    {/* MENU IMAGES GRID (Cambio clave aquí) */}
+    <main class="max-w-6xl mx-auto px-4 pb-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+        {menuImages.map((src, index) => (
+          <div class="bg-white shadow-md hover:shadow-xl border border-black/5 overflow-hidden rounded-sm transition-shadow duration-300">
+            <img 
+              src={src} 
+              alt={`Menu page ${index + 1}`} 
+              class="w-full h-auto block select-none"
+              loading={index < 2 ? "eager" : "lazy"} 
+              decoding="async"
+            />
           </div>
-        </div>
-      </a>
-    ))}
-  </div>
-</section>
+        ))}
+      </div>
+    </main>
+
+    {/* BOTTOM SECTIONS */}
+    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16 border-t border-gray-100">
+      <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
+        {sections.map((section) => (
+          <a 
+            href={section.link}
+            class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300"
+          >
+            {/* Imagen de fondo con zoom suave en hover */}
+            {section.bgImage && (
+              <img 
+                src={section.bgImage} 
+                alt={section.alt}
+                class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
+                loading="lazy"
+              />
+            )}
+
+            {/* Capa de oscurecimiento (Overlay) */}
+            <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
+            {/* Contenido de Texto */}
+            <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
+              <h3 class="font-serif text-2xl tracking-wide md:text-3xl lg:text-4xl mb-2">
+                {section.title}
+              </h3>
+              <div class="inline-flex flex-col items-start">
+                <span class="text-xs font-medium tracking-widest uppercase">
+                  {section.actionText}
+                </span>
+                {/* Línea decorativa inferior (Underline animation) */}
+                <span class="h-[1.5px] w-0 bg-white mt-1 transition-all duration-300 group-hover:w-full origin-left" />
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
   </div>
 </Layout>

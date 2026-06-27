@@ -6,7 +6,6 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 ---
@@ -23,7 +22,7 @@ const t = useTranslations(lang);
         </p>
       </div>
       <div class="mt-6 md:mt-0">
-        <a href="#menu" class="text-primary hover:text-primary-hover font-bold flex items-center gap-2 group transition-all">
+        <a href="/the-mex" class="text-primary hover:text-primary-hover font-bold flex items-center gap-2 group transition-all">
           <span>{i18n.FAVORITIES.seeFullMenu}</span>
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />

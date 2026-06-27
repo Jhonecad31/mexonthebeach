@@ -6,8 +6,6 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
-
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 ---
