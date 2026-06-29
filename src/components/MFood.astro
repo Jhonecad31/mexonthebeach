@@ -8,23 +8,6 @@ const menuImages = [
   '/menu-folder/menu-foodp4.webp',
 ];
 
-const sections = [
-  {
-    title:"THIS IS PUERTO MORELOS", 
-    actionText:"VIEW PUERTO MORELOS", 
-    link:"/menu",
-    bgImage:"/img-puerto-morelos/Puerto-Morelos-aerial.webp", 
-    alt: "Menú de alimentos y bebidas del beach club"
-  },
-  {
-    title: "FIND US",
-    actionText: "OUR LOCATION",
-    link: "/location",
-    bgImage: "/img-food/beach-club-in-puerto-morelos.jpeg", 
-    alt: "Instalaciones de Mex on the Beach"
-  }
-];
-
 const labels = {
   heroTag: "The Cocktail Club",
   heroTitle: "Our Menus",
@@ -78,42 +61,34 @@ const labels = {
         ))}
       </div>
     </main>
-
-    {/* BOTTOM SECTIONS */}
-    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16 border-t border-gray-100">
-      <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-6">
-        {sections.map((section) => (
-          <a 
-            href={section.link}
-            class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300"
+    <section class="w-full bg-[#fcfbf7] text-center pb-24 px-6">
+      <div
+        class="max-w-md mx-auto border-t border-stone-200 pt-12 flex flex-col items-center"
+      >
+        <p class="font-sans text-xs text-stone-500 tracking-wide mb-4">
+          Would you prefer to keep a copy on your device?
+        </p>
+        <a
+          href="/downloads/Menu-Food-MexOnTheBeach.pdf"
+          download
+          class="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-stone-700 hover:text-[#2c4e4b] font-medium transition-colors duration-200 mb-16"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
           >
-            {/* Imagen de fondo con zoom suave en hover */}
-            {section.bgImage && (
-              <img 
-                src={section.bgImage} 
-                alt={section.alt}
-                class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
-                loading="lazy"
-              />
-            )}
-
-            {/* Capa de oscurecimiento (Overlay) */}
-            <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
-            {/* Contenido de Texto */}
-            <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
-              <h3 class="font-serif text-2xl tracking-wide md:text-3xl lg:text-4xl mb-2">
-                {section.title}
-              </h3>
-              <div class="inline-flex flex-col items-start">
-                <span class="text-xs font-medium tracking-widest uppercase">
-                  {section.actionText}
-                </span>
-                {/* Línea decorativa inferior (Underline animation) */}
-                <span class="h-[1.5px] w-0 bg-white mt-1 transition-all duration-300 group-hover:w-full origin-left" />
-              </div>
-            </div>
-          </a>
-        ))}
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+            ></path>
+          </svg>
+          Download Menu (PDF)
+        </a>
       </div>
     </section>
   </div>

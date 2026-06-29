@@ -30,24 +30,30 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       alt="Premium Beach Drinks" 
       class="w-full h-full object-cover scale-105"
     />
+    <div class="absolute inset-0 bg-black/35 backdrop-blur-[1px]"></div>
+  </div>
+  <div class="relative z-10 text-center text-white px-4 flex flex-col items-center max-w-4xl select-none">
+    <h1 class="font-serif text-3xl md:text-5xl lg:text-6xl font-light uppercase tracking-[0.2em] leading-tight max-w-2xl">
+      {i18n.THE_MEX.HERO.title1} <br class="hidden md:block"/> {i18n.THE_MEX.HERO.title2}
+    </h1>
   </div>
 </section>
 
 <section
   id="editorial-intro"
-  class="bg-[#fcfbf7] pt-20 md:pt-32 px-4 selection:bg-amber-100"
+  class="bg-[#fcfbf7] pt-20 md:pt-32 pb-20 md:pb-32 px-4 selection:bg-amber-100"
 >
   <div class="max-w-5xl mx-auto text-center">
     <h2 class="font-serif text-secondary text-3xl md:text-5xl font-light tracking-wide leading-tight mb-12">
       {i18n.THE_MEX.title}
     </h2>
-
     <div class="space-y-8 font-sans text-stone-600 leading-relaxed tracking-wide text-[15px] md:text-base">
       <p>{i18n.THE_MEX.p1}</p>
       <p>{i18n.THE_MEX.p2}</p>
       <p>{i18n.THE_MEX.p3}</p>
     </div>
-    <hr class="mt-16 md:mt-24 border-t border-stone-200 w-full" />
+    
+    <hr class="mt-16 md:mt-24 mb-4 border-t border-stone-200 w-full" />
   </div>
 </section>
 

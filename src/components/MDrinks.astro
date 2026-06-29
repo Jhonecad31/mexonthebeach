@@ -1,27 +1,10 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import Layout from "../layouts/BaseLayout.astro";
 
 // 1. Definimos las rutas de las imágenes que tienes en tu carpeta public/menu-folder/
 const menuImages = [
-  '/menu-folder/menu-drinksp1.webp',
-  '/menu-folder/menu-drinksp2.webp',
-];
-
-const sections = [
-  {
-    title:"THIS IS PUERTO MORELOS", 
-    actionText:"VIEW PUERTO MORELOS", 
-    link:"/menu",
-    bgImage:"/img-puerto-morelos/Puerto-Morelos-aerial.webp", 
-    alt: "Menú de alimentos y bebidas del beach club"
-  },
-  {
-    title: "FIND US",
-    actionText: "OUR LOCATION",
-    link: "/location",
-    bgImage: "/img-food/beach-club-in-puerto-morelos.jpeg", 
-    alt: "Instalaciones de Mex on the Beach"
-  }
+  "/menu-folder/menu-drinksp1.webp",
+  "/menu-folder/menu-drinksp2.webp",
 ];
 
 const labels = {
@@ -29,80 +12,91 @@ const labels = {
   heroTitle: "Our Menus",
   breadcrumb: "The Mex-Caribbean Palate / Menus",
   sectionTitle: "Explore our menus",
-  sectionDesc: "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
+  sectionDesc:
+    "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
 };
 ---
+
 <Layout title="Menu - Mex On The Beach">
   <div class="bg-[#fcfbf7] min-h-screen text-[#1a1a1a]">
-    
-    <section 
+    <section
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
       style="background-image: url('/img-beach-club/mex-beach-drinks.webp');"
     >
       <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-      
+
       <div class="relative z-10 text-center">
-        <span class="text-xs tracking-[0.2em] uppercase opacity-90 block mb-2">{labels.heroTag}</span>
-        <h1 class="text-4xl md:text-5xl font-serif tracking-wide uppercase">{labels.heroTitle}</h1>
+        <span class="text-xs tracking-[0.2em] uppercase opacity-90 block mb-2"
+          >{labels.heroTag}</span
+        >
+        <h1 class="text-4xl md:text-5xl font-serif tracking-wide uppercase">
+          {labels.heroTitle}
+        </h1>
       </div>
     </section>
 
-    <div class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200">
+    <div
+      class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200"
+    >
       {labels.breadcrumb}
     </div>
 
     <section class="max-w-5xl mx-auto text-center px-6 py-16">
-      <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">{labels.sectionTitle}</h2>
-      <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-3xl mx-auto font-light">
+      <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">
+        {labels.sectionTitle}
+      </h2>
+      <p
+        class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-3xl mx-auto font-light"
+      >
         {labels.sectionDesc}
       </p>
     </section>
 
     <main class="max-w-6xl mx-auto px-4 pb-24">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-        {menuImages.map((src, index) => (
-          <div class="bg-white shadow-md hover:shadow-xl border border-black/5 overflow-hidden rounded-sm transition-shadow duration-300 self-start">
-            <img 
-              src={src} 
-              alt={`Menu page ${index + 1}`} 
-              class="w-full h-auto block select-none"
-              loading={index < 2 ? "eager" : "lazy"} 
-              decoding="async"
-            />
-          </div>
-        ))}
+        {
+          menuImages.map((src, index) => (
+            <div class="bg-white shadow-md hover:shadow-xl border border-black/5 overflow-hidden rounded-sm transition-shadow duration-300 self-start">
+              <img
+                src={src}
+                alt={`Menu page ${index + 1}`}
+                class="w-full h-auto block select-none"
+                loading={index < 2 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
+          ))
+        }
       </div>
     </main>
-
-    <section class="bg-[#fcf9f5] px-4 py-16 md:px-8 lg:px-16">
-      <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-2 gap-6">
-        {sections.map((section) => (
-          <a 
-            href={section.link}
-            class="group relative block aspect-[4/3] w-full overflow-hidden bg-zinc-900 shadow-sm transition-all duration-300 walk-fade"
+    <section class="w-full bg-[#fcfbf7] text-center pb-24 px-6">
+      <div
+        class="max-w-md mx-auto border-t border-stone-200 pt-12 flex flex-col items-center"
+      >
+        <p class="font-sans text-xs text-stone-500 tracking-wide mb-4">
+          Would you prefer to keep a copy on your device?
+        </p>
+        <a
+          href="/downloads/Menu-Drinks-MexOnTheBeach.pdf"
+          download
+          class="inline-flex items-center gap-2 text-xs tracking-[0.15em] uppercase text-stone-700 hover:text-[#2c4e4b] font-medium transition-colors duration-200 mb-16"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-4 h-4"
           >
-            <img 
-              src={section.bgImage} 
-              alt={section.alt}
-              class="absolute inset-0 h-full w-full object-cover opacity-70 transition-transform duration-700 ease-out group-hover:scale-105"
-              loading="lazy"
-            />
-
-            <div class="absolute inset-0 bg-black/30 transition-colors duration-300 group-hover:bg-black/50" />
-
-            <div class="absolute inset-0 flex flex-col justify-end p-6 md:p-10 text-white">
-              <h3 class="font-serif text-3xl tracking-wide md:text-4xl lg:text-5xl mb-2">
-                {section.title}
-              </h3>
-              <div class="inline-flex flex-col items-start">
-                <span class="text-xs font-medium tracking-widest uppercase md:text-sm">
-                  {section.actionText}
-                </span>
-                <span class="h-[1.5px] w-full bg-white mt-1 transform scale-x-100 transition-transform duration-300 origin-left" />
-              </div>
-            </div>
-          </a>
-        ))}
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+            ></path>
+          </svg>
+          Download Menu (PDF)
+        </a>
       </div>
     </section>
   </div>

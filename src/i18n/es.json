@@ -35,7 +35,7 @@
           "description": "Desconéctese a lo largo de una tranquila costa de aguas cristalinas, suave arena blanca y belleza natural."
         }
       }
-    },  
+    },
     "WHAT_TO_EXPECT": {
       "title": "¿Qué esperar?",
       "subtitle": "Donde el lujo casual se encuentra con el ritmo auténtico del Caribe mexicano",
@@ -252,6 +252,14 @@
     }
   },
   "THE_MEX": {
+    "HERO": {
+      "title1": "The mex on the beach",
+      "title2": "cocktail club"
+    },
+    "DOWNLOADS": {
+      "pdf-drinks-title": "¿Prefieres guardar una copia en tu dispositivo?",
+      "pdf-food-title": "¿Prefieres guardar una copia en tu dispositivo?"
+    },
     "title": "Menú de Mex On The Beach: Tacos, Bebidas y Sabores Frente al Mar en Puerto Morelos",
     "subtitle": "Te Damos la Bienvenida a un Día de Sol, Sabor y Relajación en Puerto Morelos",
     "menu_food": "Explora nuestro menú de alimentos",
@@ -270,9 +278,9 @@
       "p1": "Una de las mejores partes de cualquier viaje es descubrir la gastronomía local, y Puerto Morelos no es la excepción. En Mex On The Beach, cada platillo está inspirado en los sabores del Caribe Mexicano y preparado para complementar un día de descanso absoluto junto al océano.",
       "p2": "Los mariscos frescos son los protagonistas de nuestro menú. Los huéspedes pueden disfrutar de un sabroso ceviche de pulpo, brochetas de mariscos y tostadas vibrantes coronadas con ceviche mixto o aguachile. Estos platillos capturan la frescura de la costa y combinan a la perfección con el clima tropical.",
       "p3": "Por supuesto, ninguna visita estaría completa sin tacos. Los tacos de camarón se han convertido en los favoritos de los visitantes que desean disfrutar de la auténtica cocina mexicana con vista al mar. Mientras tanto, clásicos como el guacamole y los nachos con camarón son perfectos para compartir con amigos y familia.",
-      "p4": "Ya sea que pases el día explorando los atractivos cercanos, visitando la famosa playa o simplemente relajándote en el club, estos sabores te ayudarán a crear momentos inolvidables durante tu estancia."
+      "p4": "Ya sea que pases el día explorando los atractivos cercanos, visitando la famosa playa o simplemente relajándose en el club, estos sabores te ayudarán a crear momentos inolvidables durante tu estancia."
     },
-    "TILTLE_H3": {
+    "TITLE_H3": {
       "title": "Bebidas Tropicales, Vistas al Mar y Buenos Momentos",
       "p1": "Un día en la playa se disfruta aún más con una bebida refrescante en la mano. Por eso, la carta de bebidas de Mex On The Beach está diseñada para capturar el espíritu del Caribe y el estilo de vida relajado de Puerto Morelos.",
       "p2": "Los huéspedes pueden elegir entre coloridas creaciones tropicales, coctelería refrescante, margaritas clásicas, cervezas bien frías y bebidas artesanales inspiradas en ingredientes locales. Cada trago está elaborado para complementar la atmósfera del club de playa y el hermoso entorno de la Riviera Maya.",

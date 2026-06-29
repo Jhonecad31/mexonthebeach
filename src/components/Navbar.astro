@@ -19,19 +19,34 @@ const isPuertoMorelos = pathname.includes("/puerto-morelos");
 const isHomePage = !isMenuPage && !isContactPage && !isPuertoMorelos;
 
 function getUrlForLang(targetLang: Lang) {
-  const prefix = targetLang === "en" ? "" : `/${targetLang}`;
+  let cleanPath = pathname;
+  // Strip language prefixes /es/ or /pt/ or /es or /pt
+  if (cleanPath.startsWith("/es/")) {
+    cleanPath = cleanPath.substring(3);
+  } else if (cleanPath.startsWith("/pt/")) {
+    cleanPath = cleanPath.substring(3);
+  } else if (cleanPath === "/es" || cleanPath === "/pt") {
+    cleanPath = "/";
+  }
 
-  if (isMenuPage) {
-    return `${prefix}/menu`;
+  // Normalize contact pages
+  // Strip trailing slashes temporarily for comparison
+  const hasTrailingSlash = cleanPath.endsWith("/") && cleanPath.length > 1;
+  const comparePath = hasTrailingSlash ? cleanPath.slice(0, -1) : cleanPath;
+
+  let finalPath = cleanPath;
+  if (comparePath === "/contact" || comparePath === "/contacto") {
+    const localizedSlug = targetLang === "en" ? "/contact" : "/contacto";
+    finalPath = hasTrailingSlash ? `${localizedSlug}/` : localizedSlug;
   }
-  if (isContactPage) {
-    const contactSlug = targetLang === "en" ? "contact" : "contacto";
-    return `${prefix}/${contactSlug}`;
+
+  const prefix = targetLang === "en" ? "" : `/${targetLang}`;
+  
+  if (finalPath === "/") {
+    return prefix === "" ? "/" : prefix;
   }
-  if (isPuertoMorelos) {
-    return `${prefix}/puerto-morelos`;
-  }
-  return prefix === "" ? "/" : prefix;
+
+  return `${prefix}${finalPath}`;
 }
 
 const urlEn = getUrlForLang("en");

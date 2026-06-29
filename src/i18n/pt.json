@@ -13,7 +13,7 @@
     "contact": "Contato",
     "bookNow": "Reservar Agora"
   },
- "HOME": {
+  "HOME": {
     "HERO": {
       "tag": "O Caribe autêntico",
       "title": "Experiência de beach club em Puerto Morelos no Mex On The Beach",
@@ -35,7 +35,7 @@
           "description": "Desconecte-se ao longo de uma costa tranquila de águas cristalinas, areia branca e macia e beleza natural."
         }
       }
-    },  
+    },
     "WHAT_TO_EXPECT": {
       "title": "O que esperar?",
       "subtitle": "Onde o luxo casual encontra o ritmo autêntico do Caribe mexicano",
@@ -252,6 +252,14 @@
     }
   },
   "THE_MEX": {
+    "HERO": {
+      "title1": "The mex on the beach",
+      "title2": "cocktail club"
+    },
+    "DOWNLOADS": {
+      "pdf-drinks-title": "Você prefere salvar uma cópia no seu dispositivo?",
+      "pdf-food-title": "Você prefere salvar uma cópia no seu dispositivo?"
+    },
     "title": "Menú de Mex On The Beach: Tacos, Bebidas y Sabores Frente al Mar en Puerto Morelos",
     "subtitle": "Te Damos la Bienvenida a un Día de Sol, Sabor y Relajación en Puerto Morelos",
     "menu_food": "Explore nosso cardápio de comida",
@@ -272,7 +280,7 @@
       "p3": "Por supuesto, ninguna visita estaría completa sin tacos. Los tacos de camarón se han convertido en los favoritos de los visitantes que desean disfrutar de la auténtica cocina mexicana con vista al mar. Mientras tanto, clásicos como el guacamole y los nachos con camarón son perfectos para compartir con amigos y familia.",
       "p4": "Ya sea que pases el día explorando los atractivos cercanos, visitando la famosa playa o simplemente relajándote en el club, estos sabores te ayudarán a crear momentos inolvidables durante tu estancia."
     },
-    "TILTLE_H3": {
+    "TITLE_H3": {
       "title": "Bebidas Tropicales, Vistas al Mar y Buenos Momentos",
       "p1": "Un día en la playa se disfruta aún más con una bebida refrescante en la mano. Por eso, la carta de bebidas de Mex On The Beach está diseñada para capturar el espíritu del Caribe y el estilo de vida relajado de Puerto Morelos.",
       "p2": "Los huéspedes pueden elegir entre coloridas creaciones tropicales, coctelería refrescante, margaritas clásicas, cervezas bien frías y bebidas artesanales inspiradas en ingredientes locales. Cada trago está elaborado para complementar la atmósfera del club de playa y el hermoso entorno de la Riviera Maya.",
