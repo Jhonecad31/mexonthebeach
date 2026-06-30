@@ -8,6 +8,7 @@ interface Props {
 }
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
+
 const slides = [
   {
     src: "/img-beach-club/mex-beach-club-sunset-horizon.webp",
@@ -66,20 +67,25 @@ const slides = [
       </div>
     </div>
   </div>
+  
   <div 
     id="carousel-track"
     class="flex gap-6 md:gap-10 overflow-x-auto snap-x snap-mandatory scrollbar-none px-6 md:px-[calc((100vw-1152px)/2+24px)] pb-8 cursor-grab select-none active:cursor-grabbing"
     style="scrollbar-width: none; -ms-overflow-style: none;"
   >
     {slides.map((slide) => (
-      <div class={`shrink-0 snap-start relative overflow-hidden bg-stone-100 shadow-md group transition-all duration-500 ${slide.aspect}`}>
+      <div class={`shrink-0 snap-start relative overflow-hidden bg-stone-100 shadow-md group transition-all duration-500 rounded-sm ${slide.aspect}`}>
         <img
           src={slide.src}
           alt={slide.alt}
-          class="w-full h-full object-cover transition-transform duration-[1400ms] ease-out pointer-events-none" 
+          class="w-full h-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-105 pointer-events-none" 
           loading="lazy"
         />
-        <div class="absolute inset-0 bg-black/[0.02] pointer-events-none"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none flex items-end p-6">
+          <span class="text-white font-sans text-xs uppercase tracking-[0.2em] translate-y-2 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+            {slide.alt}
+          </span>
+        </div>
       </div>
     ))}
   </div>
@@ -124,6 +130,7 @@ const slides = [
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
             </svg>
           );
+          
 
           return Object.keys(i18n.PUERTO_MORELOS.QUESTIONS)
             .filter((key) => key.startsWith("q"))
@@ -169,50 +176,52 @@ const slides = [
     </svg>
   </div>
 </section>
+
 <style>
   div::-webkit-scrollbar {
     display: none;
   }
 </style>
+
 <script>
   const track = document.getElementById('carousel-track') as HTMLDivElement;
   const prevBtn = document.getElementById('prev-slide');
   const nextBtn = document.getElementById('next-slide');
+
   if (track) {
     let isDown = false;
     let startX: number;
     let scrollLeft: number;
 
-    // --- Efecto "Arrastrar con la mano" (Mouse Drag) ---
+    // --- Efecto Drag Mejorado ---
     track.addEventListener('mousedown', (e) => {
       isDown = true;
-      track.classList.remove('snap-x', 'snap-mandatory'); // Quitamos el snap temporalmente para que el arrastre sea suave
+      track.classList.remove('snap-x', 'snap-mandatory'); 
+      track.classList.add('scroll-auto'); // Fluidez instantánea sin fricción nativa mientras arrastras
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
     });
 
-    track.addEventListener('mouseleave', () => {
+    const stopDragging = () => {
       if (!isDown) return;
       isDown = false;
-      track.classList.add('snap-x', 'snap-mandatory'); // Devolvemos el imán
-    });
+      track.classList.remove('scroll-auto');
+      track.classList.add('snap-x', 'snap-mandatory'); // Devolvemos el efecto imán de forma limpia
+    };
 
-    track.addEventListener('mouseup', () => {
-      isDown = false;
-      track.classList.add('snap-x', 'snap-mandatory'); // Devolvemos el imán
-    });
+    track.addEventListener('mouseleave', stopDragging);
+    track.addEventListener('mouseup', stopDragging);
 
     track.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - track.offsetLeft;
-      const walk = (x - startX) * 1.5; // El multiplicador ajusta la sensibilidad de la mano
+      const walk = (x - startX) * 1.5; // Ajuste fino de la sensibilidad del arrastre
       track.scrollLeft = scrollLeft - walk;
     });
 
     // --- Botones de navegación (Flechas) ---
     if (prevBtn && nextBtn) {
-      // Calculamos cuánto avanzar según el tamaño promedio de las tarjetas de la galería
       const getScrollAmount = () => window.innerWidth < 768 ? 300 : 450;
 
       prevBtn.addEventListener('click', () => {
