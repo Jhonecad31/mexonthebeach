@@ -1,0 +1,17 @@
+---
+import Layout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import HalfDayComponent from '../../components/HalfDay.astro';
+import Footer from '../../components/Footer.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'pt';
+const t = useTranslations(lang);
+---
+<Layout title={t('SEO.HOME_PAGE.TITLE')} description={t('SEO.HOME_PAGE.DESCRIPTION')} lang={lang}>
+	<Navbar lang={lang} />
+	<main class="flex-grow pt-20">
+		<HalfDayComponent lang={lang} />
+	</main>
+	<Footer lang={lang} />
+</Layout>
