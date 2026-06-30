@@ -13,17 +13,13 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
 <div>
   <section class="relative h-[85vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center">
-  <!-- 1. CONTENEDOR DE LA IMAGEN DE FONDO (image_7ff6b7.jpg) -->
   <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
     <img
       src="/img-puerto-morelos/puerto-morelos-beach.webp"
       alt="Puerto Morelos Aerial View"
       class="w-full h-full object-cover scale-105"
     />
-    
-    <!-- Capa de contraste sutil superior e izquierdo para proteger la lectura -->
     <div class="absolute inset-0 bg-gradient-to-tr from-black/40 via-black/10 to-transparent z-10"></div>
-    
     <!-- Máscara inferior estilizada: Más corta y limpia para no morder la playa -->
     <div
       class="absolute inset-x-0 bottom-0 h-1/4 z-20"
