@@ -1,5 +1,5 @@
 ---
-import logoMex from "../assets/logos/logo-mex.svg";
+import logoMex from "../assets/logos/logo_motb.svg";
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
@@ -74,11 +74,10 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <img
           src={logoMex.src}
           alt="Mex on the Beach Logo"
-          class="h-20 w-auto object-contain group-hover:scale-105 transition-all duration-300"
+          class="h-15 w-auto object-contain group-hover:scale-105 transition-all duration-300"
           id="nav-logo-desktop"
         />
       </a>
-
       <!-- Desktop Nav & Actions Group -->
       <div class="flex items-center space-x-8">
         <!-- Desktop Nav Menu -->
@@ -248,11 +247,17 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-transparent hover:border-dark/10 hover:bg-dark/5 text-dark/70 hover:text-secondary transition-all duration-200 cursor-pointer focus:outline-none"
           aria-label="Change language"
         >
-          <img
-            src={lang === "en" ? "https://flagcdn.com/w40/us.png" : lang === "es" ? "https://flagcdn.com/w40/mx.png" : "https://flagcdn.com/w40/pt.png"}
-            alt={lang.toUpperCase()}
-            class="w-[22px] h-[15px] object-cover rounded-sm shadow-sm border border-slate-200/80"
-          />
+          <svg
+            class="h-5 w-5 text-gray-400"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="1.8"
+          >
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+            <path d="M2 12h20"></path>
+          </svg>
           <span class="text-xs tracking-widest uppercase font-bold">{lang}</span>
           <svg
             class="h-3 w-3 text-gray-400"
