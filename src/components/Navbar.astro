@@ -385,9 +385,9 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 
     <a
       href={menuUrl}
-      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isMenuPage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
+      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 text-center ${isMenuPage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
     >
-      {lang === "es" ? "Menú" : lang === "pt" ? "Menu" : "Menu"}
+      {i18n.NAV.reservations}
     </a>
 
     <a
