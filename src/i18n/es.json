@@ -15,78 +15,89 @@
   },
   "HOME": {
     "HERO": {
-      "tag": "El Caribe auténtico",
-      "title": "Experiencia de club de playa en Puerto Morelos en Mex On The Beach",
-      "subtitle": "La auténtica experiencia de club de playa en Puerto Morelos",
-      "p1": "Bienvenidos a Mex On The Beach, un relajante destino frente al mar donde los visitantes pueden disfrutar de la belleza de la playa de Puerto Morelos mientras descubren uno de los pueblos costeros más encantadores de la Riviera Maya. Ubicado entre Cancún y Playa del Carmen, Puerto Morelos ofrece un ambiente pacífico, aguas cristalinas, suave arena blanca y una experiencia caribeña más auténtica.",
-      "p2": "Para los viajeros que buscan el club de playa perfecto en Puerto Morelos, este espacio frente al mar combina comodidad, cultura local y belleza natural en un entorno inolvidable. Ya sea que esté planeando una excursión de un día desde Cancún, explorando la Riviera Maya o disfrutando de unas vacaciones más largas, Mex On The Beach ofrece un ambiente acogedor para relajarse junto al mar y experimentar la verdadera esencia de Puerto Morelos.",
-      "p3": "Desde cenas junto a la playa y bebidas refrescantes hasta impresionantes vistas al océano y momentos memorables con familiares y amigos, este es un lugar donde cada visita se siente conectada con la belleza natural del Caribe mexicano.",
+      "title": "La auténtica experiencia de club de playa en Puerto Morelos",
+      "check_availability": "Consultar Disponibilidad"
+    },
+    "INTRO": {
+      "tag": "El auténtico Caribe",
+      "title": "El mejor destino de tus vacaciones",
+      "subtitle": "El club de playa perfecto en Puerto Morelos que combina confort, cultura y belleza natural. Disfruta de gastronomía frente al mar, bebidas refrescantes e impresionantes vistas al océano.",
+      "p1": "Te damos la bienvenida a Mex On The Beach, un relajante destino frente al mar donde los visitantes pueden disfrutar de la belleza de la playa de Puerto Morelos mientras descubren uno de los pueblos costeros más encantadores de la Riviera Maya. Situado entre Cancún y Playa del Carmen, Puerto Morelos ofrece un ambiente pacífico, aguas cristalinas, suave arena blanca y una experiencia caribeña más auténtica.",
+      "p2": "Para los viajeros que buscan el club de playa perfecto en Puerto Morelos, este espacio frente al mar combina comodidad, cultura local y belleza natural en un entorno inolvidable. Ya sea que estés planeando una escapada de un día desde Cancún, explorando la Riviera Maya o disfrutando de unas vacaciones más largas, Mex On The Beach te brinda un ambiente acogedor para relajarte junto al mar y experimentar la verdadera esencia de Puerto Morelos.",
+      "p3": "Desde cenas junto a la playa y bebidas refrescantes hasta vistas espectaculares del océano y momentos memorables con familiares y amigos, este es un lugar donde cada visita se conecta con la belleza natural del Caribe Mexicano.",
       "BENEFITS": {
+        "transport": {
+          "title": "Traslados de ida y vuelta al hotel"
+        },
+        "beach": {
+          "title": "Una hermosa franja de 40 metros de playa prístina"
+        },
+        "clear_skiers": {
+          "title": "Aguas cristalinas y playas abiertas"
+        },
+        "sargassum": {
+          "title": "El nivel más bajo de sargazo"
+        },
         "dj": {
-          "title": "Música y vibras junto a la playa",
-          "description": "Relájese con una atmósfera musical curada que complementa a la perfección un ambiente acogedor junto al mar."
-        },
-        "mixology": {
-          "title": "Coctelería de autor",
-          "description": "Disfrute de refrescantes bebidas y cócteles creados para elevar su experiencia de club de playa en Puerto Morelos."
-        },
-        "wellness": {
-          "title": "Auténtica relajación caribeña",
-          "description": "Desconéctese a lo largo de una tranquila costa de aguas cristalinas, suave arena blanca y belleza natural."
+          "title": "Ambiente playero y música - Coctelería de autor"
         }
       }
     },
+    "PLAN_VISIT": {
+      "title": "Planifica tu Visita",
+      "subtitle": "Ubicado en el auténtico Puerto Morelos —entre Cancún y Playa del Carmen— Mex On The Beach combina arena blanca, aguas turquesas y un servicio premium. Es la parada perfecta al explorar el arrecife de coral o la famosa Ruta de los Cenotes."
+    },
     "WHAT_TO_EXPECT": {
       "title": "¿Qué esperar?",
-      "subtitle": "Donde el lujo casual se encuentra con el ritmo auténtico del Caribe mexicano",
+      "subtitle": "Donde el lujo relajado se encuentra con el ritmo auténtico del Caribe Mexicano",
       "beach_club": {
         "tag": "El Club de Playa",
-        "title": "Lujo casual en Puerto Morelos",
-        "description": "Los visitantes que llegan a Mex On The Beach pueden esperar una experiencia de playa relajante y auténtica, rodeados de la belleza de la Riviera Maya. El club de playa se encuentra directamente en la orilla, lo que permite a los huéspedes disfrutar de vistas panorámicas del Mar Caribe mientras pasan el día con total comodidad."
+        "title": "Lujo relajado en Puerto Morelos",
+        "description": "Quienes visitan Mex On The Beach pueden esperar una experiencia de playa relajante y auténtica, rodeados de la belleza de la Riviera Maya. El club de playa se encuentra directamente sobre la costa, permitiendo a los huéspedes disfrutar de vistas panorámicas del Mar Caribe mientras pasan el día con total comodidad."
       },
       "puerto_morelos": {
         "tag": "Puerto Morelos",
-        "title": "La joya escondida del Caribe mexicano",
-        "description": "A diferencia de las zonas turísticas concurridas, Puerto Morelos mantiene su encanto tradicional de pueblo pesquero. Como resultado, los huéspedes pueden experimentar un ambiente más tranquilo sin dejar de disfrutar de las comodidades modernas. La playa es ideal para nadar, tomar el sol, tomar fotografías y simplemente apreciar el ritmo pacífico de la vida costera."
+        "title": "La joya oculta del Caribe Mexicano",
+        "description": "A diferencia de las zonas turísticas masificadas, Puerto Morelos conserva su encanto tradicional de pueblo pesquero. Como resultado, los huéspedes pueden experimentar un ambiente más tranquilo sin renunciar a las comodidades modernas. La playa es ideal para nadar, tomar el sol, tomar fotografías y simplemente apreciar el ritmo pacífico de la vida costera."
       },
       "local_culture": {
-        "tag": "Cultura local",
-        "title": "Un vibrante sabor de las tradiciones del Caribe mexicano",
-        "description": "Muchos viajeros que nos visitan desde Cancún se sorprenden de lo fácil que es el trayecto. El viaje en auto desde Cancún a Puerto Morelos toma menos de 30 minutos, lo que lo convierte en uno de los destinos de excursiones de un día más convenientes de la región. Debido a su ubicación, los visitantes pueden combinar fácilmente un día de playa con otras actividades populares en Puerto Morelos, como el esnórquel, explorar restaurantes locales, comprar artesanías hechas a mano y descubrir cenotes cercanos."
+        "tag": "Cultura Local",
+        "title": "Un vibrante sabor de las tradiciones del Caribe Mexicano",
+        "description": "Muchos viajeros que nos visitan desde Cancún se sorprenden de lo fácil que es el trayecto. El viaje en auto desde Cancún a Puerto Morelos toma menos de 30 minutos, lo que lo convierte en uno de los destinos de pasadía más convenientes de la región. Gracias a su ubicación, los visitantes pueden combinar fácilmente un día de playa con otras actividades populares en Puerto Morelos, como el esnórquel, explorar restaurantes locales, comprar artesanías hechas a mano y descubrir los cenotes cercanos."
       }
     },
     "TITLE_H2": {
       "title": "Por qué Puerto Morelos es uno de los mejores destinos de playa en la Riviera Maya",
-      "p1": "Muchos viajeros que buscan las mejores playas del Caribe mexicano piensan de inmediato en Cancún o Playa del Carmen. Sin embargo, la playa de Puerto Morelos México ofrece algo diferente. Brinda un ambiente más relajado donde los visitantes pueden disfrutar de la costa sin las multitudes que a menudo se encuentran en destinos más grandes.",
-      "p2": "Las playas de Puerto Morelos son conocidas por su arena suave, aguas turquesas y su gran proximidad al mundialmente famoso Arrecife Mesoamericano. Este sistema de arrecifes ayuda a proteger la costa de las grandes olas, creando condiciones tranquilas para nadar durante gran parte del año.",
-      "p3": "Además, Puerto Morelos ofrece un equilibrio único entre naturaleza y comodidad. Los visitantes pueden pasar la mañana relajándose en el club de playa, disfrutar de mariscos frescos para el almuerzo y luego explorar la cultura local del pueblo durante la tarde."
+      "p1": "Muchos viajeros que buscan las mejores playas del Caribe Mexicano piensan inmediatamente en Cancún o Playa del Carmen. Sin embargo, la playa de Puerto Morelos ofrece algo diferente: un entorno más relajado donde los visitantes pueden disfrutar de la costa sin las aglomeraciones que suelen encontrarse en los destinos más grandes.",
+      "p2": "Las playas de Puerto Morelos son conocidas por su arena suave, aguas turquesas y su gran cercanía al mundialmente famoso Arrecife Mesoamericano. Este sistema de arrecifes ayuda a proteger la costa de las grandes olas, creando condiciones ideales y tranquilas para nadar durante casi todo el año.",
+      "p3": "Además, Puerto Morelos ofrece un equilibrio único entre naturaleza y conveniencia. Los visitantes pueden pasar la mañana relajándose en el club de playa, disfrutar de mariscos frescos para el almuerzo y luego explorar la cultura local del pueblo durante la tarde."
     },
     "TITLE_H3": {
-      "title": "Descubra el encanto auténtico de Mex On The Beach en Puerto Morelos",
-      "subtitle": "La experiencia Mex on the beach",
-      "p1": "Entre los diversos clubes de playa en Puerto Morelos, Mex On The Beach se destaca porque se enfoca en brindar una auténtica experiencia costera que refleja el carácter del destino mismo. El ambiente invita a los visitantes a bajar el ritmo y disfrutar del momento. En lugar de correr entre atracciones, los huéspedes pueden pasar el día apreciando la brisa marina, escuchando el sonido de las olas y disfrutando del espectacular paisaje que los rodea.",
-      "p2": "Para muchos viajeros, el club de playa se convierte en uno de los puntos más destacados de sus vacaciones en Puerto Morelos. Su conveniente ubicación permite un fácil acceso desde hoteles y alojamientos cercanos, mientras que su entorno frente al mar brinda acceso directo a una de las extensiones de costa más hermosas de la región.",
-      "p3": "Los visitantes que planean paquetes de vacaciones a Puerto Morelos a menudo incluyen experiencias de clubes de playa como parte de su intranet porque brindan una combinación perfecta de relajación y cultura local. Además, los huéspedes pueden complementar su visita con tours de esnórquel, aventuras en cenotes o excursiones por toda la Riviera Maya.",
-      "p4": "La zona también atrae a viajeros que buscan rentas vacacionales en la playa de Puerto Morelos, actividades playeras y destinos familiares. Como resultado, Mex On The Beach sirve como un punto de partida ideal para explorar todo lo que la región tiene para ofrecer.",
-      "button": "Descubre más"
+      "title": "Descubre el encanto auténtico de Mex On The Beach en Puerto Morelos",
+      "subtitle": "La experiencia Mex On The Beach",
+      "p1": "Entre los diversos clubes de playa en Puerto Morelos, Mex On The Beach destaca porque se enfoca en brindar una experiencia costera auténtica que refleja el carácter del propio destino. El ambiente invita a los visitantes a bajar el ritmo y disfrutar el momento. En lugar de correr entre atracciones, los huéspedes pueden pasar el día apreciando la brisa marina, escuchando el sonido de las olas y disfrutando del espectacular paisaje que los rodea.",
+      "p2": "For muchos viajeros, el club de playa se convierte en uno de los puntos clave de sus vacaciones en Puerto Morelos. Su conveniente ubicación permite un fácil acceso desde los hoteles y alojamientos cercanos, mientras que su entorno frente al mar ofrece acceso directo a una de las franjas de costa más hermosas de la región.",
+      "p3": "Los visitantes que planean paquetes de vacaciones a Puerto Morelos suelen incluir experiencias de club de playa en su itinerario porque brindan una combinación perfecta de relajación y cultura local. Además, los huéspedes pueden complementar su visita con tours de esnórquel, aventuras en cenotes o excursiones por toda la Riviera Maya.",
+      "p4": "La zona también atrae a viajeros que buscan rentas vacacionales en la playa de Puerto Morelos, actividades playeras y destinos familiares. Como resultado, Mex On The Beach sirve como el punto de partida ideal para explorar todo lo que la región tiene para ofrecer.",
+      "button": "Descubrir más"
     },
     "QUESTIONS": {
-      "title": "Preguntas frecuentes",
+      "title": "Preguntas Frecuentes",
       "q1": {
-        "question": "¿Dónde se ubica Mex On The Beach?",
-        "answer": "Mex On The Beach está ubicado en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen. Su ubicación lo hace fácilmente accesible para los visitantes que se hospedan en toda la región."
+        "question": "¿Dónde está ubicado Mex On The Beach?",
+        "answer": "Mex On The Beach está ubicado en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen. Su ubicación lo hace fácilmente accesible para los visitantes que se alojan en cualquier punto de la región."
       },
       "q2": {
         "question": "¿Qué tan lejos está Puerto Morelos de Cancún?",
-        "answer": "El viaje en auto desde Cancún a Puerto Morelos suele tardar entre 25 y 30 minutos, lo que lo convierte en uno de los destinos de playa más convenientes para excursiones de un día y escapadas de fin de semana."
+        "answer": "El viaje en auto desde Cancún a Puerto Morelos toma normalmente entre 25 y 30 minutos, lo que lo convierte en uno de los destinos de playa más convenientes para viajes de un día y escapadas de fin de semana."
       },
       "q3": {
         "question": "¿Cuáles son las mejores actividades en Puerto Morelos?",
-        "answer": "Las actividades populares incluyen hacer esnórquel en el arrecife de coral, visitar cenotes, explorar restaurantes locales, disfrutar de clubes de playa, excursiones de pesca, paddleboarding y descubrir la belleza naturaleza de la Riviera Maya."
+        "answer": "Las actividades más populares incluyen hacer esnórquel en el arrecife de coral, visitar cenotes, explorar restaurantes locales, disfrutar de clubes de playa, excursiones de pesca, paddleboarding y descubrir la belleza natural de la Riviera Maya."
       },
       "q4": {
         "question": "¿Por qué debería visitar un club de playa en Puerto Morelos?",
-        "answer": "Un club de playa en Puerto Morelos ofrece un ambiente relajante con vistas al océano, acceso a la playa, gastronomía local y una atmósfera caribeña más auténtica en comparación con los destinos turísticos más grandes. Es una excelente manera de disfrutar de la belleza natural de Puerto Morelos mientras se experimenta la cultura y la hospitalidad local."
+        "answer": "Un club de playa en Puerto Morelos ofrece un ambiente relajante con vistas al océano, acceso directo a la playa, gastronomía local y una atmósfera caribeña más auténtica en comparación con los grandes destinos turísticos. Es una excelente manera de disfrutar de la belleza natural de Puerto Morelos mientras se experimenta la cultura y la hospitalidad local."
       }
     }
   },
