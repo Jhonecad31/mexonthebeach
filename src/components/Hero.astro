@@ -24,7 +24,7 @@ const t = useTranslations(lang);
   </div>
   <div class="relative z-10 max-w-4xl mx-auto px-4 text-center text-white mt-12 md:mt-20">
     <h2 class="font-serif text-4xl font-bold tracking-wider mb-6 leading-tight drop-shadow-md">
-      {i18n.HOME.HERO.subtitle}
+      {i18n.HOME.HERO.title}
     </h3>
     <a href="#experience" class="inline-block p-3 bg-white/10 hover:bg-white/20 border border-white/20 rounded-full transition-all duration-300 animate-bounce">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
@@ -32,17 +32,25 @@ const t = useTranslations(lang);
       </svg>
     </a>
   </div>
-
   <!-- Decorative bottom wave vector as in the prototype -->
-  <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
-      <!-- Pinkish-beige wave background layer matching mockup -->
-      <path d="M0,60 C360,100 720,100 1080,60 L1440,40 L1440,120 L0,120 Z" fill="#fbf7f4"></path>
-      <!-- Main white/off-white background transition -->
-      <path d="M0,96 C240,112 480,128 720,112 C960,96 1200,48 1440,80 L1440,120 L0,120 Z" fill="#fcfbf7"></path>
-      <!-- Warm stylized stroke divider matching prototype -->
-      <path d="M0,86 C240,102 480,118 720,102 C960,86 1200,38 1440,70" stroke="var(--color-primary)" stroke-width="2" fill="none"></path>
-    </svg>
-  </div>
-
+<div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+  <svg 
+    viewBox="0 0 1440 130" 
+    fill="none" 
+    xmlns="http://www.w3.org/2000/svg" 
+    class="w-full h-auto overflow-visible"
+  >
+    <!-- Pinkish-beige wave background layer matching mockup -->
+    <path d="M0,60 C360,100 720,100 1080,60 L1440,40 L1440,130 L0,130 Z" fill="#fbf7f4"></path>
+    <path d="M0,96 C240,112 480,128 720,112 C960,96 1200,48 1440,80 L1440,130 L0,130 Z" fill="#fcfbf7"></path>
+    <path 
+      d="M0,86 C240,102 480,118 720,102 C960,86 1200,38 1440,70" 
+      stroke="var(--color-primary)" 
+      class="stroke-[3.5] md:stroke-[2] opacity-95" 
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    ></path>
+  </svg>
+</div>
 </section>

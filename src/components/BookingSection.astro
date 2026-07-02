@@ -10,61 +10,6 @@ const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
 <section
-  class="w-full bg-white pt-16 pb-8 px-4 sm:px-6 lg:px-8 flex justify-center items-center relative overflow-hidden"
->
-  <div
-    class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center"
-  >
-    <!-- Bloque de Texto (Izquierda) -->
-    <div class="lg:col-span-6 flex flex-col items-start space-y-6 max-w-xl">
-      <span
-        class="text-primary uppercase tracking-wider font-bold text-sm block"
-      >
-        {i18n.HOME.HERO.tag}
-      </span>
-      <!-- CAMBIO: text-dark -> text-secondary (verde azulado) y ajuste fluido de tamaño text-4xl/5xl -->
-      <h2
-        class="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-secondary leading-tight"
-      >
-        {i18n.HOME.TITLE_H3.title}
-      </h2>
-      <p class="text-gray-500 font-light text-sm md:text-base leading-relaxed">
-        {i18n.HOME.TITLE_H3.p1}
-      </p>
-      <a
-        href="/the-mex"
-        class="inline-flex items-center gap-2 text-primary hover:text-primary font-sans text-sm font-medium py-3 px-6 rounded-full transition-all duration-300 group shadow-md hover:shadow-lg"
-      >
-        <span>{i18n.HOME.TITLE_H3.button}</span>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke-width="2"
-          stroke="currentColor"
-          class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"></path>
-        </svg>
-      </a>
-    </div>
-    <div
-      class="lg:col-span-6 w-full aspect-[4/3] lg:aspect-square xl:aspect-[4/3] overflow-hidden rounded-3xl shadow-sm"
-    >
-      <img
-        src="/img-beach-club/mex-beach-club-signature-drinks.webp"
-        alt="Experience Puerto Morelos"
-        class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
-        loading="lazy"
-      />
-    </div>
-  </div>
-</section>
-<!-- seccion con texto informativo -->
-<section
   id="booking"
   class="pt-8 pb-16 md:pb-20 bg-white relative overflow-hidden flex flex-col justify-center items-center md:mt-30"
 >
@@ -77,11 +22,8 @@ const t = useTranslations(lang);
       >
         {i18n.BOOKING.title}
       </h2>
-      <p
-        class="text-gray-500 font-light mt-2 md:mt-3 text-sm md:text-base leading-relaxed max-w-2xl mx-auto px-2"
-      >
+      <p class="text-gray-500 font-light text-sm md:text-base leading-relaxed">
         {i18n.BOOKING.description}
-      </p>
     </div>
     <div
       class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 w-full max-w-5xl mt-2 md:mt-6"

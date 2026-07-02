@@ -39,19 +39,9 @@ const blocks = [
 ---
 <section class="py-20 px-6 md:px-12 lg:px-24 selection:bg-stone-200">
   <div class="max-w-5xl mx-auto flex flex-col gap-20 md:gap-24">
-    <!-- <div>
-            <h2 class="font-serif text-3xl md:text-5xl font-bold text-dark leading-tight">
-              {i18n.HOME.WHAT_TO_EXPECT.title}
-            </h2>
-            <p class="max-w-xl text-gray-500 font-light mt-3">
-              {i18n.HOME.WHAT_TO_EXPECT.subtitle}
-            </p>
-          </div> -->
     {
       blocks.map((block) => (
-        /* items-center centra el texto verticalmente con la imagen; reducimos el gap */
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 lg:gap-14 items-center">
-          {/* Bloque de Texto */}
           <div
             class={`flex flex-col justify-center ${block.reverse ? "md:order-2 md:pl-6" : "md:order-1 md:pr-6"}`}
           >
@@ -65,7 +55,6 @@ const blocks = [
               {block.description}
             </p>
           </div>
-          {/* Bloque de Imagen - Proporción más equilibrada y compacta */}
           <div
             class={`overflow-hidden aspect-[4/3.5] w-full bg-stone-100 shadow-sm ${block.reverse ? "md:order-1" : "md:order-2"}`}
           >

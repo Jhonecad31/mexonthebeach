@@ -1,100 +1,175 @@
 ---
-import { useTranslations, type Lang } from '../../i18n/utils';
+import { useTranslations, type Lang } from "../../i18n/utils";
 import { getI18N } from "../../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-<section id="experience" class="pt-16 pb-48 bg-[#fcfbf7] relative overflow-hidden" >
+
+<section
+  id="experience"
+  class="pt-16 pb-20 md:pb-48 bg-[#fcfbf7] relative overflow-hidden"
+>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-      <div class="lg:col-span-6 relative flex justify-center py-6">
-        <div class="absolute w-[360px] h-[420px] bg-secondary/10 rounded-[120px_240px_120px_240px] blur-3xl -z-10"></div>
-        <div class="w-[320px] h-[400px] sm:w-[350px] sm:h-[440px] overflow-hidden rounded-[120px_240px_120px_240px] shadow-2xl relative z-10">
-          <img 
-            src="/img-food/food-beach-club-in-puerto-morelos.webp" 
-            alt="Delicious food on the beach" 
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+      <!-- LADO IZQUIERDO: CONTENEDOR DE IMÁGENES ORGÁNICAS -->
+      <div class="lg:col-span-5 relative flex justify-center py-6">
+        <div
+          class="absolute w-[360px] h-[420px] bg-secondary/10 rounded-[120px_240px_120px_240px] blur-3xl -z-10"
+        >
+        </div>
+        <div
+          class="w-[320px] h-[400px] sm:w-[350px] sm:h-[440px] overflow-hidden rounded-[120px_240px_120px_240px] shadow-2xl relative z-10"
+        >
+          <img
+            src="/img-food/food-beach-club-in-puerto-morelos.webp"
+            alt="Delicious food on the beach"
             class="w-full h-full object-cover"
           />
-        </div>    
-        <div class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden absolute bottom-[10px] right-2 sm:right-6 z-20 border-[6px] border-white shadow-xl">
-          <img 
-            src="/img-food/food-in-the-beach.webp" 
-            alt="Ocean water beach thumbnail" 
+        </div>
+        <div
+          class="w-36 h-36 sm:w-40 sm:h-40 rounded-full overflow-hidden absolute bottom-[10px] right-2 sm:right-6 z-20 border-[6px] border-white shadow-xl"
+        >
+          <img
+            src="/img-food/food-in-the-beach.webp"
+            alt="Ocean water beach thumbnail"
             class="w-full h-full object-cover"
           />
         </div>
       </div>
-      <div class="lg:col-span-6 flex flex-col justify-center">
-        <span class="text-primary uppercase tracking-wider font-bold text-xs mb-3">{i18n.HOME.HERO.tag}</span>
-        <h2 class="font-serif text-3xl md:text-4xl font-bold mb-5 text-dark leading-tight">
-          {i18n.HOME.HERO.title}
+
+      <!-- LADO DERECHO: TEXTO EDITORIAL Y BENEFICIOS -->
+      <div class="lg:col-span-7 flex flex-col justify-center">
+        <span
+          class="text-primary uppercase tracking-wider font-bold text-xs mb-3"
+        >
+          {i18n.HOME.INTRO.tag}
+        </span>
+        <h2
+          class="font-serif text-3xl md:text-4xl font-bold mb-4 text-secondary leading-tight"
+        >
+          {i18n.HOME.INTRO.title}
         </h2>
-        <h3 class="text-gray-550 font-medium leading-relaxed mb-6 text-sm">
-          {i18n.HOME.HERO.subtitle}
+        <h3 class="text-gray-500 font-normal leading-relaxed mb-8 text-sm max-w-2xl">
+          {i18n.HOME.INTRO.subtitle}
         </h3>
-        <p class="font-light text-gray-500 leading-relaxed mb-6 text-sm">
-          {i18n.HOME.HERO.p1}
-        </p>
-        <div class="flex flex-col space-y-4 mt-6">
-          <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-secondary/[0.04] transition-all duration-300 border border-transparent hover:border-secondary/10 group">
-            <div class="flex-shrink-0 p-3 bg-secondary/10 text-secondary rounded-full group-hover:scale-105 transition-transform duration-300">
+
+        <!-- CUADRÍCULA DE BENEFICIOS -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full">
+          <!-- 1. Transport -->
+          <div class="flex items-center space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group">
+            <div class="flex-shrink-0 p-2.5 bg-secondary/10 text-secondary rounded-lg group-hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 4L9 7" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug">{i18n.HOME.INTRO.BENEFITS.transport.title}</h4>
+              {i18n.HOME.INTRO.BENEFITS.transport.description && (
+                <p class="text-[12px] text-gray-550 font-normal mt-0.5 leading-normal">{i18n.HOME.INTRO.BENEFITS.transport.description}</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 2. Beach (40 metros) -->
+          <div class="flex items-center space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group">
+            <div class="flex-shrink-0 p-2.5 bg-secondary/10 text-secondary rounded-lg group-hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug">{i18n.HOME.INTRO.BENEFITS.beach.title}</h4>
+              {i18n.HOME.INTRO.BENEFITS.beach.description && (
+                <p class="text-[12px] text-gray-550 font-normal mt-0.5 leading-normal">{i18n.HOME.INTRO.BENEFITS.beach.description}</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 3. Sargassum -->
+          <div class="flex items-center space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group">
+            <div class="flex-shrink-0 p-2.5 bg-secondary/10 text-secondary rounded-lg group-hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 011 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug">{i18n.HOME.INTRO.BENEFITS.sargassum.title}</h4>
+              {i18n.HOME.INTRO.BENEFITS.sargassum.description && (
+                <p class="text-[12px] text-gray-550 font-normal mt-0.5 leading-normal">{i18n.HOME.INTRO.BENEFITS.sargassum.description}</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 4. Clear Skies -->
+          <div class="flex items-center space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group">
+            <div class="flex-shrink-0 p-2.5 bg-secondary/10 text-secondary rounded-lg group-hover:scale-105 transition-transform duration-300">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+              </svg>
+            </div>
+            <div>
+              <h4 class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug">{i18n.HOME.INTRO.BENEFITS.clear_skiers.title}</h4>
+              {i18n.HOME.INTRO.BENEFITS.clear_skiers.description && (
+                <p class="text-[12px] text-gray-550 font-normal mt-0.5 leading-normal">{i18n.HOME.INTRO.BENEFITS.clear_skiers.description}</p>
+              )}
+            </div>
+          </div>
+
+          <!-- 5. DJ / Ambiente -->
+          <div class="md:col-span-2 flex items-center space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group">
+            <div class="flex-shrink-0 p-2.5 bg-secondary/10 text-secondary rounded-lg group-hover:scale-105 transition-transform duration-300">
               <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" />
               </svg>
             </div>
             <div>
-              <h4 class="font-bold text-md text-secondary">{i18n.HOME.HERO.BENEFITS.dj.title}</h4>
-              <p class="text-[13px] text-gray-550 font-normal mt-1 leading-normal">
-                {i18n.HOME.HERO.BENEFITS.dj.description}
-              </p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-secondary/[0.04] transition-all duration-300 border border-transparent hover:border-secondary/10 group">
-            <div class="flex-shrink-0 p-3 bg-secondary/10 text-secondary rounded-full group-hover:scale-105 transition-transform duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-bold text-md text-secondary">{i18n.HOME.HERO.BENEFITS.mixology.title}</h4>
-              <p class="text-[13px] text-gray-550 font-normal mt-1 leading-normal">
-                {i18n.HOME.HERO.BENEFITS.mixology.description}
-              </p>
-            </div>
-          </div>
-          <div class="flex items-start space-x-4 p-4 rounded-2xl hover:bg-secondary/[0.04] transition-all duration-300 border border-transparent hover:border-secondary/10 group">
-            <div class="flex-shrink-0 p-3 bg-secondary/10 text-secondary rounded-full group-hover:scale-105 transition-transform duration-300">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z" />
-              </svg>
-            </div>
-            <div>
-              <h4 class="font-bold text-md text-secondary">{i18n.HOME.HERO.BENEFITS.wellness.title}</h4>
-              <p class="text-[13px] text-gray-550 font-normal mt-1 leading-normal">
-                {i18n.HOME.HERO.BENEFITS.wellness.description}
-              </p>
+              <h4 class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug">{i18n.HOME.INTRO.BENEFITS.dj.title}</h4>
+              {i18n.HOME.INTRO.BENEFITS.dj.description && (
+                <p class="text-[12px] text-gray-550 font-normal mt-0.5 leading-normal">{i18n.HOME.INTRO.BENEFITS.dj.description}</p>
+              )}
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- SVG DE CURVAS INFERIORES -->
   <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-    <svg viewBox="0 0 1440 140" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+    <svg
+      viewBox="0 0 1440 140"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-auto overflow-visible"
+    >
       <defs>
         <filter id="line-shadow" x="-10%" y="-30%" width="120%" height="160%">
-          <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#053e3a" flood-opacity="0.18" />
+          <feDropShadow
+            dx="0"
+            dy="5"
+            stdDeviation="5"
+            flood-color="#053e3a"
+            flood-opacity="0.18"></feDropShadow>
         </filter>
       </defs>
       <path d="M0,100 C240,60 480,120 720,90 C960,60 1200,120 1440,80 L1440,140 L0,140 Z" fill="#f8ece5" opacity="0.6"></path>
       <path d="M0,110 C360,70 720,130 1080,70 L1440,110 L1440,140 L0,140 Z" fill="#fbf7f4"></path>
       <path d="M0,140 Q720,40 1440,140 Z" fill="#fcfbf7"></path>
-      <path d="M120,90 Q720,30 1320,90" stroke="var(--color-secondary)" stroke-width="2.5" stroke-linecap="round" filter="url(#line-shadow)" fill="none"></path>
+      
+      <!-- Línea estilizada: más gruesa en móvil, normal en desktop y con overflow para evitar cortes rectos -->
+      <path 
+        d="M120,90 Q720,30 1320,90" 
+        stroke="var(--color-secondary)" 
+        class="stroke-[4] md:stroke-[2.5]" 
+        stroke-linecap="round" 
+        filter="url(#line-shadow)" 
+        fill="none"
+      ></path>
     </svg>
   </div>
 </section>

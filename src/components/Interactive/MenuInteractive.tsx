@@ -7,13 +7,11 @@ interface MenuItem {
   price_mxn: number;
   details?: string;
 }
-
 interface MenuSection {
   title_en: string;
   title_es: string;
   items: MenuItem[];
 }
-
 const menuSections: MenuSection[] = [
   {
     title_en: "Appetizers",
