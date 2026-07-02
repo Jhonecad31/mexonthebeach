@@ -135,7 +135,6 @@ const t = useTranslations(lang);
       </div>
     </div>
   </div>
-
   <!-- SVG DE CURVAS INFERIORES -->
   <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
     <svg
@@ -158,9 +157,8 @@ const t = useTranslations(lang);
       <path d="M0,110 C360,70 720,130 1080,70 L1440,110 L1440,140 L0,140 Z" fill="#fbf7f4"></path>
       <path d="M0,140 Q720,40 1440,140 Z" fill="#fcfbf7"></path>
       
-      <!-- Línea estilizada: más gruesa en móvil, normal en desktop y con overflow para evitar cortes rectos -->
       <path 
-        d="M120,90 Q720,30 1320,90" 
+        d="M0,90 Q720,30 1440,90" 
         stroke="var(--color-secondary)" 
         class="stroke-[4] md:stroke-[2.5]" 
         stroke-linecap="round" 
