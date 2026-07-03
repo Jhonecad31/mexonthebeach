@@ -12,9 +12,9 @@ const lang = 'pt';
 // Cast through unknown to bypass the narrower union and allow other locales like 'pt'.
 const t = useTranslations(lang as unknown as any) as any;
 ---
-<Layout title={String(t('SEO.HOME_PAGE.TITLE'))} description={String(t('SEO.HOME_PAGE.DESCRIPTION'))} lang={lang}>
+<Layout title={String(t(''))} description={String(t('SEO.HOME_PAGE.DESCRIPTION'))} lang={lang}>
 	<Navbar lang={lang} />
-	<main class="flex-grow">
+	<main class="flex-grow">SEO.HOME_PAGE.TITLE
 		<Hero lang={lang} />
 		<Experience lang={lang} />
 		<BookingSection lang={lang} />	
