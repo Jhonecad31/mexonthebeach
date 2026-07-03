@@ -491,10 +491,10 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
   const header = document.getElementById("main-header");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
-      header?.classList.add("shadow-md", "bg-[#fcfbf7]/95");
+      header?.classList.add("shadow-md", "bg-[#fcfbf7]");
       header?.classList.remove("bg-[#fcfbf7]");
     } else {
-      header?.classList.remove("shadow-md", "bg-[#fcfbf7]/95");
+      header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
       header?.classList.add("bg-[#fcfbf7]");
     }
   });
