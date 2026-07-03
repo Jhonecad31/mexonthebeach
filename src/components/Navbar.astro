@@ -191,7 +191,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       </div>
     </div>
     <!-- MOBILE HEADER -->
-    <!-- MOBILE HEADER -->
     <div
       class="md:hidden flex justify-between items-center h-20 px-4 sm:px-6"
       id="header-container-mobile"
@@ -218,14 +217,16 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           </svg>
         </button>
 
-        <a href={homeUrl} class="flex items-center">
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <a href={homeUrl} class="flex items-center pointer-events-auto">
           <img
             src={logoMex.src}
             alt="Mex on the Beach Logo"
-            class="h-12 w-auto object-contain"
+            class="h-10 w-auto object-contain"
             id="nav-logo-mobile"
           />
         </a>
+      </div>
       </div>
 
       <!-- Right Side: Compact Language Button -->
