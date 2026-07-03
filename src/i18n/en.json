@@ -26,7 +26,7 @@
       "p3": "From beachside dining and refreshing drinks to stunning ocean views and memorable moments with family and friends, this is a place where every visit feels connected to the natural beauty of the Mexican Caribbean",
       "BENEFITS": {
         "transport": {
-          "title": "Round-trip hotel transfers"
+          "title": "Round trip hotel transfers"
         },
         "beach": {
           "title": "A beautiful 40-meter stretch of pristine beach"
@@ -98,7 +98,7 @@
   },
   "BOOKING": {
     "title": "Plan your visit",
-    "description": "Located in authentic Puerto Morelos—between Cancun and Playa del Carmen—Mex On The Beach combines white sand, turquoise waters, and premium service. It’s the perfect stop when exploring the barrier reef or the famous Ruta de los Cenotes.",
+    "description": "Located in authentic Puerto Morelos between Cancun and Playa del Carmen Mex On The Beach combines white sand, turquoise waters, and premium service. It’s the perfect stop when exploring the barrier reef or the famous Ruta de los Cenotes.",
     "fields": {
       "people": "Number of People",
       "peopleOptions": [
