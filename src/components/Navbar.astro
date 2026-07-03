@@ -83,16 +83,16 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <nav
           class="flex items-center space-x-6 text-sm font-semibold text-dark/70"
         >
-          <a href={homeUrl} class="hover:text-secondary transition-colors"
+          <a href={homeUrl} class="hover:text-[#4e8782] transition-colors"
             >{i18n.NAV.home}</a
           >
-          <a href={menuUrl} class="hover:text-secondary transition-colors"
+          <a href={menuUrl} class="hover:text-[#4e8782] transition-colors"
             >{i18n.NAV.reservations}</a
           >
           <a href={pmUrl} class="font-bold pb-0.5 transition-colors"
             >{i18n.NAV.gallery}</a
           >
-          <a href={contactUrl} class="hover:text-secondary transition-colors"
+          <a href={contactUrl} class="hover:text-[#4e8782] transition-colors"
             >{i18n.NAV.contact}</a
           >
         </nav>
@@ -100,10 +100,10 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <div class="relative group">
           <button
             type="button"
-            class="flex items-center text-sm font-semibold text-dark/70 hover:text-secondary transition-colors cursor-pointer gap-2 focus:outline-none"
+            class="flex items-center text-sm font-semibold text-dark/70 hover:text-[#4e8782] transition-colors cursor-pointer gap-2 focus:outline-none"
           >
             <svg
-              class="h-5 w-5 text-gray-400 group-hover:text-secondary transition-colors"
+              class="h-5 w-5 text-gray-400 group-hover:text-[#4e8782] transition-colors"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -115,7 +115,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
             </svg>
             <span class="tracking-wide uppercase font-bold">{lang}</span>
             <svg
-              class="h-4 w-4 text-gray-400 group-hover:text-secondary transition-colors"
+              class="h-4 w-4 text-gray-400 group-hover:text-[#4e8782] transition-colors"
               viewBox="0 0 20 20"
               fill="currentColor"
             >
@@ -132,7 +132,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           >
             <a
               href={urlEn}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "en" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "en" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
             >
               <img
                 src="https://flagcdn.com/w40/us.png"
@@ -142,13 +142,13 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               English
               {
                 lang === "en" && (
-                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
+                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />
                 )
               }
             </a>
             <a
               href={urlEs}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "es" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "es" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
             >
               <img
                 src="https://flagcdn.com/w40/mx.png"
@@ -158,13 +158,13 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               Español
               {
                 lang === "es" && (
-                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
+                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />
                 )
               }
             </a>
             <a
               href={urlPt}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "pt" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "pt" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
             >
               <img
                 src="https://flagcdn.com/w40/pt.png"
@@ -174,7 +174,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               Português
               {
                 lang === "pt" && (
-                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
+                  <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />
                 )
               }
             </a>
@@ -199,7 +199,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <button
           type="button"
           id="menu-toggle-btn"
-          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-secondary hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 shrink-0"
+          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-[#4e8782] hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 shrink-0"
           aria-label="Open menu"
         >
           <svg
@@ -233,7 +233,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <button
           type="button"
           id="mobile-lang-btn"
-          class="flex items-center gap-1 h-10 px-2 text-dark/70 hover:text-secondary text-xs font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer focus:outline-none"
+          class="flex items-center gap-1 h-10 px-2 text-dark/70 hover:text-[#4e8782] text-xs font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer focus:outline-none"
           aria-label="Change language"
         >
           <span>{lang}</span>
@@ -256,7 +256,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         >
           <a
             href={urlEn}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "en" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "en" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/us.png"
@@ -267,7 +267,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           </a>
           <a
             href={urlEs}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "es" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "es" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/mx.png"
@@ -278,7 +278,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           </a>
           <a
             href={urlPt}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "pt" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "pt" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/pt.png"

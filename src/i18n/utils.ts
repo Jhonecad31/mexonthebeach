@@ -1,26 +1,19 @@
-import en from './en.json';
-import es from './es.json';
-import pt from './pt.json';
+import { ui, defaultLang, showDefaultLang } from "./ui";
 
-const translations = {
-  en,
-  es,
-  pt,
-};
+export function getLangFromUrl(url: URL) {
+	const [, lang] = url.pathname.split('/');
+	if (lang in ui) return lang as keyof typeof ui;
+	return defaultLang;
+}
 
-export type Lang = 'en' | 'es' | 'pt';
+export function useTranslations(lang: keyof typeof ui) {
+	return function t(key: keyof (typeof ui)[typeof defaultLang]) {
+		return ui[lang][key] || ui[defaultLang][key];
+	};
+}
 
-export function useTranslations(lang: Lang) {
-  return (key: string): any => {
-    const keys = key.split('.');
-    let result: any = translations[lang] || translations['en'];
-    for (const k of keys) {
-      if (result && result[k] !== undefined) {
-        result = result[k];
-      } else {
-        return key;
-      }
-    }
-    return result;
-  };
+export function useTranslatedPath(lang: keyof typeof ui) {
+	return function translatePath(path: string, l: string = lang) {
+		return !showDefaultLang && l === defaultLang ? path : `/${l}${path}`
+	}
 }

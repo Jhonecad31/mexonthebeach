@@ -1,13 +1,13 @@
 ---
-import { useTranslations, type Lang } from "../i18n/utils";
+import { useTranslations } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
-  lang?: Lang;
+  lang?: "es" | "en";
 }
-const { lang = "en" } = Astro.props;
-const t = useTranslations(lang);
+const { lang = "en" } = Astro.props as Props;
+const t = useTranslations(lang as "es" | "en");
 ---
 <section
   id="booking"
@@ -60,9 +60,7 @@ const t = useTranslations(lang);
           >
             {
               (
-                t("BOOKING.spots.cabana.features", {
-                  returnObjects: true,
-                }) as string[]
+                (i18n.BOOKING.spots.cabana.features as string[])
               ).map((feature: string, index: number) => (
                 <li key={index} class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#4e8782] flex-shrink-0 mt-1.5" />
@@ -115,9 +113,7 @@ const t = useTranslations(lang);
           >
             {
               (
-                t("BOOKING.spots.cabana.features", {
-                  returnObjects: true,
-                }) as string[]
+                (i18n.BOOKING.spots.cabana.features as string[])
               ).map((feature: string, index: number) => (
                 <li key={index} class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#4e8782] flex-shrink-0 mt-1.5" />
@@ -128,7 +124,7 @@ const t = useTranslations(lang);
           </ul>
           <div class="mt-auto">
             <span
-              class="block text-center w-full border-2 border-secondary/30 group-hover:border-secondary text-[#4e8782] group-hover:bg-secondary/5 font-semibold py-3 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider target-touch"
+              class="block text-center w-full border-2 border-secondary/30 group-hover:border-[#4e8782] text-[#4e8782] group-hover:bg-secondary/5 font-semibold py-3 px-4 rounded-xl text-xs transition-all duration-300 uppercase tracking-wider target-touch"
             >
               {i18n.FULL_DAY_BEACH_EXPERIENCE.button}
             </span>
