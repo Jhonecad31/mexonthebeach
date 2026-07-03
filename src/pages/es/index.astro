@@ -12,8 +12,11 @@ import Footer from '../../components/Footer.astro';
 import { useTranslations } from '../../i18n/utils';
 const lang = 'es';
 const t = useTranslations(lang);
+// `useTranslations` has a narrow key type; cast to any for SEO keys
+const seoTitle = (t as any)('SEO.HOME_PAGE.TITLE');
+const seoDescription = (t as any)('SEO.HOME_PAGE.DESCRIPTION');
 ---
-<Layout title={t('SEO.HOME_PAGE.TITLE')} description={t('SEO.HOME_PAGE.DESCRIPTION')} lang={lang}>
+<Layout title={seoTitle} description={seoDescription} lang={lang}>
 	<Navbar lang={lang} />
 	<main class="flex-grow">
 		<Hero lang={lang} />
