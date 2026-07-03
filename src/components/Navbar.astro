@@ -1,5 +1,5 @@
 ---
-import logoMex from "../assets/logos/logo_motb.svg";
+import logoMex from "../assets/logos/logo_notb.svg";
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
@@ -41,7 +41,7 @@ function getUrlForLang(targetLang: Lang) {
   }
 
   const prefix = targetLang === "en" ? "" : `/${targetLang}`;
-  
+
   if (finalPath === "/") {
     return prefix === "" ? "/" : prefix;
   }
@@ -59,12 +59,12 @@ const contactUrl = lang === "en" ? "/contact" : `/${lang}/contacto`;
 const pmUrl = lang === "en" ? "/puerto-morelos" : `/${lang}/puerto-morelos`;
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
+
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
   id="main-header"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- DESKTOP HEADER (Visible on md and up) -->
     <div
       class="hidden md:flex justify-between items-center h-20"
       id="header-container-desktop"
@@ -90,18 +90,14 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           <a href={menuUrl} class="hover:text-secondary transition-colors"
             >{i18n.NAV.reservations}</a
           >
-          <a
-            href={pmUrl}
-            class="font-bold pb-0.5 transition-colors"
+          <a href={pmUrl} class="font-bold pb-0.5 transition-colors"
             >{i18n.NAV.gallery}</a
           >
           <a href={contactUrl} class="hover:text-secondary transition-colors"
             >{i18n.NAV.contact}</a
           >
         </nav>
-        <!-- Separator -->
         <div class="h-4 w-[1px] bg-gray-200"></div>
-        <!-- Language Switcher Dropdown (Desktop) -->
         <div class="relative group">
           <button
             type="button"
@@ -185,7 +181,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
             </a>
           </div>
         </div>
-
         <!-- CTA Button -->
         <a
           href={bookingUrl}
@@ -195,18 +190,18 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         </a>
       </div>
     </div>
-
+    <!-- MOBILE HEADER -->
     <!-- MOBILE HEADER -->
     <div
-      class="grid md:hidden grid-cols-3 items-center h-[4.5rem]"
+      class="md:hidden flex justify-between items-center h-20 px-4 sm:px-6"
       id="header-container-mobile"
     >
-      <!-- Hamburger button -->
-      <div class="flex items-center justify-start">
+      <!-- Left Side: Menu + Logo Group -->
+      <div class="flex items-center gap-3">
         <button
           type="button"
           id="menu-toggle-btn"
-          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-secondary hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200"
+          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-secondary hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 shrink-0"
           aria-label="Open menu"
         >
           <svg
@@ -222,45 +217,28 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
-      </div>
 
-      <!-- Logo centered -->
-      <div class="flex items-center justify-center">
-        <a href={homeUrl} class="flex items-center group">
+        <a href={homeUrl} class="flex items-center">
           <img
             src={logoMex.src}
             alt="Mex on the Beach Logo"
-            class="h-14 w-auto object-contain group-hover:scale-105 transition-all duration-300"
+            class="h-12 w-auto object-contain"
             id="nav-logo-mobile"
           />
         </a>
       </div>
 
-      <!-- Language button (compact: flag + code only) -->
-      <div
-        class="flex items-center justify-end relative"
-        id="mobile-lang-container"
-      >
+      <!-- Right Side: Compact Language Button -->
+      <div class="relative flex items-center" id="mobile-lang-container">
         <button
           type="button"
           id="mobile-lang-btn"
-          class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl border border-transparent hover:border-dark/10 hover:bg-dark/5 text-dark/70 hover:text-secondary transition-all duration-200 cursor-pointer focus:outline-none"
+          class="flex items-center gap-1 h-10 px-2 text-dark/70 hover:text-secondary text-xs font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer focus:outline-none"
           aria-label="Change language"
         >
+          <span>{lang}</span>
           <svg
-            class="h-5 w-5 text-gray-400"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="1.8"
-          >
-            <circle cx="12" cy="12" r="10"></circle>
-            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-            <path d="M2 12h20"></path>
-          </svg>
-          <span class="text-xs tracking-widest uppercase font-bold">{lang}</span>
-          <svg
-            class="h-3 w-3 text-gray-400"
+            class="h-3 w-3 opacity-60 transition-transform duration-200"
             viewBox="0 0 20 20"
             fill="currentColor"
           >
@@ -274,56 +252,40 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         <!-- Language dropdown -->
         <div
           id="mobile-lang-dropdown"
-          class="absolute right-0 top-[calc(100%+8px)] w-36 bg-[#fcfbf7] rounded-xl shadow-xl border border-gray-100/80 py-1.5 z-50 hidden"
-          style="filter: drop-shadow(0 4px 24px rgba(0,0,0,0.10));"
+          class="absolute right-0 top-[calc(100%+4px)] w-36 bg-[#fcfbf7] rounded-xl shadow-xl border border-gray-100/80 py-1.5 z-50 hidden"
         >
           <a
             href={urlEn}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left transition-colors ${lang === "en" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "en" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/us.png"
               alt="EN"
-              class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
             />
             English
-            {
-              lang === "en" && (
-                <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
-              )
-            }
           </a>
           <a
             href={urlEs}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left transition-colors ${lang === "es" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "es" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/mx.png"
               alt="ES"
-              class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
             />
             Español
-            {
-              lang === "es" && (
-                <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
-              )
-            }
           </a>
           <a
             href={urlPt}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left transition-colors ${lang === "pt" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "pt" ? "text-secondary font-bold bg-secondary/5" : "text-dark/80"}`}
           >
             <img
               src="https://flagcdn.com/w40/pt.png"
               alt="PT"
-              class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
             />
             Português
-            {
-              lang === "pt" && (
-                <span class="ml-auto inline-flex size-1.5 rounded-full bg-secondary" />
-              )
-            }
           </a>
         </div>
       </div>
@@ -376,8 +338,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
     <!-- Spacer right to balance -->
     <div class="w-10"></div>
   </div>
-
-  <!-- Drawer Links -->
   <nav
     class="flex-grow flex flex-col items-center justify-center gap-7 px-6 py-6 overflow-y-auto"
   >
@@ -410,8 +370,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
     </a>
 
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
-
-    <!-- Language Selector in Drawer -->
     <div class="text-center w-full">
       <span
         class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3"
@@ -454,10 +412,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         </a>
       </div>
     </div>
-
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
-
-    <!-- Reservations CTA inside drawer -->
     <a
       href={bookingUrl}
       class="nav-drawer-link bg-primary hover:bg-primary-hover text-white text-center py-4 px-8 rounded-full font-bold text-xs tracking-widest uppercase shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-[200px]"
@@ -465,7 +420,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       {t("nav.bookNow")}
     </a>
   </nav>
-  <!-- Drawer Footer -->
   <div
     class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-dark/5 bg-dark/1"
   >
@@ -482,14 +436,11 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 
   const mobileLangBtn = document.getElementById("mobile-lang-btn");
   const mobileLangDropdown = document.getElementById("mobile-lang-dropdown");
-
-  // Toggle mobile language dropdown
   mobileLangBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     mobileLangDropdown?.classList.toggle("hidden");
   });
 
-  // Close mobile dropdown when clicking outside
   document.addEventListener("click", (e) => {
     const container = document.getElementById("mobile-lang-container");
     if (
@@ -536,9 +487,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
     link.addEventListener("click", closeMenu);
   });
 
-  // Header scroll shadow and background opacity transition
   const header = document.getElementById("main-header");
-
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header?.classList.add("shadow-md", "bg-[#fcfbf7]/95");
