@@ -1,17 +1,13 @@
 ---
-import { useTranslations, type Lang } from "../i18n/utils";
+import { useTranslations } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
-
 interface Props {
-  lang?: Lang;
+  lang?: "en" | "es";
 }
-
-const { lang = "en" } = Astro.props;
+const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
-
-// Imágenes seleccionadas para el ticker infinito (utilizando las que ya tienes en tus secciones de abajo)
 const tickerImages = [
   { src: "/img-food/mex-beach-club-guacamole-chips.webp", alt: "Curated food selection" },
   { src: "/img-food/mex-beach-club-seafood-skewers.webp", alt: "Signature shrimp tacos" },
@@ -20,7 +16,6 @@ const tickerImages = [
   { src: "/img-food/mex-beach-club-octopus-ceviche.webp", alt: "Signature mixology cocktail" },
   { src: "/img-drinks/mex-beach-club-coronarita-cocktail.webp", alt: "Premium Beach Drinks" }
 ];
-
 const doubleTickerImages = [...tickerImages, ...tickerImages];
 ---
 <section class="relative h-[65vh] flex items-center justify-center overflow-hidden">
@@ -40,7 +35,6 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
     </h1>
   </div>
 </section>
-
 <section
   id="editorial-intro"
   class="bg-[#fcfbf7] pt-20 md:pt-32 pb-20 md:pb-32 px-4 selection:bg-amber-100"
@@ -54,14 +48,11 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       <p>{i18n.THE_MEX.p2}</p>
       <p>{i18n.THE_MEX.p3}</p>
     </div>
-    
     <hr class="mt-16 md:mt-24 mb-4 border-t border-stone-200 w-full" />
   </div>
 </section>
-
 <section class="bg-white text-[#4e8782] py-20 md:py-32 px-6 md:px-12">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 items-start">
-    
+  <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-x-16 items-start"> 
     <div class="flex flex-col gap-8">
       <div class="block md:hidden space-y-6">
         <h2 class="font-serif text-3xl font-light tracking-wide text-stone-800 mb-4">
@@ -200,7 +191,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
     <div class="space-y-4">
       {
         (() => {
-          const icons = {
+          const icons: Record<string, any> = {
             q1: (
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 18.75h-9m9 0a3 3 0 0 0 3-3V13.5a3 3 0 0 0-3-3h-9a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3m9 0v1.5a2.25 2.25 0 0 1-2.25 2.25h-4.5A2.25 2.25 0 0 1 7.5 20.25v-1.5M12 3v1.5m4.436-.084-1.06 1.06m-6.752 0-1.06-1.06M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />

@@ -4,11 +4,13 @@ import Navbar from '../components/Navbar.astro';
 import ContactSection from '../components/ContactSection.astro';
 import Footer from '../components/Footer.astro';
 import { useTranslations } from '../i18n/utils';
-
-const lang = 'en';
+import { getI18N } from "../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-<Layout title={t('nav.contact')} description={t('nav.contact')} lang={lang}>
+<Layout title={i18n.SEO.CONTACT_PAGE.TITLE} description={i18n.SEO.CONTACT_PAGE.DESCRIPTION} lang={lang}>
 	<Navbar lang={lang} />
 	<main class="flex-grow pt-20">
 		<ContactSection lang={lang} />

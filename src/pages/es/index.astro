@@ -1,7 +1,4 @@
 ---
-// import {Schema} from "astro-seo-schema";
-// import { getI18N} from "@/i18n";
-// import { getLangFromUrl } from "@/i18n/utils";
 import Layout from '../../layouts/BaseLayout.astro';
 import Navbar from '../../components/Navbar.astro';
 import Hero from '../../components/Hero.astro';
@@ -10,13 +7,13 @@ import BookingSection from '../../components/BookingSection.astro';
 import Gallery from '../../components/sections/Gallery.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations } from '../../i18n/utils';
-const lang = 'es';
+import { getI18N } from "../../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
-// `useTranslations` has a narrow key type; cast to any for SEO keys
-const seoTitle = (t as any)('SEO.HOME_PAGE.TITLE');
-const seoDescription = (t as any)('SEO.HOME_PAGE.DESCRIPTION');
 ---
-<Layout title={seoTitle} description={seoDescription} lang={lang}>
+<Layout title={i18n.SEO.HOME_PAGE.TITLE} description={i18n.SEO.HOME_PAGE.DESCRIPTION} lang={lang}>
 	<Navbar lang={lang} />
 	<main class="flex-grow">
 		<Hero lang={lang} />

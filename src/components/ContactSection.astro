@@ -96,7 +96,7 @@ const t = useTranslations(lang);
             <h3 class="font-serif text-primary font-extrabold text-center text-xl tracking-wider mb-8 uppercase">
               {i18n.CONTACT.FORM.title}
             </h3>
-            <form class="space-y-6" onsubmit={`event.preventDefault(); alert("${t('CONTACT.FORM.successAlert')}"); this.reset();`}>
+            <form class="space-y-6" onsubmit={`event.preventDefault(); alert("${i18n.CONTACT.FORM.successAlert}"); this.reset();`}>
               <!-- Full Name Field -->
               <div>
                 <!-- OPTIMIZACIÓN VISUAL: Cambiado text-gray-500 por text-zinc-500 y text-[10px] para darle un look más fino -->

@@ -97,63 +97,63 @@
     }
   },
   "BOOKING": {
-  "title": "Planea tu visita",
-  "description": "Ubicado en el auténtico Puerto Morelos, entre Cancún y Playa del Carmen, Mex On The Beach combina arena blanca, aguas turquesas y un servicio premium. Es la parada perfecta al explorar la barrera de arrecifes o la famosa Ruta de los Cenotes.",
-  "fields": {
-    "people": "Número de personas",
-    "peopleOptions": [
-      "2 Personas",
-      "1 Persona",
-      "3-4 Personas",
-      "5-6 Personas",
-      "7+ Personas"
-    ],
-    "date": "Fecha",
-    "time": "Hora de llegada",
-    "timeOptions": [
-      "11:00 AM",
-      "09:00 AM",
-      "01:00 PM",
-      "03:00 PM",
-      "05:00 PM",
-      "Atardecer"
-    ],
-    "activity": "Filtro de amenidades",
-    "activityOptions": [
-      "Todas las amenidades",
-      "Camastros y lounge",
-      "Cabaña privada",
-      "Villa exclusiva"
-    ]
-  },
-  "labels": {
-    "popular": "Popular",
-    "premium": "Premium",
-    "book_now": "Reservar ahora"
-  },
-  "spots": {
-    "cabana": {
-      "title": "Cabaña privada frente al mar",
-      "description": "Disfruta de la máxima privacidad y lujo con vistas en primera fila al Caribe y un servicio personalizado.",
-      "features": [
-        "Hasta 4 personas incluidas",
-        "Concierge de playa dedicado",
-        "Bebida tropical de bienvenida",
-        "Área lounge premium con sombra"
+    "title": "Planea tu visita",
+    "description": "Ubicado en el auténtico Puerto Morelos, entre Cancún y Playa del Carmen, Mex On The Beach combina arena blanca, aguas turquesas y un servicio premium. Es la parada perfecta al explorar la barrera de arrecifes o la famosa Ruta de los Cenotes.",
+    "fields": {
+      "people": "Número de personas",
+      "peopleOptions": [
+        "2 Personas",
+        "1 Persona",
+        "3-4 Personas",
+        "5-6 Personas",
+        "7+ Personas"
+      ],
+      "date": "Fecha",
+      "time": "Hora de llegada",
+      "timeOptions": [
+        "11:00 AM",
+        "09:00 AM",
+        "01:00 PM",
+        "03:00 PM",
+        "05:00 PM",
+        "Atardecer"
+      ],
+      "activity": "Filtro de amenidades",
+      "activityOptions": [
+        "Todas las amenidades",
+        "Camastros y lounge",
+        "Cabaña privada",
+        "Villa exclusiva"
       ]
     },
-    "sunbeds": {
-      "title": "Camastros y lounge premium",
-      "description": "Disfruta del sol con total comodidad en camastros acolchados premium, ideales para parejas o personas solas.",
-      "features": [
-        "Camastro individual acolchado de alta gama",
-        "Toallas de playa limpias incluidas",
-        "Acceso directo a servicio de playa",
-        "Sombrilla ajustable"
-      ]
+    "labels": {
+      "popular": "Popular",
+      "premium": "Premium",
+      "book_now": "Reservar ahora"
+    },
+    "spots": {
+      "cabana": {
+        "title": "Cabaña privada frente al mar",
+        "description": "Disfruta de la máxima privacidad y lujo con vistas en primera fila al Caribe y un servicio personalizado.",
+        "features": [
+          "Hasta 4 personas incluidas",
+          "Concierge de playa dedicado",
+          "Bebida tropical de bienvenida",
+          "Área lounge premium con sombra"
+        ]
+      },
+      "sunbeds": {
+        "title": "Camastros y lounge premium",
+        "description": "Disfruta del sol con total comodidad en camastros acolchados premium, ideales para parejas o personas solas.",
+        "features": [
+          "Camastro individual acolchado de alta gama",
+          "Toallas de playa limpias incluidas",
+          "Acceso directo a servicio de playa",
+          "Sombrilla ajustable"
+        ]
+      }
     }
-  }
-},
+  },
   "HALF_DAY_PRODUCT": {
     "HERO": {
       "title": "Experiencia de club de playa en Puerto Morelos",

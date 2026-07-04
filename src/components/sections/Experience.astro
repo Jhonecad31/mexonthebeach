@@ -1,12 +1,12 @@
 ---
-import { useTranslations, type Lang } from "../../i18n/utils";
+import { useTranslations } from "../../i18n/utils";
 import { getI18N } from "../../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
-  lang?: Lang;
+  lang?: "en" | "es";
 }
-const { lang = "en" } = Astro.props;
+const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
 ---
 

@@ -4,12 +4,13 @@ import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import TheMexComponent from '../../components/TheMex.astro';
 import { useTranslations } from '../../i18n/utils';
-
-const lang = 'es';
+import { getI18N } from "../../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-
-<Layout title={`${t('puertoMorelos.title')} | Mex on the Beach`} description={t('puertoMorelos.subtitle')} lang={lang}>
+<Layout title={i18n.puertoMorelos.title} description={i18n.puertoMorelos.subtitle} lang={lang}>
 	<Navbar lang={lang} />
 		<TheMexComponent lang={lang} />
 	<Footer lang={lang} />

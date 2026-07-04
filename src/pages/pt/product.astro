@@ -4,11 +4,13 @@ import Navbar from '../../components/Navbar.astro';
 import ProductComponent from '../../components/Product.astro';
 import Footer from '../../components/Footer.astro';
 import { useTranslations } from '../../i18n/utils';
-
-const lang = 'pt';
+import { getI18N } from "../../i18n/index";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale }) as any;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-<Layout title={t('SEO.HOME_PAGE.TITLE' as any)} description={t('SEO.HOME_PAGE.DESCRIPTION' as any)} lang={lang}>
+<Layout title={i18n.SEO.HOME_PAGE.TITLE} description={i18n.SEO.HOME_PAGE.DESCRIPTION} lang={lang}>
 	<Navbar lang={lang} />
 	<main class="flex-grow pt-20">
 		<ProductComponent lang={lang} />

@@ -1,12 +1,12 @@
 ---
-import { useTranslations, type Lang } from "../../i18n/utils";
+import { useTranslations } from "../../i18n/utils";
 import { getI18N } from "../../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
-  lang?: Lang;
+  lang?: "en" | "es";
 }
-const { lang = "en" } = Astro.props;
+const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
 
 const slides = [
@@ -139,10 +139,10 @@ const slides = [
               const item = i18n.PUERTO_MORELOS.QUESTIONS[key];
               return (
                 <details
-                  key={key}
                   name="faq-accordion"
                   open={index === 0}
                   class="group bg-white rounded-xl border border-black/[0.03] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
+                  data-key={key}
                 >
                   <summary class="flex items-center justify-between p-6 text-left cursor-pointer select-none list-none group">
                     <div class="flex items-center space-x-4">
