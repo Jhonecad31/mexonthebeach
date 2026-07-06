@@ -7,7 +7,7 @@ import Footer from "@/components/Footer.astro";
 interface Props {
     title?: string;
     description?: string;
-    offI18n?: boolean; // Añadido por si tus componentes Header/Footer lo requieren
+    offI18n?: boolean;
 }
 
 // Obtenemos el idioma automáticamente de la URL
@@ -39,7 +39,7 @@ const {
     </head>
     <body class="min-h-screen flex flex-col">
         {/* Renderiza el Header pasándole el control de idioma opcional */}
-        <Header offI18n={offI18n} />
+        <Header />
 
         {/* El contenedor principal crece (flex-grow) para empujar el footer hacia abajo si hay poco contenido */}
         <main class="flex-grow">
