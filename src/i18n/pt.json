@@ -19,7 +19,7 @@
     },
     "INTRO": {
       "tag": "O autêntico Caribe",
-      "title": "O melhor destino das suas férias",
+      "title": "O melhor dia de praia das suas férias",
       "subtitle": "O clube de praia perfeito em Puerto Morelos que combina conforto, cultura e beleza natural. Desfrute de refeições à beira-mar, bebidas refrescantes e vistas deslumbrantes do oceano.",
       "p1": "Boas-vindas ao Mex On The Beach, un destino relaxante à beira-mar onde os visitantes podem desfrutar da beleza da praia de Puerto Morelos enquanto descobrem uma das vilas costeiras mais encantadoras da Riviera Maya. Localizado entre Cancún e Playa del Carmen, Puerto Morelos oferece uma atmosfera pacífica, águas cristalinas, areia branca e macia, e uma experiência caribenha mais autêntica.",
       "p2": "Para os viajantes que procuram o clube de praia perfeito em Puerto Morelos, este espaço à beira-mar combina conforto, cultura local e beleza natural em um cenário inesquecível. Quer você esteja planejando um passeio de um dia saindo de Cancún, explorando a Riviera Maya ou desfrutando de férias mais longas, o Mex On The Beach oferece um ambiente acolhedor para relaxar à beira-mar e vivenciar a verdadeira essência de Puerto Morelos.",
@@ -31,8 +31,8 @@
         "beach": {
           "title": "Uma bela extensão de 40 metros de praia intocada"
         },
-        "clear_skiers": {
-          "title": "Águas cristalinas e praias amplas"
+        "tacos": {
+          "title": "Autênticos tacos de praia e sabores culinários locais"
         },
         "sargassum": {
           "title": "O menor nível de sargaço"
