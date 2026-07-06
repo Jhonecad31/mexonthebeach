@@ -413,6 +413,26 @@
         "title": "Cenote Adventuring",
         "subtitle": "3 cenote boutique Experience, Mayan Show with Snack"
       }
+    },
+    "spots": {
+      "cabana": {
+        "title": "Oceanfront Private Cabana",
+        "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
+        "features": [
+          "Dedicated beach concierge",
+          "Shaded premium lounge area"
+        ]
+      },
+      "sunbeds": {
+        "title": "Premium Lounge & Sunbeds",
+        "description": "Soak up the sun in comfort with premium padding, ideal for pairs or solo sunseekers.",
+        "features": [
+          "High-end padded single bed",
+          "Fresh beach towels included",
+          "Direct access to beach service",
+          "Umbrella shade adjustment"
+        ]
+      }
     }
   },
   "FAVORITIES": {
