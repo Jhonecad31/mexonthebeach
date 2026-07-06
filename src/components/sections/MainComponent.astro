@@ -1,0 +1,34 @@
+---
+import { Schema } from "astro-seo-schema";
+import { getI18N } from "@/i18n";
+import { getLangFromUrl } from "@/i18n/utils";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Hero from "@/components/Hero.astro";
+import Experience from "@/components/sections/Experience.astro";
+import BookingSection from "@/components/BookingSection.astro";
+import Gallery from "@/components/sections/Gallery.astro";
+const { currentLocale } = Astro;
+const i18n = getI18N({ currentLocale });
+const lang = getLangFromUrl(Astro.url);
+const seoMetaData = {
+    title: i18n.SEO.HOME_PAGE.TITLE,
+    description: i18n.SEO.HOME_PAGE.DESCRIPTION,
+    metaTitle: i18n.SEO.HOME_PAGE.META_TITLE
+};
+interface SeoProps {
+  title: string;
+  description: string;
+  metaTitle: string;
+}
+export interface Props {
+  seo: SeoProps;
+  offI18n?: boolean; 
+}
+const { seo, offI18n } = Astro.props;
+---
+<BaseLayout seo={seoMetaData}>
+    <Hero />
+    <Experience />
+    <BookingSection />
+    <Gallery />
+</BaseLayout>

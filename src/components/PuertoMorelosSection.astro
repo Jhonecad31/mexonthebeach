@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
+import Layout from "@/Layouts/BaseLayout.astro"
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
@@ -10,6 +11,7 @@ const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
+<Layout>
 <div>
   <section
     class="relative h-[85vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
@@ -669,3 +671,4 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
     </div>
   </section>
 </div>
+</Layout>

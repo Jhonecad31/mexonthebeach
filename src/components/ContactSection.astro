@@ -1,7 +1,7 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
-
+import Layout from "@/layouts/BaseLayout.astro"
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 
@@ -12,11 +12,11 @@ interface Props {
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 ---
+<Layout>
 <div>
-  <section class="bg-white py-20 relative">
+  <section class="bg-white py-20 relative mt-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        <!-- Left Column: Contact Info -->
         <div class="lg:col-span-6 space-y-8">
           <div>
             <h2 class="font-serif text-2xl md:text-3xl font-extrabold text-[#4e8782] tracking-wider uppercase">
@@ -27,7 +27,6 @@ const t = useTranslations(lang);
             </p>
           </div>
           <div class="space-y-6">
-            <!-- Item 1: Address -->
             <div class="flex items-center gap-4">
               <div class="w-12 h-12 bg-secondary/10 text-[#4e8782] rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -240,3 +239,4 @@ const t = useTranslations(lang);
     </div>
   </section>
 </div>
+</Layout>
