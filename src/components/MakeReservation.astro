@@ -12,7 +12,7 @@ const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 const carouselImages = [
-  "/img-beach-club/mex-beach-club-lounge-depth.webp",
+  "/img-beach-club/mex-beach-club-lifestyle.webp",
   "/img-beach-club/mex-beach-club-relaxation.webp",
   "/img-beach-club/mex-beach-club-signature-drinks.webp",
 ];
@@ -27,7 +27,7 @@ const carouselImages = [
         class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
       >
         <img
-          src="/img-beach-club/mex-beach-club-lounge-depth.webp"
+          src="/img-beach-club/mex-beach-club-lifestyle.webp"
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
@@ -66,7 +66,7 @@ const carouselImages = [
               href={bookingUrl}
               class="inline-block bg-[#4e8782] hover:bg-[#4e8782] text-white py-3 px-6 md:py-3.5 md:px-8 rounded-full font-bold text-[10px] md:text-xs tracking-widest uppercase shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-0.5"
             >
-              {i18n.PUERTO_MORELOS.HERO.cta}
+             {i18n.PUERTO_MORELOS.HERO.cta || "Explorar Experiencias"}
             </a>
           </div>
         </div>
@@ -270,7 +270,7 @@ const carouselImages = [
             <button
               class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-semibold py-3 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99]"
             >
-              {i18n.PUERTO_MORELOS?.MAKE_YOU_RESERVATIONS?.cta}
+              {i18n.PUERTO_MORELOS?.BOOKING?.cta}
             </button>
             <p
               class="text-[9px] md:text-[10px] text-center text-stone-400 font-light"
