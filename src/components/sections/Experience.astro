@@ -16,7 +16,6 @@ const t = useTranslations(lang);
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-      <!-- LADO IZQUIERDO: CONTENEDOR DE IMÁGENES ORGÁNICAS -->
       <div class="lg:col-span-5 relative flex justify-center py-6">
         <div
           class="absolute w-[360px] h-[420px] bg-secondary/10 rounded-[120px_240px_120px_240px] blur-3xl -z-10"
@@ -58,12 +57,11 @@ const t = useTranslations(lang);
         >
           {i18n.HOME.INTRO.subtitle}
         </h3>
-        
         <!-- CUADRÍCULA DE BENEFICIOS -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 w-full"
         >
-          <!-- 1. Transport (Icono de Van/Autobús/Traslado) -->
+          <!-- 1. Transport (Icono de Autobús / Van) -->
           <article
             class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
           >
@@ -81,11 +79,12 @@ const t = useTranslations(lang);
                 <path
                   stroke-linecap="round"
                   stroke-linejoin="round"
-                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"
-                ></path>
+                  d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4"></path>
                 <circle cx="7" cy="17" r="2"></circle>
                 <circle cx="17" cy="17" r="2"></circle>
-                <path d="M5 17h2m2 0h6m2 0h2M3 17V9a2 2 0 012-2h14a2 2 0 012 2v8"></path>
+                <path
+                  d="M5 17h2m2 0h6m2 0h2M3 17V9a2 2 0 012-2h14a2 2 0 012 2v8"
+                ></path>
               </svg>
             </div>
             <div class="flex-1 min-w-0">
@@ -103,7 +102,8 @@ const t = useTranslations(lang);
               }
             </div>
           </article>
-          <!-- 2. Beach / Camastros (Icono de Sombrilla de Playa) -->
+
+          <!-- 2. Beach / Camastros (Icono de Sombrilla de Playa Real / Parasol) -->
           <article
             class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
           >
@@ -111,16 +111,19 @@ const t = useTranslations(lang);
               class="flex-shrink-0 p-2.5 bg-secondary/10 text-[#4e8782] rounded-lg group-hover:scale-105 transition-transform duration-300 mt-0.5"
             >
               <svg
-                xmlns="http://www.w3.org/2000/xl"
+                xmlns="http://www.w3.org/2000/svg"
                 class="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <!-- Sombrilla abierta y eje principal -->
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M12 3a9 9 0 019 9h-9m0-9a9 9 0 00-9 9h9" />
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 12h9a9 9 0 01-9 9m0-9H3a9 9 0 009 9" />
+                <!-- Sombrilla de playa clásica -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 3v18M12 3c3.5 0 7 2.5 7 6H5c0-3.5 3.5-6 7-6zM19 9a3 3 0 01-3 3H8a3 3 0 01-3-3"
+                ></path>
               </svg>
             </div>
             <div class="flex-1 min-w-0">
@@ -138,7 +141,8 @@ const t = useTranslations(lang);
               }
             </div>
           </article>
-          <!-- 3. Sargassum / Sin Sargazo (Icono de Brisa Marina/Limpio) -->
+
+          <!-- 3. Sargassum / Sin Sargazo (Icono de Chispas / Limpieza / Destello) -->
           <article
             class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
           >
@@ -153,8 +157,12 @@ const t = useTranslations(lang);
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <!-- Líneas fluidas de viento/mar limpio (Sargazo free) -->
-                <path stroke-linecap="round" stroke-linejoin="round" d="M2 10h15a3 3 0 003-3V7M2 14h11a3 3 0 003-3v0M2 18h18a3 3 0 01-3 3" />
+                <!-- Icono de destellos/limpio/puro -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+                ></path>
               </svg>
             </div>
             <div class="flex-1 min-w-0">
@@ -172,7 +180,8 @@ const t = useTranslations(lang);
               }
             </div>
           </article>
-          <!-- 4. Tacos y Sabores locales (Icono de Gastronomía / Utensilios) -->
+
+          <!-- 4. Tacos y Sabores locales (Icono de Utensilios de Comida) -->
           <article
             class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
           >
@@ -187,8 +196,20 @@ const t = useTranslations(lang);
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <!-- Cubiertos cruzados estilizados para experiencia culinaria -->
-                <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v10m0 0a4 4 0 01-4-4V2m4 8a4 4 0 004-4V2M12 12v10M6 20h12" />
+                <!-- Silueta estilizada de un taco con relleno -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M3 14a9 9 0 0118 0v1H3v-1z"></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 14c.5-2 2-4 6-4s5.5 2 6 4"></path>
+                <!-- Detalles del relleno (carne/verdura) -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8 10V9m4 1V8m4 2V9"></path>
               </svg>
             </div>
             <div class="flex-1 min-w-0">
@@ -207,7 +228,7 @@ const t = useTranslations(lang);
             </div>
           </article>
 
-          <!-- 5. DJ / Música / Ambiente -->
+          <!-- 5. DJ / Música / Ambiente (Icono de Notas Musicales) -->
           <article
             class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
           >
@@ -222,8 +243,11 @@ const t = useTranslations(lang);
                 stroke="currentColor"
                 stroke-width="2"
               >
-                <!-- Notas musicales fluidas -->
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l12-3v13M9 10l12-3M9 14c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-2c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 19V6l12-3v13M9 10l12-3M9 14c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3zm12-2c0 1.657-1.343 3-3 3s-3-1.343-3-3 1.343-3 3-3 3 1.343 3 3z"
+                ></path>
               </svg>
             </div>
             <div class="flex-1 min-w-0">
@@ -241,11 +265,49 @@ const t = useTranslations(lang);
               }
             </div>
           </article>
+
+          <!-- 6. Beach Crowded / Sin aglomeraciones (Icono de Usuarios / Grupo de personas Tachado u Oculto) -->
+          <article
+            class="flex items-start space-x-4 p-4 rounded-xl bg-secondary/[0.02] border border-secondary/5 hover:bg-secondary/[0.04] hover:border-secondary/10 transition-all duration-300 group"
+          >
+            <div
+              class="flex-shrink-0 p-2.5 bg-secondary/10 text-[#4e8782] rounded-lg group-hover:scale-105 transition-transform duration-300 mt-0.5"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <!-- Icono de grupo/personas libre de tumultos o exclusivo -->
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+                ></path>
+              </svg>
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4
+                class="font-bold text-[14px] text-dark/75 tracking-tight leading-snug"
+              >
+                {i18n.HOME.INTRO.BENEFITS.beachCrowded.title}
+              </h4>
+              {
+                i18n.HOME.INTRO.BENEFITS.beachCrowded.description && (
+                  <p class="text-[12px] text-gray-550 font-normal mt-1 leading-relaxed">
+                    {i18n.HOME.INTRO.BENEFITS.beachCrowded.description}
+                  </p>
+                )
+              }
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </div>
-  
   <!-- SVG DE CURVAS INFERIORES -->
   <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
     <svg

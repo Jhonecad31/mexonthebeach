@@ -31,6 +31,9 @@
         "beach": {
           "title": "Una hermosa franja de 40 metros de playa"
         },
+        "beachCrowded": {
+          "title": "Playa poco concurrida"
+        },
         "tacos": {
           "title": "Auténticos tacos playeros y sabores culinarios locales"
         },
@@ -132,24 +135,50 @@
       "book_now": "Reservar ahora"
     },
     "spots": {
-      "cabana": {
-        "title": "Cabaña privada frente al mar",
-        "description": "Disfruta de la máxima privacidad y lujo con vistas en primera fila al Caribe y un servicio personalizado.",
+      "halfDay": {
+        "title": "Cabaña Privada Frente al Mar",
+        "description": "Disfruta de la máxima privacidad y lujo con vistas frontales al Caribe y un servicio personalizado de primera.",
         "features": [
-          "Hasta 4 personas incluidas",
-          "Concierge de playa dedicado",
-          "Bebida tropical de bienvenida",
-          "Área lounge premium con sombra"
+          "Transporte de ida y vuelta desde Cancún y Playa del Carmen",
+          "Uso de camastro/tumbona de playa",
+          "Acceso a la piscina",
+          "Una bebida de cortesía",
+          "Servicio de mesero",
+          "Experiencia exclusiva de degustación de tequila",
+          "Desayuno (Mañana) o Almuerzo (Tarde)"
+        ]
+      },
+      "fullDay": {
+        "title": "Cabaña Privada Frente al Mar",
+        "description": "Disfruta de la máxima privacidad y lujo con vistas frontales al Caribe y un servicio personalizado de primera.",
+        "features": [
+          "Transporte de ida y vuelta desde Cancún y Playa del Carmen",
+          "Uso de camastro/tumbona de playa",
+          "Acceso a la piscina",
+          "Una bebida de cortesía",
+          "Servicio de mesero",
+          "Experiencia exclusiva de degustación de tequila",
+          "Tanto el desayuno como el almuerzo incluidos"
+        ]
+      },
+      "makeReservation": {
+        "title": "Cabaña Privada Frente al Mar",
+        "description": "Disfruta de la máxima privacidad y lujo con vistas frontales al Caribe y un servicio personalizado de primera.",
+        "features": [
+          "Uso de camastro/tumbona de playa",
+          "Acceso a la piscina",
+          "Una bebida de cortesía",
+          "Servicio de mesero"
         ]
       },
       "sunbeds": {
-        "title": "Camastros y lounge premium",
-        "description": "Disfruta del sol con total comodidad en camastros acolchados premium, ideales para parejas o personas solas.",
+        "title": "Lounge Premium y Camastros",
+        "description": "Disfruta del sol con total comodidad en camastros con acolchado premium, ideales para parejas o personas solas.",
         "features": [
           "Camastro individual acolchado de alta gama",
           "Toallas de playa limpias incluidas",
-          "Acceso directo a servicio de playa",
-          "Sombrilla ajustable"
+          "Acceso directo al servicio de playa",
+          "Ajuste de sombra con sombrilla"
         ]
       }
     }

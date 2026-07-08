@@ -26,8 +26,6 @@ function getUrlForLang(targetLang: Lang) {
   } else if (cleanPath === "/es" || cleanPath === "/pt") {
     cleanPath = "/";
   }
-  // Normalize contact pages
-  // Strip trailing slashes temporarily for comparison
   const hasTrailingSlash = cleanPath.endsWith("/") && cleanPath.length > 1;
   const comparePath = hasTrailingSlash ? cleanPath.slice(0, -1) : cleanPath;
 
@@ -54,6 +52,7 @@ const contactUrl = lang === "en" ? "/contact" : `/${lang}/contacto`;
 const pmUrl = lang === "en" ? "/puerto-morelos" : `/${lang}/puerto-morelos`;
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
+
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
   id="main-header"
@@ -211,16 +210,18 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
           </svg>
         </button>
 
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <a href={homeUrl} class="flex items-center pointer-events-auto">
-          <img
-            src={logoMex.src}
-            alt="Mex on the Beach Logo"
-            class="h-10 w-auto object-contain"
-            id="nav-logo-mobile"
-          />
-        </a>
-      </div>
+        <div
+          class="absolute inset-0 flex items-center justify-center pointer-events-none"
+        >
+          <a href={homeUrl} class="flex items-center pointer-events-auto">
+            <img
+              src={logoMex.src}
+              alt="Mex on the Beach Logo"
+              class="h-12 w-auto object-contain"
+              id="nav-logo-mobile"
+            />
+          </a>
+        </div>
       </div>
       <!-- Right Side: Compact Language Button -->
       <div class="relative flex items-center" id="mobile-lang-container">
@@ -324,7 +325,7 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
     <img
       src={logoMex.src}
       alt="Mex on the Beach Logo"
-      class="h-14 w-auto object-contain"
+      class="h-12 w-auto object-contain"
     />
     <!-- Spacer right to balance -->
     <div class="w-10"></div>
@@ -418,20 +419,19 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
   </div>
 </div>
 
+<!-- Scriipt para los estilos -->
 <script>
   const menuToggleBtn = document.getElementById("menu-toggle-btn");
   const menuCloseBtn = document.getElementById("menu-close-btn");
   const menuDrawer = document.getElementById("menu-drawer");
   const menuBackdrop = document.getElementById("menu-backdrop");
   const drawerLinks = document.querySelectorAll(".nav-drawer-link");
-
   const mobileLangBtn = document.getElementById("mobile-lang-btn");
   const mobileLangDropdown = document.getElementById("mobile-lang-dropdown");
   mobileLangBtn?.addEventListener("click", (e) => {
     e.stopPropagation();
     mobileLangDropdown?.classList.toggle("hidden");
   });
-
   document.addEventListener("click", (e) => {
     const container = document.getElementById("mobile-lang-container");
     if (
@@ -443,7 +443,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       mobileLangDropdown.classList.add("hidden");
     }
   });
-
   function openMenu() {
     if (menuDrawer && menuBackdrop) {
       menuBackdrop.classList.remove("hidden");
@@ -456,7 +455,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       document.body.style.overflow = "hidden";
     }
   }
-
   function closeMenu() {
     if (menuDrawer && menuBackdrop) {
       menuBackdrop.classList.remove("opacity-100");
@@ -469,15 +467,12 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       document.body.style.overflow = "";
     }
   }
-
   menuToggleBtn?.addEventListener("click", openMenu);
   menuCloseBtn?.addEventListener("click", closeMenu);
   menuBackdrop?.addEventListener("click", closeMenu);
-
   drawerLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
-
   const header = document.getElementById("main-header");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {

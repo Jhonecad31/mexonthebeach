@@ -14,7 +14,6 @@ const t = useTranslations(lang as "es" | "en");
   class="pt-8 pb-16 md:pb-20 bg-white relative overflow-hidden flex flex-col justify-center items-center md:mt-30"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full flex flex-col items-center">
-    
     {/* Cabecera principal */}
     <div class="w-full text-center mb-10 md:mb-12 max-w-3xl">
       <h2 class="font-serif text-3xl md:text-5xl font-bold text-[#4e8782] mb-3 md:mb-4 leading-tight">
@@ -50,7 +49,7 @@ const t = useTranslations(lang as "es" | "en");
           </p>
           <ul class="text-xs text-gray-600 font-medium space-y-2.5 md:space-y-3 mb-6 md:mb-8 flex-grow">
             {
-              (i18n.BOOKING.spots.cabana.features as string[]).map((feature: string) => (
+              (i18n.BOOKING.spots.makeReservation.features as string[]).map((feature: string) => (
                 <li class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#4e8782] flex-shrink-0 mt-1.5" />
                   <span class="leading-tight">{feature}</span>
@@ -89,7 +88,7 @@ const t = useTranslations(lang as "es" | "en");
           </p>
           <ul class="text-xs text-gray-600 font-medium space-y-2.5 md:space-y-3 mb-6 md:mb-8 flex-grow">
             {
-              (i18n.BOOKING.spots.cabana.features as string[]).map((feature: string) => (
+              (i18n.BOOKING.spots.halfDay.features as string[]).map((feature: string) => (
                 <li class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#4e8782] flex-shrink-0 mt-1.5" />
                   <span class="leading-tight">{feature}</span>
@@ -104,7 +103,6 @@ const t = useTranslations(lang as "es" | "en");
           </div>
         </div>
       </a>
-
       {/* CARD 3: Full Day */}
       <a
         href="/product"
@@ -129,7 +127,7 @@ const t = useTranslations(lang as "es" | "en");
           </p>
           <ul class="text-xs text-gray-600 font-medium space-y-2.5 md:space-y-3 mb-6 md:mb-8 flex-grow">
             {
-              (i18n.BOOKING.spots.cabana.features as string[]).map((feature: string) => (
+              (i18n.BOOKING.spots.fullDay.features as string[]).map((feature: string) => (
                 <li class="flex items-start gap-2.5">
                   <span class="w-1.5 h-1.5 rounded-full bg-[#4e8782] flex-shrink-0 mt-1.5" />
                   <span class="leading-tight">{feature}</span>

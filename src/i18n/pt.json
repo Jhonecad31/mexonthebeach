@@ -31,6 +31,9 @@
         "beach": {
           "title": "Uma bela extensão de 40 metros de praia intocada"
         },
+        "beachCrowded": {
+          "title": "Praia sossegada"
+        },
         "tacos": {
           "title": "Autênticos tacos de praia e sabores culinários locais"
         },
@@ -132,24 +135,50 @@
       "book_now": "Reservar agora"
     },
     "spots": {
-      "cabana": {
-        "title": "Cabana privada frente ao mar",
-        "description": "Experimente o máximo em privacidade e luxo com vistas em primeira fila para o Caribe e serviço personalizado.",
+      "halfDay": {
+        "title": "Cabana Privada Frente ao Mar",
+        "description": "Desfrute do máximo em privacidade e luxo com vistas frontais para o Caribe e um serviço personalizado de alto padrão.",
         "features": [
-          "Até 4 pessoas inclusas",
-          "Concierge de praia exclusivo",
-          "Bebida tropical de boas-vindas",
-          "Área de lounge premium com sombra"
+          "Transporte de ida e volta de Cancún e Playa del Carmen",
+          "Uso de espreguiçadeira de praia",
+          "Acesso à piscina",
+          "Uma bebida de cortesia",
+          "Serviço de garçom",
+          "Experiência exclusiva de degustação de tequila",
+          "Café da manhã (Manhã) ou Almoço (Tarde)"
+        ]
+      },
+      "fullDay": {
+        "title": "Cabana Privada Frente ao Mar",
+        "description": "Desfrute do máximo em privacidade e luxo com vistas frontais para o Caribe e um serviço personalizado de alto padrão.",
+        "features": [
+          "Transporte de ida e volta de Cancún e Playa del Carmen",
+          "Uso de espreguiçadeira de praia",
+          "Acesso à piscina",
+          "Uma bebida de cortesia",
+          "Serviço de garçom",
+          "Experiência exclusiva de degustação de tequila",
+          "Café da manhã e almoço incluídos"
+        ]
+      },
+      "makeReservation": {
+        "title": "Cabana Privada Frente ao Mar",
+        "description": "Desfrute do máximo em privacidade e luxo com vistas frontais para o Caribe e um serviço personalizado de alto padrão.",
+        "features": [
+          "Uso de espreguiçadeira de praia",
+          "Acesso à piscina",
+          "Uma bebida de cortesia",
+          "Serviço de garçom"
         ]
       },
       "sunbeds": {
-        "title": "Espreguiçadeiras e Lounge Premium",
-        "description": "Aproveite o sol com total conforto em espreguiçadeiras acolchadas premium, ideais para casais ou quem viaja sozinho.",
+        "title": "Lounge Premium e Espreguiçadeiras",
+        "description": "Aproveite o sol com total conforto em espreguiçadeiras com estofamento premium, ideais para casais ou banhistas individuais.",
         "features": [
-          "Espreguiçadeira individual acolchoada de alto padrão",
-          "Toalhas de praia limpas inclusas",
+          "Espreguiçadeira individual estofada de alto padrão",
+          "Toalhas de praia limpas incluídas",
           "Acesso direto ao serviço de praia",
-          "Guarda-sol ajustável"
+          "Ajuste de sombra com guarda-sol"
         ]
       }
     }

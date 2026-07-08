@@ -31,6 +31,9 @@
         "beach": {
           "title": "A beautiful 40-meter stretch of pristine beach"
         },
+        "beachCrowded": {
+          "title": "Non-crowded Beach"
+        },
         "tacos": {
           "title": "Authentic beach tacos and local culinary flavors"
         },
@@ -132,14 +135,40 @@
       "book_now": "Book Now"
     },
     "spots": {
-      "cabana": {
+      "halfDay": {
         "title": "Oceanfront Private Cabana",
         "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
         "features": [
-          "Up to 4 people included",
-          "Dedicated beach concierge",
-          "Welcome tropical drink",
-          "Shaded premium lounge area"
+          "Round-trip transportation from Cancun and Playa del Carmen",
+          "Use of a beach lounger",
+          "Access to the swimming pool",
+          "One complimentary drink",
+          "Waiter service",
+          "Exclusive tequila tasting experience",
+          "Breakfast (Morning) or Lunch (Afternoon)"
+        ]
+      },
+      "fullDay": {
+        "title": "Oceanfront Private Cabana",
+        "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
+        "features": [
+          "Round-trip transportation from Cancun and Playa del Carmen",
+          "Use of a beach lounger",
+          "Access to the swimming pool",
+          "One complimentary drink",
+          "Waiter service",
+          "Exclusive tequila tasting experience",
+          "Both Breakfast & Lunch included"
+        ]
+      },
+      "makeReservation": {
+        "title": "Oceanfront Private Cabana",
+        "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
+        "features": [
+          "Use of a beach lounger",
+          "Access to the swimming pool",
+          "One complimentary drink",
+          "Waiter service"
         ]
       },
       "sunbeds": {
@@ -333,7 +362,7 @@
       "title": "Beach club experience in puerto morelos",
       "description": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya."
     },
-    "title": "Make you reservation",
+    "title": "Make a reservation (Transportation not included)",
     "tag": "Regular",
     "clock": "10:00 AM - 2:00 AM",
     "button": "Check Availability - In Menu",
