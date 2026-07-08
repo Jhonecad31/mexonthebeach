@@ -7,10 +7,8 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
-
 const pathname = Astro.url.pathname;
 const isMenuPage = pathname.includes("/menu");
 const isContactPage =
@@ -28,7 +26,6 @@ function getUrlForLang(targetLang: Lang) {
   } else if (cleanPath === "/es" || cleanPath === "/pt") {
     cleanPath = "/";
   }
-
   // Normalize contact pages
   // Strip trailing slashes temporarily for comparison
   const hasTrailingSlash = cleanPath.endsWith("/") && cleanPath.length > 1;
@@ -39,7 +36,6 @@ function getUrlForLang(targetLang: Lang) {
     const localizedSlug = targetLang === "en" ? "/contact" : "/contacto";
     finalPath = hasTrailingSlash ? `${localizedSlug}/` : localizedSlug;
   }
-
   const prefix = targetLang === "en" ? "" : `/${targetLang}`;
 
   if (finalPath === "/") {
@@ -52,7 +48,6 @@ function getUrlForLang(targetLang: Lang) {
 const urlEn = getUrlForLang("en");
 const urlEs = getUrlForLang("es");
 const urlPt = getUrlForLang("pt");
-
 const homeUrl = lang === "en" ? "/" : `/${lang}`;
 const menuUrl = lang === "en" ? "/the-mex" : `/${lang}/the-mex`;
 const contactUrl = lang === "en" ? "/contact" : `/${lang}/contacto`;
@@ -227,7 +222,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
         </a>
       </div>
       </div>
-
       <!-- Right Side: Compact Language Button -->
       <div class="relative flex items-center" id="mobile-lang-container">
         <button
@@ -248,7 +242,6 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
               clip-rule="evenodd"></path>
           </svg>
         </button>
-
         <!-- Language dropdown -->
         <div
           id="mobile-lang-dropdown"
