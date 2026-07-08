@@ -55,7 +55,6 @@ const carouselImages = [
   {/* CONTENIDO PRINCIPAL */}
   <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
-      
       {/* COLUMNA IZQUIERDA: DETALLES */}
       <div class="lg:col-span-2 space-y-8 md:space-y-12">
         {/* Amenidades */}
@@ -73,7 +72,6 @@ const carouselImages = [
             ))
           }
         </div>
-
         {/* Textos de la Experiencia */}
         <div class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed">
           {/* Optimizado: text-2xl en móvil */}
@@ -84,7 +82,6 @@ const carouselImages = [
           <p>{i18n.HALF_DAY_PRODUCT.p2}</p>
           <p>{i18n.HALF_DAY_PRODUCT.p3}</p>
           <p>{i18n.HALF_DAY_PRODUCT.p4}</p>
-
           {/* Bloque: Qué esperar */}
           <div class="bg-[#FAF6EE] p-5 md:p-8 rounded-2xl border border-stone-100/80">
             <h3 class="font-normal text-lg md:text-xl text-[#4e8782] mb-4 md:mb-6">
@@ -109,14 +106,12 @@ const carouselImages = [
                   })
               }
             </div>
-          </div>
-          
+          </div>        
           <div class="prose max-w-none text-stone-600 font-light space-y-4 leading-relaxed text-sm">
             <p>{i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT.P2}</p>
           </div>
         </div>
       </div>
-
       {/* COLUMNA DERECHA: STICKY BOOKING CARD */}
       <div class="lg:col-span-1 lg:sticky lg:top-24">
         <div class="bg-white rounded-2xl p-4 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-6">
@@ -129,11 +124,9 @@ const carouselImages = [
               />
             </div>
           </div>
-
           {/* Tickets */}
           <div class="space-y-2 md:space-y-3">
             <label class="text-[9px] md:text-[10px] uppercase tracking-wider text-stone-400 font-semibold">Tickets</label>
-            
             {/* Ticket 1 */}
             <div class="border border-stone-200 rounded-xl p-3 flex justify-between items-center bg-white hover:border-[#E77543]/40 transition-colors">
               <div>
@@ -145,7 +138,6 @@ const carouselImages = [
                 <span class="text-[8px] md:text-[9px] bg-emerald-50 text-emerald-600 px-1.5 py-0.5 rounded font-medium">Available</span>
               </div>
             </div>
-
             {/* Ticket 2 */}
             <div class="border border-stone-200 rounded-xl p-3 flex justify-between items-center bg-white hover:border-[#E77543]/40 transition-colors">
               <div>
@@ -170,7 +162,6 @@ const carouselImages = [
               </div>
             </div>
           </div>
-
           {/* Desglose de totales */}
           <div class="border-t border-stone-100 pt-3 md:pt-4 space-y-1.5 md:space-y-2 text-xs text-stone-600">
             <div class="flex justify-between">
@@ -241,7 +232,6 @@ const carouselImages = [
             </div>
           </div>
         </a>
-
         {/* Bloque 2: Extreme Adventure */}
         <a
           href="/experience"
@@ -268,7 +258,6 @@ const carouselImages = [
             </div>
           </div>
         </a>
-
         {/* Bloque 3: Snorkeling Adventure */}
         <a
           href="/experience"
@@ -295,7 +284,6 @@ const carouselImages = [
             </div>
           </div>
         </a>
-
         {/* Bloque 4: Cenote Adventuring */}
         <a
           href="/experience"
@@ -333,7 +321,6 @@ const carouselImages = [
       </h2>
       <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
     </div>
-
     <div class="space-y-4 pb-20 md:pb-28">
       {
         (() => {
@@ -359,14 +346,11 @@ const carouselImages = [
               </svg>
             ),
           };
-
           const fallbackIcon = (
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
               <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
             </svg>
           );
-          
-
           return Object.keys(i18n.PUERTO_MORELOS.QUESTIONS)
             .filter((key) => key.startsWith("q"))
             .map((key, index) => {
