@@ -10,15 +10,14 @@ interface Props {
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const pathname = Astro.url.pathname;
-const isMenuPage = pathname.includes("/menu");
-const isContactPage =
-  pathname.includes("/contacto") || pathname.includes("/contact");
+const isMenuPage = pathname.includes("/the-mex");
+const isContactPage = pathname.includes("/contacto") || pathname.includes("/contact");
 const isPuertoMorelos = pathname.includes("/puerto-morelos");
 const isHomePage = !isMenuPage && !isContactPage && !isPuertoMorelos;
-
 function getUrlForLang(targetLang: Lang) {
   let cleanPath = pathname;
-  // Strip language prefixes /es/ or /pt/ or /es or /pt
+
+  // 1. Limpiar los prefijos de idioma actuales si existen
   if (cleanPath.startsWith("/es/")) {
     cleanPath = cleanPath.substring(3);
   } else if (cleanPath.startsWith("/pt/")) {
@@ -26,33 +25,39 @@ function getUrlForLang(targetLang: Lang) {
   } else if (cleanPath === "/es" || cleanPath === "/pt") {
     cleanPath = "/";
   }
+
+  // Asegurar consistencia de slashes
+  if (!cleanPath.startsWith("/")) cleanPath = "/" + cleanPath;
   const hasTrailingSlash = cleanPath.endsWith("/") && cleanPath.length > 1;
-  const comparePath = hasTrailingSlash ? cleanPath.slice(0, -1) : cleanPath;
+  let basePage = hasTrailingSlash ? cleanPath.slice(0, -1) : cleanPath;
 
-  let finalPath = cleanPath;
-  if (comparePath === "/contact" || comparePath === "/contacto") {
-    const localizedSlug = targetLang === "en" ? "/contact" : "/contacto";
-    finalPath = hasTrailingSlash ? `${localizedSlug}/` : localizedSlug;
+  // 2. Traducir slugs específicos que cambian entre idiomas (ej: contacto)
+  if (basePage === "/contact" || basePage === "/contacto") {
+    basePage = targetLang === "en" ? "/contact" : "/contacto";
   }
-  const prefix = targetLang === "en" ? "" : `/${targetLang}`;
 
-  if (finalPath === "/") {
+  // 3. Construir la URL final con el prefijo correcto
+  const prefix = targetLang === "en" ? "" : `/${targetLang}`;
+  
+  if (basePage === "/") {
     return prefix === "" ? "/" : prefix;
   }
 
-  return `${prefix}${finalPath}`;
+  return `${prefix}${basePage}${hasTrailingSlash ? "/" : ""}`;
 }
 
+// URLs dinámicas para el switch de idiomas
 const urlEn = getUrlForLang("en");
 const urlEs = getUrlForLang("es");
 const urlPt = getUrlForLang("pt");
+
+// URLs estáticas del menú de navegación respetando el idioma actual
 const homeUrl = lang === "en" ? "/" : `/${lang}`;
 const menuUrl = lang === "en" ? "/the-mex" : `/${lang}/the-mex`;
 const contactUrl = lang === "en" ? "/contact" : `/${lang}/contacto`;
 const pmUrl = lang === "en" ? "/puerto-morelos" : `/${lang}/puerto-morelos`;
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
 ---
-
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
   id="main-header"
@@ -418,35 +423,45 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
   </div>
 </div>
 
-<!-- Scriipt para los estilos -->
+<!-- Script corregido para menú e idiomas -->
 <script>
   const menuToggleBtn = document.getElementById("menu-toggle-btn");
   const menuCloseBtn = document.getElementById("menu-close-btn");
   const menuDrawer = document.getElementById("menu-drawer");
   const menuBackdrop = document.getElementById("menu-backdrop");
   const drawerLinks = document.querySelectorAll(".nav-drawer-link");
+  
+  // selectores de idioma móvil
   const mobileLangBtn = document.getElementById("mobile-lang-btn");
   const mobileLangDropdown = document.getElementById("mobile-lang-dropdown");
+  const mobileLangContainer = document.getElementById("mobile-lang-container");
+
+  // Toggle del idioma móvil (Detiene la propagación para evitar el click global)
   mobileLangBtn?.addEventListener("click", (e) => {
+    e.preventDefault();
     e.stopPropagation();
     mobileLangDropdown?.classList.toggle("hidden");
   });
+
+  // Cerrar dropdown si se hace click fuera de él
   document.addEventListener("click", (e) => {
-    const container = document.getElementById("mobile-lang-container");
-    if (
-      mobileLangDropdown &&
-      !mobileLangDropdown.classList.contains("hidden") &&
-      container &&
-      !container.contains(e.target as Node)
-    ) {
-      mobileLangDropdown.classList.add("hidden");
+    const target = e.target as Node;
+    
+    // Si el dropdown está abierto y el click no es dentro del contenedor del botón de idioma
+    if (mobileLangDropdown && !mobileLangDropdown.classList.contains("hidden")) {
+      if (mobileLangContainer && !mobileLangContainer.contains(target)) {
+        mobileLangDropdown.classList.add("hidden");
+      }
     }
   });
+
   function openMenu() {
     if (menuDrawer && menuBackdrop) {
       menuBackdrop.classList.remove("hidden");
+      // Remueve las restricciones de eventos para que se pueda clickear todo dentro
       menuDrawer.classList.remove("pointer-events-none");
       menuBackdrop.classList.remove("pointer-events-none");
+      
       setTimeout(() => {
         menuBackdrop.classList.add("opacity-100");
         menuDrawer.classList.remove("-translate-x-full");
@@ -454,32 +469,38 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
       document.body.style.overflow = "hidden";
     }
   }
+
   function closeMenu() {
     if (menuDrawer && menuBackdrop) {
       menuBackdrop.classList.remove("opacity-100");
       menuDrawer.classList.add("-translate-x-full");
-      menuDrawer.classList.add("pointer-events-none");
-      menuBackdrop.classList.add("pointer-events-none");
+      
+      // Volver a activar pointer-events-none tras terminar la animación de cierre
       setTimeout(() => {
+        menuDrawer.classList.add("pointer-events-none");
+        menuBackdrop.classList.add("pointer-events-none");
         menuBackdrop.classList.add("hidden");
+        mobileLangDropdown?.classList.add("hidden"); // Resetea el dropdown de idioma al cerrar
       }, 300);
       document.body.style.overflow = "";
     }
   }
+
   menuToggleBtn?.addEventListener("click", openMenu);
   menuCloseBtn?.addEventListener("click", closeMenu);
   menuBackdrop?.addEventListener("click", closeMenu);
+  
   drawerLinks.forEach((link) => {
     link.addEventListener("click", closeMenu);
   });
+
+  // Optimización del Header con el Scroll
   const header = document.getElementById("main-header");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header?.classList.add("shadow-md", "bg-[#fcfbf7]");
-      header?.classList.remove("bg-[#fcfbf7]");
     } else {
-      header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
-      header?.classList.add("bg-[#fcfbf7]");
+      header?.classList.remove("shadow-md");
     }
-  });
+  }, { passive: true });
 </script>
