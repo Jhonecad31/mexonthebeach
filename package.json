@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/react": "^6.0.0",
+    "@astrojs/vercel": "^10.0.8",
     "@heroui/react": "^3.2.2",
     "@heroui/use-disclosure": "^2.2.19",
     "@tailwindcss/vite": "^4.3.1",
@@ -20,6 +21,7 @@
     "framer-motion": "^12.42.2",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
+    "resend": "^6.17.2",
     "tailwindcss": "^4.3.1"
   },
   "devDependencies": {

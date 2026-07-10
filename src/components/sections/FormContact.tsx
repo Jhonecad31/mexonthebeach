@@ -4,7 +4,7 @@ import { Modal, Button } from "@heroui/react";
 export default function FormContact({ i18n }: { i18n: any }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  // Estados para los campos del formulario
+  // Estados originales para los campos del formulario
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,16 +24,31 @@ export default function FormContact({ i18n }: { i18n: any }) {
     setIsSubmitting(true);
 
     try {
-      // Simulamos la petición o tu fetch hacia la API
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // 1. Realizamos la petición HTTP POST real hacia tu API Route de Astro
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-      // Abrimos el modal directamente
+      const result = await response.json();
+
+      if (!response.ok) {
+        console.error("Error en el servidor:", result.error);
+        alert(`Error: ${result.error || "No se pudo enviar el correo."}`);
+        return;
+      }
+
+      // 2. Si todo sale bien, abrimos el modal de confirmación
       setIsOpen(true);
 
-      // Reseteamos el formulario
+      // 3. Reseteamos el formulario
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
-      console.error("Error al enviar el formulario:", error);
+      console.error("Error de red al enviar el formulario:", error);
+      alert("Ocurrió un problema de conexión al enviar el formulario.");
     } finally {
       setIsSubmitting(false);
     }
@@ -104,14 +119,12 @@ export default function FormContact({ i18n }: { i18n: any }) {
           </form>
         </div>
       </div>
+
       {/* VENTANA EMERGENTE (MODAL) CORREGIDA PARA HEROUI V3 */}
       <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
-        {/* El Backdrop nativo maneja el desenfoque fijo del viewport */}
         <Modal.Backdrop className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]" />
-        {/* Contenedor Flex para el centrado exacto */}
         <Modal.Container className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
           <Modal.Dialog className="bg-white border border-black/5 rounded-3xl p-6 shadow-2xl max-w-sm w-full relative z-[10000] animate-fade-in">
-            {/* Trigger de cierre de esquina nativo */}
             <Modal.CloseTrigger className="absolute right-4 top-4 text-zinc-400 hover:text-zinc-600 cursor-pointer" />
             <Modal.Header className="flex flex-col gap-1 font-serif text-primary uppercase tracking-wider text-center pt-4">
               <Modal.Heading>¡Confirmación!</Modal.Heading>
@@ -147,12 +160,9 @@ export default function FormContact({ i18n }: { i18n: any }) {
                 slot="close"
                 color="primary"
                 onPress={() => {
-                  // 1. Cerramos el modal para indicarle a HeroUI que libere el scroll del body
                   setIsOpen(false);
-                  // 2. Redireccionamos a la vista que necesites (ejemplo: a la raíz o a una página de gracias)
-                  // Usamos un micro-timeout para asegurar que HeroUI procese el cierre antes de que el navegador cambie de página
                   setTimeout(() => {
-                    window.location.href = "/"; // Cambia "/" por la ruta a la que quieras redirigir
+                    window.location.href = "/";
                   }, 100);
                 }}
                 className="font-bold uppercase tracking-widest text-xs bg-primary hover:bg-primary-hover text-white px-8 py-2 rounded-full cursor-pointer transition-all"
