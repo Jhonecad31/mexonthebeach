@@ -109,7 +109,7 @@ const carouselImages = [
               [
                 {
                   label: "Transportation",
-                  value: i18n.HALF_DAY_PRODUCT?.transportation || "Round trip transportation",
+                  value: i18n.MAKE_YOU_RESERVATION?.transportation || "Round trip transportation",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +129,7 @@ const carouselImages = [
                 },
                 {
                   label: "Duration",
-                  value: i18n.HALF_DAY_PRODUCT?.duration || "4 Hours",
+                  value: i18n.MAKE_YOU_RESERVATION?.duration || "4 Hours",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -149,7 +149,7 @@ const carouselImages = [
                 },
                 {
                   label: "Family Friendly",
-                  value: i18n.HALF_DAY_PRODUCT?.minAge || "For all ages",
+                  value: i18n.MAKE_YOU_RESERVATION?.minAge || "For all ages",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ const carouselImages = [
                 },
                 {
                   label: "Schedules",
-                  value: i18n.HALF_DAY_PRODUCT?.schedules || "10:00 AM - 2:00 PM",
+                  value: i18n.MAKE_YOU_RESERVATION?.schedules || "10:00 AM - 2:00 PM",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -211,12 +211,12 @@ const carouselImages = [
             <h2
               class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
             >
-              {i18n.HALF_DAY_PRODUCT?.title}
+              {i18n.MAKE_YOU_RESERVATION?.title}
             </h2>
-            <p>{i18n.HALF_DAY_PRODUCT?.p1}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p2}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p3}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p4}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION?.p1}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.p2}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.p3}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.p4}</p>
 
             {/* Bloque: Qué esperar */}
             <div
@@ -225,15 +225,15 @@ const carouselImages = [
               <h3
                 class="font-normal text-lg md:text-xl text-[#4e8782] mb-4 md:mb-6"
               >
-                {i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT.title}
+                {i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.title}
               </h3>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {
-                  Object.keys(i18n.HALF_DAY_PRODUCT?.WHAT_TO_EXPECT || {})
+                  Object.keys(i18n.MAKE_YOU_RESERVATION?.WHAT_TO_EXPECT || {})
                     .filter((key) => key.startsWith("p"))
                     .map((key, index) => {
                       const paragraphText =
-                        i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT[key];
+                        i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT[key];
                       return (
                         <div key={key} class="space-y-1.5 md:space-y-2">
                           <div class="w-6 h-6 md:w-7 md:h-7 bg-[#E77543] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
@@ -251,7 +251,7 @@ const carouselImages = [
             <div
               class="prose max-w-none text-stone-600 font-light space-y-4 leading-relaxed text-sm"
             >
-              <p>{i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT.P2}</p>
+              <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.P2}</p>
             </div>
           </div>
         </div>
@@ -433,13 +433,13 @@ const carouselImages = [
           <h2
             class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
           >
-            {i18n.HALF_DAY_PRODUCT.BAKLINKS.title}
+            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
           </h2>
           <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
           <p
             class="text-[11px] md:text-sm text-neutral-500 max-w-xl mx-auto leading-relaxed mt-2"
           >
-            {i18n.HALF_DAY_PRODUCT.BAKLINKS.subtitle}
+            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}
           </p>
         </div>
 
@@ -471,12 +471,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.title}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.subtitle}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -511,12 +511,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.title}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.subtitle}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -551,12 +551,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.title}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.subtitle}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -591,12 +591,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.title}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.subtitle}
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -614,7 +614,7 @@ const carouselImages = [
           <h2
             class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
           >
-            {i18n.PUERTO_MORELOS.QUESTIONS.title}
+            {i18n.MAKE_YOU_RESERVATION.QUESTIONS.title}
           </h2>
           <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
         </div>

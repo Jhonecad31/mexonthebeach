@@ -2,6 +2,7 @@
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 import Layout from "@/layouts/BaseLayout.astro";
+import { $brand } from "astro:schema";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
@@ -51,18 +52,13 @@ const carouselImages = [
   {/* CONTENIDO PRINCIPAL */}
   <div class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0">
     <div class="max-w-2xl space-y-5 md:space-y-6 animate-fade-in">
-      
-      {/* Título: Ajustado el line-height y drop-shadow más profundo */}
       <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]">
-        {i18n.HALF_DAY_PRODUCT.HERO.title}
+        {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.title}
       </h1>
-      
-      {/* Descripción: Subido a font-normal y text-white/90 para evitar que las fuentes delgadas se pierdan en pantallas Retina */}
-      <p class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl">
-        {i18n.HALF_DAY_PRODUCT.HERO.description}
-      </p>
 
-      {/* Botón CTA: Cambiado a tu color acento naranja (#E77543) para maximizar clics sobre el fondo oscuro */}
+      <p class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl">
+        {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.description}
+      </p>
       <div class="pt-3">
         <a
           href={bookingUrl}
@@ -85,7 +81,7 @@ const carouselImages = [
               [
                 {
                   label: "Transportation",
-                  value: i18n.HALF_DAY_PRODUCT?.transportation || "Round trip transportation",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.transportation || "Round trip transportation",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -105,7 +101,7 @@ const carouselImages = [
                 },
                 {
                   label: "Duration",
-                  value: i18n.HALF_DAY_PRODUCT?.duration || "4 Hours",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "4 Hours",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -125,7 +121,7 @@ const carouselImages = [
                 },
                 {
                   label: "Family Friendly",
-                  value: i18n.HALF_DAY_PRODUCT?.minAge || "For all ages",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -145,7 +141,7 @@ const carouselImages = [
                 },
                 {
                   label: "Schedules",
-                  value: i18n.HALF_DAY_PRODUCT?.schedules || "10:00 AM - 2:00 PM",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules || "10:00 AM - 2:00 PM",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -187,12 +183,12 @@ const carouselImages = [
             <h2
               class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
             >
-              {i18n.HALF_DAY_PRODUCT?.title}
+              {i18n.FULL_DAY_BEACH_EXPERIENCE?.title}
             </h2>
-            <p>{i18n.HALF_DAY_PRODUCT?.p1}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p2}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p3}</p>
-            <p>{i18n.HALF_DAY_PRODUCT.p4}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE?.p1}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p2}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p3}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p4}</p>
 
             {/* Bloque: Qué esperar */}
             <div
@@ -201,15 +197,15 @@ const carouselImages = [
               <h3
                 class="font-normal text-lg md:text-xl text-[#4e8782] mb-4 md:mb-6"
               >
-                {i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT.title}
               </h3>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 {
-                  Object.keys(i18n.HALF_DAY_PRODUCT?.WHAT_TO_EXPECT || {})
+                  Object.keys(i18n.FULL_DAY_EXPERIENCE?.WHAT_TO_EXPECT || {})
                     .filter((key) => key.startsWith("p"))
                     .map((key, index) => {
                       const paragraphText =
-                        i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT[key];
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT[key];
                       return (
                         <div key={key} class="space-y-1.5 md:space-y-2">
                           <div class="w-6 h-6 md:w-7 md:h-7 bg-[#E77543] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
@@ -227,7 +223,7 @@ const carouselImages = [
             <div
               class="prose max-w-none text-stone-600 font-light space-y-4 leading-relaxed text-sm"
             >
-              <p>{i18n.HALF_DAY_PRODUCT.WHAT_TO_EXPECT.P2}</p>
+              <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT.P2}</p>
             </div>
           </div>
         </div>
@@ -409,13 +405,13 @@ const carouselImages = [
           <h2
             class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
           >
-            {i18n.HALF_DAY_PRODUCT.BAKLINKS.title}
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.title}
           </h2>
           <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
           <p
             class="text-[11px] md:text-sm text-neutral-500 max-w-xl mx-auto leading-relaxed mt-2"
           >
-            {i18n.HALF_DAY_PRODUCT.BAKLINKS.subtitle}
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.subtitle}
           </p>
         </div>
 
@@ -447,12 +443,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.TACO_TOUR.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.TACO_TOUR.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -487,12 +483,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.EXTREME.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.EXTREME.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -527,12 +523,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.SNORKELING.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.SNORKELING.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -567,12 +563,12 @@ const carouselImages = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.CENOTE.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.CENOTE.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -590,7 +586,7 @@ const carouselImages = [
           <h2
             class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
           >
-            {i18n.PUERTO_MORELOS.QUESTIONS.title}
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.QUESTIONS.title}
           </h2>
           <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
         </div>
@@ -679,10 +675,10 @@ const carouselImages = [
                   />
                 </svg>
               );
-              return Object.keys(i18n.PUERTO_MORELOS.QUESTIONS)
+              return Object.keys(i18n.FULL_DAY_BEACH_EXPERIENCE.QUESTIONS)
                 .filter((key) => key.startsWith("q"))
                 .map((key, index) => {
-                  const item = i18n.PUERTO_MORELOS.QUESTIONS[key];
+                  const item = i18n.FULL_DAY_BEACH_EXPERIENCE.QUESTIONS[key];
                   return (
                     <details
                       name="faq-accordion"
