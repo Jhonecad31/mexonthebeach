@@ -165,10 +165,11 @@
         "title": "Oceanfront Private Cabana",
         "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
         "features": [
-          "Use of a beach lounger",
+          "Access to the beach club facilities",
+          "Use of a beach lounger or lounge chair (subject to availability)",
           "Access to the swimming pool",
-          "One complimentary drink",
-          "Waiter service"
+          "Waiter service at the beach and pool areas",
+          "Access to restrooms and shower facilities"
         ]
       },
       "sunbeds": {
@@ -203,15 +204,21 @@
       "p3": "The area surrounding the beach club is rich in natural beauty. Just offshore lies the famous reef system that attracts snorkelers and nature lovers from around the world. The nearby fishing village offers colorful streets, local shops, and authentic Mexican culture that many travelers seek when exploring the Riviera Maya. ",
       "p4": "Whether you arrive from Cancun, Playa del Carmen, or as part of your vacation packages to Puerto Morelos, you will discover why so many visitors consider this destination one of the best things to do in Puerto Morelos Mexico. "
     },
-    "WHAT'S-INCLUDED": {
-      "items": [
-        "Round-trip transportation from Cancun and Playa del Carmen.",
-        "Use of a beach lounger.",
-        "Access to the swimming pool.",
-        "One complimentary drink.",
-        "Waiter service.",
-        "Exclusive tequila tasting experience.",
-        "Breakfast (Morning Half-Day), Lunch (Afternoon Half-Day), or both (Full-Day)."
+    "WHAT_INCLUDED": {
+      "title": "Inclusions & Exclusions",
+      "includes": [
+        "Round-trip transportation from Cancun and Playa del Carmen",
+          "Use of a beach lounger",
+          "Access to the swimming pool",
+          "One complimentary drink",
+          "Waiter service",
+          "Exclusive tequila tasting experience",
+          "Breakfast (Morning) or Lunch (Afternoon)"
+      ],
+      "not_includes": [
+        "À la carte food and drinks (available at an additional cost if you wish to upgrade your experience)",
+        "Tips and gratuities",
+        "Any additional services or amenities not explicitly mentioned above"
       ]
     },
     "TITLE_H2": {
@@ -290,15 +297,21 @@
       "p3": "The area surrounding the beach club is rich in natural beauty. Just offshore lies the famous reef system that attracts snorkelers and nature lovers from around the world. The nearby fishing village offers colorful streets, local shops, and authentic Mexican culture that many travelers seek when exploring the Riviera Maya. ",
       "p4": "Whether you arrive from Cancun, Playa del Carmen, or as part of your vacation packages to Puerto Morelos, you will discover why so many visitors consider this destination one of the best things to do in Puerto Morelos Mexico. "
     },
-    "WHAT'S-INCLUDED": {
-      "items": [
-        "Round-trip transportation from Cancun and Playa del Carmen.",
-        "Use of a beach lounger.",
-        "Access to the swimming pool.",
-        "One complimentary drink.",
-        "Waiter service.",
-        "Exclusive tequila tasting experience.",
-        "Breakfast (Morning Half-Day), Lunch (Afternoon Half-Day), or both (Full-Day)."
+    "WHAT_INCLUDED": {
+      "title": "Inclusions & Exclusions",
+      "includes": [
+        "Round-trip transportation from Cancun and Playa del Carmen",
+          "Use of a beach lounger",
+          "Access to the swimming pool",
+          "One complimentary drink",
+          "Waiter service",
+          "Exclusive tequila tasting experience",
+          "Breakfast (Morning) or Lunch (Afternoon)"
+      ],
+      "not_includes": [
+        "À la carte food and drinks (available at an additional cost if you wish to upgrade your experience)",
+        "Tips and gratuities",
+        "Any additional services or amenities not explicitly mentioned above"
       ]
     },
     "TITLE_H2": {
@@ -362,14 +375,17 @@
       "title": "Beach club experience in puerto morelos",
       "description": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya."
     },
+    "OVERVIEW": {
+      "title": "Overview",
+      "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
+      "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
+      "p3": "Unlike many busy tourist destinations, Puerto Morelos maintains its authentic charm as a fishing village surrounded by natural treasures. From the world's second-largest barrier reef to the famous Ruta de los Cenotes, visitors can experience a more tranquil side of the Riviera Maya while enjoying comfort, excellent service, and unforgettable ocean views.",
+      "p4": "At Mex On The Beach, every moment is designed to help travelers slow down, reconnect with nature, and enjoy everything that makes Puerto Morelos Mexico beach so special."
+    },
     "title": "Make a reservation (Transportation not included)",
     "tag": "Regular",
     "clock": "10:00 AM - 2:00 AM",
     "button": "Check Availability - In Menu",
-    "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
-    "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
-    "p3": "Unlike many busy tourist destinations, Puerto Morelos maintains its authentic charm as a fishing village surrounded by natural treasures. From the world's second-largest barrier reef to the famous Ruta de los Cenotes, visitors can experience a more tranquil side of the Riviera Maya while enjoying comfort, excellent service, and unforgettable ocean views.",
-    "p4": "At Mex On The Beach, every moment is designed to help travelers slow down, reconnect with nature, and enjoy everything that makes Puerto Morelos Mexico beach so special.",
     "WHAT_TO_EXPECT": {
       "title": "What to expect?",
       "p1": "A visit to Mex On The Beach is about much more than spending a few hours by the ocean. It is an opportunity to experience the peaceful rhythm of Puerto Morelos while enjoying one of the most beautiful beach settings in the Riviera Maya.",
@@ -377,15 +393,18 @@
       "p3": "The area surrounding the beach club is rich in natural beauty. Just offshore lies the famous reef system that attracts snorkelers and nature lovers from around the world. The nearby fishing village offers colorful streets, local shops, and authentic Mexican culture that many travelers seek when exploring the Riviera Maya. ",
       "p4": "Whether you arrive from Cancun, Playa del Carmen, or as part of your vacation packages to Puerto Morelos, you will discover why so many visitors consider this destination one of the best things to do in Puerto Morelos Mexico. "
     },
-    "WHAT'S-INCLUDED": {
-      "items": [
-        "Round-trip transportation from Cancun and Playa del Carmen.",
-        "Use of a beach lounger.",
-        "Access to the swimming pool.",
-        "One complimentary drink.",
-        "Waiter service.",
-        "Exclusive tequila tasting experience.",
-        "Breakfast (Morning Half-Day), Lunch (Afternoon Half-Day), or both (Full-Day)."
+    "WHAT_INCLUDED": {
+      "title": "Inclusions & Exclusions",
+      "includes": [
+        "Access to the beach club facilities",
+          "Use of a beach lounger or lounge chair (subject to availability)",
+          "Waiter service at the beach and pool areas",
+          "Access to restrooms and shower facilities"
+      ],
+      "not_includes": [
+        "Food and drinks (available à la carte at an additional cost)",
+        "Round-trip transportation",
+        "Tips and gratuities"
       ]
     },
     "TITLE_H2": {
@@ -447,10 +466,7 @@
       "cabana": {
         "title": "Oceanfront Private Cabana",
         "description": "Experience ultimate privacy and luxury with front-row Caribbean views and personalized nest service.",
-        "features": [
-          "Dedicated beach concierge",
-          "Shaded premium lounge area"
-        ]
+        "features": ["Dedicated beach concierge", "Shaded premium lounge area"]
       },
       "sunbeds": {
         "title": "Premium Lounge & Sunbeds",

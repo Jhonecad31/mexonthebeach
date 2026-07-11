@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
+import { Check, ChevronRight, Info, X } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
@@ -104,12 +105,15 @@ const carouselImages = [
     >
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
         <div class="lg:col-span-2 space-y-8 md:space-y-12">
+          <!-- seccion de información de features -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
             {
               [
                 {
                   label: "Transportation",
-                  value: i18n.MAKE_YOU_RESERVATION?.transportation || "Round trip transportation",
+                  value:
+                    i18n.MAKE_YOU_RESERVATION?.transportation ||
+                    "Round trip transportation",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +173,9 @@ const carouselImages = [
                 },
                 {
                   label: "Schedules",
-                  value: i18n.MAKE_YOU_RESERVATION?.schedules || "10:00 AM - 2:00 PM",
+                  value:
+                    i18n.MAKE_YOU_RESERVATION?.schedules ||
+                    "10:00 AM - 2:00 PM",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -203,59 +209,128 @@ const carouselImages = [
               ))
             }
           </div>
-
-          {/* Textos de la Experiencia */}
+          <!-- Aqui empienza la información del producto -->
+          <!-- Overview -->
           <div
             class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <h2
               class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
             >
-              {i18n.MAKE_YOU_RESERVATION?.title}
+              {i18n.MAKE_YOU_RESERVATION.OVERVIEW.title}
             </h2>
-            <p>{i18n.MAKE_YOU_RESERVATION?.p1}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.p2}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.p3}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.p4}</p>
-
-            {/* Bloque: Qué esperar */}
-            <div
-              class="bg-[#FAF6EE] p-5 md:p-8 rounded-2xl border border-stone-100/80"
-            >
-              <h3
-                class="font-normal text-lg md:text-xl text-[#4e8782] mb-4 md:mb-6"
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p1}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p2}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p3}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p4}</p>
+          </div>
+          <!-- Aqui empieza la información con acordeon -->
+          <div class="divide-y divide-gray-200">
+            {}
+            <details class="group py-6" name="tour-info" open>
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none"
               >
-                {i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.title}
-              </h3>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                {
-                  Object.keys(i18n.MAKE_YOU_RESERVATION?.WHAT_TO_EXPECT || {})
-                    .filter((key) => key.startsWith("p"))
-                    .map((key, index) => {
-                      const paragraphText =
-                        i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT[key];
-                      return (
-                        <div key={key} class="space-y-1.5 md:space-y-2">
-                          <div class="w-6 h-6 md:w-7 md:h-7 bg-[#E77543] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
-                            {index + 1}
-                          </div>
-                          <p class="text-xs text-stone-500 font-light leading-relaxed">
-                            {paragraphText}
-                          </p>
-                        </div>
-                      );
-                    })
-                }
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div class="mt-8">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                  {
+                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
+                      (text) => (
+                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                          <Check
+                            className="text-[#006083] mt-1 shrink-0"
+                            size={20}
+                          />
+                          <p>{text}</p>
+                        </li>
+                      ),
+                    )
+                  }
+                  {
+                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
+                      (text) => (
+                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                          <X className="text-red-500 mt-1 shrink-0" size={20} />
+                          <span>{text}</span>
+                        </li>
+                      ),
+                    )
+                  }
+                </ul>
               </div>
-            </div>
-            <div
-              class="prose max-w-none text-stone-600 font-light space-y-4 leading-relaxed text-sm"
+            </details>
+            {}
+            <details
+              class="group py-6 border-b border-gray-200"
+              name="tour-info"
+              open
             >
-              <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.P2}</p>
-            </div>
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none select-none"
+              >
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+
+              <div class="mt-8 transition-all duration-300">
+                {/* Contenedor principal con Grid */}
+                <div
+                  class="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-600 font-light text-sm md:text-base leading-relaxed"
+                >
+                  {
+                    /* Párrafo 1: Ocupa las 2 columnas arriba para centrar la intro */
+                  }
+                  <div class="md:col-span-2">
+                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p1}</p>
+                  </div>
+
+                  {/* Tarjeta izquierda */}
+                  <div
+                    class="bg-stone-50/50 p-5 rounded-xl border border-stone-100 space-y-2"
+                  >
+                    <h4 class="font-serif text-lg text-[#001524] font-medium">
+                      Beach Relaxation
+                    </h4>
+                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p2}</p>
+                  </div>
+
+                  {/* Tarjeta derecha */}
+                  <div
+                    class="bg-stone-50/50 p-5 rounded-xl border border-stone-100 space-y-2"
+                  >
+                    <h4 class="font-serif text-lg text-[#006083] font-medium">
+                      Nature & Culture
+                    </h4>
+                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p3}</p>
+                  </div>
+
+                  {/* Párrafo 4: Ocupa las 2 columnas abajo para el cierre */}
+                  <div
+                    class="md:col-span-2 pt-4 text-center md:text-left font-normal tracking-wide"
+                  >
+                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p4}</p>
+                  </div>
+                </div>
+              </div>
+            </details>
+            {}
           </div>
         </div>
-
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
         <div class="lg:col-span-1 lg:sticky lg:top-24">
           <form
@@ -275,7 +350,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Personas */}
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
@@ -295,7 +369,6 @@ const carouselImages = [
                   <option value="5">5 Adults</option>
                 </select>
               </div>
-
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -382,7 +455,6 @@ const carouselImages = [
             </button>
           </form>
         </div>
-
         <script>
           const form = document.getElementById(
             "beach-club-booking-form",
