@@ -267,7 +267,6 @@ const carouselImages = [
               </div>
             </details>
             {}
-            {}
             <details
               class="group py-6 border-b border-gray-200"
               name="tour-info"
@@ -517,7 +516,6 @@ const carouselImages = [
                   </div>
                 </div>
               </div>
-
               <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
               <div
                 class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
@@ -679,9 +677,7 @@ const carouselImages = [
               const originalText = submitBtn.innerText;
               submitBtn.innerText = "SENDING...";
               submitBtn.disabled = true;
-
               const formData = new FormData(form);
-
               try {
                 const response = await fetch("/api/booking", {
                   method: "POST",
