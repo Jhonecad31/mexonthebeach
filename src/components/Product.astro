@@ -1,6 +1,7 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
+import { Check, ChevronRight, Info, X } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
 import { $brand } from "astro:schema";
 const { currentLocale } = Astro;
@@ -8,7 +9,6 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
@@ -17,71 +17,123 @@ const carouselImages = [
   "/img-beach-club/mex-beach-club-relaxation.webp",
   "/img-beach-club/mex-beach-club-signature-drinks.webp",
 ];
+const highlights = [
+  {
+    title: "Confort frente al Mar",
+    description:
+      "Relájate en cómodos camastros frente al Mar Caribe, camina por la orilla de arena suave o disfruta del sonido de las olas.",
+    // SVG de unas olas / líneas de relajación
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#E77543]"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12h19.5M2.25 9h19.5M2.25 15h19.5M2.25 18h19.5" /></svg>`,
+  },
+  {
+    title: "Para Todos los Viajeros",
+    description:
+      "Con una atmósfera tranquila y una alberca refrescante, es el espacio ideal para parejas, familias, amigos o viajeros solitarios.",
+    // SVG de usuarios / grupo
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#E77543]"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" /></svg>`,
+  },
+  {
+    title: "Arrecife y Aventura",
+    description:
+      "A poca distancia de la costa se encuentra el famoso sistema de arrecifes que atrae a amantes del esnórquel de todo el mundo.",
+    // SVG de una brújula / aventura
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#E77543]"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15.91 11.672a.375.375 0 0 1 0 .656l-5.603 3.113a.375.375 0 0 1-.557-.328V8.887c0-.286.307-.466.557-.327l5.603 3.112Z" /></svg>`,
+  },
+  {
+    title: "Cultura y Conectividad",
+    description:
+      "Explora las coloridas calles del pueblo pesquero cercano. Ideal para visitarnos fácilmente desde Cancún o Playa del Carmen.",
+    // SVG de un pin de ubicación
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-[#E77543]"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z" /></svg>`,
+  },
+];
 ---
 
 <Layout>
   <!-- Añadimos 'relative' aquí para que cualquier cálculo de posición absoluta se acople correctamente al contenedor principal -->
   <div class="relative">
-    <section class="relative h-[80vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center">
-  {/* CONTENEDOR DE IMAGEN Y GRADIENTES DE CONTRASTE */}
-  <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
-    <img
-      src="/img-beach-club/mex-beach-club-lounge-depth.webp"
-      alt="Puerto Morelos Aerial View"
-      class="w-full h-full object-cover scale-105"
-    />
-    
-    {/* Capa 1: Oscurecimiento ambiental sutil */}
-    <div class="absolute inset-0 bg-black/15 z-10"></div>
-    
-    {/* Capa 2: Scrim direccional de izquierda a derecha (Protección premium para el bloque de texto) */}
-    <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"></div>
-    
-    {/* Capa 3: Soporte de contraste vertical exclusivo para móviles */}
-    <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"></div>
+    <section
+      class="relative h-[80vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
+    >
+      {/* CONTENEDOR DE IMAGEN Y GRADIENTES DE CONTRASTE */}
+      <div
+        class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
+      >
+        <img
+          src="/img-beach-club/mex-beach-club-lounge-depth.webp"
+          alt="Puerto Morelos Aerial View"
+          class="w-full h-full object-cover scale-105"
+        />
 
-    {/* Capa 4: Desvanecimiento elegante hacia el fondo crema del sitio */}
-    <div
-      class="absolute inset-x-0 bottom-0 h-1/4 z-20"
-      style={{
-        background: "linear-gradient(to top, rgba(254, 251, 247, 1) 0%, rgba(254, 251, 247, 0) 100%)",
-      }}
-    ></div>
-  </div>
+        {/* Capa 1: Oscurecimiento ambiental sutil */}
+        <div class="absolute inset-0 bg-black/15 z-10"></div>
 
-  {/* CONTENIDO PRINCIPAL */}
-  <div class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0">
-    <div class="max-w-2xl space-y-5 md:space-y-6 animate-fade-in">
-      <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]">
-        {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.title}
-      </h1>
-
-      <p class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl">
-        {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.description}
-      </p>
-      <div class="pt-3">
-        <a
-          href={bookingUrl}
-          class="inline-block bg-[#E77543] hover:bg-[#d66332] text-white py-3 px-6 md:py-3.5 md:px-8 rounded-full font-bold text-[10px] md:text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+        {
+          /* Capa 2: Scrim direccional de izquierda a derecha (Protección premium para el bloque de texto) */
+        }
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"
         >
-          {i18n.PUERTO_MORELOS.HERO.cta || "Explorar Experiencias"}
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
+        </div>
 
-     <section
+        {/* Capa 3: Soporte de contraste vertical exclusivo para móviles */}
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"
+        >
+        </div>
+
+        {/* Capa 4: Desvanecimiento elegante hacia el fondo crema del sitio */}
+        <div
+          class="absolute inset-x-0 bottom-0 h-1/4 z-20"
+          style={{
+            background:
+              "linear-gradient(to top, rgba(254, 251, 247, 1) 0%, rgba(254, 251, 247, 0) 100%)",
+          }}
+        >
+        </div>
+      </div>
+
+      {/* CONTENIDO PRINCIPAL */}
+      <div
+        class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0"
+      >
+        <div class="max-w-2xl space-y-5 md:space-y-6 animate-fade-in">
+          <h1
+            class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
+          >
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.title}
+          </h1>
+
+          <p
+            class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl"
+          >
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.description}
+          </p>
+          <div class="pt-3">
+            <a
+              href={bookingUrl}
+              class="inline-block bg-[#E77543] hover:bg-[#d66332] text-white py-3 px-6 md:py-3.5 md:px-8 rounded-full font-bold text-[10px] md:text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0"
+            >
+              {i18n.PUERTO_MORELOS.HERO.cta || "Explorar Experiencias"}
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
       class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
     >
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
         <div class="lg:col-span-2 space-y-8 md:space-y-12">
+          <!-- seccion de información de features -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
             {
               [
                 {
                   label: "Transportation",
-                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.transportation || "Round trip transportation",
+                  value:
+                    i18n.MAKE_YOU_RESERVATION?.transportation ||
+                    "Round trip transportation",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +153,7 @@ const carouselImages = [
                 },
                 {
                   label: "Duration",
-                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "4 Hours",
+                  value: i18n.MAKE_YOU_RESERVATION?.duration || "4 Hours",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -121,7 +173,7 @@ const carouselImages = [
                 },
                 {
                   label: "Family Friendly",
-                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
+                  value: i18n.MAKE_YOU_RESERVATION?.minAge || "For all ages",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -141,7 +193,9 @@ const carouselImages = [
                 },
                 {
                   label: "Schedules",
-                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules || "10:00 AM - 2:00 PM",
+                  value:
+                    i18n.MAKE_YOU_RESERVATION?.schedules ||
+                    "10:00 AM - 2:00 PM",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -175,59 +229,341 @@ const carouselImages = [
               ))
             }
           </div>
-
-          {/* Textos de la Experiencia */}
+          <!-- Aqui empienza la información del producto -->
+          <!-- Overview -->
           <div
             class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <h2
               class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
             >
-              {i18n.FULL_DAY_BEACH_EXPERIENCE?.title}
+              {i18n.MAKE_YOU_RESERVATION.OVERVIEW.title}
             </h2>
-            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE?.p1}</p>
-            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p2}</p>
-            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p3}</p>
-            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.p4}</p>
-
-            {/* Bloque: Qué esperar */}
-            <div
-              class="bg-[#FAF6EE] p-5 md:p-8 rounded-2xl border border-stone-100/80"
-            >
-              <h3
-                class="font-normal text-lg md:text-xl text-[#4e8782] mb-4 md:mb-6"
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p1}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p2}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p3}</p>
+            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p4}</p>
+          </div>
+          <!-- Aqui empieza la información con acordeon -->
+          <div class="divide-y divide-gray-200">
+            {}
+            <details class="group py-6" name="tour-info" open>
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none"
               >
-                {i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT.title}
-              </h3>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-                {
-                  Object.keys(i18n.FULL_DAY_EXPERIENCE?.WHAT_TO_EXPECT || {})
-                    .filter((key) => key.startsWith("p"))
-                    .map((key, index) => {
-                      const paragraphText =
-                        i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT[key];
-                      return (
-                        <div key={key} class="space-y-1.5 md:space-y-2">
-                          <div class="w-6 h-6 md:w-7 md:h-7 bg-[#E77543] text-white rounded-full flex items-center justify-center text-xs md:text-sm font-bold">
-                            {index + 1}
-                          </div>
-                          <p class="text-xs text-stone-500 font-light leading-relaxed">
-                            {paragraphText}
-                          </p>
-                        </div>
-                      );
-                    })
-                }
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div class="mt-8">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                  {
+                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
+                      (text) => (
+                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                          <Check
+                            className="text-[#006083] mt-1 shrink-0"
+                            size={20}
+                          />
+                          <p>{text}</p>
+                        </li>
+                      ),
+                    )
+                  }
+                  {
+                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
+                      (text) => (
+                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                          <X className="text-red-500 mt-1 shrink-0" size={20} />
+                          <span>{text}</span>
+                        </li>
+                      ),
+                    )
+                  }
+                </ul>
               </div>
-            </div>
-            <div
-              class="prose max-w-none text-stone-600 font-light space-y-4 leading-relaxed text-sm"
+            </details>
+            {}
+            {}
+            <details
+              class="group py-6 border-b border-gray-200"
+              name="tour-info"
+              open
             >
-              <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_TO_EXPECT.P2}</p>
-            </div>
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none select-none"
+              >
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div
+                class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
+              >
+                <p class="text-slate-800 font-medium">
+                  {
+                    i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                      .description
+                  }
+                </p>
+              </div>
+              <!-- Contenedor de Filas Informativas -->
+              <div class="space-y-12">
+                <!-- Bloque 2: Tu Día Junto al Mar -->
+                <div
+                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
+                >
+                  <div
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
+                  >
+                    <!-- Icono de Olas / Relajación -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M2.25 12h19.5M2.25 9h19.5M2.25 15h19.5M2.25 18h19.5"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep1
+                      }
+                    </h3>
+                  </div>
+                  <div class="md:col-span-2">
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p1}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Bloque 3: Naturaleza y Cultura Local -->
+                <div
+                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
+                >
+                  <div
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
+                  >
+                    <!-- Icono de Palmera / Entorno Natural -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 3v18M12 3a9 9 0 0 1 9 9h-9M12 3a9 9 0 0 0-9 9h9"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep2
+                      }
+                    </h3>
+                  </div>
+                  <div class="md:col-span-2">
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p2}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <!-- Bloque 4: El Corazón de tu Viaje -->
+                <div class="md:grid md:grid-cols-3 md:gap-8 md:items-start">
+                  <div
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
+                  >
+                    <!-- Icono de Mapa / Ubicación -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep3
+                      }
+                    </h3>
+                  </div>
+                  <div class="md:col-span-2">
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p3}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </details>
+            {}
+            <details
+              class="group py-6 border-b border-gray-200"
+              name="tour-info"
+              open
+            >
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none select-none"
+              >
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div
+                class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
+              >
+                <p class="text-slate-800 font-medium">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.description}
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+              >
+                <div class="space-y-6">
+                  <div
+                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                  >
+                    <p>
+                      {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p1}
+                    </p>
+                    <p>
+                      {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p2}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100"
+                >
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🏖️</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons
+                          .access
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🏊</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons.pool
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🍹</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons.food
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🥃</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons
+                          .tequila
+                      }</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
+              <div
+                class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
+              >
+              <div
+                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                  >
+                <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.title_h3}
+                </h3>
+                <p 
+                >
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p1_h3}
+                </p>
+                <div class="border-t border-sky-100/80 pt-6">
+                  <p class="text-slate-800 font-medium text-base italic">
+                    {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p2_h3}
+                  </p>
+                </div>
+              </div>
+              </div>
+            </details>
           </div>
         </div>
-
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
         <div class="lg:col-span-1 lg:sticky lg:top-24">
           <form
@@ -247,7 +583,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Personas */}
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
@@ -267,7 +602,6 @@ const carouselImages = [
                   <option value="5">5 Adults</option>
                 </select>
               </div>
-
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -284,7 +618,6 @@ const carouselImages = [
                 </select>
               </div>
             </div>
-
             {/* Nombre Completo */}
             <div class="space-y-1.5">
               <label
@@ -299,7 +632,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Teléfono */}
             <div class="space-y-1.5">
               <label
@@ -354,7 +686,6 @@ const carouselImages = [
             </button>
           </form>
         </div>
-
         <script>
           const form = document.getElementById(
             "beach-club-booking-form",

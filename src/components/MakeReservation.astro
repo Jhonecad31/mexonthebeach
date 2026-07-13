@@ -100,6 +100,7 @@ const carouselImages = [
         </div>
       </div>
     </section>
+    <!-- empieza codigo de prueba -->
     <section
       class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
     >
@@ -269,6 +270,7 @@ const carouselImages = [
               </div>
             </details>
             {}
+            {}
             <details
               class="group py-6 border-b border-gray-200"
               name="tour-info"
@@ -278,7 +280,7 @@ const carouselImages = [
                 class="flex justify-between items-center cursor-pointer list-none select-none"
               >
                 <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.title}
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.title}
                 </span>
                 <div
                   class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
@@ -286,49 +288,261 @@ const carouselImages = [
                   <ChevronRight className="rotate-90 text-gray-500" size={20} />
                 </div>
               </summary>
-
-              <div class="mt-8 transition-all duration-300">
-                {/* Contenedor principal con Grid */}
-                <div
-                  class="grid grid-cols-1 md:grid-cols-2 gap-8 text-stone-600 font-light text-sm md:text-base leading-relaxed"
-                >
+              <div
+                class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
+              >
+                <p class="text-slate-800 font-medium">
                   {
-                    /* Párrafo 1: Ocupa las 2 columnas arriba para centrar la intro */
+                    i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                      .description
                   }
+                </p>
+              </div>
+              <!-- Contenedor de Filas Informativas -->
+              <div class="space-y-12">
+                <!-- Bloque 2: Tu Día Junto al Mar -->
+                <div
+                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
+                >
+                  <div
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
+                  >
+                    <!-- Icono de Olas / Relajación -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M2.25 12h19.5M2.25 9h19.5M2.25 15h19.5M2.25 18h19.5"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep1
+                      }
+                    </h3>
+                  </div>
                   <div class="md:col-span-2">
-                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p1}</p>
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p1}
+                      </p>
+                    </div>
                   </div>
-
-                  {/* Tarjeta izquierda */}
+                </div>
+                <!-- Bloque 3: Naturaleza y Cultura Local -->
+                <div
+                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
+                >
                   <div
-                    class="bg-stone-50/50 p-5 rounded-xl border border-stone-100 space-y-2"
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
                   >
-                    <h4 class="font-serif text-lg text-[#001524] font-medium">
-                      Beach Relaxation
-                    </h4>
-                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p2}</p>
+                    <!-- Icono de Palmera / Entorno Natural -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M12 3v18M12 3a9 9 0 0 1 9 9h-9M12 3a9 9 0 0 0-9 9h9"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep2
+                      }
+                    </h3>
                   </div>
-
-                  {/* Tarjeta derecha */}
-                  <div
-                    class="bg-stone-50/50 p-5 rounded-xl border border-stone-100 space-y-2"
-                  >
-                    <h4 class="font-serif text-lg text-[#006083] font-medium">
-                      Nature & Culture
-                    </h4>
-                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p3}</p>
+                  <div class="md:col-span-2">
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p2}
+                      </p>
+                    </div>
                   </div>
-
-                  {/* Párrafo 4: Ocupa las 2 columnas abajo para el cierre */}
+                </div>
+                <!-- Bloque 4: El Corazón de tu Viaje -->
+                <div class="md:grid md:grid-cols-3 md:gap-8 md:items-start">
                   <div
-                    class="md:col-span-2 pt-4 text-center md:text-left font-normal tracking-wide"
+                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
                   >
-                    <p>{i18n.MAKE_YOU_RESERVATION.WHAT_TO_EXPECT.p4}</p>
+                    <!-- Icono de Mapa / Ubicación -->
+                    <div
+                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    >
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="w-6 h-6 text-[#E77543]"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
+                        ></path>
+                      </svg>
+                    </div>
+                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                      {
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
+                          .titlep3
+                      }
+                    </h3>
+                  </div>
+                  <div class="md:col-span-2">
+                    <div
+                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                    >
+                      <p>
+                        {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.p3}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             </details>
             {}
+            <details
+              class="group py-6 border-b border-gray-200"
+              name="tour-info"
+              open
+            >
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none select-none"
+              >
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.title}
+                </span>
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div
+                class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
+              >
+                <p class="text-slate-800 font-medium">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.description}
+                </p>
+              </div>
+              <div
+                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
+              >
+                <div class="space-y-6">
+                  <div
+                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                  >
+                    <p>
+                      {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p1}
+                    </p>
+                    <p>
+                      {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p2}
+                    </p>
+                  </div>
+                </div>
+                <div
+                  class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100"
+                >
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🏖️</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons
+                          .access
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🏊</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons.pool
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🍹</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons.food
+                      }</span
+                    >
+                  </div>
+                  <div
+                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
+                  >
+                    <span class="text-xl">🥃</span>
+                    <span class="font-semibold text-slate-800 text-sm"
+                      >{
+                        i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.icons
+                          .tequila
+                      }</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
+              <div
+                class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
+              >
+              <div
+                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+                  >
+                <h3 class="font-bold text-[#000000]/70 tracking-tight">
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.title_h3}
+                </h3>
+                <p 
+                >
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p1_h3}
+                </p>
+                <div class="border-t border-sky-100/80 pt-6">
+                  <p class="text-slate-800 font-medium text-base italic">
+                    {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.p2_h3}
+                  </p>
+                </div>
+              </div>
+              </div>
+            </details>
           </div>
         </div>
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
@@ -385,7 +599,6 @@ const carouselImages = [
                 </select>
               </div>
             </div>
-
             {/* Nombre Completo */}
             <div class="space-y-1.5">
               <label
@@ -400,7 +613,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Teléfono */}
             <div class="space-y-1.5">
               <label
@@ -514,7 +726,6 @@ const carouselImages = [
             {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}
           </p>
         </div>
-
         {/* Grid de Actividades */}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {/* Bloque 1: Beach Taco Tour */}
