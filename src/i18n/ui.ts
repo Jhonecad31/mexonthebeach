@@ -1,5 +1,6 @@
 export const defaultLang = 'en';
 export const showDefaultLang = false;
+
 export const ui = {
     en: {
         'nav.home': 'Home',
@@ -18,5 +19,14 @@ export const ui = {
         'footer.regularSnorkel': 'Snorkeling Adventure',
         'footer.privateSnorkel': 'Snorkel Privado',
         'footer.design': 'Diseñado por Grupo Extreme',
+    },
+    pt: {
+        'nav.home': 'Início',
+        'nav.mayanReef': 'Recife Maia',
+        'nav.puertoMorelos': 'Puerto Morelos',
+        'nav.contact': 'Contato',
+        'footer.regularSnorkel': 'Snorkeling Adventure',
+        'footer.privateSnorkel': 'Snorkel Privado',
+        'footer.design': 'Design por Grupo Extreme',
     }
 } as const;

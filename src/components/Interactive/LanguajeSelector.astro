@@ -1,0 +1,83 @@
+---
+const { pathname } = Astro.url;
+const urlSegments = pathname.split('/').filter(Boolean);
+const detectedLang = urlSegments[0];
+const lang = ["es", "pt"].includes(detectedLang) ? detectedLang : "en";
+
+const urlEn = "/"; 
+const urlEs = "/es"; 
+const urlPt = "/pt";
+---
+
+<div class="relative group">
+  <button
+    type="button"
+    class="flex items-center text-sm font-semibold text-dark/70 hover:text-[#4e8782] transition-colors cursor-pointer gap-2 focus:outline-none"
+  >
+    <svg
+      class="h-5 w-5 text-gray-400 group-hover:text-[#4e8782] transition-colors"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+      stroke-width="1.8"
+    >
+      <circle cx="12" cy="12" r="10"></circle>
+      <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+      <path d="M2 12h20"></path>
+    </svg>
+    <!-- AQUÍ: Ahora 'lang' cambiará automáticamente a EN, ES o PT según la URL -->
+    <span class="tracking-wide uppercase font-bold">{lang}</span>
+    <svg
+      class="h-4 w-4 text-gray-400 group-hover:text-[#4e8782] transition-colors"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+        clip-rule="evenodd"></path>
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div
+    class="absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
+  >
+    <a
+      href={urlEn}
+      class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "en" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+    >
+      <img
+        src="https://flagcdn.com/w40/us.png"
+        alt="EN"
+        class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+      />
+      English
+      {lang === "en" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
+    </a>
+    <a
+      href={urlEs}
+      class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "es" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+    >
+      <img
+        src="https://flagcdn.com/w40/mx.png"
+        alt="ES"
+        class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+      />
+      Español
+      {lang === "es" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
+    </a>
+    <a
+      href={urlPt}
+      class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "pt" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
+    >
+      <img
+        src="https://flagcdn.com/w40/pt.png"
+        alt="PT"
+        class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
+      />
+      Português
+      {lang === "pt" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
+    </a>
+  </div>
+</div>
