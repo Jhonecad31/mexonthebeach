@@ -1,18 +1,15 @@
 ---
 import { useTranslations, type Lang } from '../i18n/utils';
 import { getI18N } from "../i18n/index";
-
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 
 interface Props {
   lang?: Lang;
 }
-
 const { lang = 'en' } = Astro.props;
 const t = useTranslations(lang);
 ---
-
 <section id="home" class="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden pt-20">
   <div class="absolute inset-0 z-0 bg-neutral-900"> 
     <img 
@@ -29,7 +26,6 @@ const t = useTranslations(lang);
     <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-wider leading-tight drop-shadow-xl max-w-3xl">
       {i18n.HOME.HERO.title}
     </h1>
-    
     <a 
       href="#experience" 
       class="inline-block p-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white animate-bounce mt-4"
