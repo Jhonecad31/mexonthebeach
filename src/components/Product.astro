@@ -132,7 +132,7 @@ const highlights = [
                 {
                   label: "Transportation",
                   value:
-                    i18n.MAKE_YOU_RESERVATION?.transportation ||
+                    i18n.FULL_DAY_BEACH_EXPERIENCE?.transportation ||
                     "Round trip transportation",
                   icon: (
                     <svg
@@ -153,7 +153,7 @@ const highlights = [
                 },
                 {
                   label: "Duration",
-                  value: i18n.MAKE_YOU_RESERVATION?.duration || "4 Hours",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "4 Hours",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -173,7 +173,7 @@ const highlights = [
                 },
                 {
                   label: "Family Friendly",
-                  value: i18n.MAKE_YOU_RESERVATION?.minAge || "For all ages",
+                  value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
                   icon: (
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +194,7 @@ const highlights = [
                 {
                   label: "Schedules",
                   value:
-                    i18n.MAKE_YOU_RESERVATION?.schedules ||
+                    i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules ||
                     "10:00 AM - 2:00 PM",
                   icon: (
                     <svg
@@ -237,12 +237,12 @@ const highlights = [
             <h2
               class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
             >
-              {i18n.MAKE_YOU_RESERVATION.OVERVIEW.title}
+              {i18n.FULL_DAY_BEACH_EXPERIENCE.OVERVIEW.title}
             </h2>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p1}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p2}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p3}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p4}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.OVERVIEW.p1}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.OVERVIEW.p2}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.OVERVIEW.p3}</p>
+            <p>{i18n.FULL_DAY_BEACH_EXPERIENCE.OVERVIEW.p4}</p>
           </div>
           <!-- Aqui empieza la información con acordeon -->
           <div class="divide-y divide-gray-200">
@@ -252,7 +252,7 @@ const highlights = [
                 class="flex justify-between items-center cursor-pointer list-none"
               >
                 <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
+                  {i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.title}
                 </span>
                 <div
                   class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
@@ -263,7 +263,7 @@ const highlights = [
               <div class="mt-8">
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                   {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
+                    i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.includes.map(
                       (text) => (
                         <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
                           <Check
@@ -276,7 +276,7 @@ const highlights = [
                     )
                   }
                   {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
+                    i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.not_includes.map(
                       (text) => (
                         <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
                           <X className="text-red-500 mt-1 shrink-0" size={20} />
@@ -738,11 +738,11 @@ const highlights = [
             <h2
               class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
             >
-              {i18n.HALF_DAY_PRODUCT.BAKLINKS.title}
+              {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.title}
             </h2>
             <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
             <p>
-              {i18n.HALF_DAY_PRODUCT.BAKLINKS.subtitle}
+              {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.subtitle}
             </p>
           </div>
         </div>
@@ -775,12 +775,12 @@ const highlights = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.TACO_TOUR.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.TACO_TOUR.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.TACO_TOUR.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -815,12 +815,12 @@ const highlights = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.EXTREME.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.EXTREME.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.EXTREME.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -855,12 +855,12 @@ const highlights = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.SNORKELING.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.SNORKELING.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.SNORKELING.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
@@ -895,12 +895,12 @@ const highlights = [
               <h3
                 class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.title}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.CENOTE.title}
               </h3>
               <p
                 class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
               >
-                {i18n.HALF_DAY_PRODUCT.BAKLINKS.CENOTE.subtitle}
+                {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.CENOTE.subtitle}
               </p>
               <div
                 class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
