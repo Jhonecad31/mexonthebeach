@@ -52,11 +52,15 @@ const t = useTranslations(lang);
         >
           {i18n.HOME.INTRO.title}
         </h2>
-        <h3
+        <div
+          class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
+        >
+        <p
           class="text-gray-500 font-light text-sm md:text-base leading-relaxed"
         >
           {i18n.HOME.INTRO.subtitle}
-        </h3>
+        </p>
+        </div>
         <!-- CUADRÍCULA DE BENEFICIOS -->
         <div
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 w-full mt-10"

@@ -5,35 +5,24 @@ import { getI18N } from "../i18n/index";
 
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
-
-// 1. Detectamos el idioma y preparamos las utilidades de traducción de rutas
 const lang = getLangFromUrl(Astro.url) || "en";
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const pathname = Astro.url.pathname;
-
-// 2. Identificadores de página activa sencillos
 const isMenuPage = pathname.includes("/the-mex");
 const isContactPage = pathname.includes("/contacto") || pathname.includes("/contact");
 const isPuertoMorelos = pathname.includes("/puerto-morelos");
 const isHomePage = !isMenuPage && !isContactPage && !isPuertoMorelos;
-
-// 3. Generamos las URLs usando el helper nativo de Astro i18n
-// translatePath recibe la ruta por defecto (en inglés) y se encarga de traducirla y ponerle el prefijo si es necesario.
 const homeUrl = translatePath("/");
 const menuUrl = translatePath("/the-mex");
 const contactUrl = translatePath("/contact");
 const pmUrl = translatePath("/puerto-morelos");
 const bookingUrl = `${translatePath("/")}#booking`;
-
-// 4. Para el selector de idiomas, simplemente le pedimos a translatePath la versión de la página actual en cada idioma.
-// Eliminamos por completo la función manual "getTargetUrl".
 const currentPathWithoutLang = pathname.replace(/^\/(es|pt)/, "") || "/";
 const urlEn = useTranslatedPath("en")(currentPathWithoutLang);
 const urlEs = useTranslatedPath("es")(currentPathWithoutLang);
 const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
 ---
-
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
   id="main-header"
@@ -260,14 +249,12 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
     </div>
   </div>
 </header>
-
 <!-- Drawer Mobile Backdrop -->
 <div
   id="menu-backdrop"
   class="fixed inset-0 bg-dark/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none md:hidden"
 >
 </div>
-
 <!-- Navigation Drawer Mobile -->
 <div
   id="menu-drawer"

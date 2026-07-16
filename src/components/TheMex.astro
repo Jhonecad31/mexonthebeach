@@ -83,7 +83,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
         {i18n.THE_MEX.title}
       </h2>
       <div
-        class="space-y-8 font-sans text-stone-600 leading-relaxed tracking-wide text-[15px] md:text-base"
+        class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
       >
         <p>{i18n.THE_MEX.p1}</p>
         <p>{i18n.THE_MEX.p2}</p>
@@ -104,7 +104,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
             {i18n.THE_MEX.TITLE_H2.title}
           </h2>
           <div
-            class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px]"
+            class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <p>{i18n.THE_MEX.TITLE_H2.p1}</p>
             <p>{i18n.THE_MEX.TITLE_H2.p2}</p>
@@ -120,7 +120,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
         </div>
 
         <div
-          class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px] md:text-base"
+          class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
         >
           <p>{i18n.THE_MEX.TITLE_H2.p3}</p>
           <p>{i18n.THE_MEX.TITLE_H2.p4}</p>
@@ -141,7 +141,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
             {i18n.THE_MEX.TITLE_H2.title}
           </h2>
           <div
-            class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px] md:text-base"
+            class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <p>{i18n.THE_MEX.TITLE_H2.p1}</p>
             <p>{i18n.THE_MEX.TITLE_H2.p2}</p>
@@ -167,7 +167,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
             {i18n.THE_MEX.TITLE_H3.title}
           </h2>
           <div
-            class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px]"
+            class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <p>{i18n.THE_MEX.TITLE_H3.p1}</p>
             <p>{i18n.THE_MEX.TITLE_H3.p2}</p>
@@ -183,7 +183,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
         </div>
 
         <div
-          class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px] md:text-base"
+          class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
         >
           <p>{i18n.THE_MEX.TITLE_H3.p3}</p>
           <p>{i18n.THE_MEX.TITLE_H3.p4}</p>
@@ -204,7 +204,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
             {i18n.THE_MEX.TITLE_H3.title}
           </h2>
           <div
-            class="space-y-6 font-sans text-stone-600 leading-relaxed tracking-wide text-[14px] md:text-base"
+            class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
           >
             <p>{i18n.THE_MEX.TITLE_H3.p1}</p>
             <p>{i18n.THE_MEX.TITLE_H3.p2}</p>
@@ -375,8 +375,10 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
                         </svg>
                       </div>
                     </summary>
-                    <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-t-black/[0.02]">
-                      {item.answer}
+                    <div class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed">
+                      <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-t-black/[0.02]">
+                        {item.answer}
+                      </div>
                     </div>
                   </details>
                 );

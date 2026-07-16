@@ -32,19 +32,13 @@ export default function FormContact({ i18n }: { i18n: any }) {
         },
         body: JSON.stringify(formData),
       });
-
       const result = await response.json();
-
       if (!response.ok) {
         console.error("Error en el servidor:", result.error);
         alert(`Error: ${result.error || "No se pudo enviar el correo."}`);
         return;
       }
-
-      // 2. Si todo sale bien, abrimos el modal de confirmación
       setIsOpen(true);
-
-      // 3. Reseteamos el formulario
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
       console.error("Error de red al enviar el formulario:", error);
@@ -119,7 +113,6 @@ export default function FormContact({ i18n }: { i18n: any }) {
           </form>
         </div>
       </div>
-
       {/* VENTANA EMERGENTE (MODAL) CORREGIDA PARA HEROUI V3 */}
       <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
         <Modal.Backdrop className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]" />
