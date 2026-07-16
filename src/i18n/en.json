@@ -571,7 +571,8 @@
     }
   },
   "FAVORITIES": {
-    "tag": "Coastal Flavors",
+    "tag": "Explore our menu",
+    "button_menu": "Explore our full menu",
     "title": "Our Favorites",
     "description": "A fresh selection inspired by the essence of Puerto Morelos, created to pair perfectly with the Caribbean sun and breeze.",
     "seeFullMenu": "See full menu",

@@ -1,14 +1,14 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
-import { Check, ChevronRight, Info, X } from "lucide-react";
+import { Check, ChevronRight, Info, X, Utensils, Camera } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
+import FavoritiesSeccion from "@/components/sections/Favorites.astro";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
@@ -16,6 +16,72 @@ const carouselImages = [
   "/img-beach-club/mex-beach-club-lifestyle.webp",
   "/img-beach-club/mex-beach-club-relaxation.webp",
   "/img-beach-club/mex-beach-club-signature-drinks.webp",
+];
+import { Utensils, Camera, Info } from "lucide-react";
+const menuCategories = [
+  {
+    title: i18n.MAKE_YOU_RESERVATION?.MENU?.STARTERS || "Entradas & Snacking",
+    items: [
+      {
+        name: "Ceviche Mex on the Beach",
+        price: "$320 MXN",
+        desc: "Pesca del día marinada en cítricos locales, aguacate, habanero sutil y totopos artesanales.",
+      },
+      {
+        name: "Tacos de Camarón Ensenada",
+        price: "$280 MXN",
+        desc: "Tres tacos en tortilla de maíz azul, camarón capeado, col morada y aderezo de chipotle.",
+      },
+    ],
+  },
+  {
+    title: i18n.MAKE_YOU_RESERVATION?.MENU?.MAINS || "Platos Fuertes",
+    items: [
+      {
+        name: "Pescado Tikin Xic",
+        price: "$450 MXN",
+        desc: "Clásico caribeño marinado en achiote, cocinado a las brasas y servido con arroz con coco.",
+      },
+      {
+        name: "Hamburguesa Premium Beach",
+        price: "$340 MXN",
+        desc: "Corte selecto de res, queso cheddar fundido, tocino crujiente y papas trufadas.",
+      },
+    ],
+  },
+  {
+    title: i18n.MAKE_YOU_RESERVATION?.MENU?.DRINKS || "Coctelería de Autor",
+    items: [
+      {
+        name: "Mex Mojito",
+        price: "$190 MXN",
+        desc: "Ron blanco, hierbabuena fresca, azúcar de caña, infusión de maracuyá y un toque de agua mineral.",
+      },
+      {
+        name: "Caribe Fling",
+        price: "$210 MXN",
+        desc: "Mezcal artesanal espadín, jugo de piña tatemada, jarabe de agave y escarcha de sal de gusano.",
+      },
+    ],
+  },
+];
+
+const dishImages = [
+  {
+    src: "/img-beach-club/mex-beach-club-signature-drinks.webp",
+    alt: "Coctelería Premium",
+    label: "Mixología",
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-lifestyle.webp",
+    alt: "Mariscos Frescos",
+    label: "Mariscos",
+  },
+  {
+    src: "/img-beach-club/mex-beach-club-relaxation.webp",
+    alt: "Snacks junto al mar",
+    label: "Snacks",
+  },
 ];
 ---
 
@@ -34,10 +100,8 @@ const carouselImages = [
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
-
         {/* Capa 1: Filtro ambiental sutil */}
         <div class="absolute inset-0 bg-black/15 z-10"></div>
-
         {
           /* Capa 2: Scrim premium de izquierda a derecha para proteger los textos */
         }
@@ -45,13 +109,11 @@ const carouselImages = [
           class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"
         >
         </div>
-
         {/* Capa 3: Soporte de contraste vertical exclusivo para móviles */}
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"
         >
         </div>
-
         {/* Capa 4: Desvanecimiento limpio hacia el fondo crema de la web */}
         <div
           class="absolute inset-x-0 bottom-0 h-1/4 z-20"
@@ -62,33 +124,21 @@ const carouselImages = [
         >
         </div>
       </div>
-
       {/* CONTENIDO PRINCIPAL */}
       <div
         class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0"
       >
         <div class="max-w-2xl space-y-5 md:space-y-6 animate-fade-in">
-          {
-            /* Título: Ajustado el line-height y drop-shadow de alta definición */
-          }
           <h1
             class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
           >
             {i18n.MAKE_YOU_RESERVATION.HERO.title}
           </h1>
-
-          {
-            /* Descripción: Subida a font-normal y text-white/90 para máxima claridad visual */
-          }
           <p
             class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl"
           >
             {i18n.MAKE_YOU_RESERVATION.HERO.description}
           </p>
-
-          {
-            /* Botón CTA: Cambiado a tu color acento naranja (#E77543) para disparar la conversión */
-          }
           <div class="pt-3">
             <a
               href={bookingUrl}
@@ -100,448 +150,150 @@ const carouselImages = [
         </div>
       </div>
     </section>
-    <!-- empieza codigo de prueba -->
     <section
-      class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
+      class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12"
+    >
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+        {
+          [
+            {
+              label: "Transportation",
+              value:
+                i18n.FULL_DAY_BEACH_EXPERIENCE?.transportation ||
+                "Round trip transportation",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124l-.208-3.33a2.985 2.985 0 0 0-1.208-2.224l-3.235-2.426a1.5 1.5 0 0 0-.9-.3H12m7.5 6H12m7.5 0v-1.5a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 9.375 3H5.625A3.375 3.375 0 0 0 2.25 6.375v8.25M12 14.25v-3.75"
+                  />
+                </svg>
+              ),
+            },
+            {
+              label: "Duration",
+              value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "4 Hours",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                  />
+                </svg>
+              ),
+            },
+            {
+              label: "Family Friendly",
+              value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                  />
+                </svg>
+              ),
+            },
+            {
+              label: "Schedules",
+              value:
+                i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules ||
+                "10:00 AM - 2:00 PM",
+              icon: (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5 md:w-6 md:h-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+                  />
+                </svg>
+              ),
+            },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              class="bg-[#FAF6EE] p-3 md:p-4 rounded-xl flex flex-col items-center text-center justify-center border border-stone-100"
+            >
+              <div class="text-[#E77543] mb-1.5 md:mb-2">{item.icon}</div>
+              <span class="text-[10px] md:text-xs font-semibold tracking-wider text-stone-800 uppercase block mb-0.5">
+                {item.label}
+              </span>
+              <span class="text-[11px] md:text-xs font-light text-stone-500">
+                {item.value}
+              </span>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+    <section
+      class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12"
     >
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
         <div class="lg:col-span-2 space-y-8 md:space-y-12">
-          <!-- seccion de información de features -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-            {
-              [
-                {
-                  label: "Transportation",
-                  value:
-                    i18n.MAKE_YOU_RESERVATION?.transportation ||
-                    "Round trip transportation",
-                  icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 md:w-6 md:h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124l-.208-3.33a2.985 2.985 0 0 0-1.208-2.224l-3.235-2.426a1.5 1.5 0 0 0-.9-.3H12m7.5 6H12m7.5 0v-1.5a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 9.375 3H5.625A3.375 3.375 0 0 0 2.25 6.375v8.25M12 14.25v-3.75"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "Duration",
-                  value: i18n.MAKE_YOU_RESERVATION?.duration || "4 Hours",
-                  icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 md:w-6 md:h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "Family Friendly",
-                  value: i18n.MAKE_YOU_RESERVATION?.minAge || "For all ages",
-                  icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 md:w-6 md:h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                      />
-                    </svg>
-                  ),
-                },
-                {
-                  label: "Schedules",
-                  value:
-                    i18n.MAKE_YOU_RESERVATION?.schedules ||
-                    "10:00 AM - 2:00 PM",
-                  icon: (
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke-width="1.5"
-                      stroke="currentColor"
-                      class="w-5 h-5 md:w-6 md:h-6"
-                    >
-                      <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                      />
-                    </svg>
-                  ),
-                },
-              ].map((item, idx) => (
-                <div
-                  key={idx}
-                  class="bg-[#FAF6EE] p-3 md:p-4 rounded-xl flex flex-col items-center text-center justify-center border border-stone-100"
-                >
-                  <div class="text-[#E77543] mb-1.5 md:mb-2">{item.icon}</div>
-                  <span class="text-[10px] md:text-xs font-semibold tracking-wider text-stone-800 uppercase block mb-0.5">
-                    {item.label}
-                  </span>
-                  <span class="text-[11px] md:text-xs font-light text-stone-500">
-                    {item.value}
-                  </span>
-                </div>
-              ))
-            }
-          </div>
-          <!-- Aqui empienza la información del producto -->
-          <!-- Overview -->
-          <div
-            class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-          >
-            <h2
-              class="font-serif text-2xl md:text-4xl lg:text-5xl font-bold text-[#000000]/70 leading-tight"
-            >
-              {i18n.MAKE_YOU_RESERVATION.OVERVIEW.title}
-            </h2>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p1}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p2}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p3}</p>
-            <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p4}</p>
-          </div>
-          <!-- Aqui empieza la información con acordeon -->
           <div class="divide-y divide-gray-200">
-            {}
-            <details class="group py-6" name="tour-info" open>
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div class="mt-8">
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                  {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
-                      (text) => (
-                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
-                          <Check
-                            className="text-[#006083] mt-1 shrink-0"
-                            size={20}
-                          />
-                          <p>{text}</p>
-                        </li>
-                      ),
-                    )
-                  }
-                  {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
-                      (text) => (
-                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
-                          <X className="text-red-500 mt-1 shrink-0" size={20} />
-                          <span>{text}</span>
-                        </li>
-                      ),
-                    )
-                  }
-                </ul>
-              </div>
-            </details>
-            {}
-            {}
-            <details
-              class="group py-6 border-b border-gray-200"
-              name="tour-info"
-              open
-            >
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div
-                class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
-              >
-                <p class="text-slate-800 font-medium">
-                  {
-                    i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                      .description
-                  }
-                </p>
-              </div>
-              <!-- Contenedor de Filas Informativas -->
-              <div class="space-y-12">
-                <!-- Bloque 2: Tu Día Junto al Mar -->
-                <div
-                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
-                >
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Olas / Relajación -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M2.25 12h19.5M2.25 9h19.5M2.25 15h19.5M2.25 18h19.5"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                          .titlep1
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p1}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Bloque 3: Naturaleza y Cultura Local -->
-                <div
-                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
-                >
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Palmera / Entorno Natural -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M12 3v18M12 3a9 9 0 0 1 9 9h-9M12 3a9 9 0 0 0-9 9h9"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                          .titlep2
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p2}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Bloque 4: El Corazón de tu Viaje -->
-                <div class="md:grid md:grid-cols-3 md:gap-8 md:items-start">
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Mapa / Ubicación -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                          .titlep3
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p3}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </details>
-            {}
-            <details
-              class="group py-6 border-b border-gray-200"
-              name="tour-info"
-              open
-            >
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div
-                class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
-              >
-                <p class="text-slate-800 font-medium">
-                  {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.description}
-                </p>
-              </div>
-              <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
-              >
-                <div class="space-y-6">
-                  <div
-                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                  >
-                    <p>
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p1}
-                    </p>
-                    <p>
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p2}
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100"
-                >
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🏖️</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons
-                          .access
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🏊</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons.pool
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🍹</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons.food
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🥃</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons
-                          .tequila
-                      }</span
-                    >
-                  </div>
-                </div>
-              </div>
+            <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+              {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
+            </span>
 
-              <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
-              <div
-                class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-              >
-                <div
-                  class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                >
-                  <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.title_h3}
-                  </h3>
-                  <p>
-                    {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p1_h3}
-                  </p>
-                  <div class="border-t border-sky-100/80 pt-6">
-                    <p class="text-slate-800 font-medium text-base italic">
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p2_h3}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </details>
+            <div class="mt-8">
+              <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+                {
+                  i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
+                    (text) => (
+                      <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                        <Check
+                          className="text-[#006083] mt-1 shrink-0"
+                          size={20}
+                        />
+                        <p>{text}</p>
+                      </li>
+                    ),
+                  )
+                }
+                {
+                  i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
+                    (text) => (
+                      <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
+                        <X className="text-red-500 mt-1 shrink-0" size={20} />
+                        <span>{text}</span>
+                      </li>
+                    ),
+                  )
+                }
+              </ul>
+            </div>
           </div>
         </div>
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
@@ -626,7 +378,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Email */}
             <div class="space-y-1.5">
               <label
@@ -655,7 +406,6 @@ const carouselImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
               ></textarea>
             </div>
-
             {/* Botón de envío */}
             <button
               type="submit"
@@ -708,446 +458,216 @@ const carouselImages = [
         </script>
       </div>
     </section>
-    {/* SECCIÓN SUGERENCIAS / BACKLINKS */}
-    <section class="pb-16 md:pb-24 pt-4 bg-white text-neutral-900 mt-20">
-      <div class="max-w-7xl mx-auto px-4 md:px-6">
-        <div class="text-center mb-10 md:mb-16">
-          {/* Optimizado: text-xl en móvil, md:text-3xl en escritorio */}
-          <h2
-            class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
+    <!-- sección nueva -->
+    <section
+      class="w-full border-t border-b border-stone-200/60 py-16 md:py-24"
+    >
+      <div class="mx-auto max-w-7xl px-6 md:px-12">
+        <header class="mb-12 max-w-2xl md:mb-16">
+          <span
+            class="text-primary mb-2 block text-xs font-bold uppercase tracking-wider md:text-sm"
           >
-            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
-          </h2>
-          <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
-          <p
-            class="text-[11px] md:text-sm text-neutral-500 max-w-xl mx-auto leading-relaxed mt-2"
-          >
-            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}
-          </p>
-        </div>
+            {i18n.FAVORITIES.tag}
+          </span>
 
-        {/* Grid de Actividades */}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {/* Bloque 1: Beach Taco Tour */}
-          <a
-            href="https://extremeadventurecancun.com/city-taco-tour-puerto-morelos/"
-            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+          <h2
+            class="font-serif text-3xl font-bold leading-tight text-stone-800 md:text-4xl lg:text-5xl"
           >
-            <img
-              src="images/baklinks/beach-taco-tour.webp"
-              alt="The Shoreline Experience"
-              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-              loading="lazy"
-              disabled-decoding="async"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-            >
-            </div>
-            <div
-              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-            >
-              <span
-                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-                >01</span
-              >
-              <h3
-                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.title}
-              </h3>
-              <p
-                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.subtitle}
-              </p>
-              <div
-                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-              >
-                Explore Location
-              </div>
-            </div>
-          </a>
-          {/* Bloque 2: Extreme Adventure */}
-          <a
-            href="https://extremeadventurecancun.com/extreme-adventuring-atv-in-cancun/"
-            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-          >
-            <img
-              src="images/baklinks/extreme-adventuring.webp"
-              alt="A Perfect Day Trip"
-              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-              loading="lazy"
-              disabled-decoding="async"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-            >
-            </div>
-            <div
-              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-            >
-              <span
-                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-                >02</span
-              >
-              <h3
-                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.title}
-              </h3>
-              <p
-                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.subtitle}
-              </p>
-              <div
-                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-              >
-                Explore Location
-              </div>
-            </div>
-          </a>
-          {/* Bloque 3: Snorkeling Adventure */}
-          <a
-            href="https://snorkelingadventure.com/snorkel-adventuring-details/"
-            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-          >
-            <img
-              src="images/baklinks/snorkeling-adventuring.webp"
-              alt="Coastal Adventures"
-              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-              loading="lazy"
-              disabled-decoding="async"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-            >
-            </div>
-            <div
-              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-            >
-              <span
-                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-                >03</span
-              >
-              <h3
-                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.title}
-              </h3>
-              <p
-                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.subtitle}
-              </p>
-              <div
-                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-              >
-                Explore Location
-              </div>
-            </div>
-          </a>
-          {/* Bloque 4: Cenote Adventuring */}
-          <a
-            href="https://cenoteadventuring.com/pricing-regular-page/"
-            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-          >
-            <img
-              src="images/baklinks/cenote-adventuring-cancun.webp"
-              alt="Coastal Adventures"
-              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-              loading="lazy"
-              disabled-decoding="async"
-            />
-            <div
-              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-            >
-            </div>
-            <div
-              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-            >
-              <span
-                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-                >04</span
-              >
-              <h3
-                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.title}
-              </h3>
-              <p
-                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-              >
-                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.subtitle}
-              </p>
-              <div
-                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-              >
-                Explore Location
-              </div>
-            </div>
-          </a>
+            {i18n.FAVORITIES.title}
+          </h2>
+
+          <p class="mt-4 font-light text-stone-500 md:text-lg">
+            {i18n.FAVORITIES.description}
+          </p>
+        </header>
+      </div>
+      <div class="w-full mx-auto max-w-7xl lg:px-12">
+        <div class="pl-6 pr-0 lg:px-0">
+          <FavoritiesSeccion />
         </div>
       </div>
     </section>
-    <section class="w-full py-16 px-4 md:px-8 bg-white relative">
-      <div class="max-w-3xl mx-auto">
-        <div class="text-center mb-12">
-          <h2
-            class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
+    <section class="relative w-full overflow-hidden bg-[#fcfbf7]">
+      <div class="grid min-h-[460px] grid-cols-1 md:grid-cols-[42%_1fr]">
+        <div
+          class="flex items-center justify-center px-6 py-10 md:pl-12 md:pr-6"
+        >
+          <div
+            class="flex w-full max-w-full flex-col gap-[1.35rem] rounded-[20px] bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.09),0_2px_10px_rgba(0,0,0,0.04)] md:max-w-[310px]"
           >
-            {i18n.MAKE_YOU_RESERVATION.QUESTIONS.title}
-          </h2>
-          <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
-        </div>
-        <div class="space-y-4 pb-20 md:pb-28">
-          {
-            (() => {
-              const icons = {
-                q1: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M16.5 18.75h-9m9 0a3 3 0 0 0 3-3V13.5a3 3 0 0 0-3-3h-9a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3m9 0v1.5a2.25 2.25 0 0 1-2.25 2.25h-4.5A2.25 2.25 0 0 1 7.5 20.25v-1.5M12 3v1.5m4.436-.084-1.06 1.06m-6.752 0-1.06-1.06M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                    />
-                  </svg>
-                ),
-                q2: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M9 6.75V15m6-6v8.25m.503-3.46 3.66-1.077a.75.75 0 0 1 .957.728v4.97a.75.75 0 0 1-.563.727l-3.921 1.079a.75.75 0 0 1-.503 0l-5.14-1.414a.75.75 0 0 0-.503 0L3.563 19.97a.75.75 0 0 1-.957-.728V14.27a.75.75 0 0 1 .563-.727l4.004-1.101a.75.75 0 0 1 .503 0l5.14 1.414a.75.75 0 0 0 .503 0Zm-4.943-4.09A4.498 4.498 0 0 1 12 2.25c2.13 0 3.908 1.474 4.343 3.468M10.5 7.5h3v3h-3v-3Z"
-                    />
-                  </svg>
-                ),
-                q3: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.042 9.152c.582.448 1.148.89 1.676 1.345m-7.408-.347c.533-.455 1.1-.897 1.682-1.345m7.408 1.347c-.528.455-1.095.897-1.676 1.345m-5.732-2.692c-.582-.448-1.149-.89-1.682-1.345m0 0a14.223 14.223 0 0 1 3.532-1.294M3.204 12A10.445 10.445 0 0 0 12 20.796 10.444 10.444 0 0 0 20.796 12 10.444 10.444 0 0 0 12 3.204 10.446 10.446 0 0 0 3.204 12Zm11.332-2.102L12 12l-2.536-2.102L12 6l2.536 3.898Z"
-                    />
-                  </svg>
-                ),
-                q4: (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="w-5 h-5"
-                  >
-                    <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                    />
-                  </svg>
-                ),
-              };
-              const fallbackIcon = (
+            <h2
+              class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#4e8782]"
+            >
+              {i18n.PUERTO_MORELOS.MAPS.title}
+            </h2>
+            <a
+              href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group flex items-start gap-3 rounded-xl p-2 -mx-2 transition-colors duration-200 hover:bg-[rgba(27,92,87,0.04)] no-underline"
+            >
+              <span
+                class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(211,66,50,0.12)] text-[#d34232] transition-transform duration-200 group-hover:scale-105"
+              >
                 <svg
+                  class="h-[0.88rem] w-[0.88rem]"
                   xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
                   viewBox="0 0 24 24"
-                  stroke-width="1.5"
+                  fill="none"
                   stroke="currentColor"
-                  class="w-5 h-5"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
-                  />
+                    d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+                  ></path>
+                  <circle cx="12" cy="9" r="2.5"></circle>
                 </svg>
-              );
-              return Object.keys(i18n.MAKE_YOU_RESERVATION.QUESTIONS)
-                .filter((key) => key.startsWith("q"))
-                .map((key, index) => {
-                  const item = i18n.MAKE_YOU_RESERVATION.QUESTIONS[key];
-                  return (
-                    <details
-                      name="faq-accordion"
-                      open={index === 0}
-                      class="group bg-white rounded-xl border border-black/[0.03] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-                      data-key={key}
-                    >
-                      <summary class="flex items-center justify-between p-6 text-left cursor-pointer select-none list-none group">
-                        <div class="flex items-center space-x-4">
-                          <div class="text-[#1E6B65] shrink-0">
-                            {icons[key] || fallbackIcon}
-                          </div>
-                          <span class="font-sans font-semibold text-base text-[#2C2519] tracking-wide group-hover:text-[#1E6B65] transition-colors duration-200">
-                            {item.question}
-                          </span>
-                        </div>
-                        <div class="text-[#6B6355] transition-transform duration-300 group-open:rotate-180 group-open:text-[#1E6B65]">
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke-width="2"
-                            stroke="currentColor"
-                            class="w-4 h-4"
-                          >
-                            <path
-                              stroke-linecap="round"
-                              stroke-linejoin="round"
-                              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                            />
-                          </svg>
-                        </div>
-                      </summary>
-                      <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-t-black/[0.02]">
-                        {item.answer}
-                      </div>
-                    </details>
-                  );
-                });
-            })()
-          }
+              </span>
+              <div>
+                <p
+                  class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+                >
+                  {i18n.PUERTO_MORELOS.MAPS.strategic_location_label}
+                </p>
+                <p
+                  class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
+                >
+                  Heriberto Frías, Supermanzana 2, Manzana 14 L3, 77580 Puerto
+                  Morelos, Q.R.
+                </p>
+              </div>
+            </a>
+            {/* Times row */}
+            <div class="flex items-start gap-3">
+              <span
+                class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(196,128,36,0.12)] text-[#c07e22]"
+              >
+                <svg
+                  class="h-[0.88rem] w-[0.88rem]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <polyline points="12 7 12 12 15.5 15.5"></polyline>
+                </svg>
+              </span>
+              <div class="flex-1">
+                <p
+                  class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
+                >
+                  {i18n.PUERTO_MORELOS.MAPS.travel_times_label}
+                </p>
+                <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
+                  {
+                    i18n.PUERTO_MORELOS.MAPS.travel_times.map((item) => (
+                      <li class="flex items-center justify-between gap-2">
+                        <span class="text-[0.74rem] font-normal text-[#6b6055]">
+                          {item.from}
+                        </span>
+                        <span class="text-[0.74rem] font-bold text-[#1b5c57] whitespace-nowrap">
+                          {item.time}
+                        </span>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+            {/* CTA BUTTON */}
+            <a
+              href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
+              id="find-us-maps-btn"
+            >
+              {i18n.PUERTO_MORELOS.MAPS.open_maps_button}
+            </a>
+          </div>
+        </div>
+        {/* RIGHT COLUMN — Map fills edge to edge */}
+        <div class="relative min-h-[280px] overflow-hidden md:min-h-full">
+          {/* Floating label "Mex on the Beach" */}
+          <div
+            class="pointer-events-none absolute top-1/2 left-1/2 z-10 inline-flex -translate-x-1/2 -translate-y-2/3 items-center gap-[0.3rem] rounded-full bg-white px-[0.85rem] py-[0.38rem] pl-[0.55rem] text-[0.7rem] font-bold text-[#1b5c57] whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.15)] after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-top-white"
+            aria-hidden="true"
+          >
+            <svg
+              class="h-[0.75rem] w-[0.75rem] fill-[#1b5c57]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
+              ></path>
+            </svg>
+            Mex on the Beach
+          </div>
+          <iframe
+            id="find-us-map-iframe"
+            title="Mex on the Beach Location Map"
+            loading="lazy"
+            allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-86.8795%2C20.8490%2C-86.8655%2C20.8590&layer=mapnik&marker=20.8541%2C-86.8726"
+            class="absolute inset-0 h-full w-full border-none saturate-[0.65] brightness-[1.04] sepia-[0.12]"
+          ></iframe>
+          <div
+            class="pointer-events-none absolute inset-0 z-0 hidden bg-gradient-to-r from-[#fcfbf7] via-[rgba(237,233,223,0.4)] to-transparent md:block md:w-[22%]"
+            aria-hidden="true"
+          >
+          </div>
         </div>
       </div>
     </section>
-    {/* Contenedor del SVG decorativo modificado */}
-    <div
-      class="absolute bottom-[-24px] left-0 right-0 z-20 pointer-events-none w-full translate-y-[1px]"
+    {/* 6. PARADISE CTA SECTION */}
+    <section
+      class="py-24 pb-40 bg-[#fcfbf7] relative overflow-hidden text-dark"
     >
-      <svg
-        viewBox="0 0 1440 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-auto block"
-      >
-        <path
-          d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
-          fill="#ffffff"></path>
-        <path
-          d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
-          stroke="#1E6B65"
-          stroke-width="2"
-          fill="none"></path>
-      </svg>
-    </div>
+      <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-6">
+        <h2
+          class="font-serif text-3xl md:text-4xl font-extrabold text-dark tracking-wider uppercase"
+        >
+          {i18n.PUERTO_MORELOS.ACTION.title}
+        </h2>
+        <p
+          class="text-gray-500 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed"
+        >
+          {i18n.PUERTO_MORELOS.ACTION.description}
+        </p>
+        <div class="pt-4">
+          <a
+            href={bookingUrl}
+            class="inline-block bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            {i18n.PUERTO_MORELOS.ACTION.book_button}
+          </a>
+        </div>
+      </div>
+      <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full h-auto"
+        >
+          <path
+            d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
+            fill="#ffffff"></path>
+          <path
+            d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
+            stroke="var(--color-secondary)"
+            stroke-width="2"
+            fill="none"></path>
+        </svg>
+      </div>
+    </section>
   </div>
 </Layout>
-<script>
-  const carousel = document.getElementById("hero-carousel");
-  const prevBtn = document.getElementById("prev-slide");
-  const nextBtn = document.getElementById("next-slide");
-  const dots = document.querySelectorAll(".carousel-dot");
-
-  if (carousel && prevBtn && nextBtn) {
-    const getSlideWidth = () => carousel.clientWidth;
-    let autoPlayInterval: any = null;
-    const AUTO_PLAY_TIME = 3000;
-
-    const nextSlide = () => {
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      if (carousel.scrollLeft >= maxScroll - 5) {
-        carousel.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        carousel.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
-      }
-    };
-
-    const prevSlide = () => {
-      if (carousel.scrollLeft <= 5) {
-        carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
-      } else {
-        carousel.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
-      }
-    };
-
-    const startAutoPlay = () => {
-      if (!autoPlayInterval) {
-        autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_TIME);
-      }
-    };
-
-    const stopAutoPlay = () => {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-      }
-    };
-
-    nextBtn.addEventListener("click", () => {
-      nextSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      prevSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    dots.forEach((dot) => {
-      dot.addEventListener("click", (e) => {
-        const index = parseInt(
-          (e.target as HTMLElement).getAttribute("data-index") || "0",
-        );
-        carousel.scrollTo({
-          left: index * getSlideWidth(),
-          behavior: "smooth",
-        });
-        stopAutoPlay();
-        startAutoPlay();
-      });
-    });
-
-    carousel.addEventListener("scroll", () => {
-      const index = Math.round(carousel.scrollLeft / getSlideWidth());
-      dots.forEach((dot, idx) => {
-        dot.setAttribute("aria-selected", idx === index ? "true" : "false");
-      });
-    });
-
-    carousel.addEventListener("mouseenter", stopAutoPlay);
-    carousel.addEventListener("mouseleave", startAutoPlay);
-    carousel.addEventListener("touchstart", stopAutoPlay);
-    carousel.addEventListener("touchend", () => {
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    startAutoPlay();
-  }
-</script>
-
-<style>
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>

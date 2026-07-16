@@ -527,7 +527,8 @@
     }
   },
   "FAVORITIES": {
-    "tag": "Nuestros Favoritos",
+    "tag": "Explora nuestro Menú",
+    "button_menu": "Explora menú completo",
     "title": "Nuestros Favoritos",
     "description": "Una cuidadosa selección de coctelería artesanal y platillos exclusivos preparados al momento por nuestros chefs de playa.",
     "seeFullMenu": "VER MENÚ COMPLETO",

@@ -1,96 +1,110 @@
 ---
-import { useTranslations, type Lang } from '../../i18n/utils';
+import { useTranslations } from '../../i18n/utils';
 import { getI18N } from '../../i18n/index';
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
-  lang?: Lang;
+  lang?: 'en' | 'es' | 'pt';
 }
-const { lang = 'en' } = Astro.props;
+const { lang = 'en' } = Astro.props as Props;
 const t = useTranslations(lang);
 ---
-<section id="menu" class="py-16 bg-[#fcfbf7] relative overflow-hidden">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-col md:flex-row md:items-center justify-between mb-16">
-      <div>
-        <span class="text-primary uppercase tracking-wider font-bold text-sm mb-3 block">{i18n.FAVORITIES.tag}</span>
-        <h2 class="font-serif text-3xl md:text-5xl font-bold text-secondary leading-tight">
-          {i18n.FAVORITIES.title}
-        </h2>
-        <p class="max-w-xl text-gray-500 font-light mt-3">
-          {i18n.FAVORITIES.description}
-        </p>
-      </div>
-      <div class="mt-6 md:mt-0">
-        <a href="/the-mex" class="text-primary hover:text-primary-hover font-bold flex items-center gap-2 group transition-all">
-          <span>{i18n.FAVORITIES.seeFullMenu}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform group-hover:translate-x-1.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-          </svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<section id="menu" class="py-12 relative overflow-hidden w-full">
+  <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
+    
+    {/* Contenedor responsivo: Scroll en móvil/tablet, 3 columnas amplias en escritorio */}
+    <div class="flex flex-nowrap lg:grid lg:grid-cols-3 gap-8 md:gap-10 overflow-x-auto pb-6 lg:pb-0 scrollbar-none snap-x snap-mandatory">
+      
       <!-- Card 1 -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
-        <div class="h-80 overflow-hidden relative">
+      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+        <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
           <img 
-            src="/img-food/mex-beach-club-octopus-ceviche.webp" 
+            src="/img-food/mex-beach-club-guacamole-chips.webp" 
             alt="Tequila Tropical" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div class="p-8">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.tequila.title')}</h3>
-            <span class="text-primary font-bold text-lg">$16</span>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
+              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+                {i18n.FAVORITIES.items.tequila.title}
+              </h3>
+              <span class="text-[#E77543] font-bold text-xl shrink-0">$16</span>
+            </div>
+            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+              {i18n.FAVORITIES.items.tequila.description}
+            </p>
           </div>
-          <p class="text-gray-500 text-sm font-light leading-relaxed">
-            {t('favorites.items.tequila.description')}
-          </p>
         </div>
       </div>
 
       <!-- Card 2 -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
-        <div class="h-80 overflow-hidden relative">
+      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+        <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
           <img 
             src="/img-food/mex-beach-club-seafood-tostadas.webp" 
             alt="Caribbean Tiki" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div class="p-8">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.tiki.title')}</h3>
-            <span class="text-primary font-bold text-lg">$22</span>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
+              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+                {i18n.FAVORITIES.items.tiki.title}
+              </h3>
+              <span class="text-[#E77543] font-bold text-xl shrink-0">$22</span>
+            </div>
+            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+              {i18n.FAVORITIES.items.tiki.description}
+            </p>
           </div>
-          <p class="text-gray-500 text-sm font-light leading-relaxed">
-            {t('favorites.items.tiki.description')}
-          </p>
         </div>
       </div>
 
       <!-- Card 3 -->
-      <div class="bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-dark/5 flex flex-col justify-between">
-        <div class="h-80 overflow-hidden relative">
+      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+        <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
           <img 
             src="/img-food/mex-beach-club-seafood-skewers.webp" 
             alt="Mex on the Beach Cocktail" 
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
-        <div class="p-8">
-          <div class="flex justify-between items-baseline mb-3">
-            <h3 class="font-serif font-bold text-xl text-dark">{t('favorites.items.mex.title')}</h3>
-            <span class="text-primary font-bold text-lg">$20</span>
+        <div class="p-8 flex flex-col flex-grow justify-between">
+          <div>
+            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
+              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+                {i18n.FAVORITIES.items.mex.title}
+              </h3>
+              <span class="text-[#E77543] font-bold text-xl shrink-0">$20</span>
+            </div>
+            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+              {i18n.FAVORITIES.items.mex.description}
+            </p>
           </div>
-          <p class="text-gray-500 text-sm font-light leading-relaxed">
-            {t('favorites.items.mex.description')}
-          </p>
         </div>
       </div>
+    </div>
+    {/* Botón de Explorar Menú */}
+    <div class="flex justify-center mt-12 md:mt-16">
+      <a 
+        href="/the-mex" 
+        class="inline-flex items-center gap-3 px-8 py-4 bg-[#E77543] text-white font-medium text-sm md:text-base rounded-full hover:bg-[#d46432] transition-all duration-300 shadow-[0_10px_25px_rgba(231,117,67,0.15)] hover:shadow-[0_15px_30px_rgba(231,117,67,0.25)] hover:-translate-y-0.5 group"
+      >
+        <span>{i18n.FAVORITIES.button_menu}</span>
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          fill="none" 
+          viewBox="0 0 24 24" 
+          stroke-width="2" 
+          stroke="currentColor" 
+          class="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
+      </a>
     </div>
   </div>
 </section>

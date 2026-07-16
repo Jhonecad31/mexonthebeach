@@ -1,37 +1,61 @@
 ---
 import logoMex from "../assets/logos/logo_notb.svg";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
-
+import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
+import LanguajeSelectorAstroComponent from "./Interactive/LanguajeSelector.astro";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 const lang = getLangFromUrl(Astro.url) || "en";
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const pathname = Astro.url.pathname;
+interface Props {
+  offI18n?: boolean;
+}
+const { offI18n } = Astro.props;
 const isMenuPage = pathname.includes("/the-mex");
-const isContactPage = pathname.includes("/contacto") || pathname.includes("/contact");
+const isContactPage = pathname.includes("/contacto") || pathname.includes("/contact") || pathname.includes("/contato");
 const isPuertoMorelos = pathname.includes("/puerto-morelos");
 const isHomePage = !isMenuPage && !isContactPage && !isPuertoMorelos;
+
+// Rutas del menú
 const homeUrl = translatePath("/");
 const menuUrl = translatePath("/the-mex");
-const contactUrl = translatePath("/contact");
 const pmUrl = translatePath("/puerto-morelos");
+const contactUrl = translatePath("/contact");
 const bookingUrl = `${translatePath("/")}#booking`;
-const currentPathWithoutLang = pathname.replace(/^\/(es|pt)/, "") || "/";
-const urlEn = useTranslatedPath("en")(currentPathWithoutLang);
-const urlEs = useTranslatedPath("es")(currentPathWithoutLang);
-const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
+
+const navigation = [
+  {
+    title: i18n.NAV.home,
+    link: homeUrl,
+    active: isHomePage,
+  },
+  {
+    title: i18n.NAV.reservations,
+    link: menuUrl,
+    active: isMenuPage,
+  },
+  {
+    title: i18n.NAV.gallery,
+    link: pmUrl,
+    active: isPuertoMorelos,
+  },
+  {
+    title: i18n.NAV.contact,
+    link: contactUrl,
+    active: isContactPage,
+  },
+];
 ---
+
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
   id="main-header"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div
-      class="hidden md:flex justify-between items-center h-20"
-      id="header-container-desktop"
-    >
+    <div class="flex justify-between items-center h-20" id="header-container-desktop">
+      
       <!-- Logo Section -->
       <a href={homeUrl} class="flex items-center space-x-2 group">
         <img
@@ -42,224 +66,70 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
         />
       </a>
 
-      <!-- Desktop Nav & Actions Group -->
+      <!-- Actions Group & Nav -->
       <div class="flex items-center space-x-8">
         <!-- Desktop Nav Menu -->
-        <nav class="flex items-center space-x-6 text-sm font-semibold text-dark/70">
-          <a href={homeUrl} class={`transition-colors hover:text-[#4e8782] ${isHomePage ? "text-[#4e8782] font-bold" : ""}`}>
-            {i18n.NAV.home}
-          </a>
-          <a href={menuUrl} class={`transition-colors hover:text-[#4e8782] ${isMenuPage ? "text-[#4e8782] font-bold" : ""}`}>
-            {i18n.NAV.reservations}
-          </a>
-          <a href={pmUrl} class={`transition-colors hover:text-[#4e8782] ${isPuertoMorelos ? "text-[#4e8782] font-bold" : ""}`}>
-            {i18n.NAV.gallery}
-          </a>
-          <a href={contactUrl} class={`transition-colors hover:text-[#4e8782] ${isContactPage ? "text-[#4e8782] font-bold" : ""}`}>
-            {i18n.NAV.contact}
-          </a>
+        <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-dark/70">
+          {
+            navigation.map((item) => (
+              <a
+                href={item.link}
+                class={`transition-colors hover:text-[#4e8782] ${item.active ? "text-[#4e8782] font-bold" : ""}`}
+              >
+                {item.title}
+              </a>
+            ))
+          }
         </nav>
 
-        <div class="h-4 w-[1px] bg-gray-200"></div>
+        <div class="hidden md:block h-4 w-[1px] bg-gray-200"></div>
 
-        <!-- Selector de Idiomas Desktop -->
-        <div class="relative group">
-          <button
-            type="button"
-            class="flex items-center text-sm font-semibold text-dark/70 hover:text-[#4e8782] transition-colors cursor-pointer gap-2 focus:outline-none"
-          >
-            <svg
-              class="h-5 w-5 text-gray-400 group-hover:text-[#4e8782] transition-colors"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              stroke-width="1.8"
-            >
-              <circle cx="12" cy="12" r="10"></circle>
-              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
-              <path d="M2 12h20"></path>
-            </svg>
-            <span class="tracking-wide uppercase font-bold">{lang}</span>
-            <svg
-              class="h-4 w-4 text-gray-400 group-hover:text-[#4e8782] transition-colors"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"
-              />
-            </svg>
-          </button>
-
-          <!-- Dropdown -->
-          <div
-            class="absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-          >
-            <a
-              href={urlEn}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "en" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
-            >
-              <img
-                src="https://flagcdn.com/w40/us.png"
-                alt="EN"
-                class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
-              />
-              English
-              {lang === "en" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
-            </a>
-            <a
-              href={urlEs}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "es" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
-            >
-              <img
-                src="https://flagcdn.com/w40/mx.png"
-                alt="ES"
-                class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
-              />
-              Español
-              {lang === "es" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
-            </a>
-            <a
-              href={urlPt}
-              class={`flex items-center gap-2.5 px-4 py-2 text-sm text-left transition-colors ${lang === "pt" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80 hover:bg-sand-light"}`}
-            >
-              <img
-                src="https://flagcdn.com/w40/pt.png"
-                alt="PT"
-                class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
-              />
-              Português
-              {lang === "pt" && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
-            </a>
-          </div>
-        </div>
+        <!-- Selector de Idiomas Desktop (PASAMOS EL PATHNAME ACTUAL) -->
+        {!offI18n && (
+          <LanguajeSelectorAstroComponent 
+            class="hidden md:block" 
+            currentPath={pathname} 
+          />
+        )}
 
         <!-- Botón CTA -->
         <a
           href={bookingUrl}
-          class="bg-primary hover:bg-primary-hover text-white px-7 py-3 rounded-full font-bold text-xs tracking-widest uppercase shadow-sm hover:shadow-md transition-all duration-300"
+          class="hidden sm:inline-block bg-primary hover:bg-primary-hover text-white px-7 py-3 rounded-full font-bold text-xs tracking-widest uppercase shadow-sm hover:shadow-md transition-all duration-300"
         >
           {i18n.NAV.bookNow}
         </a>
-      </div>
-    </div>
 
-    <!-- MOBILE HEADER -->
-    <div
-      class="md:hidden flex justify-between items-center h-20 px-4 sm:px-6"
-      id="header-container-mobile"
-    >
-      <div class="flex items-center gap-3">
+        <!-- Button Open Menu Mobile -->
         <button
           type="button"
           id="menu-toggle-btn"
-          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-[#4e8782] hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 shrink-0"
+          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-[#4e8782] hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 md:hidden"
           aria-label="Open menu"
         >
-          <svg
-            class="h-6 w-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            stroke-width="2.2"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
+          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
-        <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <a href={homeUrl} class="flex items-center pointer-events-auto">
-            <img
-              src={logoMex.src}
-              alt="Mex on the Beach Logo"
-              class="h-12 w-auto object-contain"
-              id="nav-logo-mobile"
-            />
-          </a>
-        </div>
       </div>
 
-      <!-- Compact Language Button Mobile -->
-      <div class="relative flex items-center" id="mobile-lang-container">
-        <button
-          type="button"
-          id="mobile-lang-btn"
-          class="flex items-center gap-1 h-10 px-2 text-dark/70 hover:text-[#4e8782] text-xs font-bold tracking-widest uppercase transition-all duration-200 cursor-pointer focus:outline-none"
-          aria-label="Change language"
-        >
-          <span>{lang}</span>
-          <svg
-            class="h-3 w-3 opacity-60 transition-transform duration-200"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </button>
-
-        <!-- Dropdown Mobile -->
-        <div
-          id="mobile-lang-dropdown"
-          class="absolute right-0 top-[calc(100%+4px)] w-36 bg-[#fcfbf7] rounded-xl shadow-xl border border-gray-100/80 py-1.5 z-50 hidden"
-        >
-          <a
-            href={urlEn}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "en" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
-          >
-            <img
-              src="https://flagcdn.com/w40/us.png"
-              alt="EN"
-              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
-            />
-            English
-          </a>
-          <a
-            href={urlEs}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "es" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
-          >
-            <img
-              src="https://flagcdn.com/w40/mx.png"
-              alt="ES"
-              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
-            />
-            Español
-          </a>
-          <a
-            href={urlPt}
-            class={`flex items-center gap-2.5 px-4 py-2.5 text-sm text-left ${lang === "pt" ? "text-[#4e8782] font-bold bg-secondary/5" : "text-dark/80"}`}
-          >
-            <img
-              src="https://flagcdn.com/w40/pt.png"
-              alt="PT"
-              class="w-5 h-3.5 object-cover rounded-xs border border-slate-200"
-            />
-            Português
-          </a>
-        </div>
-      </div>
     </div>
   </div>
 </header>
+
 <!-- Drawer Mobile Backdrop -->
 <div
   id="menu-backdrop"
-  class="fixed inset-0 bg-dark/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 pointer-events-none md:hidden"
+  class="fixed inset-0 bg-dark/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"
 >
 </div>
+
 <!-- Navigation Drawer Mobile -->
 <div
   id="menu-drawer"
-  class="fixed inset-0 w-full h-full bg-[#fcfbf7] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col pointer-events-none md:hidden"
+  class="fixed inset-0 w-full h-full bg-[#fcfbf7] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
 >
+  <!-- Drawer Header -->
   <div class="px-5 h-[4.5rem] flex items-center justify-between border-b border-dark/5">
     <button
       type="button"
@@ -267,13 +137,7 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
       class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-primary hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200"
       aria-label="Close menu"
     >
-      <svg
-        class="h-6 w-6 text-gray-500"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        stroke-width="2.2"
-      >
+      <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
@@ -281,79 +145,36 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
     <div class="w-10"></div>
   </div>
 
+  <!-- Drawer Body Links -->
   <nav class="flex-grow flex flex-col items-center justify-center gap-7 px-6 py-6 overflow-y-auto">
-    <a
-      href={homeUrl}
-      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isHomePage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
-    >
-      {i18n.NAV.home}
-    </a>
-
-    <a
-      href={menuUrl}
-      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 text-center ${isMenuPage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
-    >
-      {i18n.NAV.reservations}
-    </a>
-
-    <a
-      href={pmUrl}
-      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isPuertoMorelos ? "text-primary" : "text-dark/80 hover:text-primary"}`}
-    >
-      {i18n.NAV.gallery}
-    </a>
-
-    <a
-      href={contactUrl}
-      class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${isContactPage ? "text-primary" : "text-dark/80 hover:text-primary"}`}
-    >
-      {i18n.NAV.contact}
-    </a>
+    {
+      navigation.map((item) => (
+        <a
+          href={item.link}
+          class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${item.active ? "text-primary" : "text-dark/80 hover:text-primary"}`}
+        >
+          {item.title}
+        </a>
+      ))
+    }
 
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     
-    <div class="text-center w-full">
-      <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
-        {lang === "es" || lang === "pt" ? "Idioma" : "Language"}
-      </span>
-      <div class="flex justify-center gap-3">
-        <a
-          href={urlEn}
-          class={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-bold transition-all duration-200 ${lang === "en" ? "bg-secondary/10 border-secondary text-secondary shadow-xs" : "bg-white border-gray-200 text-gray-650 hover:bg-gray-50"}`}
-        >
-          <img
-            src="https://flagcdn.com/w40/us.png"
-            alt="EN"
-            class="w-4 h-3 object-cover rounded-xs border border-slate-200/50"
-          />
-          EN
-        </a>
-        <a
-          href={urlEs}
-          class={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-bold transition-all duration-200 ${lang === "es" ? "bg-secondary/10 border-secondary text-secondary shadow-xs" : "bg-white border-gray-200 text-gray-650 hover:bg-gray-50"}`}
-        >
-          <img
-            src="https://flagcdn.com/w40/mx.png"
-            alt="ES"
-            class="w-4 h-3 object-cover rounded-xs border border-slate-200/50"
-          />
-          ES
-        </a>
-        <a
-          href={urlPt}
-          class={`flex items-center gap-2 px-4 py-2.5 rounded-full border text-xs font-bold transition-all duration-200 ${lang === "pt" ? "bg-secondary/10 border-secondary text-secondary shadow-xs" : "bg-white border-gray-200 text-gray-650 hover:bg-gray-50"}`}
-        >
-          <img
-            src="https://flagcdn.com/w40/pt.png"
-            alt="PT"
-            class="w-4 h-3 object-cover rounded-xs border border-slate-200/50"
-          />
-          PT
-        </a>
+    <!-- Idiomas en Mobile (PASAMOS EL PATHNAME ACTUAL) -->
+    {!offI18n && (
+      <div class="text-center w-full">
+        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
+          {lang === "en" ? "Language" : "Idioma"}
+        </span>
+        <LanguajeSelectorAstroComponent 
+          isMobileDrawer={true} 
+          currentPath={pathname} 
+        />
       </div>
-    </div>
+    )}
     
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
+    
     <a
       href={bookingUrl}
       class="nav-drawer-link bg-primary hover:bg-primary-hover text-white text-center py-4 px-8 rounded-full font-bold text-xs tracking-widest uppercase shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-[200px]"
@@ -373,32 +194,11 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
   const menuDrawer = document.getElementById("menu-drawer");
   const menuBackdrop = document.getElementById("menu-backdrop");
   const drawerLinks = document.querySelectorAll(".nav-drawer-link");
-  
-  const mobileLangBtn = document.getElementById("mobile-lang-btn");
-  const mobileLangDropdown = document.getElementById("mobile-lang-dropdown");
-  const mobileLangContainer = document.getElementById("mobile-lang-container");
-
-  mobileLangBtn?.addEventListener("click", (e) => {
-    e.preventDefault();
-    e.stopPropagation();
-    mobileLangDropdown?.classList.toggle("hidden");
-  });
-
-  document.addEventListener("click", (e) => {
-    const target = e.target as Node;
-    if (mobileLangDropdown && !mobileLangDropdown.classList.contains("hidden")) {
-      if (mobileLangContainer && !mobileLangContainer.contains(target)) {
-        mobileLangDropdown.classList.add("hidden");
-      }
-    }
-  });
+  const header = document.getElementById("main-header");
 
   function openMenu() {
     if (menuDrawer && menuBackdrop) {
       menuBackdrop.classList.remove("hidden");
-      menuDrawer.classList.remove("pointer-events-none");
-      menuBackdrop.classList.remove("pointer-events-none");
-      
       setTimeout(() => {
         menuBackdrop.classList.add("opacity-100");
         menuDrawer.classList.remove("-translate-x-full");
@@ -413,10 +213,7 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
       menuDrawer.classList.add("-translate-x-full");
       
       setTimeout(() => {
-        menuDrawer.classList.add("pointer-events-none");
-        menuBackdrop.classList.add("pointer-events-none");
         menuBackdrop.classList.add("hidden");
-        mobileLangDropdown?.classList.add("hidden");
       }, 300);
       document.body.style.overflow = "";
     }
@@ -425,17 +222,13 @@ const urlPt = useTranslatedPath("pt")(currentPathWithoutLang);
   menuToggleBtn?.addEventListener("click", openMenu);
   menuCloseBtn?.addEventListener("click", closeMenu);
   menuBackdrop?.addEventListener("click", closeMenu);
-  
-  drawerLinks.forEach((link) => {
-    link.addEventListener("click", closeMenu);
-  });
+  drawerLinks.forEach(link => link.addEventListener("click", closeMenu));
 
-  const header = document.getElementById("main-header");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header?.classList.add("shadow-md", "bg-[#fcfbf7]");
     } else {
-      header?.classList.remove("shadow-md");
+      header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
     }
   }, { passive: true });
 </script>

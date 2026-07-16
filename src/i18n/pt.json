@@ -533,7 +533,8 @@
     }
   },
   "FAVORITIES": {
-    "tag": "Nossos Favoritos",
+    "tag": "Explore o nosso menu",
+    "button_menu": "Explore o nosso menu completo",
     "title": "Nossos Favoritos",
     "description": "Uma seleção cuidadosa de coquetéis artesanais e pratos exclusivos preparados na hora pelos nossos chefs de praia.",
     "seeFullMenu": "VER CARDÁPIO COMPLETO",
