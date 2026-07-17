@@ -152,110 +152,103 @@ const dishImages = [
       </div>
     </section>
     <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
+    {
+      [
         {
-          [
-            {
-              label: "Transportation",
-              value:
-                i18n.FULL_DAY_BEACH_EXPERIENCE?.transportation ||
-                "Round trip transportation",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124l-.208-3.33a2.985 2.985 0 0 0-1.208-2.224l-3.235-2.426a1.5 1.5 0 0 0-.9-.3H12m7.5 6H12m7.5 0v-1.5a3.375 3.375 0 0 0-3.375-3.375h-1.5a1.125 1.125 0 0 1-1.125-1.125v-1.5A3.375 3.375 0 0 0 9.375 3H5.625A3.375 3.375 0 0 0 2.25 6.375v8.25M12 14.25v-3.75"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Duration",
-              value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "4 Hours",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Family Friendly",
-              value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Schedules",
-              value:
-                i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules ||
-                "10:00 AM - 2:00 PM",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                  />
-                </svg>
-              ),
-            },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              class="bg-[#FAF6EE] p-3 md:p-4 rounded-xl flex flex-col items-center text-center justify-center border border-stone-100"
+          label: "Access Type",
+          value: i18n.FULL_DAY_BEACH_EXPERIENCE?.accessType || "Beach Club Entry Only",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 md:w-6 md:h-6"
             >
-              <div class="text-[#E77543] mb-1.5 md:mb-2">{item.icon}</div>
-              <span class="text-[10px] md:text-xs font-semibold tracking-wider text-stone-800 uppercase block mb-0.5">
-                {item.label}
-              </span>
-              <span class="text-[11px] md:text-xs font-light text-stone-500">
-                {item.value}
-              </span>
-            </div>
-          ))
-        }
-      </div>
-    </section>
+              {/* Icono de Ticket / Entrada */}
+              <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-12h1.5c1.243 0 2.25 1.007 2.25 2.25v.515c0 .954.57 1.82 1.455 2.18l.382.156c.55.225.55 1.003 0 1.228l-.383.156c-.884.36-1.454 1.226-1.454 2.18v.516c0 1.243-1.007 2.25-2.25 2.25H7.5A2.25 2.25 0 0 1 5.25 17.25V6.75A2.25 2.25 0 0 1 7.5 4.5Z" />
+            </svg>
+          ),
+        },
+        {
+          label: "Duration",
+          value: i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "Full Day Access",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 md:w-6 md:h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
+            </svg>
+          ),
+        },
+        {
+          label: "Family Friendly",
+          value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 md:w-6 md:h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+              />
+            </svg>
+          ),
+        },
+        {
+          label: "Schedules",
+          value: i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules || "10:00 AM - 6:00 PM",
+          icon: (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5 md:w-6 md:h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
+              />
+            </svg>
+          ),
+        },
+      ].map((item, idx) => (
+        <div
+          key={idx}
+          class="bg-[#FAF6EE] p-3 md:p-4 rounded-xl flex flex-col items-center text-center justify-center border border-stone-100"
+        >
+          <div class="text-[#E77543] mb-1.5 md:mb-2">{item.icon}</div>
+          <span class="text-[10px] md:text-xs font-semibold tracking-wider text-stone-800 uppercase block mb-0.5">
+            {item.label}
+          </span>
+          <span class="text-[11px] md:text-xs font-light text-stone-500">
+            {item.value}
+          </span>
+        </div>
+      ))
+    }
+  </div>
+</section>
     <section
       class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
     >
