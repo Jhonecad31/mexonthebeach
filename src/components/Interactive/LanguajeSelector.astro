@@ -11,13 +11,7 @@ const { class: className = "", isMobileDrawer = false } = Astro.props;
 // 1. Obtenemos el idioma actual (ej: 'es')
 const lang = getLangFromUrl(Astro.url) || "en";
 const pathname = Astro.url.pathname;
-
-// 2. CREAMOS LA RUTA LIMPIA
-// Si pathname es '/es/contact', queremos que sea '/contact'
-// Esta regex remueve el idioma actual al principio de la cadena
 const cleanPath = pathname.replace(new RegExp(`^/${lang}`), "");
-
-// 3. Generamos las URLs usando la ruta limpia
 const urlEn = useTranslatedPath("en")(cleanPath);
 const urlEs = useTranslatedPath("es")(cleanPath);
 const urlPt = useTranslatedPath("pt")(cleanPath);
