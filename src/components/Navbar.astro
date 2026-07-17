@@ -3,22 +3,31 @@ import logoMex from "../assets/logos/logo_notb.svg";
 import { getI18N } from "../i18n/index";
 import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
 import LanguajeSelectorAstroComponent from "./Interactive/LanguajeSelector.astro";
+
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 const lang = getLangFromUrl(Astro.url) || "en";
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const pathname = Astro.url.pathname;
+
 interface Props {
   offI18n?: boolean;
 }
 const { offI18n } = Astro.props;
-const isMenuPage = pathname.includes("/the-mex");
-const isContactPage = pathname.includes("/contacto") || pathname.includes("/contact") || pathname.includes("/contato");
-const isPuertoMorelos = pathname.includes("/puerto-morelos");
-const isHomePage = !isMenuPage && !isContactPage && !isPuertoMorelos;
 
-// Rutas del menú
+// 1. NORMALIZACIÓN DE RUTA: Removemos el prefijo de idioma (ej: /es/contacto -> /contacto)
+// Esto previene que el idioma se pierda o que las validaciones fallen en subpáginas.
+const cleanPath = pathname.replace(new RegExp(`^/${lang}`), "") || "/";
+
+const isMenuPage = cleanPath.includes("/the-mex");
+const isContactPage = cleanPath.includes("/contacto") || cleanPath.includes("/contact") || cleanPath.includes("/contato");
+const isPuertoMorelos = cleanPath.includes("/puerto-morelos");
+
+// Evaluamos de forma exacta si estamos en la raíz limpia
+const isHomePage = cleanPath === "/";
+
+// 2. GENERACIÓN DE RUTAS INTERNACIOLANIZADAS
 const homeUrl = translatePath("/");
 const menuUrl = translatePath("/the-mex");
 const pmUrl = translatePath("/puerto-morelos");
@@ -84,7 +93,7 @@ const navigation = [
 
         <div class="hidden md:block h-4 w-[1px] bg-gray-200"></div>
 
-        <!-- Selector de Idiomas Desktop (PASAMOS EL PATHNAME ACTUAL) -->
+        <!-- Selector de Idiomas Desktop (PASAMOS EL PATHNAME ACTUAL ORIGINAL) -->
         {!offI18n && (
           <LanguajeSelectorAstroComponent 
             class="hidden md:block" 
@@ -160,7 +169,7 @@ const navigation = [
 
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     
-    <!-- Idiomas en Mobile (PASAMOS EL PATHNAME ACTUAL) -->
+    <!-- Idiomas en Mobile (PASAMOS EL PATHNAME ACTUAL ORIGINAL) -->
     {!offI18n && (
       <div class="text-center w-full">
         <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">

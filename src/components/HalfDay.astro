@@ -1,16 +1,20 @@
 ---
-import { useTranslations } from "../i18n/utils";
+import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 import { Check, ChevronRight, Info, X } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
+
+// 1. Extraemos el locale real directamente desde Astro
 const { currentLocale } = Astro;
+const lang = (currentLocale || "en") as Lang;
+
+// 2. Sincronizamos las traducciones con el idioma de la URL
 const i18n = getI18N({ currentLocale }) as any;
-interface Props {
-  lang?: "en" | "es";
-}
-const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
+
+// 3. El bookingUrl ahora respetará el idioma actual
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
+
 const carouselImages = [
   "/img-beach-club/half-day-beach-pass.webp",
   "/img-food/food-in-the-beach.webp",

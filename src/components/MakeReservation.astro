@@ -5,20 +5,18 @@ import { Check, ChevronRight, Info, X, Utensils, Camera } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
 import FavoritiesFoodSeccion from "@/components/sections/FavoritesFood.astro";
 import FavoritiesDrinksSeccion from "@/components/sections/FovoritesDrinks.astro";
+
+// 1. Recuperamos el idioma real detectado por Astro en la URL actual
 const { currentLocale } = Astro;
+const lang = (currentLocale || "en") as Lang; 
+
+// 2. Sincronizamos las traducciones y los diccionarios con ese idioma real
 const i18n = getI18N({ currentLocale }) as any;
-interface Props {
-  lang?: Lang;
-}
-const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
+
+// 3. El bookingUrl ahora respetará dinámicamente el idioma activo de la sesión
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
-const carouselImages = [
-  "/img-beach-club/mex-beach-club-lifestyle.webp",
-  "/img-beach-club/mex-beach-club-relaxation.webp",
-  "/img-beach-club/mex-beach-club-signature-drinks.webp",
-];
-import { Utensils, Camera, Info } from "lucide-react";
+
 const menuCategories = [
   {
     title: i18n.MAKE_YOU_RESERVATION?.MENU?.STARTERS || "Entradas & Snacking",
@@ -85,7 +83,6 @@ const dishImages = [
   },
 ];
 ---
-
 <Layout>
   <div class="relative">
     {/* HERO SECTION */}
