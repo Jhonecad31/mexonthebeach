@@ -543,20 +543,34 @@
     "title": "Nossos Favoritos",
     "description": "Uma seleção cuidadosa de coquetéis artesanais e pratos exclusivos preparados na hora pelos nossos chefs de praia.",
     "seeFullMenu": "VER CARDÁPIO COMPLETO",
-    "items": {
-      "tequila": {
-        "title": "Tequila Tropical",
-        "description": "Tequila reposado infusionada com maracujá fresco, néctar de agave orgânico e um toque de limão, com borda de pimenta piquín e sal de verme-da-maguey (sal de gusano)."
-      },
-      "tiki": {
-        "title": "Caribbean Tiki",
-        "description": "Runs envelhecidos premium, xarope especiado de abacaxi grelhado, suco de laranja espremido na hora, licor de coco e gotas de Angostura."
-      },
-      "mex": {
-        "title": "Mex on the Beach",
-        "description": "A nossa especialidade da casa: Blue Curaçao premium, tequila blanco, rum de coco, suco de abacaxi clarificado e um toque refrescante de soda de limão."
-      }
-    }
+    "items_food": {
+  "tequila": {
+    "title": "Tequila Tropical",
+    "description": "Tequila reposado infusionada com maracujá fresco, néctar de agave orgânico e um toque de limão, com uma borda de pimenta piquín e sal de minhoca."
+  },
+  "tiki": {
+    "title": "Caribbean Tiki",
+    "description": "Rum envelhecido premium, xarope de abacaxi assado com especiarias, suco de laranja espremido na hora, licor de coco e gotas de Angostura."
+  },
+  "mex": {
+    "title": "Mex on the Beach",
+    "description": "A nossa especialidade da casa: Blue Curaçao premium, tequila blanco, rum de coco, suco de abacaxi clarificado e um toque refrescante de refrigerante de limão."
+  }
+},
+"items_drinks": {
+  "mojito": {
+    "title": "Tequila Tropical",
+    "description": "Tequila reposado infusionada com maracujá fresco, néctar de agave orgânico e um toque de limão, com uma borda de pimenta piquín e sal de minhoca."
+  },
+  "lemonade": {
+    "title": "Caribbean Tiki",
+    "description": "Rum envelhecido premium, xarope de abacaxi assado com especiarias, suco de laranja espremido na hora, licor de coco e gotas de Angostura."
+  },
+  "coconut": {
+    "title": "Mex on the Beach",
+    "description": "A nossa especialidade da casa: Blue Curaçao premium, tequila blanco, rum de coco, suco de abacaxi clarificado e um toque refrescante de refrigerante de limão."
+  }
+}
   },
   "THE_MEX": {
     "HERO": {

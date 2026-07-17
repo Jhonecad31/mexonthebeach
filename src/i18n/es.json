@@ -537,20 +537,34 @@
     "title": "Nuestros Favoritos",
     "description": "Una cuidadosa selección de coctelería artesanal y platillos exclusivos preparados al momento por nuestros chefs de playa.",
     "seeFullMenu": "VER MENÚ COMPLETO",
-    "items": {
-      "tequila": {
-        "title": "Tequila Tropical",
-        "description": "Tequila reposado infusionado con maracuyá fresco, néctar de agave orgánico y un toque de limón, con escarchado de chile piquín y sal de gusano."
-      },
-      "tiki": {
-        "title": "Caribbean Tiki",
-        "description": "Ron añejo premium, jarabe especiado de piña tatemada, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
-      },
-      "mex": {
-        "title": "Mex on the Beach",
-        "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un toque refrescante de refresco de lima-limón."
-      }
-    }
+   "items_food": {
+  "tequila": {
+    "title": "Tequila Tropical",
+    "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
+  },
+  "tiki": {
+    "title": "Caribbean Tiki",
+    "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
+  },
+  "mex": {
+    "title": "Mex on the Beach",
+    "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
+  }
+},
+"items_drinks": {
+  "mojito": {
+    "title": "Tequila Tropical",
+    "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
+  },
+  "lemonade": {
+    "title": "Caribbean Tiki",
+    "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
+  },
+  "coconut": {
+    "title": "Mex on the Beach",
+    "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
+  }
+}
   },
   "THE_MEX": {
     "HERO": {
