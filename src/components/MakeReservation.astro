@@ -258,10 +258,20 @@ const dishImages = [
         <div class="lg:col-span-2 space-y-8 md:space-y-12">
           <!-- Aqui empieza la información con acordeon -->
           <div class="divide-y divide-gray-200">
-            <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+             <details class="group py-6" name="tour-info" open>
+              <summary
+                class="flex justify-between items-center cursor-pointer list-none select-none"
+              >
+                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
               {i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.title}
             </span>
-            <div class="mt-8">
+                <div
+                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
+                >
+                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
+                </div>
+              </summary>
+              <div class="mt-8">
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                 {
                   i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.includes.map(
@@ -288,6 +298,7 @@ const dishImages = [
                 }
               </ul>
             </div>
+            </details>
             {}
             <details class="group py-6" name="tour-info" open>
               <summary
@@ -708,7 +719,6 @@ const dishImages = [
     </div>
   </form>
 </div>
-
 <!-- FLOATING STICKY BAR INFERIOR (Solo Móvil) -->
 <div id="mobile-sticky-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md p-4 border-t border-stone-100 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] flex items-center justify-between gap-4 md:hidden">
   <div class="flex flex-col">
