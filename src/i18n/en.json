@@ -189,7 +189,7 @@
       "title": "Beach club experience in puerto morelos",
       "description": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya."
     },
-     "OVERVIEW": {
+    "OVERVIEW": {
       "title": "Overview",
       "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
       "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
@@ -215,12 +215,12 @@
       "title": "Inclusions & Exclusions",
       "includes": [
         "Round-trip transportation from Cancun and Playa del Carmen",
-          "Use of a beach lounger",
-          "Access to the swimming pool",
-          "One complimentary drink",
-          "Waiter service",
-          "Exclusive tequila tasting experience",
-          "Breakfast (Morning) or Lunch (Afternoon)"
+        "Use of a beach lounger",
+        "Access to the swimming pool",
+        "One complimentary drink",
+        "Waiter service",
+        "Exclusive tequila tasting experience",
+        "Breakfast (Morning) or Lunch (Afternoon)"
       ],
       "not_includes": [
         "À la carte food and drinks (available at an additional cost if you wish to upgrade your experience)",
@@ -314,7 +314,7 @@
       "title": "Beach club experience in puerto morelos",
       "description": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya."
     },
-     "OVERVIEW": {
+    "OVERVIEW": {
       "title": "Overview",
       "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
       "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
@@ -340,12 +340,12 @@
       "title": "Inclusions & Exclusions",
       "includes": [
         "Round-trip transportation from Cancun and Playa del Carmen",
-          "Use of a beach lounger",
-          "Access to the swimming pool",
-          "One complimentary drink",
-          "Waiter service",
-          "Exclusive tequila tasting experience",
-          "Breakfast (Morning) or Lunch (Afternoon)"
+        "Use of a beach lounger",
+        "Access to the swimming pool",
+        "One complimentary drink",
+        "Waiter service",
+        "Exclusive tequila tasting experience",
+        "Breakfast (Morning) or Lunch (Afternoon)"
       ],
       "not_includes": [
         "À la carte food and drinks (available at an additional cost if you wish to upgrade your experience)",
@@ -461,10 +461,10 @@
       "title": "Inclusions & Exclusions",
       "includes": [
         "Access to the beach club facilities",
-          "Use of a beach lounger or lounge chair (subject to availability)",
-          "Access to the swimming pool",
-          "Waiter service at the beach and pool areas",
-          "Access to restrooms and shower facilities"
+        "Use of a beach lounger or lounge chair (subject to availability)",
+        "Access to the swimming pool",
+        "Waiter service at the beach and pool areas",
+        "Access to restrooms and shower facilities"
       ],
       "not_includes": [
         "Food and drinks (available à la carte at an additional cost)",
@@ -572,11 +572,16 @@
   },
   "FAVORITIES": {
     "tag": "Explore our menu",
-    "button_menu": "Explore our full menu",
+    "view_menu": "View menu",
+    "button_menu": "Discover more about our cuisine",
     "title": "Our Favorites",
     "description": "A fresh selection inspired by the essence of Puerto Morelos, created to pair perfectly with the Caribbean sun and breeze.",
     "seeFullMenu": "See full menu",
-    "items": {
+    "food_title": "Our Food",
+    "food_description": "Discover our main courses and appetizers, freshly prepared.",
+    "drinks_title": "Our Drinks",
+    "drinks_description": "Discover our signature cocktails and freshly prepared drinks.",
+    "items_food": {
       "tequila": {
         "title": "Tequila Tropical",
         "description": "Reposado tequila infused with fresh passion fruit, organic agave nectar and a splash of lime with a rim of piquin chili and worm salt."
@@ -586,6 +591,20 @@
         "description": "Premium aged rum, spiced roasted pineapple syrup, freshly squeezed orange juice, coconut liqueur and Angostura bitters."
       },
       "mex": {
+        "title": "Mex on the Beach",
+        "description": "Our house specialty: Premium Blue Curaçao, blanco tequila, coconut rum, clarified pineapple juice and a refreshing splash of citrus soda."
+      }
+    },
+    "items_drinks": {
+      "mojito": {
+        "title": "Tequila Tropical",
+        "description": "Reposado tequila infused with fresh passion fruit, organic agave nectar and a splash of lime with a rim of piquin chili and worm salt."
+      },
+      "lemonade": {
+        "title": "Caribbean Tiki",
+        "description": "Premium aged rum, spiced roasted pineapple syrup, freshly squeezed orange juice, coconut liqueur and Angostura bitters."
+      },
+      "coconut": {
         "title": "Mex on the Beach",
         "description": "Our house specialty: Premium Blue Curaçao, blanco tequila, coconut rum, clarified pineapple juice and a refreshing splash of citrus soda."
       }

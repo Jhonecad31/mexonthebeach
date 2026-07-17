@@ -534,7 +534,12 @@
   },
   "FAVORITIES": {
     "tag": "Explore o nosso menu",
-    "button_menu": "Explore o nosso menu completo",
+    "view_menu": "Ver cardápio",
+    "button_menu": "Descubra mais sobre a nossa gastronomia",
+    "food_title": "Nossa Comida",
+    "food_description": "Descubra nossos pratos principais e entradas preparados na hora.",
+    "drinks_title": "Nossas Bebidas",
+    "drinks_description": "Descubra nossa coquetelaria autoral e bebidas preparadas na hora.",
     "title": "Nossos Favoritos",
     "description": "Uma seleção cuidadosa de coquetéis artesanais e pratos exclusivos preparados na hora pelos nossos chefs de praia.",
     "seeFullMenu": "VER CARDÁPIO COMPLETO",

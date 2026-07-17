@@ -528,7 +528,12 @@
   },
   "FAVORITIES": {
     "tag": "Explora nuestro Menú",
-    "button_menu": "Explora menú completo",
+    "view_menu": "Ver menú",
+    "button_menu": "Conoce más de nuestra gastronomía",
+    "food_title": "Nuestra Comida",
+    "food_description": "Descubre nuestros platos fuertes y entradas preparadas al momento.",
+    "drinks_title": "Nuestras Bebidas",
+    "drinks_description": "Descubre nuestra coctelería de autor y bebidas preparadas al momento.",
     "title": "Nuestros Favoritos",
     "description": "Una cuidadosa selección de coctelería artesanal y platillos exclusivos preparados al momento por nuestros chefs de playa.",
     "seeFullMenu": "VER MENÚ COMPLETO",
