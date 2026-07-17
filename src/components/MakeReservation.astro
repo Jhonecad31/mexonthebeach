@@ -582,169 +582,226 @@ const dishImages = [
           </div>
         </div>
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
-        <div class="lg:col-span-1 lg:sticky lg:top-24">
-          <form
-            id="beach-club-booking-form"
-            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
-          >
-            {/* Seleccionar Fecha */}
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Select Date</label
-              >
-              <input
-                type="date"
-                name="date"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-              />
-            </div>
-            {/* Personas */}
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Adults</label
-                >
-                <select
-                  name="adults"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-                >
-                  <option value="1">1 Adult</option>
-                  <option value="2" selected>2 Adults</option>
-                  <option value="3">3 Adults</option>
-                  <option value="4">4 Adults</option>
-                  <option value="5">5 Adults</option>
-                </select>
-              </div>
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Children</label
-                >
-                <select
-                  name="children"
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-                >
-                  <option value="0" selected>0 Children</option>
-                  <option value="1">1 Child</option>
-                  <option value="2">2 Children</option>
-                  <option value="3">3 Children</option>
-                </select>
-              </div>
-            </div>
-            {/* Nombre Completo */}
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Full name</label
-              >
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Enter your full name"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-              />
-            </div>
-            {/* Teléfono */}
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Phone</label
-              >
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter your phone number"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-              />
-            </div>
+        <!-- CONTENEDOR PRINCIPAL DEL FORMULARIO -->
+<!-- En escritorio se queda fijo a la derecha (lg:sticky), en móvil pasa a ser un Bottom Sheet -->
+<div 
+  id="booking-form-container"
+  class="fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-[32px] p-5 shadow-[0_-10px_40px_rgba(0,0,0,0.12)] 
+         translate-y-full transition-transform duration-300 ease-out
+         md:relative md:inset-auto md:z-0 md:translate-y-0 md:p-0 md:bg-transparent md:rounded-none md:shadow-none
+         lg:col-span-1 lg:sticky lg:top-24 max-h-[85vh] overflow-y-auto md:max-h-none md:overflow-visible"
+>
+  <!-- Línea estética superior para indicar que se puede cerrar/deslizar (Solo móvil) -->
+  <div id="close-form-bar" class="w-12 h-1.5 bg-stone-200 rounded-full mx-auto mb-4 md:hidden cursor-pointer"></div>
 
-            {/* Email */}
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Email</label
-              >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-              />
-            </div>
+  <!-- Cabecera del formulario en Móvil (Título y botón cerrar) -->
+  <div class="flex items-center justify-between mb-4 md:hidden">
+    <h3 class="font-serif text-lg text-stone-900">Book Experience</h3>
+    <button id="close-form-btn" type="button" class="text-stone-400 hover:text-stone-600 p-1">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
 
-            {/* Mensaje */}
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Message</label
-              >
-              <textarea
-                name="message"
-                rows="3"
-                placeholder="Any special requests?..."
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
-              ></textarea>
-            </div>
+  <form
+    id="beach-club-booking-form"
+    class="bg-white rounded-2xl md:p-6 md:shadow-[0_4px_25px_rgba(0,0,0,0.06)] md:border md:border-stone-100 space-y-4 md:space-y-5"
+  >
+    {/* Seleccionar Fecha */}
+    <div class="space-y-1.5">
+      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Select Date</label>
+      <input
+        type="date"
+        name="date"
+        required
+        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+      />
+    </div>
 
-            {/* Botón de envío */}
-            <div class="flex justify-center w-full">
-              <button
-                type="submit"
-                id="submit-booking-btn"
-                class="inline-block bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                Request Reservation
-              </button>
-            </div>
-          </form>
-        </div>
-        <script>
-          const form = document.getElementById(
-            "beach-club-booking-form",
-          ) as HTMLFormElement;
-          const submitBtn = document.getElementById(
-            "submit-booking-btn",
-          ) as HTMLButtonElement;
+    {/* Personas */}
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-1.5">
+        <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Adults</label>
+        <select
+          name="adults"
+          required
+          class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+        >
+          <option value="1">1 Adult</option>
+          <option value="2" selected>2 Adults</option>
+          <option value="3">3 Adults</option>
+          <option value="4">4 Adults</option>
+          <option value="5">5 Adults</option>
+        </select>
+      </div>
+      <div class="space-y-1.5">
+        <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Children</label>
+        <select
+          name="children"
+          class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+        >
+          <option value="0" selected>0 Children</option>
+          <option value="1">1 Child</option>
+          <option value="2">2 Children</option>
+          <option value="3">3 Children</option>
+        </select>
+      </div>
+    </div>
 
-          if (form && submitBtn) {
-            form.addEventListener("submit", async (e) => {
-              e.preventDefault();
+    {/* Nombre Completo */}
+    <div class="space-y-1.5">
+      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Full name</label>
+      <input
+        type="text"
+        name="fullName"
+        placeholder="Enter your full name"
+        required
+        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+      />
+    </div>
 
-              const originalText = submitBtn.innerText;
-              submitBtn.innerText = "SENDING...";
-              submitBtn.disabled = true;
+    {/* Teléfono */}
+    <div class="space-y-1.5">
+      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Phone</label>
+      <input
+        type="tel"
+        name="phone"
+        placeholder="Enter your phone number"
+        required
+        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+      />
+    </div>
 
-              const formData = new FormData(form);
+    {/* Email */}
+    <div class="space-y-1.5">
+      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Email</label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        required
+        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+      />
+    </div>
 
-              try {
-                const response = await fetch("/api/booking", {
-                  method: "POST",
-                  body: formData,
-                });
+    {/* Mensaje */}
+    <div class="space-y-1.5">
+      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Message</label>
+      <textarea
+        name="message"
+        rows="3"
+        placeholder="Any special requests?..."
+        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
+      ></textarea>
+    </div>
 
-                if (response.ok) {
-                  alert("¡Reservation request sent successfully!");
-                  form.reset();
-                } else {
-                  alert("Error sending request. Please try again.");
-                }
-              } catch (error) {
-                console.error(error);
-                alert("Connection error.");
-              } finally {
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
-              }
-            });
-          }
-        </script>
+    {/* Botón de envío */}
+    <div class="flex justify-center w-full">
+      <button
+        type="submit"
+        id="submit-booking-btn"
+        class="w-full md:w-auto bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
+      >
+        Request Reservation
+      </button>
+    </div>
+  </form>
+</div>
+
+<!-- FLOATING STICKY BAR INFERIOR (Solo Móvil) -->
+<div id="mobile-sticky-bar" class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md p-4 border-t border-stone-100 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] flex items-center justify-between gap-4 md:hidden">
+  <div class="flex flex-col">
+    <span class="text-[10px] text-stone-400 uppercase font-semibold tracking-wider">Price from</span>
+    <div class="flex items-baseline gap-1">
+      <span class="text-xl font-bold text-stone-900">$70 USD</span>
+      <span class="text-[11px] text-stone-500 font-light">/pers</span>
+    </div>
+  </div>
+  <button 
+    id="open-form-btn"
+    type="button"
+    class="flex-1 bg-primary hover:bg-primary text-white text-center py-3.5 px-6 rounded-full font-bold text-sm tracking-wide shadow-md active:scale-95 transition-all cursor-pointer"
+  >
+    Check Availability
+  </button>
+</div>
+
+<!-- BACKGROUND OVERLAY OSCURO (Para cerrar haciendo clic fuera) -->
+<div id="booking-form-overlay" class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"></div>
+
+<script>
+  const formContainer = document.getElementById("booking-form-container");
+  const overlay = document.getElementById("booking-form-overlay");
+  const openBtn = document.getElementById("open-form-btn");
+  const closeBtn = document.getElementById("close-form-btn");
+  const closeBar = document.getElementById("close-form-bar");
+  
+  const form = document.getElementById("beach-club-booking-form") as HTMLFormElement;
+  const submitBtn = document.getElementById("submit-booking-btn") as HTMLButtonElement;
+
+  // Funciones para Abrir / Cerrar en móvil
+  const openMobileForm = () => {
+    if (formContainer && overlay) {
+      formContainer.classList.remove("translate-y-full");
+      formContainer.classList.add("translate-y-0");
+      overlay.classList.remove("hidden");
+      // Pequeño timeout para que la transición de opacidad funcione suave
+      setTimeout(() => overlay.classList.add("opacity-100"), 10);
+      document.body.style.overflow = "hidden"; // Bloquea scroll del fondo
+    }
+  };
+
+  const closeMobileForm = () => {
+    if (formContainer && overlay) {
+      formContainer.classList.remove("translate-y-0");
+      formContainer.classList.add("translate-y-full");
+      overlay.classList.remove("opacity-100");
+      setTimeout(() => overlay.classList.add("hidden"), 30);
+      document.body.style.overflow = ""; // Libera scroll
+    }
+  };
+
+  // Event Listeners de la UI móvil
+  openBtn?.addEventListener("click", openMobileForm);
+  closeBtn?.addEventListener("click", closeMobileForm);
+  closeBar?.addEventListener("click", closeMobileForm);
+  overlay?.addEventListener("click", closeMobileForm);
+
+  // Manejo de Submit del Formulario
+  if (form && submitBtn) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const originalText = submitBtn.innerText;
+      submitBtn.innerText = "SENDING...";
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch("/api/booking", {
+          method: "POST",
+          body: formData,
+        });
+
+        if (response.ok) {
+          alert("¡Reservation request sent successfully!");
+          form.reset();
+          closeMobileForm(); // Cierra el modal si se envió con éxito
+        } else {
+          alert("Error sending request. Please try again.");
+        }
+      } catch (error) {
+        console.error(error);
+        alert("Connection error.");
+      } finally {
+        submitBtn.innerText = originalText;
+        submitBtn.disabled = false;
+      }
+    });
+  }
+</script>
       </div>
     </section>
     <!-- sección nueva -->
