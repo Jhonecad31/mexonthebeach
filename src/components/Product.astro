@@ -3,23 +3,11 @@ import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 import { Check, ChevronRight, Info, X } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
-
-// 1. Obtenemos el locale real que Astro detecta directamente de la URL
 const { currentLocale } = Astro;
 const lang = (currentLocale || "en") as Lang;
-
-// 2. Sincronizamos las traducciones con el idioma correcto
 const i18n = getI18N({ currentLocale }) as any;
 const t = useTranslations(lang);
-
-// 3. El bookingUrl ahora mantendrá el prefijo de idioma correspondiente
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
-
-const carouselImages = [
-  "/img-beach-club/mex-beach-club-lounge-depth.webp",
-  "/img-beach-club/mex-beach-club-relaxation.webp",
-  "/img-beach-club/mex-beach-club-signature-drinks.webp",
-];
 
 const highlights = [
   {

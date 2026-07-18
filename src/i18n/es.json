@@ -4,6 +4,36 @@
       "TITLE": "El escenario natural perfecto para conectar con el paraíso.",
       "DESCRIPTION": "Vive la mejor escapada a la playa, donde el sol, la arena y las buenas vibras se fusionan a la perfección. Camastros premium, coctelería celestial y experiencias culinarias exclusivas.",
       "META_TITLE": "Mex on the Beach | Premium Beach Club & Lounge"
+    },
+    "DETAIL_PAGE": {
+      "HALF_DAY_PRODUCT": {
+        "TITLE": "Experiencia de beach club en Puerto Morelos",
+        "DESCRIPTION": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+        "META_TITLE": "Mex On The Beach | Beach Club en Puerto Morelos Riviera Maya"
+      },
+      "FULL_DAY_PRODUCT": {
+        "TITLE": "Experiencia de beach club en Puerto Morelos",
+        "DESCRIPTION": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+        "META_TITLE": "Mex On The Beach | Beach Club en Puerto Morelos Riviera Maya"
+      }
+    },
+    "PUERTO_MORELOS_PAGE": {
+      "TITLE": "Puerto Morelos",
+      "DESCRIPTION": "Ubicado entre Cancún y Playa del Carmen, Puerto Morelos es uno de los destinos costeros más encantadores de la Riviera Maya. Mientras que muchos viajeros se dirigen directamente a los centros turísticos más grandes, quienes visitan Puerto Morelos suelen descubrir un lado más tranquilo del Caribe Mexicano, lleno de belleza natural, cultura local auténtica e impresionantes vistas al mar.",
+      "META_TITLE": "Puerto Morelos: El encantador pueblo costero de la Riviera Maya"
+    },
+    "CONTACT_PAGE": {
+      "TITLE": "Ponte en contacto con nosotros",
+      "DESCRIPTION": "¡Nos encanta saber de ti! Ya sea que quieras reservar el mejor camastro frente al agua o simplemente tengas una duda sobre lo que ofrecemos, nuestro equipo está aquí para ayudarte. Déjanos un mensaje y empieza a planear tu día perfecto bajo el sol.",
+      "META_TITLE": "Contacto | Reserva tu lugar bajo el sol"
+    },
+    "NOT_FOUND_PAGE": {
+      "TITLE": "Página no encontrada",
+      "DESCRIPTION": "La página que estás buscando no existe. Por favor, regresa a la página de inicio."
+    },
+    "ERROR_SERVER_PAGE": {
+      "TITLE": "Error 500 - Error del Servidor",
+      "DESCRIPTION": "Ocurrió un error en el servidor. Por favor, inténtalo de nuevo más tarde."
     }
   },
   "NAV": {
@@ -185,238 +215,284 @@
   },
   "HALF_DAY_PRODUCT": {
     "HERO": {
-      "title": "Experiencia de club de playa en Puerto Morelos",
-      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
-    },
-    "title": "Pase de Medio Día - Tu Relajante Experiencia de Club de Playa en Puerto Morelos",
-    "tag": "Regular",
-    "clock": "10:00 AM - 2:00 AM",
-    "button": "Consultar Disponibilidad - En el Menú",
-    "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
-    "p2": "Ubicado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina arena blanca y suave, aguas turquesas, una refrescante piscina y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una excursión de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este club de playa ofrece el entorno perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
-    "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su encanto auténtico como un pueblo de pescadores rodeado de tesoros naturales. Desde la segunda barrera de coral más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e inolvidables vistas al mar.",
-    "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace que la playa de Puerto Morelos, México, sea tan especial.",
-    "WHAT_TO_EXPECT": {
-      "title": "¿Qué esperar?",
-      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al océano. Es una oportunidad para experimentar el ritmo pacífico de Puerto Morelos mientras disfrutas de uno de los entornos de playa más hermosos de la Riviera Maya.",
-      "p2": "Los huéspedes pueden relajarse en cómodas tumbonas frente al Mar Caribe, darse un refrescante chapuzón en la piscina, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su atmósfera tranquila, lo que la hace ideal tanto para parejas, familias, grupos de amigos como para viajeros solitarios.",
-      "p3": "El área que rodea al club de playa es rica en belleza natural. Justo frente a la costa se encuentra el famoso sistema de arrecifes que atrae a buceadores y amantes de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
-      "p4": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino una de las mejores cosas que hacer en Puerto Morelos, México."
-    },
-    "WHAT_INCLUDED": {
-      "title": "Inclusiones y Exclusiones",
-      "include": [
-        "Transporte de ida y vuelta desde Cancún y Playa del Carmen.",
-        "Uso de una tumbona de playa.",
-        "Acceso a la piscina.",
-        "Una bebida de cortesía.",
-        "Servicio de camarero.",
-        "Experiencia exclusiva de degustación de tequila.",
-        "Desayuno (Medio Día por la Mañana), Almuerzo (Medio Día por la Tarde) o ambos (Día Completo)."
-      ],
-      "not_include": [
-        "Alimentos y bebidas a la carta (disponibles con costo adicional si deseas agregar platillos extras)",
-        "Propinas",
-        "Cualquier servicio o actividad no especificado en el paquete"
-      ]
-    },
-    "TITLE_H2": {
-      "title": "Descubre la belleza natural de Puerto Morelos y la Riviera Maya",
-      "p1": "Puerto Morelos se describe a menudo como la joya oculta de la Riviera Maya. Mientras que muchos visitantes se centran en destinos turísticos más grandes, aquellos que exploran esta encantadora ciudad costera comprenden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
-      "p2": "La ciudad alberga hermosas playas, ecosistemas marinos protegidos, exuberantes manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar las mañanas disfrutando de la costa y luego continuar explorando cenotes, áreas de vida silvestre y atracciones ecológicas cercanas.",
-      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Como parte del Sistema Arrecifal Mesoamericano, proporciona hábitat para una colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas a lo largo de muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
-      "p4": "Para los viajeros que buscan cosas auténticas que hacer en Puerto Morelos, el destino ofrece un equilibrio maravilloso entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza del pueblo, visitar tiendas de artesanías o simplemente pasar el día apreciando la belleza del Mar Caribe.",
-      "p5": "Esta combinación de naturaleza, cultura y tranquilidad es lo que hace que Puerto Morelos se destaque entre otros destinos de la Riviera Maya."
-    },
-    "TITLE_H3": {
-      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
-      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse junto al océano. Buscan una experiencia que capture el espíritu del destino.",
-      "p2": "Mex On The Beach ofrece exactamente eso.",
-      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades para experimentar las tradiciones locales. La combinación de acceso a la playa, instalaciones de piscina, comida, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
-      "p4": "Además, la ubicación facilita combinar tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de esnórquel, explorar el pueblo de pescadores, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
-      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya."
-    },
-    "QUESTIONS": {
-      "title": "Preguntas Frecuentes",
-      "q1": {
-        "question": "¿Dónde se encuentra Mex On The Beach?",
-        "answer": "Mex On The Beach se ubica en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
-      },
-      "q2": {
-        "question": "¿El transporte está incluido?",
-        "answer": "Sí. El transporte de ida y vuelta desde Cancún y Playa del Carmen está incluido en la experiencia."
-      },
-      "q3": {
-        "question": "¿Qué hace que Puerto Morelos sea diferente de otros destinos de playa?",
-        "answer": "Puerto Morelos ofrece una atmósfera más relajada, cultura local auténtica, hermosas playas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
-      },
-      "q4": {
-        "question": "¿Mex On The Beach es adecuado para familias y parejas?",
-        "answer": "Totalmente. El ambiente tranquilo, el acceso a la piscina, las instalaciones de playa y el servicio amable lo convierten en una excelente opción para parejas, familias, grupos y viajeros solitarios."
-      }
-    },
-    "BAKLINKS": {
-      "title": "Más actividades para que disfrutes",
-      "subtitle": "Descubre más actividades y tours emocionantes para mejorar tu experiencia en Puerto Morelos y la Riviera Maya.",
-      "TACO_TOUR": {
-        "title": "Tour de Tacos en la Playa",
-        "subtitle": "Tacos junto a la playa y tour por el pueblo con degustación de tequila desde Cancún"
-      },
-      "SNORKELING": {
-        "title": "Aventura de Esnórquel",
-        "subtitle": "Haz esnórquel en el arrecife más grande de \"América\""
-      },
-      "EXTREME": {
-        "title": "Aventura Extrema",
-        "subtitle": "Cuatrimotos (ATV), tirolesa, cenote y espectáculo maya"
-      },
-      "CENOTE": {
-        "title": "Aventura de Cenotes",
-        "subtitle": "Experiencia boutique de 3 cenotes, espectáculo maya con aperitivo"
-      }
-    }
-  },
-  "FULL_DAY_BEACH_EXPERIENCE": {
-    "HERO": {
-      "title": "Experiencia de club de playa en Puerto Morelos",
-      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
-    },
-    "title": "Experiencia de Día Completo en la Playa - Tu Relajante Experiencia de Club de Playa en Puerto Morelos",
-    "tag": "Día completo",
-    "clock": "2:00 PM - 6:00 PM",
-    "button": "Consultar Disponibilidad - En el Menú",
-    "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
-    "p2": "Ubicado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina arena blanca y suave, aguas turquesas, una refrescante piscina y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una excursión de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este club de playa ofrece el entorno perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
-    "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su encanto auténtico como un pueblo de pescadores rodeado de tesoros naturales. Desde la segunda barrera de coral más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e inolvidables vistas al mar.",
-    "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace que la playa de Puerto Morelos, México, sea tan especial.",
-    "WHAT_TO_EXPECT": {
-      "title": "¿Qué esperar?",
-      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al océano. Es una oportunidad para experimentar el ritmo pacífico de Puerto Morelos mientras disfrutas de uno de los entornos de playa más hermosos de la Riviera Maya.",
-      "p2": "Los huéspedes pueden relajarse en cómodas tumbonas frente al Mar Caribe, darse un refrescante chapuzón en la piscina, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su atmósfera tranquila, lo que la hace ideal tanto para parejas, familias, grupos de amigos como para viajeros solitarios.",
-      "p3": "El área que rodea al club de playa es rica en belleza natural. Justo frente a la costa se encuentra el famoso sistema de arrecifes que atrae a buceadores y amantes de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
-      "p4": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino una de las mejores cosas que hacer en Puerto Morelos, México."
-    },
-    "WHAT'S-INCLUDED": {
-      "items": [
-        "Transporte de ida y vuelta desde Cancún y Playa del Carmen.",
-        "Uso de una tumbona de playa.",
-        "Acceso a la piscina.",
-        "Una bebida de cortesía.",
-        "Servicio de camarero.",
-        "Experiencia exclusiva de degustación de tequila.",
-        "Desayuno (Medio Día por la Mañana), Almuerzo (Medio Día por la Tarde) o ambos (Día Completo)."
-      ]
-    },
-    "LIVE_THE_EXPERIENCE": {
-      "title": "Vive la Experiencia en Mex On The Beach",
-      "description": "Una visita a Mex On The Beach es mucho más que pasar unas horas frente al océano. Es la oportunidad perfecta para experimentar el ritmo pacífico de Puerto Morelos mientras disfrutas de uno de los escenarios de playa más hermosos de la Riviera Maya.",
-      "titlep1": "Tu Día Junto al Mar",
-      "p1": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, tomar un baño refrescante en la alberca, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su atmósfera tranquila, lo que la hace ideal para parejas, familias, grupos de amigos y viajeros solitarios por igual.",
-      "titlep2": "Naturaleza y Cultura Local",
-      "p2": "El área que rodea al club de playa es rica en belleza natural. Justo frente a la costa se encuentra el famoso sistema de arrecifes que atrae a amantes del esnórquel y de la naturaleza de todo el mundo. El pueblo pesquero cercano ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
-      "titlep3": "El Corazón de tu Viaje",
-      "p3": "Ya sea que llegues desde Cancún, Playa del Carmen o como parte de tus paquetes de vacaciones a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino una de las mejores cosas que hacer en Puerto Morelos, México."
-    },
-    "LOVE_SPENDING": {
-      "title": "Por Qué a los Visitantes les Encanta Pasar el Día en Mex On The Beach",
-      "description": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un simple lugar para sentarse frente al océano. Buscan una experiencia que capture el espíritu del destino. Mex On The Beach ofrece exactamente eso.",
-      "p1": "Los huéspedes disfrutan de acceso directo a una de las secciones más panorámicas de la costa, un ambiente relajado, un servicio atento y oportunidades únicas para experimentar las tradiciones locales.",
-      "p2": "La mezcla perfecta de acceso a la playa, alberca, excelente comida, bebidas y una degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
-      "title_h3": "Combina tu Día con Aventura",
-      "p1_h3": "Además, nuestra excelente ubicación facilita combinar tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de esnórquel, explorar el pueblo pesquero local, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
-      "p2_h3": "Ya sea que pases unas pocas horas junto al mar o que planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya.",
-      "icons": {
-        "access": "Acceso a Playa",
-        "pool": "Alberca",
-        "food": "Comida y Bebidas",
-        "tequila": "Degustación de Tequila"
-      }
-    },
-    "TITLE_H2": {
-      "title": "Descubre la belleza natural de Puerto Morelos y la Riviera Maya",
-      "p1": "Puerto Morelos se describe a menudo como la joya oculta de la Riviera Maya. Mientras que muchos visitantes se centran en destinos turísticos más grandes, aquellos que exploran esta encantadora ciudad costera comprenden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
-      "p2": "La ciudad alberga hermosas playas, ecosistemas marinos protegidos, exuberantes manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar las mañanas disfrutando de la costa y luego continuar explorando cenotes, áreas de vida silvestre y atracciones ecológicas cercanas.",
-      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Como parte del Sistema Arrecifal Mesoamericano, proporciona hábitat para una colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas a lo largo de muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
-      "p4": "Para los viajeros que buscan cosas auténticas que hacer en Puerto Morelos, el destino ofrece un equilibrio maravilloso entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza del pueblo, visitar tiendas de artesanías o simplemente pasar el día apreciando la belleza del Mar Caribe.",
-      "p5": "Esta combinación de naturaleza, cultura y tranquilidad es lo que hace que Puerto Morelos se destaque entre otros destinos de la Riviera Maya."
-    },
-    "TITLE_H3": {
-      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
-      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse junto al océano. Buscan una experiencia que capture el espíritu del destino.",
-      "p2": "Mex On The Beach ofrece exactamente eso.",
-      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades para experimentar las tradiciones locales. La combinación de acceso a la playa, instalaciones de piscina, comida, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
-      "p4": "Además, la ubicación facilita combinar tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de esnórquel, explorar el pueblo de pescadores, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
-      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya."
-    },
-    "QUESTIONS": {
-      "title": "Preguntas Frecuentes",
-      "q1": {
-        "question": "¿Dónde se encuentra Mex On The Beach?",
-        "answer": "Mex On The Beach se ubica en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
-      },
-      "q2": {
-        "question": "¿El transporte está incluido?",
-        "answer": "Sí. El transporte de ida y vuelta desde Cancún y Playa del Carmen está incluido en la experiencia."
-      },
-      "q3": {
-        "question": "¿Qué hace que Puerto Morelos sea diferente de otros destinos de playa?",
-        "answer": "Puerto Morelos ofrece una atmósfera más relajada, cultura local auténtica, hermosas playas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
-      },
-      "q4": {
-        "question": "¿Mex On The Beach es adecuado para familias y parejas?",
-        "answer": "Totalmente. El ambiente tranquilo, el acceso a la piscina, las instalaciones de playa y el servicio amable lo convierten en una excelente opción para parejas, familias, grupos y viajeros solitarios."
-      }
-    },
-    "BAKLINKS": {
-      "title": "Más actividades para que disfrutes",
-      "subtitle": "Descubre más actividades y tours emocionantes para mejorar tu experiencia en Puerto Morelos y la Riviera Maya.",
-      "TACO_TOUR": {
-        "title": "Tour de Tacos en la Playa",
-        "subtitle": "Tacos junto a la playa y tour por el pueblo con degustación de tequila desde Cancún"
-      },
-      "SNORKELING": {
-        "title": "Aventura de Esnórquel",
-        "subtitle": "Haz esnórquel en el arrecife más grande de \"América\""
-      },
-      "EXTREME": {
-        "title": "Aventura Extrema",
-        "subtitle": "Cuatrimotos (ATV), tirolesa, cenote y espectáculo maya"
-      },
-      "CENOTE": {
-        "title": "Aventura de Cenotes",
-        "subtitle": "Experiencia boutique de 3 cenotes, espectáculo maya con aperitivo"
-      }
-    }
-  },
-  "MAKE_YOU_RESERVATION": {
-    "HERO": {
-      "title": "Experiencia de club de playa en Puerto Morelos",
-      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
+      "title": "Experiencia de beach club en Puerto Morelos",
+      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
     },
     "OVERVIEW": {
-      "title": "Descripción general",
-      "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor club de playa en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
-      "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este club de playa ofrece el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
-      "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su encanto auténtico de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar el lado más pacífico de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e inolvidables vistas al mar.",
-      "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a esta playa de Puerto Morelos, México."
+      "title": "Resumen general",
+      "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+      "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este beach club ofrece el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
+      "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su auténtico encanto de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e inolvidables vistas al mar.",
+      "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a la playa de Puerto Morelos, México."
     },
-    "title": "Haz una reservación (Transportación no incluida)",
-    "tag": "Regular",
+    "title": "Pase de medio día: Tu experiencia relajante de beach club en Puerto Morelos",
+    "tag": "MEDIO DÍA",
     "clock": "10:00 AM - 2:00 AM",
-    "button": "Ver disponibilidad - En el menú",
+    "button": "Consultar disponibilidad - En el menú",
+    "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+    "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este beach club offers el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
+    "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su auténtico encanto de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e inolvidables vistas al mar.",
+    "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a la playa de Puerto Morelos, México.",
     "WHAT_TO_EXPECT": {
       "title": "¿Qué esperar?",
-      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al mar. Es una oportunidad para experimentar el ritmo tranquilo de Puerto Morelos mientras disfrutas de uno de los entornos de playa más hermosos de la Riviera Maya.",
-      "p2": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, tomar un refrescante chapuzón en la alberca, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su ambiente tranquilo, lo que la hace ideal tanto para parejas, familias, grupos de amigos y viajeros solitarios.",
-      "p3": "El área que rodea al club de playa es rica en belleza natural. Justo frente a la costa se encuentra el famoso sistema de arrecifes que atrae a snorkelers y amantes de la naturaleza de todo el mundo. El cercano pueblo pesquero ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
-      "p4": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes de vacaciones a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores cosas que hacer en Puerto Morelos, México."
+      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al océano. Es una oportunidad para experimentar el ritmo tranquilo de Puerto Morelos mientras disfrutas de uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "p2": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su ambiente pacífico, lo que la hace ideal tanto para parejas, familias, grupos de amigos como para viajeros solitarios.",
+      "p3": "La zona que rodea al beach club es rica en belleza natural. Muy cerca de la costa se encuentra el famoso sistema de arrecifes que atrae a entusiastas del snorkel y amantes de la naturaleza de todo el mundo. El cercano pueblo pesquero ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
+      "p4": "Ya sea que llegues desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores cosas que hacer en Puerto Morelos, México."
     },
     "WHAT_INCLUDED": {
       "title": "Inclusiones y Exclusiones",
       "includes": [
-        "Acceso a las instalaciones del club de playa",
-        "Uso de camastro de playa (sujeto a disponibilidad)",
-        "Servicio de mesero en el área de playa y alberca",
+        "Transportación redonda desde Cancún y Playa del Carmen",
+        "Uso de camastro de playa",
+        "Acceso a la alberca",
+        "Una bebida de cortesía",
+        "Servicio de mesero",
+        "Experiencia exclusiva de degustación de tequila",
+        "Desayuno (por la mañana) o Almuerzo (por la tarde)"
+      ],
+      "not_includes": [
+        "Alimentos y bebidas a la carta (disponibles con un costo adicional si deseas mejorar tu experiencia)",
+        "Propinas",
+        "Cualquier servicio o amenidad adicional no mencionado explícitamente arriba"
+      ]
+    },
+    "LIVE_THE_EXPERIENCE": {
+      "title": "Vive la experiencia en Mex On The Beach",
+      "description": "Una visita a Mex On The Beach es mucho más que pasar unas pocas horas junto al océano. Es la oportunidad perfecta para experimentar el ritmo tranquilo de Puerto Morelos mientras contemplas uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "titlep1": "Tu día junto al mar",
+      "p1": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, pasear por la orilla o simplemente deleitarse con el sonido de las olas. La playa es conocida por su arena suave y su atmósfera pacífica, ideal para parejas, familias, grupos de amigos y viajeros solitarios.",
+      "titlep2": "Naturaleza y cultura local",
+      "p2": "El área que rodea al beach club está rodeada de una inmensa belleza natural. A poca distancia de la costa se encuentra el famoso sistema de arrecifes que atrae a buceadores y amantes de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que tantos viajeros buscan al explorar la Riviera Maya.",
+      "titlep3": "El corazón de tu viaje",
+      "p3": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales en Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores actividades en Puerto Morelos, México."
+    },
+    "LOVE_SPENDING": {
+      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
+      "description": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse frente al mar. Buscan una experiencia que capture la esencia del destino. Mex On The Beach ofrece exactamente eso.",
+      "p1": "Los huéspedes disfrutan de acceso directo a una de las extensiones más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades únicas para vivir las tradiciones locales.",
+      "p2": "La combinación perfecta de acceso a la playa, alberca, excelente comida, bebidas y una degustación de tequila crea un día completo que fascina a viajeros de todas las edades.",
+      "title_h3": "Combina tu día con la aventura",
+      "p1_h3": "Además, nuestra excelente ubicación facilita combinar tu día de playa con otras actividades populares en Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero local, recorrer la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p2_h3": "Ya sea que pases unas pocas horas junto al mar o planees un día entero de relajación, Mex On The Beach te ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya.",
+      "icons": {
+        "access": "Acceso a la playa",
+        "pool": "Alberca",
+        "food": "Alimentos y bebidas",
+        "tequila": "Degustación de tequila"
+      }
+    },
+    "TITLE_H2": {
+      "title": "Descubre la belleza natural de Puerto Morelos y la Riviera Maya",
+      "p1": "Puerto Morelos es descrito a menudo como la joya escondida de la Riviera Maya. Mientras que muchos visitantes se enfocan en los destinos turísticos más grandes, quienes exploran este encantador pueblo costero comprenden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
+      "p2": "El pueblo cuenta con hermosas playas, ecosistemas marinos protegidos, frondosos manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar las mañanas disfrutando de la costa y luego continuar explorando cenotes, reservas de vida silvestre y atracciones ecológicas cercanas.",
+      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Al formar parte del Sistema Arrecifal Mesoamericano, sirve de hábitat para una colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas en muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
+      "p4": "Para los viajeros que buscan actividades auténticas en Puerto Morelos, el destino ofrece un maravilloso equilibrio entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza principal, visitar tiendas de artesanías o simplemente pasar el día apreciando la belleza del Mar Caribe.",
+      "p5": "Esta combinación de naturaleza, cultura y tranquilidad es lo que hace que Puerto Morelos destaque entre otros destinos de la Riviera Maya."
+    },
+    "TITLE_H3": {
+      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
+      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos buscan algo más que un lugar para sentarse frente al océano. Quieren una experiencia que capture el espíritu del destino.",
+      "p2": "Mex On The Beach ofrece exactamente eso.",
+      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más escénicas de la costa, una atmósfera relajada, un servicio atento y oportunidades para vivir las tradiciones locales. La combinación de acceso a la playa, alberca, comida, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
+      "p4": "Además, la ubicación permite combinar fácilmente tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de vivir la belleza de Puerto Morelos y la Riviera Maya."
+    },
+    "QUESTIONS": {
+      "title": "Preguntas frecuentes",
+      "q1": {
+        "question": "¿Dónde se ubica Mex On The Beach?",
+        "answer": "Mex On The Beach se encuentra en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
+      },
+      "q2": {
+        "question": "¿La transportación está incluida?",
+        "answer": "Sí. La transportación redonda desde Cancún y Playa del Carmen está incluida en la experiencia."
+      },
+      "q3": {
+        "question": "¿Qué hace a Puerto Morelos diferente de otros destinos de playa?",
+        "answer": "Puerto Morelos ofrece un ambiente mucho más relajado, cultura local auténtica, playas hermosas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
+      },
+      "q4": {
+        "question": "¿Mex On The Beach es adecuado para familias y parejas?",
+        "answer": "Totalmente. El ambiente pacífico, el acceso a la alberca, las instalaciones de playa y el servicio amable lo convierten en una opción excelente para parejas, familias, grupos y viajeros solitarios."
+      }
+    },
+    "BAKLINKS": {
+      "title": "Más actividades para disfrutar",
+      "subtitle": "Descubre más actividades y tours emocionantes para mejorar tu experiencia en Puerto Morelos y la Riviera Maya.",
+      "TACO_TOUR": {
+        "title": "Beach Taco Tour",
+        "subtitle": "Tour de tacos junto a la playa y el pueblo con degustación de tequila desde Cancún"
+      },
+      "SNORKELING": {
+        "title": "Snorkeling Adventure",
+        "subtitle": "Haz snorkel en el arrecife más grande de América"
+      },
+      "EXTREME": {
+        "title": "Extreme Adventuring",
+        "subtitle": "Cuatrimotos, tirolesas, cenote y show maya"
+      },
+      "CENOTE": {
+        "title": "Cenote Adventuring",
+        "subtitle": "Experiencia boutique en 3 cenotes, show maya con snack"
+      }
+    }
+  },
+ "FULL_DAY_BEACH_EXPERIENCE": {
+    "HERO": {
+      "title": "Experiencia de beach club en Puerto Morelos",
+      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
+    },
+    "OVERVIEW": {
+      "title": "Resumen general",
+      "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+      "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este beach club ofrece el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
+      "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su auténtico encanto de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e impresionantes vistas al mar.",
+      "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a la playa de Puerto Morelos, México."
+    },
+    "title": "Experiencia de playa de día completo: Tu experiencia relajante de beach club en Puerto Morelos",
+    "tag": "DÍA COMPLETO",
+    "clock": "2:00 PM - 6:00 PM",
+    "button": "Consultar disponibilidad - En el menú",
+    "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+    "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este beach club ofrece el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
+    "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su auténtico encanto de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e impresionantes vistas al mar.",
+    "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a la playa de Puerto Morelos, México.",
+    "WHAT_TO_EXPECT": {
+      "title": "¿Qué esperar?",
+      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al océano. Es una oportunidad para experimentar el ritmo tranquilo de Puerto Morelos mientras disfrutas de uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "p2": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su ambiente pacífico, lo que la hace ideal tanto para parejas, familias, grupos de amigos como para viajeros solitarios.",
+      "p3": "La zona que rodea al beach club es rica en belleza natural. Muy cerca de la costa se encuentra el famoso sistema de arrecifes que atrae a entusiastas del snorkel y amantes de la naturaleza de todo el mundo. El cercano pueblo pesquero ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
+      "p4": "Ya sea que llegues desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores cosas que hacer en Puerto Morelos, México."
+    },
+    "WHAT_INCLUDED": {
+      "title": "Inclusiones y Exclusiones",
+      "includes": [
+        "Transportación redonda desde Cancún y Playa del Carmen",
+        "Uso de camastro de playa",
+        "Acceso a la alberca",
+        "Una bebida de cortesía",
+        "Servicio de mesero",
+        "Experiencia exclusiva de degustación de tequila",
+        "Desayuno (por la mañana) o Almuerzo (por la tarde)"
+      ],
+      "not_includes": [
+        "Alimentos y bebidas a la carta (disponibles con un costo adicional si deseas mejorar tu experiencia)",
+        "Propinas",
+        "Cualquier servicio o amenidad adicional no mencionado explícitamente arriba"
+      ]
+    },
+    "LIVE_THE_EXPERIENCE": {
+      "title": "Vive la experiencia en Mex On The Beach",
+      "description": "Una visita a Mex On The Beach es mucho más que pasar unas pocas horas junto al océano. Es la oportunidad perfecta para experimentar el ritmo tranquilo de Puerto Morelos mientras contemplas uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "titlep1": "Tu día junto al mar",
+      "p1": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, pasear por la orilla o simplemente deleitarse con el sonido de las olas. La playa es conocida por su arena suave y su atmósfera pacífica, ideal para parejas, familias, grupos de amigos y viajeros solitarios.",
+      "titlep2": "Naturaleza y cultura local",
+      "p2": "El área que rodea al beach club está rodeada de una inmensa belleza natural. A poca distancia de la costa se encuentra el famoso sistema de arrecifes que atrae a buceadores y amantes de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que tantos viajeros buscan al explorar la Riviera Maya.",
+      "titlep3": "El corazón de tu viaje",
+      "p3": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales en Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores actividades en Puerto Morelos, México."
+    },
+    "LOVE_SPENDING": {
+      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
+      "description": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse frente al mar. Buscan una experiencia que capture la esencia del destino. Mex On The Beach ofrece exactamente eso.",
+      "p1": "Los huéspedes disfrutan de acceso directo a una de las extensiones más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades únicas para vivir las tradiciones locales.",
+      "p2": "La combinación perfecta de acceso a la playa, alberca, excelente comida, bebidas y una degustación de tequila crea un día completo que fascina a viajeros de todas las edades.",
+      "title_h3": "Combina tu día con la aventura",
+      "p1_h3": "Además, nuestra excelente ubicación facilita combinar tu día de playa con otras actividades populares en Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero local, recorrer la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p2_h3": "Ya sea que pases unas pocas horas junto al mar o planees un día entero de relajación, Mex On The Beach te ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya.",
+      "icons": {
+        "access": "Acceso a la playa",
+        "pool": "Alberca",
+        "food": "Alimentos y bebidas",
+        "tequila": "Degustación de tequila"
+      }
+    },
+    "TITLE_H2": {
+      "title": "Descubre la belleza natural de Puerto Morelos y la Riviera Maya",
+      "p1": "Puerto Morelos es descrito a menudo como la joya escondida de la Riviera Maya. Mientras que muchos visitantes se enfocan en los destinos turísticos más grandes, quienes exploran este encantador pueblo costero comprenden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
+      "p2": "El pueblo cuenta con hermosas playas, ecosistemas marinos protegidos, frondosos manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar las mañanas disfrutando de la costa y luego continuar explorando cenotes, reservas de vida silvestre y atracciones ecológicas cercanas.",
+      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Al formar parte del Sistema Arrecifal Mesoamericano, sirve de hábitat para una colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas en muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
+      "p4": "Para los viajeros que buscan actividades auténticas en Puerto Morelos, el destino ofrece un maravilloso equilibrio entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza principal, visitar tiendas de artesanías o simplemente pasar el día apreciando la belleza del Mar Caribe.",
+      "p5": "Esta combinación de naturaleza, cultura y tranquilidad es lo que hace que Puerto Morelos destaque entre otros destinos de la Riviera Maya."
+    },
+    "TITLE_H3": {
+      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
+      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos buscan algo más que un lugar para sentarse frente al océano. Quieren una experiencia que capture el espíritu del destino.",
+      "p2": "Mex On The Beach ofrece exactamente eso.",
+      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más escénicas de la costa, una atmósfera relajada, un servicio atento y oportunidades para vivir las tradiciones locales. La combinación de acceso a la playa, alberca, comida, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
+      "p4": "Además, la ubicación permite combinar fácilmente tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de vivir la belleza de Puerto Morelos y la Riviera Maya."
+    },
+    "QUESTIONS": {
+      "title": "Preguntas frecuentes",
+      "q1": {
+        "question": "¿Dónde se ubica Mex On The Beach?",
+        "answer": "Mex On The Beach se encuentra en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
+      },
+      "q2": {
+        "question": "¿La transportación está incluida?",
+        "answer": "Sí. La transportación redonda desde Cancún y Playa del Carmen está incluida en la experiencia."
+      },
+      "q3": {
+        "question": "¿Qué hace a Puerto Morelos diferente de otros destinos de playa?",
+        "answer": "Puerto Morelos ofrece un ambiente mucho más relajado, cultura local auténtica, playas hermosas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
+      },
+      "q4": {
+        "question": "¿Mex On The Beach es adecuado para familias y parejas?",
+        "answer": "Totalmente. El ambiente pacífico, el acceso a la alberca, las instalaciones de playa y el servicio amable lo convierten en una opción excelente para parejas, familias, grupos y viajeros solitarios."
+      }
+    },
+    "BAKLINKS": {
+      "title": "Más actividades para disfrutar",
+      "subtitle": "Descubre más actividades y tours emocionantes para mejorar tu experiencia en Puerto Morelos y la Riviera Maya.",
+      "TACO_TOUR": {
+        "title": "Beach Taco Tour",
+        "subtitle": "Tour de tacos junto a la playa y el pueblo con degustación de tequila desde Cancún"
+      },
+      "SNORKELING": {
+        "title": "Snorkeling Adventure",
+        "subtitle": "Haz snorkel en el arrecife más grande de América"
+      },
+      "EXTREME": {
+        "title": "Extreme Adventuring",
+        "subtitle": "Cuatrimotos, tirolesas, cenote y show maya"
+      },
+      "CENOTE": {
+        "title": "Cenote Adventuring",
+        "subtitle": "Experiencia boutique en 3 cenotes, show maya con snack"
+      }
+    }
+  },
+  "MAKE_YOUR_RESERVATION": {
+    "HERO": {
+      "title": "Experiencia de beach club en Puerto Morelos",
+      "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
+    },
+    "OVERVIEW": {
+      "title": "Resumen general",
+      "p1": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya.",
+      "p2": "Situado a lo largo de una de las extensiones de playa más hermosas de Puerto Morelos, este tranquilo destino combina suave arena blanca, aguas turquesas, una refrescante alberca y el ambiente relajado que ha convertido a Puerto Morelos en uno de los secretos mejor guardados de la región. Ya sea que estés planeando una escapada de un día desde Cancún o busques actividades relajantes en Puerto Morelos, este beach club ofrece el escenario perfecto para disfrutar de la naturaleza, la cultura local y la belleza de la costa caribeña.",
+      "p3": "A diferencia de muchos destinos turísticos concurridos, Puerto Morelos mantiene su auténtico encanto de pueblo pesquero rodeado de tesoros naturales. Desde la segunda barrera de arrecifes más grande del mundo hasta la famosa Ruta de los Cenotes, los visitantes pueden experimentar un lado más tranquilo de la Riviera Maya mientras disfrutan de comodidad, un excelente servicio e impresionantes vistas al mar.",
+      "p4": "En Mex On The Beach, cada momento está diseñado para ayudar a los viajeros a bajar el ritmo, reconectarse con la naturaleza y disfrutar de todo lo que hace tan especial a la playa de Puerto Morelos, México."
+    },
+    "title": "Haz una reservación (Transportación no incluida)",
+    "tag": "Regular",
+    "clock": "10:00 AM - 2:00 AM",
+    "button": "Consultar disponibilidad - En el menú",
+    "WHAT_TO_EXPECT": {
+      "title": "¿Qué esperar?",
+      "p1": "Una visita a Mex On The Beach es mucho más que pasar unas horas junto al océano. Es una oportunidad para experimentar el ritmo tranquilo de Puerto Morelos mientras disfrutas de uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "p2": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, caminar por la orilla o simplemente disfrutar del sonido de las olas. La playa es conocida por su arena suave y su ambiente pacífico, lo que la hace ideal tanto para parejas, familias, grupos de amigos como para viajeros solitarios.",
+      "p3": "La zona que rodea al beach club es rica en belleza natural. Muy cerca de la costa se encuentra el famoso sistema de arrecifes que atrae a entusiastas del snorkel y amantes de la naturaleza de todo el mundo. El cercano pueblo pesquero ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
+      "p4": "Ya sea que llegues desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales a Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores cosas que hacer en Puerto Morelos, México."
+    },
+    "WHAT_INCLUDED": {
+      "title": "Inclusiones y Exclusiones",
+      "includes": [
+        "Acceso a las instalaciones del beach club",
+        "Uso de camastro de playa o silla común (sujeto a disponibilidad)",
+        "Acceso a la alberca",
+        "Servicio de mesero en las áreas de playa y alberca",
         "Acceso a baños y regaderas"
       ],
       "not_includes": [
@@ -426,63 +502,63 @@
       ]
     },
     "LIVE_THE_EXPERIENCE": {
-      "title": "Vive la Experiencia en Mex On The Beach",
-      "description": "Una visita a Mex On The Beach es mucho más que pasar unas horas frente al océano. Es la oportunidad perfecta para experimentar el ritmo tranquilo de Puerto Morelos mientras disfrutas de uno de los entornos de playa más hermosos de la Riviera Maya.",
-      "titlep1": "Tu Día frente al Mar",
-      "p1": "Nuestros visitantes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un refrescante chapuzón en la alberca, pasear por la orilla o simplemente dejarse llevar por el sonido de las olas. La playa es conocida por su arena suave y su ambiente pacífico, lo que la hace ideal para parejas, familias, grupos de amigos y personas que viajan solas por igual.",
-      "titlep2": "Naturaleza y Cultura Local",
-      "p2": "El área que rodea al club de playa es rica en belleza natural. Justo frente a la costa se encuentra el famoso sistema de arrecifes que atrae a amantes del snorkel y de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que muchos viajeros buscan al explorar la Riviera Maya.",
-      "titlep3": "El Corazón de tu Viaje",
-      "p3": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes de vacaciones en Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores cosas que hacer en Puerto Morelos, México."
+      "title": "Vive la experiencia en Mex On The Beach",
+      "description": "Una visita a Mex On The Beach es mucho más que pasar unas pocas horas junto al océano. Es la oportunidad perfecta para experimentar el ritmo tranquilo de Puerto Morelos mientras contemplas uno de los entornos playeros más hermosos de la Riviera Maya.",
+      "titlep1": "Tu día junto al mar",
+      "p1": "Los huéspedes pueden relajarse en cómodos camastros frente al Mar Caribe, darse un chapuzón refrescante en la alberca, pasear por la orilla o simplemente deleitarse con el sonido de las olas. La playa es conocida por su arena suave y su atmósfera pacífica, ideal para parejas, familias, grupos de amigos y viajeros solitarios.",
+      "titlep2": "Naturaleza y cultura local",
+      "p2": "El área que rodea al beach club está rodeada de una inmensa belleza natural. A poca distancia de la costa se encuentra el famoso sistema de arrecifes que atrae a buceadores y amantes de la naturaleza de todo el mundo. El cercano pueblo de pescadores ofrece calles coloridas, tiendas locales y la auténtica cultura mexicana que tantos viajeros buscan al explorar la Riviera Maya.",
+      "titlep3": "El corazón de tu viaje",
+      "p3": "Ya sea que vengas desde Cancún, Playa del Carmen o como parte de tus paquetes vacacionales en Puerto Morelos, descubrirás por qué tantos visitantes consideran este destino como una de las mejores actividades en Puerto Morelos, México."
     },
     "LOVE_SPENDING": {
-      "title": "Por qué a los Visitantes les Encanta Pasar el Día en Mex On The Beach",
-      "description": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse frente al mar. Buscan una experiencia que capture el espíritu del destino. Mex On The Beach ofrece exactamente eso.",
-      "p1": "Nuestros huéspedes disfrutan de acceso directo a una de las zonas más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades únicas para vivir las tradiciones locales.",
-      "p2": "La combinación perfecta de acceso a la playa, instalaciones con alberca, excelente comida, bebidas y una degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
-      "title_h3": "Combina tu Día con la Aventura",
-      "p1_h3": "Además, nuestra excelente ubicación facilita combinar tu día de playa con otras actividades populares en Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero local, visitar la Ruta de los Cenotes o descubrir las eco-atracciones cercanas.",
-      "p2_h3": "Ya sea que pases unas pocas horas junto al mar o que planees un día completo de relajación, Mex On The Beach te ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya.",
+      "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
+      "description": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse frente al mar. Buscan una experiencia que capture la esencia del destino. Mex On The Beach ofrece exactamente eso.",
+      "p1": "Los huéspedes disfrutan de acceso directo a una de las extensiones más pintorescas de la costa, un ambiente relajado, un servicio atento y oportunidades únicas para vivir las tradiciones locales.",
+      "p2": "La combinación perfecta de acceso a la playa, alberca, excelente comida, bebidas y una degustación de tequila crea un día completo que fascina a viajeros de todas las edades.",
+      "title_h3": "Combina tu día con la aventura",
+      "p1_h3": "Además, nuestra excelente ubicación facilita combinar tu día de playa con otras actividades populares en Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero local, recorrer la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p2_h3": "Ya sea que pases unas pocas horas junto al mar o planees un día entero de relajación, Mex On The Beach te ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya.",
       "icons": {
-        "access": "Acceso a la Playa",
+        "access": "Acceso a la playa",
         "pool": "Alberca",
-        "food": "Alimentos y Bebidas",
-        "tequila": "Degustación de Tequila"
+        "food": "Alimentos y bebidas",
+        "tequila": "Degustación de tequila"
       }
     },
     "TITLE_H2": {
       "title": "Descubre la belleza natural de Puerto Morelos y la Riviera Maya",
-      "p1": "Puerto Morelos es a menudo descrito como la joya escondida de la Riviera Maya. Mientras que muchos visitantes se enfocan en los destinos turísticos más grandes, aquellos que exploran este encantador pueblo costero entienden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
-      "p2": "El pueblo alberga hermosas playas, ecosistemas marinos protegidos, exuberantes manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar sus mañanas disfrutando de la costa y luego continuar explorando cenotes, áreas de vida silvestre y atracciones ecológicas cercanas.",
-      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Al formar parte del Sistema Arrecifal Mesoamericano, proporciona un hábitat para la colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas en muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
-      "p4": "Para los viajeros que buscan actividades auténticas en Puerto Morelos, el destino ofrece un equilibrio maravilloso entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza del pueblo, visitar tiendas de artesanías o simplemente pasar el día apreciando la belleza del Mar Caribe.",
+      "p1": "Puerto Morelos es descrito a menudo como la joya escondida de la Riviera Maya. Mientras que muchos visitantes se enfocan en los destinos turísticos más grandes, quienes exploran este encantador pueblo costero comprenden rápidamente por qué se ha convertido en uno de los lugares más queridos de la región.",
+      "p2": "El pueblo cuenta con hermosas playas, ecosistemas marinos protegidos, frondosos manglares y un fácil acceso a la famosa Ruta de los Cenotes. Los amantes de la naturaleza pueden pasar las mañanas disfrutando de la costa y luego continuar explorando cenotes, reservas de vida silvestre y atracciones ecológicas cercanas.",
+      "p3": "Uno de los mayores tesoros de Puerto Morelos es su arrecife. Al formar parte del Sistema Arrecifal Mesoamericano, sirve de hábitat para una colorida vida marina y contribuye al entorno natural único de la zona. El arrecife también ayuda a crear aguas más tranquilas en muchas secciones de la costa, mejorando la experiencia de playa para los visitantes.",
+      "p4": "Para los viajeros que buscan actividades auténticas en Puerto Morelos, el destino ofrece un maravilloso equilibrio entre aventura y relajación. Los visitantes pueden disfrutar de la gastronomía local, explorar la plaza principal, visitar tiendas de artesanías o simplemente pasar el díaini apreciando la belleza del Mar Caribe.",
       "p5": "Esta combinación de naturaleza, cultura y tranquilidad es lo que hace que Puerto Morelos destaque entre otros destinos de la Riviera Maya."
     },
     "TITLE_H3": {
       "title": "Por qué a los visitantes les encanta pasar el día en Mex On The Beach",
-      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos quieren algo más que un lugar para sentarse junto al mar. Buscan una experiencia que capture el espíritu del destino.",
+      "p1": "Muchos viajeros que buscan clubes de playa en Puerto Morelos buscan algo más que un lugar para sentarse frente al océano. Quieren una experiencia que capture el espíritu del destino.",
       "p2": "Mex On The Beach ofrece exactamente eso.",
-      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más panorámicas de la costa, un ambiente relajado, un servicio atento y oportunidades para experimentar las tradiciones locales. La combinación de acceso a la playa, instalaciones de alberca, alimentos, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
-      "p4": "Además, la ubicación facilita combinar tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
-      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de experimentar la belleza de Puerto Morelos y la Riviera Maya."
+      "p3": "Los huéspedes disfrutan de acceso directo a una de las secciones más escénicas de la costa, una atmósfera relajada, un servicio atento y oportunidades para vivir las tradiciones locales. La combinación de acceso a la playa, alberca, comida, bebidas y degustación de tequila crea un día completo que atrae a viajeros de todas las edades.",
+      "p4": "Además, la ubicación permite combinar fácilmente tu día de playa con otras actividades populares de Puerto Morelos, como aventuras de snorkel, explorar el pueblo pesquero, visitar la Ruta de los Cenotes o descubrir atracciones ecológicas cercanas.",
+      "p5": "Ya sea que pases unas pocas horas junto al mar o planees un día completo de relajación, Mex On The Beach ofrece una forma auténtica de vivir la belleza de Puerto Morelos y la Riviera Maya."
     },
     "QUESTIONS": {
       "title": "Preguntas frecuentes",
       "q1": {
-        "question": "¿Dónde está ubicado Mex On The Beach?",
-        "answer": "Mex On The Beach está ubicado en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
+        "question": "¿Dónde se ubica Mex On The Beach?",
+        "answer": "Mex On The Beach se encuentra en Puerto Morelos, un hermoso pueblo costero de la Riviera Maya situado entre Cancún y Playa del Carmen."
       },
       "q2": {
         "question": "¿La transportación está incluida?",
-        "answer": "No. Esta opción corresponde al acceso básico al club de playa (Day Pass), por lo que la transportación redonda no está incluida. Puedes llegar fácilmente por tu cuenta desde Cancún o Playa del Carmen."
+        "answer": "No. Esta experiencia no incluye la transportación redonda, por lo que los huéspedes deberán llegar al club de playa por su cuenta."
       },
       "q3": {
-        "question": "¿Qué hace que Puerto Morelos sea diferente de otros destinos de playa?",
-        "answer": "Puerto Morelos ofrece un ambiente más relajado, cultura local auténtica, hermosas playas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
+        "question": "¿Qué hace a Puerto Morelos diferente de otros destinos de playa?",
+        "answer": "Puerto Morelos ofrece un ambiente mucho más relajado, cultura local auténtica, playas hermosas y acceso a uno de los sistemas de arrecifes más grandes del mundo."
       },
       "q4": {
         "question": "¿Mex On The Beach es adecuado para familias y parejas?",
-        "answer": "Totalmente. El ambiente pacífico, el acceso a la alberca, las instalaciones de playa y el servicio amable lo convierten en una excelente opción para parejas, familias, grupos y viajeros solitarios."
+        "answer": "Totalmente. El ambiente pacífico, el acceso a la alberca, las instalaciones de playa y el servicio amable lo convierten en una opción excelente para parejas, familias, grupos y viajeros solitarios."
       }
     },
     "BAKLINKS": {
@@ -490,35 +566,32 @@
       "subtitle": "Descubre más actividades y tours emocionantes para mejorar tu experiencia en Puerto Morelos y la Riviera Maya.",
       "TACO_TOUR": {
         "title": "Beach Taco Tour",
-        "subtitle": "Tacos junto a la playa y recorrido por el pueblo con degustación de tequila desde Cancún"
+        "subtitle": "Tour de tacos junto a la playa y el pueblo con degustación de tequila desde Cancún"
       },
       "SNORKELING": {
-        "title": "Aventura de Snorkel",
+        "title": "Snorkeling Adventure",
         "subtitle": "Haz snorkel en el arrecife más grande de América"
       },
       "EXTREME": {
-        "title": "Aventura Extrema",
-        "subtitle": "Cuatrimotos, tirolesas, cenote y espectáculo maya"
+        "title": "Extreme Adventuring",
+        "subtitle": "Cuatrimotos, tirolesas, cenote y show maya"
       },
       "CENOTE": {
-        "title": "Aventura en Cenotes",
-        "subtitle": "Experiencia boutique en 3 cenotes, espectáculo maya con snack"
+        "title": "Cenote Adventuring",
+        "subtitle": "Experiencia boutique en 3 cenotes, show maya con snack"
       }
     },
     "spots": {
       "cabana": {
         "title": "Cabaña privada frente al mar",
         "description": "Disfruta de la máxima privacidad y lujo con vistas en primera fila al Caribe y servicio personalizado.",
-        "features": [
-          "Concierge de playa dedicado",
-          "Área de descanso premium con sombra"
-        ]
+        "features": ["Concierge de playa dedicado", "Área lounge premium con sombra"]
       },
       "sunbeds": {
-        "title": "Camastros y área de descanso premium",
-        "description": "Disfruta del sol con total comodidad en camastros con acolchado premium, ideales para parejas o viajeros solitarios.",
+        "title": "Camastros y lounge premium",
+        "description": "Disfruta del sol con total comodidad en camastros acolchados premium, ideales para parejas o viajeros solitarios.",
         "features": [
-          "Cama individual con acolchado de alta gama",
+          "Camastro individual acolchado de alta gama",
           "Toallas de playa limpias incluidas",
           "Acceso directo al servicio de playa",
           "Sombrilla con ajuste de sombra"
@@ -537,34 +610,34 @@
     "title": "Nuestros Favoritos",
     "description": "Una cuidadosa selección de coctelería artesanal y platillos exclusivos preparados al momento por nuestros chefs de playa.",
     "seeFullMenu": "VER MENÚ COMPLETO",
-   "items_food": {
-  "tequila": {
-    "title": "Tequila Tropical",
-    "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
-  },
-  "tiki": {
-    "title": "Caribbean Tiki",
-    "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
-  },
-  "mex": {
-    "title": "Mex on the Beach",
-    "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
-  }
-},
-"items_drinks": {
-  "mojito": {
-    "title": "Tequila Tropical",
-    "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
-  },
-  "lemonade": {
-    "title": "Caribbean Tiki",
-    "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
-  },
-  "coconut": {
-    "title": "Mex on the Beach",
-    "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
-  }
-}
+    "items_food": {
+      "tequila": {
+        "title": "Tequila Tropical",
+        "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
+      },
+      "tiki": {
+        "title": "Caribbean Tiki",
+        "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
+      },
+      "mex": {
+        "title": "Mex on the Beach",
+        "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
+      }
+    },
+    "items_drinks": {
+      "mojito": {
+        "title": "Tequila Tropical",
+        "description": "Tequila reposado infundido con maracuyá fresca, néctar de agave orgánico y un toque de limón, con un escarchado de chile piquín y sal de gusano."
+      },
+      "lemonade": {
+        "title": "Caribbean Tiki",
+        "description": "Ron añejo premium, jarabe de piña asada con especias, jugo de naranja recién exprimido, licor de coco y amargo de Angostura."
+      },
+      "coconut": {
+        "title": "Mex on the Beach",
+        "description": "Nuestra especialidad de la casa: Blue Curaçao premium, tequila blanco, ron de coco, jugo de piña clarificado y un refrescante toque de refresco de lima-limón."
+      }
+    }
   },
   "THE_MEX": {
     "HERO": {

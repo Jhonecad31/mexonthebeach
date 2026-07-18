@@ -1,18 +1,13 @@
 ---
 import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
-import { Check, ChevronRight, Info, X, Utensils, Camera } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
-import FavoritiesFoodSeccion from "@/components/sections/FavoritesFood.astro";
-import FavoritiesDrinksSeccion from "@/components/sections/FovoritesDrinks.astro";
-
-// 1. Recuperamos el idioma real detectado por Astro en la URL actual
+import { useTranslatedPath } from "../i18n/utils";
 const { currentLocale } = Astro;
 const lang = (currentLocale || "en") as Lang; 
-
-// 2. Sincronizamos las traducciones y los diccionarios con ese idioma real
 const i18n = getI18N({ currentLocale }) as any;
 const t = useTranslations(lang);
+const translatePath = useTranslatedPath(lang);
 
 // 3. El bookingUrl ahora respetará dinámicamente el idioma activo de la sesión
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
@@ -148,500 +143,17 @@ const dishImages = [
         </div>
       </div>
     </section>
-    <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
-      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
-        {
-          [
-            {
-              label: "Access Type",
-              value:
-                i18n.FULL_DAY_BEACH_EXPERIENCE?.accessType ||
-                "Beach Club Entry Only",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  {/* Icono de Ticket / Entrada */}
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M16.5 6v.75m0 3v.75m0 3v.75m0 3V18m-9-12h1.5c1.243 0 2.25 1.007 2.25 2.25v.515c0 .954.57 1.82 1.455 2.18l.382.156c.55.225.55 1.003 0 1.228l-.383.156c-.884.36-1.454 1.226-1.454 2.18v.516c0 1.243-1.007 2.25-2.25 2.25H7.5A2.25 2.25 0 0 1 5.25 17.25V6.75A2.25 2.25 0 0 1 7.5 4.5Z"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Duration",
-              value:
-                i18n.FULL_DAY_BEACH_EXPERIENCE?.duration || "Full Day Access",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Family Friendly",
-              value: i18n.FULL_DAY_BEACH_EXPERIENCE?.minAge || "For all ages",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                  />
-                </svg>
-              ),
-            },
-            {
-              label: "Schedules",
-              value:
-                i18n.FULL_DAY_BEACH_EXPERIENCE?.schedules ||
-                "10:00 AM - 6:00 PM",
-              icon: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5 md:w-6 md:h-6"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5m-9-6h.008v.008H12v-.008ZM12 15h.008v.008H12V15Zm0 2.25h.008v.008H12v-.008ZM9.75 15h.008v.008H9.75V15Zm0 2.25h.008v.008H9.75v-.008ZM7.5 15h.008v.008H7.5V15Zm0 2.25h.008v.008H7.5v-.008Zm6.75-4.5h.008v.008h-.008v-.008Zm0 2.25h.008v.008h-.008V15Zm0 2.25h.008v.008h-.008v-.008Zm2.25-4.5h.008v.008H16.5v-.008Zm0 2.25h.008v.008H16.5V15Z"
-                  />
-                </svg>
-              ),
-            },
-          ].map((item, idx) => (
-            <div
-              key={idx}
-              class="bg-[#FAF6EE] p-3 md:p-4 rounded-xl flex flex-col items-center text-center justify-center border border-stone-100"
-            >
-              <div class="text-[#E77543] mb-1.5 md:mb-2">{item.icon}</div>
-              <span class="text-[10px] md:text-xs font-semibold tracking-wider text-stone-800 uppercase block mb-0.5">
-                {item.label}
-              </span>
-              <span class="text-[11px] md:text-xs font-light text-stone-500">
-                {item.value}
-              </span>
-            </div>
-          ))
-        }
-      </div>
-    </section>
     <section
       class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
     >
-      <div
-        class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start -mt-15"
-      >
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
         <div class="lg:col-span-2 space-y-8 md:space-y-12">
-          <!-- Aqui empieza la información con acordeon -->
-          <div class="divide-y divide-gray-200">
-            <details class="group py-6" name="tour-info" open>
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div class="mt-8">
-                <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
-                  {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.includes.map(
-                      (text) => (
-                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
-                          <Check
-                            className="text-[#006083] mt-1 shrink-0"
-                            size={20}
-                          />
-                          <p>{text}</p>
-                        </li>
-                      ),
-                    )
-                  }
-                  {
-                    i18n.MAKE_YOU_RESERVATION.WHAT_INCLUDED.not_includes.map(
-                      (text) => (
-                        <li class="flex items-start gap-3 text-base md:text-lg font-light text-gray-600">
-                          <X className="text-red-500 mt-1 shrink-0" size={20} />
-                          <span>{text}</span>
-                        </li>
-                      ),
-                    )
-                  }
-                </ul>
-              </div>
-            </details>
-            {}
-            <details class="group py-6" name="tour-info" open>
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.OVERVIEW.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div
-                class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed mt-5"
-              >
-                <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p1}</p>
-                <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p2}</p>
-                <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p3}</p>
-                <p>{i18n.MAKE_YOU_RESERVATION.OVERVIEW.p4}</p>
-              </div>
-            </details>
-            {}
-            <details class="group py-6" name="tour-info" open>
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div
-                class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
-              >
-                <p class="text-slate-800 font-medium">
-                  {
-                    i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                      .description
-                  }
-                </p>
-              </div>
-              <!-- Contenedor de Filas Informativas -->
-              <div class="space-y-12">
-                <!-- Bloque 2: Tu Día Junto al Mar -->
-                <div
-                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
-                >
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Olas / Relajación -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M2.25 12h19.5M2.25 9h19.5M2.25 15h19.5M2.25 18h19.5"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                          .titlep1
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p1}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Bloque 3: Naturaleza y Cultura Local -->
-                <div
-                  class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
-                >
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Palmera / Entorno Natural -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M12 3v18M12 3a9 9 0 0 1 9 9h-9M12 3a9 9 0 0 0-9 9h9"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE
-                          .titlep2
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p2}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <!-- Bloque 4: El Corazón de tu Viaje -->
-                <div class="md:grid md:grid-cols-3 md:gap-8 md:items-start">
-                  <div
-                    class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3"
-                  >
-                    <!-- Icono de Mapa / Ubicación -->
-                    <div
-                      class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        class="w-6 h-6 text-[#E77543]"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M15 10.5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"></path>
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0Z"
-                        ></path>
-                      </svg>
-                    </div>
-                    <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                      {
-                        i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE
-                          .titlep3
-                      }
-                    </h3>
-                  </div>
-                  <div class="md:col-span-2">
-                    <div
-                      class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                    >
-                      <p>
-                        {i18n.MAKE_YOU_RESERVATION.LIVE_THE_EXPERIENCE.p3}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </details>
-            {}
-            <details
-              class="group py-6 border-b border-gray-200"
-              name="tour-info"
-              open
-            >
-              <summary
-                class="flex justify-between items-center cursor-pointer list-none select-none"
-              >
-                <span class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.title}
-                </span>
-                <div
-                  class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
-                >
-                  <ChevronRight className="rotate-90 text-gray-500" size={20} />
-                </div>
-              </summary>
-              <div
-                class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
-              >
-                <p class="text-slate-800 font-medium">
-                  {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.description}
-                </p>
-              </div>
-              <div
-                class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
-              >
-                <div class="space-y-6">
-                  <div
-                    class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                  >
-                    <p>
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p1}
-                    </p>
-                    <p>
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p2}
-                    </p>
-                  </div>
-                </div>
-                <div
-                  class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100"
-                >
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🏖️</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons
-                          .access
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🏊</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons.pool
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🍹</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons.food
-                      }</span
-                    >
-                  </div>
-                  <div
-                    class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
-                  >
-                    <span class="text-xl">🥃</span>
-                    <span class="font-semibold text-slate-800 text-sm"
-                      >{
-                        i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.icons
-                          .tequila
-                      }</span
-                    >
-                  </div>
-                </div>
-              </div>
-
-              <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
-              <div
-                class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
-              >
-                <div
-                  class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
-                >
-                  <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.title_h3}
-                  </h3>
-                  <p>
-                    {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p1_h3}
-                  </p>
-                  <div class="border-t border-sky-100/80 pt-6">
-                    <p class="text-slate-800 font-medium text-base italic">
-                      {i18n.MAKE_YOU_RESERVATION.LOVE_SPENDING.p2_h3}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
         </div>
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
-        <!-- CONTENEDOR PRINCIPAL DEL FORMULARIO -->
-        <!-- En escritorio se queda fijo a la derecha (lg:sticky), en móvil pasa a ser un Bottom Sheet -->
-        <div
-          id="booking-form-container"
-          class="fixed inset-x-0 bottom-0 z-50 bg-white rounded-t-[32px] p-5 shadow-[0_-10px_40px_rgba(0,0,0,0.12)]
-         translate-y-full transition-transform duration-300 ease-out
-         md:relative md:inset-auto md:z-0 md:translate-y-0 md:p-0 md:bg-transparent md:rounded-none md:shadow-none
-         lg:col-span-1 lg:sticky lg:top-24 max-h-[85vh] overflow-y-auto md:max-h-none md:overflow-visible"
-        >
-          <!-- Línea estética superior para indicar que se puede cerrar/deslizar (Solo móvil) -->
-          <div
-            id="close-form-bar"
-            class="w-12 h-1.5 bg-stone-200 rounded-full mx-auto mb-4 md:hidden cursor-pointer"
-          >
-          </div>
-
-          <!-- Cabecera del formulario en Móvil (Título y botón cerrar) -->
-          <div class="flex items-center justify-between mb-4 md:hidden">
-            <h3 class="font-serif text-lg text-stone-900">Book Experience</h3>
-            <button
-              id="close-form-btn"
-              type="button"
-              class="text-stone-400 hover:text-stone-600 p-1"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="2"
-                stroke="currentColor"
-                class="w-6 h-6"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M6 18 18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-
+        <div class="lg:col-span-1 lg:sticky lg:top-24">
           <form
             id="beach-club-booking-form"
-            class="bg-white rounded-2xl md:p-6 md:shadow-[0_4px_25px_rgba(0,0,0,0.06)] md:border md:border-stone-100 space-y-4 md:space-y-5"
+            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
           >
             {/* Seleccionar Fecha */}
             <div class="space-y-1.5">
@@ -656,7 +168,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Personas */}
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
@@ -692,7 +203,6 @@ const dishImages = [
                 </select>
               </div>
             </div>
-
             {/* Nombre Completo */}
             <div class="space-y-1.5">
               <label
@@ -707,7 +217,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             {/* Teléfono */}
             <div class="space-y-1.5">
               <label
@@ -753,57 +262,16 @@ const dishImages = [
             </div>
 
             {/* Botón de envío */}
-            <div class="flex justify-center w-full">
-              <button
-                type="submit"
-                id="submit-booking-btn"
-                class="w-full md:w-auto bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-              >
-                Request Reservation
-              </button>
-            </div>
+            <button
+              type="submit"
+              id="submit-booking-btn"
+              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2"
+            >
+              Request Reservation
+            </button>
           </form>
         </div>
-        <!-- FLOATING STICKY BAR INFERIOR (Solo Móvil) -->
-        <div
-          id="mobile-sticky-bar"
-          class="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md p-4 border-t border-stone-100 shadow-[0_-8px_30px_rgba(0,0,0,0.08)] flex items-center justify-between gap-4 md:hidden"
-        >
-          <div class="flex flex-col">
-            <span
-              class="text-[10px] text-stone-400 uppercase font-semibold tracking-wider"
-              >Price from</span
-            >
-            <div class="flex items-baseline gap-1">
-              <span class="text-xl font-bold text-stone-900">$70 USD</span>
-              <span class="text-[11px] text-stone-500 font-light">/pers</span>
-            </div>
-          </div>
-          <button
-            id="open-form-btn"
-            type="button"
-            class="flex-1 bg-primary hover:bg-primary text-white text-center py-3.5 px-6 rounded-full font-bold text-sm tracking-wide shadow-md active:scale-95 transition-all cursor-pointer"
-          >
-            Check Availability
-          </button>
-        </div>
-
-        <!-- BACKGROUND OVERLAY OSCURO (Para cerrar haciendo clic fuera) -->
-        <div
-          id="booking-form-overlay"
-          class="fixed inset-0 bg-black/40 z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"
-        >
-        </div>
-
         <script>
-          const formContainer = document.getElementById(
-            "booking-form-container",
-          );
-          const overlay = document.getElementById("booking-form-overlay");
-          const openBtn = document.getElementById("open-form-btn");
-          const closeBtn = document.getElementById("close-form-btn");
-          const closeBar = document.getElementById("close-form-bar");
-
           const form = document.getElementById(
             "beach-club-booking-form",
           ) as HTMLFormElement;
@@ -811,35 +279,6 @@ const dishImages = [
             "submit-booking-btn",
           ) as HTMLButtonElement;
 
-          // Funciones para Abrir / Cerrar en móvil
-          const openMobileForm = () => {
-            if (formContainer && overlay) {
-              formContainer.classList.remove("translate-y-full");
-              formContainer.classList.add("translate-y-0");
-              overlay.classList.remove("hidden");
-              // Pequeño timeout para que la transición de opacidad funcione suave
-              setTimeout(() => overlay.classList.add("opacity-100"), 10);
-              document.body.style.overflow = "hidden"; // Bloquea scroll del fondo
-            }
-          };
-
-          const closeMobileForm = () => {
-            if (formContainer && overlay) {
-              formContainer.classList.remove("translate-y-0");
-              formContainer.classList.add("translate-y-full");
-              overlay.classList.remove("opacity-100");
-              setTimeout(() => overlay.classList.add("hidden"), 30);
-              document.body.style.overflow = ""; // Libera scroll
-            }
-          };
-
-          // Event Listeners de la UI móvil
-          openBtn?.addEventListener("click", openMobileForm);
-          closeBtn?.addEventListener("click", closeMobileForm);
-          closeBar?.addEventListener("click", closeMobileForm);
-          overlay?.addEventListener("click", closeMobileForm);
-
-          // Manejo de Submit del Formulario
           if (form && submitBtn) {
             form.addEventListener("submit", async (e) => {
               e.preventDefault();
@@ -859,7 +298,6 @@ const dishImages = [
                 if (response.ok) {
                   alert("¡Reservation request sent successfully!");
                   form.reset();
-                  closeMobileForm(); // Cierra el modal si se envió con éxito
                 } else {
                   alert("Error sending request. Please try again.");
                 }
@@ -875,284 +313,22 @@ const dishImages = [
         </script>
       </div>
     </section>
-    <!-- sección nueva -->
-    <!-- Alimentos -->
-    <section class="w-full py-16 md:py-24 -mt-15">
-      <!-- Encabezado Principal -->
-      <div class="mx-auto max-w-7xl px-6 md:px-12">
-        <header class="mb-16 max-w-full">
-          <span
-            class="text-primary mb-2 block text-xs font-bold uppercase tracking-wider md:text-sm"
-          >
-            {i18n.FAVORITIES.tag}
-          </span>
-          <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
-            {i18n.FAVORITIES.title}
-          </h2>
-          <p class="mt-4 font-light text-stone-500 md:text-lg">
-            {i18n.FAVORITIES.description}
-          </p>
-        </header>
-      </div>
-      <!-- CONTENEDOR DE LAS SECCIONES APILADAS -->
-      <!-- CONTENEDOR DE LAS SECCIONES APILADAS -->
-      <div class="flex flex-col gap-20">
-        <!-- 1. SECCIÓN DE COMIDA -->
-        <div class="w-full">
-          <!-- Subsección de textos: Mantiene el contenedor controlado -->
-          <div class="mx-auto max-w-7xl px-6 md:px-12 mb-8">
-            <div
-              class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
-            >
-              <div class="max-w-2xl">
-                <h3 class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.FAVORITIES.food_title}
-                </h3>
-                <p class="mt-2 font-light text-stone-500 text-sm md:text-base">
-                  {i18n.FAVORITIES.food_description}
-                </p>
-              </div>
-              <div class="shrink-0">
-                <a
-                  href="/menu-food"
-                  class="inline-block rounded-full bg-stone-800 px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-stone-700 active:scale-95"
-                >
-                  {i18n.FAVORITIES.view_menu}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Carrusel de Comida: Rompe la caja y usa todo el ancho disponible -->
-          <div class="w-full pl-6 md:pl-12 lg:pl-24 pr-0">
-            <FavoritiesFoodSeccion tipo="comida" />
-          </div>
-        </div>
-
-        <!-- 2. SECCIÓN DE BEBIDAS -->
-        <div class="w-full">
-          <!-- Subsección de textos -->
-          <div class="mx-auto max-w-7xl px-6 md:px-12 mb-8 -mt-6">
-            <div
-              class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between"
-            >
-              <div class="max-w-2xl">
-                <h3 class="text-2xl md:text-3xl font-serif text-[#001524]">
-                  {i18n.FAVORITIES.drinks_title}
-                </h3>
-                <p class="mt-2 font-light text-stone-500 text-sm md:text-base">
-                  {i18n.FAVORITIES.drinks_description}
-                </p>
-              </div>
-              <div class="shrink-0">
-                <a
-                  href="/menu-drinks"
-                  class="inline-block rounded-full bg-stone-800 px-6 py-3 text-center text-sm font-semibold text-white transition-all hover:bg-stone-700 active:scale-95"
-                >
-                  {i18n.FAVORITIES.view_menu}
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- Carrusel de Bebidas: Rompe la caja y usa todo el ancho disponible -->
-          <div class="w-full pl-6 md:pl-12 lg:pl-24 pr-0">
-            <FavoritiesDrinksSeccion tipo="bebidas" />
-          </div>
-
-          <!-- Botón Central Inferior -->
-          <div class="flex justify-center mt-12 md:mt-16">
-            <a
-              href="/the-mex"
-              class="inline-block bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-            >
-              <span>{i18n.FAVORITIES.button_menu}</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <section class="relative w-full overflow-hidden bg-[#fcfbf7] mt-15">
-        <div class="grid min-h-[460px] grid-cols-1 md:grid-cols-[42%_1fr]">
-          <div
-            class="flex items-center justify-center px-6 py-10 md:pl-12 md:pr-6"
-          >
-            <div
-              class="flex w-full max-w-full flex-col gap-[1.35rem] rounded-[20px] bg-white p-8 shadow-[0_8px_40px_rgba(0,0,0,0.09),0_2px_10px_rgba(0,0,0,0.04)] md:max-w-[310px]"
-            >
-              <h2
-                class="font-serif text-[clamp(1.3rem,2vw,1.75rem)] font-bold leading-tight text-[#4e8782]"
-              >
-                {i18n.PUERTO_MORELOS.MAPS.title}
-              </h2>
-              <a
-                href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="group flex items-start gap-3 rounded-xl p-2 -mx-2 transition-colors duration-200 hover:bg-[rgba(27,92,87,0.04)] no-underline"
-              >
-                <span
-                  class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(211,66,50,0.12)] text-[#d34232] transition-transform duration-200 group-hover:scale-105"
-                >
-                  <svg
-                    class="h-[0.88rem] w-[0.88rem]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path
-                      d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
-                    ></path>
-                    <circle cx="12" cy="9" r="2.5"></circle>
-                  </svg>
-                </span>
-                <div>
-                  <p
-                    class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
-                  >
-                    {i18n.PUERTO_MORELOS.MAPS.strategic_location_label}
-                  </p>
-                  <p
-                    class="text-[0.76rem] font-medium leading-normal text-[#342e26] transition-colors duration-200 group-hover:text-[#1b5c57]"
-                  >
-                    Heriberto Frías, Supermanzana 2, Manzana 14 L3, 77580 Puerto
-                    Morelos, Q.R.
-                  </p>
-                </div>
-              </a>
-              {/* Times row */}
-              <div class="flex items-start gap-3">
-                <span
-                  class="mt-0.5 flex h-[1.9rem] w-[1.9rem] shrink-0 items-center justify-center rounded-full bg-[rgba(196,128,36,0.12)] text-[#c07e22]"
-                >
-                  <svg
-                    class="h-[0.88rem] w-[0.88rem]"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <polyline points="12 7 12 12 15.5 15.5"></polyline>
-                  </svg>
-                </span>
-                <div class="flex-1">
-                  <p
-                    class="mb-[0.22rem] text-[0.6rem] font-bold tracking-[0.12em] uppercase text-[#1b5c57]"
-                  >
-                    {i18n.PUERTO_MORELOS.MAPS.travel_times_label}
-                  </p>
-                  <ul class="flex flex-col gap-[0.42rem] p-0 m-0 list-none">
-                    {
-                      i18n.PUERTO_MORELOS.MAPS.travel_times.map((item) => (
-                        <li class="flex items-center justify-between gap-2">
-                          <span class="text-[0.74rem] font-normal text-[#6b6055]">
-                            {item.from}
-                          </span>
-                          <span class="text-[0.74rem] font-bold text-[#1b5c57] whitespace-nowrap">
-                            {item.time}
-                          </span>
-                        </li>
-                      ))
-                    }
-                  </ul>
-                </div>
-              </div>
-              {/* CTA BUTTON */}
-              <a
-                href="https://maps.google.com/?q=Heriberto+Frías+Supermanzana+2+Manzana+14+L3+77580+Puerto+Morelos+QR"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="mt-0.5 block rounded-full bg-[#1b5c57] px-4 py-[0.82rem] text-center text-[0.7rem] font-semibold tracking-[0.04em] text-white no-underline shadow-[0_3px_12px_rgba(27,92,87,0.22)] transition-all duration-200 hover:-translate-y-px hover:bg-[#144844] hover:shadow-[0_6px_18px_rgba(27,92,87,0.30)]"
-                id="find-us-maps-btn"
-              >
-                {i18n.PUERTO_MORELOS.MAPS.open_maps_button}
-              </a>
-            </div>
-          </div>
-          {/* RIGHT COLUMN — Map fills edge to edge */}
-          <div class="relative min-h-[280px] overflow-hidden md:min-h-full">
-            {/* Floating label "Mex on the Beach" */}
-            <div
-              class="pointer-events-none absolute top-1/2 left-1/2 z-10 inline-flex -translate-x-1/2 -translate-y-2/3 items-center gap-[0.3rem] rounded-full bg-white px-[0.85rem] py-[0.38rem] pl-[0.55rem] text-[0.7rem] font-bold text-[#1b5c57] whitespace-nowrap shadow-[0_4px_16px_rgba(0,0,0,0.15)] after:absolute after:bottom-[-6px] after:left-1/2 after:-translate-x-1/2 after:border-4 after:border-transparent after:border-top-white"
-              aria-hidden="true"
-            >
-              <svg
-                class="h-[0.75rem] w-[0.75rem] fill-[#1b5c57]"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"
-                ></path>
-              </svg>
-              Mex on the Beach
-            </div>
-            <iframe
-              id="find-us-map-iframe"
-              title="Mex on the Beach Location Map"
-              loading="lazy"
-              allowfullscreen
-              referrerpolicy="no-referrer-when-downgrade"
-              src="https://www.openstreetmap.org/export/embed.html?bbox=-86.8795%2C20.8490%2C-86.8655%2C20.8590&layer=mapnik&marker=20.8541%2C-86.8726"
-              class="absolute inset-0 h-full w-full border-none saturate-[0.65] brightness-[1.04] sepia-[0.12]"
-            ></iframe>
-            <div
-              class="pointer-events-none absolute inset-0 z-0 hidden bg-gradient-to-r from-[#fcfbf7] via-[rgba(237,233,223,0.4)] to-transparent md:block md:w-[22%]"
-              aria-hidden="true"
-            >
-            </div>
-          </div>
-        </div>
-      </section>
-      {/* 6. PARADISE CTA SECTION */}
-      <section
-        class="py-24 pb-40 bg-[#fcfbf7] relative overflow-hidden text-dark"
+    <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+      <svg
+        viewBox="0 0 1440 40"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="w-full h-auto"
       >
-        <div class="max-w-4xl mx-auto px-6 text-center relative z-10 space-y-6">
-          <h2
-            class="font-serif text-3xl md:text-4xl font-extrabold text-dark tracking-wider uppercase"
-          >
-            {i18n.PUERTO_MORELOS.ACTION.title}
-          </h2>
-          <p
-            class="text-gray-500 font-light text-sm md:text-base max-w-xl mx-auto leading-relaxed"
-          >
-            {i18n.PUERTO_MORELOS.ACTION.description}
-          </p>
-          <div class="pt-4">
-            <a
-              href={bookingUrl}
-              class="inline-block bg-primary hover:bg-primary-hover text-white py-4 px-10 rounded-full font-bold text-xs tracking-widest uppercase shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer"
-            >
-              {i18n.PUERTO_MORELOS.ACTION.book_button}
-            </a>
-          </div>
-        </div>
-        <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-          <svg
-            viewBox="0 0 1440 40"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            class="w-full h-auto"
-          >
-            <path
-              d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
-              fill="#ffffff"></path>
-            <path
-              d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
-              stroke="var(--color-secondary)"
-              stroke-width="2"
-              fill="none"></path>
-          </svg>
-        </div>
-      </section>
-    </section>
+        <path
+          d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
+          fill="#ffffff"></path>
+        <path
+          d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
+          stroke="var(--color-secondary)"
+          stroke-width="2"
+          fill="none"></path>
+      </svg>
+    </div>
   </div>
 </Layout>

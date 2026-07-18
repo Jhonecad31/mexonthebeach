@@ -1,13 +1,19 @@
 ---
 import { getLangFromUrl, useTranslatedPath } from "../../i18n/utils";
+
 interface Props {
   class?: string;
   isMobileDrawer?: boolean;
 }
+
 const { class: className = "", isMobileDrawer = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url) || "en";
 const pathname = Astro.url.pathname;
-const cleanPath = pathname.replace(new RegExp(`^/${lang}`), "");
+
+// NORMALIZACIÓN SEGURA: Asegura remover el prefijo EXACTO seguido de una barra o el final de la línea
+// Evita dejar strings vacíos usando "|| '/'"
+const cleanPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
+
 const urlEn = useTranslatedPath("en")(cleanPath);
 const urlEs = useTranslatedPath("es")(cleanPath);
 const urlPt = useTranslatedPath("pt")(cleanPath);

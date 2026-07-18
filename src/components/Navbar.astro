@@ -9,6 +9,8 @@ const i18n = getI18N({ currentLocale }) as any;
 const lang = getLangFromUrl(Astro.url) || "en";
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
+
+// Usamos de forma reactiva y exacta el pathname provisto por el contexto de Astro en cada ciclo
 const pathname = Astro.url.pathname;
 
 interface Props {
@@ -17,8 +19,7 @@ interface Props {
 const { offI18n } = Astro.props;
 
 // 1. NORMALIZACIÓN DE RUTA: Removemos el prefijo de idioma (ej: /es/contacto -> /contacto)
-// Esto previene que el idioma se pierda o que las validaciones fallen en subpáginas.
-const cleanPath = pathname.replace(new RegExp(`^/${lang}`), "") || "/";
+const cleanPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
 
 const isMenuPage = cleanPath.includes("/the-mex");
 const isContactPage = cleanPath.includes("/contacto") || cleanPath.includes("/contact") || cleanPath.includes("/contato");
@@ -27,11 +28,13 @@ const isPuertoMorelos = cleanPath.includes("/puerto-morelos");
 // Evaluamos de forma exacta si estamos en la raíz limpia
 const isHomePage = cleanPath === "/";
 
-// 2. GENERACIÓN DE RUTAS INTERNACIOLANIZADAS
+// 2. GENERACIÓN DE RUTAS INTERNACIONALIZADAS
 const homeUrl = translatePath("/");
 const menuUrl = translatePath("/the-mex");
 const pmUrl = translatePath("/puerto-morelos");
 const contactUrl = translatePath("/contact");
+
+// Mantenemos la consistencia del hash de reserva anexando el idioma actual de manera transparente
 const bookingUrl = `${translatePath("/")}#booking`;
 
 const navigation = [
@@ -93,7 +96,7 @@ const navigation = [
 
         <div class="hidden md:block h-4 w-[1px] bg-gray-200"></div>
 
-        <!-- Selector de Idiomas Desktop (PASAMOS EL PATHNAME ACTUAL ORIGINAL) -->
+        <!-- Selector de Idiomas Desktop -->
         {!offI18n && (
           <LanguajeSelectorAstroComponent 
             class="hidden md:block" 
@@ -169,7 +172,7 @@ const navigation = [
 
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     
-    <!-- Idiomas en Mobile (PASAMOS EL PATHNAME ACTUAL ORIGINAL) -->
+    <!-- Idiomas en Mobile -->
     {!offI18n && (
       <div class="text-center w-full">
         <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
@@ -198,46 +201,54 @@ const navigation = [
 </div>
 
 <script>
-  const menuToggleBtn = document.getElementById("menu-toggle-btn");
-  const menuCloseBtn = document.getElementById("menu-close-btn");
-  const menuDrawer = document.getElementById("menu-drawer");
-  const menuBackdrop = document.getElementById("menu-backdrop");
-  const drawerLinks = document.querySelectorAll(".nav-drawer-link");
-  const header = document.getElementById("main-header");
+  function initHeader() {
+    const menuToggleBtn = document.getElementById("menu-toggle-btn");
+    const menuCloseBtn = document.getElementById("menu-close-btn");
+    const menuDrawer = document.getElementById("menu-drawer");
+    const menuBackdrop = document.getElementById("menu-backdrop");
+    const drawerLinks = document.querySelectorAll(".nav-drawer-link");
+    const header = document.getElementById("main-header");
 
-  function openMenu() {
-    if (menuDrawer && menuBackdrop) {
-      menuBackdrop.classList.remove("hidden");
-      setTimeout(() => {
-        menuBackdrop.classList.add("opacity-100");
-        menuDrawer.classList.remove("-translate-x-full");
-      }, 10);
-      document.body.style.overflow = "hidden";
+    function openMenu() {
+      if (menuDrawer && menuBackdrop) {
+        menuBackdrop.classList.remove("hidden");
+        setTimeout(() => {
+          menuBackdrop.classList.add("opacity-100");
+          menuDrawer.classList.remove("-translate-x-full");
+        }, 10);
+        document.body.style.overflow = "hidden";
+      }
     }
+
+    function closeMenu() {
+      if (menuDrawer && menuBackdrop) {
+        menuBackdrop.classList.remove("opacity-100");
+        menuDrawer.classList.add("-translate-x-full");
+        
+        setTimeout(() => {
+          menuBackdrop.classList.add("hidden");
+        }, 300);
+        document.body.style.overflow = "";
+      }
+    }
+
+    menuToggleBtn?.addEventListener("click", openMenu);
+    menuCloseBtn?.addEventListener("click", closeMenu);
+    menuBackdrop?.addEventListener("click", closeMenu);
+    drawerLinks.forEach(link => link.addEventListener("click", closeMenu));
+
+    // Control del color de fondo y sombras basándonos en el scroll de la página
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 50) {
+        header?.classList.add("shadow-md", "bg-[#fcfbf7]");
+        header?.classList.remove("bg-[#ede9df]");
+      } else {
+        header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
+        header?.classList.add("bg-[#ede9df]");
+      }
+    }, { passive: true });
   }
 
-  function closeMenu() {
-    if (menuDrawer && menuBackdrop) {
-      menuBackdrop.classList.remove("opacity-100");
-      menuDrawer.classList.add("-translate-x-full");
-      
-      setTimeout(() => {
-        menuBackdrop.classList.add("hidden");
-      }, 300);
-      document.body.style.overflow = "";
-    }
-  }
-
-  menuToggleBtn?.addEventListener("click", openMenu);
-  menuCloseBtn?.addEventListener("click", closeMenu);
-  menuBackdrop?.addEventListener("click", closeMenu);
-  drawerLinks.forEach(link => link.addEventListener("click", closeMenu));
-
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      header?.classList.add("shadow-md", "bg-[#fcfbf7]");
-    } else {
-      header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
-    }
-  }, { passive: true });
+  // Escucha el ciclo de vida de ViewTransitions / Astro en cada navegación interna
+  document.addEventListener("astro:page-load", initHeader);
 </script>

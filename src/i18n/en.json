@@ -4,6 +4,18 @@
       "TITLE": "The perfect natural setting to connect with paradise.",
       "DESCRIPTION": "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly. Premium sunbeds, mixology heaven, and curated culinary experiences.",
       "META_TITLE": "Mex on the Beach | Premium Beach Club & Lounge"
+    }, 
+    "DETAIL_PAGE": {
+      "HALF_DAY_PRODUCT": {
+        "TITLE":"Beach club experience in puerto morelos",
+        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
+        "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
+      },
+      "FULL_DAY_PRODUCT": {
+        "TITLE":"Beach club experience in puerto morelos",
+        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
+        "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
+      }
     }
   },
   "NAV": {
