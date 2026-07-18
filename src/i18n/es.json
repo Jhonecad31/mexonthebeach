@@ -338,7 +338,7 @@
       }
     }
   },
- "FULL_DAY_BEACH_EXPERIENCE": {
+  "FULL_DAY_BEACH_EXPERIENCE": {
     "HERO": {
       "title": "Experiencia de beach club en Puerto Morelos",
       "description": "Escapa de las multitudes y descubre un lado diferente del Caribe Mexicano en Mex On The Beach, un acogedor beach club en Puerto Morelos ubicado entre Cancún y Playa del Carmen, en el corazón de la Riviera Maya."
@@ -585,7 +585,10 @@
       "cabana": {
         "title": "Cabaña privada frente al mar",
         "description": "Disfruta de la máxima privacidad y lujo con vistas en primera fila al Caribe y servicio personalizado.",
-        "features": ["Concierge de playa dedicado", "Área lounge premium con sombra"]
+        "features": [
+          "Concierge de playa dedicado",
+          "Área lounge premium con sombra"
+        ]
       },
       "sunbeds": {
         "title": "Camastros y lounge premium",
@@ -769,6 +772,12 @@
         "description": "Reconocido por su atmósfera pacífica y su comunidad acogedora, Puerto Morelos ofrece el equilibrio perfecto. Los visitantes pueden pasar sus días explorando playas vírgenes, haciendo snorkel sobre vibrantes arrecifes de coral, disfrutando de la gastronomía local y dejándose llevar por el ritmo pausado que hace tan especial a este destino."
       }
     },
+    "TAGS": {
+      "details": "Ver detalles",
+      "explore": "Explorar más",
+      "menu": "Ver menú"
+    },
+    "BUTTON":"Explorar Experiencias",
     "TITLE_H2": {
       "title": "Las Playas de Puerto Morelos y la Belleza Natural del Caribe",
       "p1": "Las playas de Puerto Morelos se cuentan entre los tesoros más grandes del destino. A diferencia de las playas más concurridas de otras partes de la Riviera Maya, la playa de Puerto Morelos ofrece un rincón de paz donde los visitantes pueden apreciar verdaderamente la inmensidad del Mar Caribe.",

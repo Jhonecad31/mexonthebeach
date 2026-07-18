@@ -213,7 +213,7 @@
       }
     }
   },
- "HALF_DAY_PRODUCT": {
+  "HALF_DAY_PRODUCT": {
     "HERO": {
       "title": "Experiência de beach club em Puerto Morelos",
       "description": "Fuja das multidões e descubra um lado diferente do Caribe Mexicano no Mex On The Beach, um acolhedor beach club em Puerto Morelos localizado entre Cancun e Playa del Carmen, no coração da Riviera Maya."
@@ -463,7 +463,7 @@
       }
     }
   },
- "MAKE_YOUR_RESERVATION": {
+  "MAKE_YOUR_RESERVATION": {
     "HERO": {
       "title": "Experiência de beach club em Puerto Morelos",
       "description": "Fuja das multidões e descubra um lado diferente do Caribe Mexicano no Mex On The Beach, um acolhedor beach club em Puerto Morelos localizado entre Cancun e Playa del Carmen, no coração da Riviera Maya."
@@ -585,7 +585,10 @@
       "cabana": {
         "title": "Cabana privada frente ao mar",
         "description": "Experimente o máximo em privacidade e luxo, com vista panorâmica para o Caribe e serviço de praia exclusivo.",
-        "features": ["Concierge de praia dedicado", "Área lounge premium com sombra"]
+        "features": [
+          "Concierge de praia dedicado",
+          "Área lounge premium com sombra"
+        ]
       },
       "sunbeds": {
         "title": "Espreguiçadeiras e lounge premium",
@@ -769,6 +772,12 @@
         "description": "Conhecido por sua atmosfera relaxante e comunidade acolhedora, Puerto Morelos oferece o equilíbrio perfeito. Os visitantes podem passar o dia explorando praias desertas, mergulhando com snorkel em recifes de corais vibrantes, saboreando a culinária local fresca e vivenciando o ritmo desacelerado que torna este destino tão especial."
       }
     },
+    "TAGS": {
+      "details": "Ver detalhes",
+      "explore": "Explorar mais",
+      "menu": "Ver cardápio"
+    },
+    "BUTTON": "Explorar Experiências",
     "TITLE_H2": {
       "title": "As Praias de Puerto Morelos e a Beleza Natural do Caribe",
       "p1": "As praias de Puerto Morelos estão entre os maiores tesouros do destino. Ao contrário de algumas das praias mais movimentadas da Riviera Maya, a praia de Puerto Morelos oferece um ambiente tranquilo onde os visitantes podem realmente apreciar a beleza do Mar do Caribe.",
@@ -864,7 +873,7 @@
       ],
       "open_maps_button": "Abrir no Google Maps"
     }
-},
+  },
   "FOOTER": {
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio",

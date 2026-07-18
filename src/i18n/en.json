@@ -4,15 +4,15 @@
       "TITLE": "The perfect natural setting to connect with paradise.",
       "DESCRIPTION": "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly. Premium sunbeds, mixology heaven, and curated culinary experiences.",
       "META_TITLE": "Mex on the Beach | Premium Beach Club & Lounge"
-    }, 
+    },
     "DETAIL_PAGE": {
       "HALF_DAY_PRODUCT": {
-        "TITLE":"Beach club experience in puerto morelos",
+        "TITLE": "Beach club experience in puerto morelos",
         "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
         "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
       },
       "FULL_DAY_PRODUCT": {
-        "TITLE":"Beach club experience in puerto morelos",
+        "TITLE": "Beach club experience in puerto morelos",
         "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
         "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
       }
@@ -752,6 +752,12 @@
         "description": "Known for its relaxed atmosphere and welcoming community, Puerto Morelos offers the perfect balance. Visitors can spend their days exploring pristine beaches, snorkeling above vibrant coral reefs, enjoying fresh local cuisine, and experiencing the laid-back rhythm that makes this destination so special."
       }
     },
+    "TAGS": {
+      "details": "View details",
+      "explore": "Explore more",
+      "menu": "View menu"
+    },
+    "BUTTON": "Explore Experiences",
     "TITLE_H2": {
       "title": "Puerto Morelos Beaches and the Natural Beauty of the Caribbean",
       "p1": "The beaches of Puerto Morelos are among the destination's greatest treasures. Unlike some of the busier beaches found elsewhere in the Riviera Maya, Puerto Morelos beach offers a peaceful setting where visitors can truly appreciate the beauty of the Caribbean Sea.",
