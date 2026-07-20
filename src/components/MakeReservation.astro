@@ -9,8 +9,11 @@ const i18n = getI18N({ currentLocale }) as any;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// 3. El bookingUrl ahora respetará dinámicamente el idioma activo de la sesión
+// El bookingUrl ahora respetará dinámicamente el idioma activo de la sesión
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
+
+// Ruta dinámica para el PDF del menú según el idioma (opcional)
+const menuPdfUrl = lang === "en" ? "/docs/menu-beach-club-en.pdf" : "/docs/menu-beach-club-es.pdf";
 
 const menuCategories = [
   {
@@ -18,13 +21,13 @@ const menuCategories = [
     items: [
       {
         name: "Ceviche Mex on the Beach",
-        price: "$320 MXN",
         desc: "Pesca del día marinada en cítricos locales, aguacate, habanero sutil y totopos artesanales.",
+        image: "/img-beach-club/menu-ceviche.webp",
       },
       {
         name: "Tacos de Camarón Ensenada",
-        price: "$280 MXN",
         desc: "Tres tacos en tortilla de maíz azul, camarón capeado, col morada y aderezo de chipotle.",
+        image: "/img-beach-club/menu-tacos.webp",
       },
     ],
   },
@@ -33,13 +36,13 @@ const menuCategories = [
     items: [
       {
         name: "Pescado Tikin Xic",
-        price: "$450 MXN",
         desc: "Clásico caribeño marinado en achiote, cocinado a las brasas y servido con arroz con coco.",
+        image: "/img-beach-club/menu-tikin-xic.webp",
       },
       {
         name: "Hamburguesa Premium Beach",
-        price: "$340 MXN",
         desc: "Corte selecto de res, queso cheddar fundido, tocino crujiente y papas trufadas.",
+        image: "/img-beach-club/menu-hamburguesa.webp",
       },
     ],
   },
@@ -48,13 +51,13 @@ const menuCategories = [
     items: [
       {
         name: "Mex Mojito",
-        price: "$190 MXN",
         desc: "Ron blanco, hierbabuena fresca, azúcar de caña, infusión de maracuyá y un toque de agua mineral.",
+        image: "/img-beach-club/menu-mojito.webp",
       },
       {
         name: "Caribe Fling",
-        price: "$210 MXN",
         desc: "Mezcal artesanal espadín, jugo de piña tatemada, jarabe de agave y escarcha de sal de gusano.",
+        image: "/img-beach-club/menu-caribe-fling.webp",
       },
     ],
   },
@@ -84,7 +87,6 @@ const dishImages = [
     <section
       class="relative h-[80vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
     >
-      {/* CONTENEDOR DE IMAGEN Y CAPAS DE CONTRASTE */}
       <div
         class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
       >
@@ -93,21 +95,15 @@ const dishImages = [
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
-        {/* Capa 1: Filtro ambiental sutil */}
         <div class="absolute inset-0 bg-black/15 z-10"></div>
-        {
-          /* Capa 2: Scrim premium de izquierda a derecha para proteger los textos */
-        }
         <div
           class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"
         >
         </div>
-        {/* Capa 3: Soporte de contraste vertical exclusivo para móviles */}
         <div
           class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"
         >
         </div>
-        {/* Capa 4: Desvanecimiento limpio hacia el fondo crema de la web */}
         <div
           class="absolute inset-x-0 bottom-0 h-1/4 z-20"
           style={{
@@ -117,7 +113,6 @@ const dishImages = [
         >
         </div>
       </div>
-      {/* CONTENIDO PRINCIPAL */}
       <div
         class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0"
       >
@@ -143,24 +138,112 @@ const dishImages = [
         </div>
       </div>
     </section>
+
+    {/* SECCIÓN PRINCIPAL */}
     <section
-      class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20"
+      id="booking"
+      class="max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-24 md:pt-12 md:pb-40"
     >
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
-        <div class="lg:col-span-2 space-y-8 md:space-y-12">
+        
+        {/* COLUMNA IZQUIERDA: MENÚ Y GALERÍA */}
+        <div class="lg:col-span-2 space-y-12 md:space-y-16">
+          
+          {/* SECCIÓN GALERÍA DE FOTOS */}
+          <div class="space-y-6">
+            <div class="border-b border-stone-200 pb-4">
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-800">
+                {lang === "en" ? "Capture the Moment" : "El Club en Imágenes"}
+              </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {dishImages.map((img) => (
+                <div class="group relative h-48 sm:h-60 rounded-2xl overflow-hidden shadow-sm bg-stone-100">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span class="text-white text-xs md:text-sm font-bold tracking-wider uppercase drop-shadow-sm">
+                      {img.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* SECCIÓN MENÚ DE ALIMENTOS Y BEBIDAS */}
+          <div class="space-y-8">
+            <div class="border-b border-stone-200 pb-4 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div>
+                <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-800">
+                  {lang === "en" ? "Flavors of the Caribbean" : "Sabores del Caribe"}
+                </h2>
+                <p class="text-stone-500 text-xs md:text-sm mt-1">
+                  {lang === "en" ? "A curated selection of fresh dishes and signature mixology." : "Una selección curada de platillos frescos y mixología de autor."}
+                </p>
+              </div>
+              
+              {/* BOTÓN PARA VER EL MENÚ COMPLETO (PDF / ENLACE) */}
+              <a
+                href={menuPdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center gap-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold uppercase tracking-wider px-5 py-3 rounded-xl border border-stone-200/60 transition-colors shadow-sm self-start sm:self-auto"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-4 h-4 text-[#4e8782]">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                </svg>
+                {lang === "en" ? "View Full Menu" : "Ver Menú Completo"}
+              </a>
+            </div>
+
+            <div class="space-y-10">
+              {menuCategories.map((category) => (
+                <div class="space-y-4">
+                  <h3 class="font-serif text-lg md:text-xl font-semibold text-[#4e8782] tracking-wide border-l-4 border-[#4e8782] pl-3">
+                    {category.title}
+                  </h3>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {category.items.map((item) => (
+                      <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-stone-200 shadow-sm">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                          />
+                        </div>
+                        <div class="flex-1 min-w-0 space-y-1">
+                          <h4 class="font-sans font-bold text-stone-800 text-sm md:text-base leading-tight">
+                            {item.name}
+                          </h4>
+                          <p class="text-stone-600 text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-3">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
+        
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
         <div class="lg:col-span-1 lg:sticky lg:top-24">
           <form
             id="beach-club-booking-form"
             class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
           >
-            {/* Seleccionar Fecha */}
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Select Date</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Select Date</label>
               <input
                 type="date"
                 name="date"
@@ -168,13 +251,9 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-            {/* Personas */}
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Adults</label
-                >
+                <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Adults</label>
                 <select
                   name="adults"
                   required
@@ -188,10 +267,7 @@ const dishImages = [
                 </select>
               </div>
               <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Children</label
-                >
+                <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Children</label>
                 <select
                   name="children"
                   class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
@@ -203,12 +279,8 @@ const dishImages = [
                 </select>
               </div>
             </div>
-            {/* Nombre Completo */}
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Full name</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Full name</label>
               <input
                 type="text"
                 name="fullName"
@@ -217,12 +289,8 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-            {/* Teléfono */}
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Phone</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Phone</label>
               <input
                 type="tel"
                 name="phone"
@@ -231,13 +299,8 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
-            {/* Email */}
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Email</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Email</label>
               <input
                 type="email"
                 name="email"
@@ -246,13 +309,8 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
-            {/* Mensaje */}
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Message</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Message</label>
               <textarea
                 name="message"
                 rows="3"
@@ -260,8 +318,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
               ></textarea>
             </div>
-
-            {/* Botón de envío */}
             <button
               type="submit"
               id="submit-booking-btn"
@@ -271,22 +327,17 @@ const dishImages = [
             </button>
           </form>
         </div>
+        
         <script>
-          const form = document.getElementById(
-            "beach-club-booking-form",
-          ) as HTMLFormElement;
-          const submitBtn = document.getElementById(
-            "submit-booking-btn",
-          ) as HTMLButtonElement;
+          const form = document.getElementById("beach-club-booking-form") as HTMLFormElement;
+          const submitBtn = document.getElementById("submit-booking-btn") as HTMLButtonElement;
 
           if (form && submitBtn) {
             form.addEventListener("submit", async (e) => {
               e.preventDefault();
-
               const originalText = submitBtn.innerText;
               submitBtn.innerText = "SENDING...";
               submitBtn.disabled = true;
-
               const formData = new FormData(form);
 
               try {
@@ -294,7 +345,6 @@ const dishImages = [
                   method: "POST",
                   body: formData,
                 });
-
                 if (response.ok) {
                   alert("¡Reservation request sent successfully!");
                   form.reset();
@@ -313,6 +363,8 @@ const dishImages = [
         </script>
       </div>
     </section>
+    
+    {/* CONTENEDOR DE LA LÍNEA AZÚL / WAVE SVG */}
     <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
       <svg
         viewBox="0 0 1440 40"

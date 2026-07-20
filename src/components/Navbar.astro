@@ -209,36 +209,48 @@ const navigation = [
     const drawerLinks = document.querySelectorAll(".nav-drawer-link");
     const header = document.getElementById("main-header");
 
+    // Validamos que los elementos críticos existan para evitar errores en consola
+    if (!menuToggleBtn || !menuDrawer || !menuBackdrop) return;
+
     function openMenu() {
-      if (menuDrawer && menuBackdrop) {
-        menuBackdrop.classList.remove("hidden");
-        setTimeout(() => {
-          menuBackdrop.classList.add("opacity-100");
-          menuDrawer.classList.remove("-translate-x-full");
-        }, 10);
-        document.body.style.overflow = "hidden";
-      }
+      menuBackdrop.classList.remove("hidden");
+      // Forzamos un reflow antes de añadir la opacidad para que la transición CSS funcione perfectamente
+      void menuBackdrop.offsetWidth; 
+      
+      menuBackdrop.classList.add("opacity-100");
+      menuDrawer.classList.remove("-translate-x-full");
+      document.body.style.overflow = "hidden";
     }
 
     function closeMenu() {
-      if (menuDrawer && menuBackdrop) {
-        menuBackdrop.classList.remove("opacity-100");
-        menuDrawer.classList.add("-translate-x-full");
-        
-        setTimeout(() => {
-          menuBackdrop.classList.add("hidden");
-        }, 300);
-        document.body.style.overflow = "";
-      }
+      menuBackdrop.classList.remove("opacity-100");
+      menuDrawer.classList.add("-translate-x-full");
+      document.body.style.overflow = "";
+      
+      // Esperamos a que termine la animación de opacidad antes de ocultar el fondo por completo
+      setTimeout(() => {
+        if (!menuDrawer.classList.contains("-translate-x-full")) return; // Previene conflictos si se reabre rápido
+        menuBackdrop.classList.add("hidden");
+      }, 300);
     }
 
-    menuToggleBtn?.addEventListener("click", openMenu);
-    menuCloseBtn?.addEventListener("click", closeMenu);
-    menuBackdrop?.addEventListener("click", closeMenu);
-    drawerLinks.forEach(link => link.addEventListener("click", closeMenu));
+    // Removemos listeners previos por si el script se vuelve a ejecutar en transiciones de página
+    menuToggleBtn.removeEventListener("click", openMenu);
+    menuToggleBtn.addEventListener("click", openMenu);
 
-    // Control del color de fondo y sombras basándonos en el scroll de la página
-    window.addEventListener("scroll", () => {
+    menuCloseBtn?.removeEventListener("click", closeMenu);
+    menuCloseBtn?.addEventListener("click", closeMenu);
+
+    menuBackdrop.removeEventListener("click", closeMenu);
+    menuBackdrop.addEventListener("click", closeMenu);
+
+    drawerLinks.forEach(link => {
+      link.removeEventListener("click", closeMenu);
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Control del scroll para cambiar el diseño del header
+    const handleScroll = () => {
       if (window.scrollY > 50) {
         header?.classList.add("shadow-md", "bg-[#fcfbf7]");
         header?.classList.remove("bg-[#ede9df]");
@@ -246,9 +258,13 @@ const navigation = [
         header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
         header?.classList.add("bg-[#ede9df]");
       }
-    }, { passive: true });
+    };
+
+    window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
   }
 
-  // Escucha el ciclo de vida de ViewTransitions / Astro en cada navegación interna
+  // Asegura la ejecución inmediata tanto en la carga inicial limpia como con ViewTransitions
+  initHeader();
   document.addEventListener("astro:page-load", initHeader);
 </script>
