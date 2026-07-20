@@ -755,21 +755,51 @@ const highlights = [
           </form>
         </div>
         <script>
-          const form = document.getElementById(
-            "beach-club-booking-form",
-          ) as HTMLFormElement;
-          const submitBtn = document.getElementById(
-            "submit-booking-btn",
-          ) as HTMLButtonElement;
+          function initBookingDrawer() {
+            const openBtn = document.getElementById("mobile-open-booking-btn");
+            const closeBtn = document.getElementById(
+              "mobile-close-booking-btn",
+            );
+            const form = document.getElementById(
+              "beach-club-booking-form",
+            ) as HTMLFormElement;
+            const backdrop = document.getElementById("booking-form-backdrop");
+            const submitBtn = document.getElementById(
+              "submit-booking-btn",
+            ) as HTMLButtonElement;
 
-          if (form && submitBtn) {
+            if (!form || !submitBtn) return;
+
+            function openMobileBooking() {
+              if (!backdrop || !form) return;
+              backdrop.classList.remove("hidden");
+              void backdrop.offsetWidth;
+              backdrop.classList.add("opacity-100");
+              form.classList.remove("translate-y-full");
+              document.body.style.overflow = "hidden";
+            }
+
+            function closeMobileBooking() {
+              if (!backdrop || !form) return;
+              backdrop.classList.remove("opacity-100");
+              form.classList.add("translate-y-full");
+              document.body.style.overflow = "";
+              setTimeout(() => {
+                if (form.classList.contains("translate-y-full")) {
+                  backdrop.classList.add("hidden");
+                }
+              }, 300);
+            }
+
+            openBtn?.addEventListener("click", openMobileBooking);
+            closeBtn?.addEventListener("click", closeMobileBooking);
+            backdrop?.addEventListener("click", closeMobileBooking);
+
             form.addEventListener("submit", async (e) => {
               e.preventDefault();
-
               const originalText = submitBtn.innerText;
               submitBtn.innerText = "SENDING...";
               submitBtn.disabled = true;
-
               const formData = new FormData(form);
 
               try {
@@ -777,10 +807,10 @@ const highlights = [
                   method: "POST",
                   body: formData,
                 });
-
                 if (response.ok) {
                   alert("¡Reservation request sent successfully!");
                   form.reset();
+                  if (window.innerWidth < 1024) closeMobileBooking();
                 } else {
                   alert("Error sending request. Please try again.");
                 }
@@ -793,6 +823,8 @@ const highlights = [
               }
             });
           }
+          initBookingDrawer();
+          document.addEventListener("astro:page-load", initBookingDrawer);
         </script>
       </div>
     </section>
