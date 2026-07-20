@@ -552,11 +552,96 @@ const highlights = [
         </div>
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
         <div class="lg:col-span-1 lg:sticky lg:top-24">
+          {
+            /* BARRA STICKY INFERIOR EN MÓVIL: Con foto, descripción corta y botón */
+          }
+          <div
+            class="fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/90 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3 lg:hidden animate-fade-in"
+          >
+            <div class="flex items-center gap-3 min-w-0">
+              {/* Miniatura de la foto del producto */}
+              <img
+                src="/img-beach-club/mex-beach-club-relaxation.webp"
+                alt="Mex on the Beach"
+                class="w-12 h-12 object-cover rounded-xl border border-stone-200/60 flex-shrink-0"
+              />
+              {/* Texto descriptivo resumido */}
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-[#4e8782]"
+                  >Beach Club</span
+                >
+                <h4
+                  class="text-xs font-serif font-bold text-stone-800 truncate"
+                >
+                  Mex on the Beach
+                </h4>
+                <p class="text-[10px] text-stone-500 truncate">
+                  Premium coastal dining & ocean vistas
+                </p>
+              </div>
+            </div>
+
+            <button
+              type="button"
+              id="mobile-open-booking-btn"
+              class="bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold tracking-wider uppercase py-2.5 px-4 rounded-xl transition-all shadow-md flex-shrink-0 cursor-pointer"
+            >
+              Book Now
+            </button>
+          </div>
+
+          {
+            /* Backdrop de fondo oscuro para el formulario desplegable en móvil */
+          }
+          <div
+            id="booking-form-backdrop"
+            class="fixed inset-0 bg-black/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
+          >
+          </div>
+
+          {
+            /* Formulario limpio (vuelve a su estado original sin cargar fotos dentro) */
+          }
           <form
             id="beach-club-booking-form"
-            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
+            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5
+    fixed bottom-0 left-0 right-0 z-50 max-h-[90vh] overflow-y-auto rounded-t-3xl border-t transform translate-y-full transition-transform duration-300 ease-in-out
+    lg:relative lg:bottom-auto lg:left-auto lg:right-auto lg:z-0 lg:max-h-none lg:overflow-y-visible lg:rounded-2xl lg:border-none lg:translate-y-0"
           >
-            {/* Seleccionar Fecha */}
+            {/* Encabezado del Formulario en Móvil */}
+            <div
+              class="flex items-center justify-between pb-2 border-b border-stone-100 lg:hidden"
+            >
+              <div class="space-y-0.5">
+                <h3 class="font-serif font-bold text-stone-800 text-base">
+                  New Reservation
+                </h3>
+                <p class="text-stone-500 text-[11px]">
+                  Fill details to request availability
+                </p>
+              </div>
+              <button
+                type="button"
+                id="mobile-close-booking-btn"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 transition-colors cursor-pointer"
+                aria-label="Close form"
+              >
+                <svg
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
+
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -569,7 +654,7 @@ const highlights = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-            {/* Personas */}
+
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label
@@ -604,7 +689,7 @@ const highlights = [
                 </select>
               </div>
             </div>
-            {/* Nombre Completo */}
+
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -618,7 +703,7 @@ const highlights = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-            {/* Teléfono */}
+
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -633,7 +718,6 @@ const highlights = [
               />
             </div>
 
-            {/* Email */}
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -648,7 +732,6 @@ const highlights = [
               />
             </div>
 
-            {/* Mensaje */}
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -662,11 +745,10 @@ const highlights = [
               ></textarea>
             </div>
 
-            {/* Botón de envío */}
             <button
               type="submit"
               id="submit-booking-btn"
-              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2"
+              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
             >
               Request Reservation
             </button>

@@ -312,215 +312,284 @@ const dishImages = [
             </div>
           </div>
         </div>
-
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
         <div class="lg:col-span-1 lg:sticky lg:top-24">
-  {/* Botón flotante exclusivo para móvil que activa el formulario desde abajo */}
-  <div class="fixed bottom-0 left-0 right-0 z-40 p-4 bg-white/80 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.05)] flex items-center justify-between lg:hidden animate-fade-in">
-    <div class="flex flex-col">
-      <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Beach Club</span>
-      <span class="text-sm font-serif font-bold text-stone-800">Mex on the Beach</span>
-    </div>
-    <button
-      type="button"
-      id="mobile-open-booking-btn"
-      class="bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3 px-6 rounded-xl transition-all shadow-md cursor-pointer"
-    >
-      Book Now
-    </button>
-  </div>
+          {
+            /* BARRA STICKY INFERIOR EN MÓVIL: Con foto, descripción corta y botón */
+          }
+          <div
+            class="fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/90 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3 lg:hidden animate-fade-in"
+          >
+            <div class="flex items-center gap-3 min-w-0">
+              {/* Miniatura de la foto del producto */}
+              <img
+                src="/img-beach-club/make_you_reservation.webp"
+                alt="Mex on the Beach"
+                class="w-12 h-12 object-cover rounded-xl border border-stone-200/60 flex-shrink-0"
+              />
+              {/* Texto descriptivo resumido */}
+              <div class="flex flex-col min-w-0">
+                <span
+                  class="text-[10px] font-bold uppercase tracking-wider text-[#4e8782]"
+                  >Beach Club</span
+                >
+                <h4
+                  class="text-xs font-serif font-bold text-stone-800 truncate"
+                >
+                  Mex on the Beach
+                </h4>
+                <p class="text-[10px] text-stone-500 truncate">
+                  Premium coastal dining & ocean vistas
+                </p>
+              </div>
+            </div>
 
-  {/* Backdrop de fondo oscuro para el formulario desplegable en móvil */}
-  <div
-    id="booking-form-backdrop"
-    class="fixed inset-0 bg-black/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
-  ></div>
+            <button
+              type="button"
+              id="mobile-open-booking-btn"
+              class="bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold tracking-wider uppercase py-2.5 px-4 rounded-xl transition-all shadow-md flex-shrink-0 cursor-pointer"
+            >
+              Book Now
+            </button>
+          </div>
 
-  {/* Formulario adaptivo: Sticky lateral en escritorio y Bottom Sheet deslizable en móvil */}
-  <form
-    id="beach-club-booking-form"
-    class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5 
-           fixed bottom-0 left-0 right-0 z-50 max-h-[90vh] overflow-y-auto rounded-t-3xl border-t transform translate-y-full transition-transform duration-300 ease-in-out
-           lg:relative lg:bottom-auto lg:left-auto lg:right-auto lg:z-0 lg:max-h-none lg:overflow-y-visible lg:rounded-2xl lg:border-none lg:translate-y-0"
-  >
-    {/* Encabezado / Botón de cierre superior exclusivo para vista móvil */}
-    <div class="flex items-center justify-between pb-2 border-b border-stone-100 lg:hidden">
-      <div class="space-y-0.5">
-        <h3 class="font-serif font-bold text-stone-800 text-base">New Reservation</h3>
-        <p class="text-stone-500 text-[11px]">Fill details to request availability</p>
-      </div>
-      <button
-        type="button"
-        id="mobile-close-booking-btn"
-        class="w-8 h-8 flex items-center justify-center rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 transition-colors cursor-pointer"
-        aria-label="Close form"
-      >
-        <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
-      </button>
-    </div>
+          {
+            /* Backdrop de fondo oscuro para el formulario desplegable en móvil */
+          }
+          <div
+            id="booking-form-backdrop"
+            class="fixed inset-0 bg-black/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
+          >
+          </div>
 
-    <div class="space-y-1.5">
-      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Select Date</label>
-      <input
-        type="date"
-        name="date"
-        required
-        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-      />
-    </div>
-    <div class="grid grid-cols-2 gap-4">
-      <div class="space-y-1.5">
-        <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Adults</label>
-        <select
-          name="adults"
-          required
-          class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-        >
-          <option value="1">1 Adult</option>
-          <option value="2" selected>2 Adults</option>
-          <option value="3">3 Adults</option>
-          <option value="4">4 Adults</option>
-          <option value="5">5 Adults</option>
-        </select>
-      </div>
-      <div class="space-y-1.5">
-        <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Children</label>
-        <select
-          name="children"
-          class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-        >
-          <option value="0" selected>0 Children</option>
-          <option value="1">1 Child</option>
-          <option value="2">2 Children</option>
-          <option value="3">3 Children</option>
-        </select>
-      </div>
-    </div>
-    <div class="space-y-1.5">
-      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Full name</label>
-      <input
-        type="text"
-        name="fullName"
-        placeholder="Enter your full name"
-        required
-        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-      />
-    </div>
-    <div class="space-y-1.5">
-      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Phone</label>
-      <input
-        type="tel"
-        name="phone"
-        placeholder="Enter your phone number"
-        required
-        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-      />
-    </div>
-    <div class="space-y-1.5">
-      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Email</label>
-      <input
-        type="email"
-        name="email"
-        placeholder="Enter your email"
-        required
-        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-      />
-    </div>
-    <div class="space-y-1.5">
-      <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Message</label>
-      <textarea
-        name="message"
-        rows="3"
-        placeholder="Any special requests?..."
-        class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
-      ></textarea>
-    </div>
-    <button
-      type="submit"
-      id="submit-booking-btn"
-      class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
-    >
-      Request Reservation
-    </button>
-  </form>
-</div>
+          {
+            /* Formulario limpio (vuelve a su estado original sin cargar fotos dentro) */
+          }
+          <form
+            id="beach-club-booking-form"
+            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5
+    fixed bottom-0 left-0 right-0 z-50 max-h-[90vh] overflow-y-auto rounded-t-3xl border-t transform translate-y-full transition-transform duration-300 ease-in-out
+    lg:relative lg:bottom-auto lg:left-auto lg:right-auto lg:z-0 lg:max-h-none lg:overflow-y-visible lg:rounded-2xl lg:border-none lg:translate-y-0"
+          >
+            {/* Encabezado del Formulario en Móvil */}
+            <div
+              class="flex items-center justify-between pb-2 border-b border-stone-100 lg:hidden"
+            >
+              <div class="space-y-0.5">
+                <h3 class="font-serif font-bold text-stone-800 text-base">
+                  New Reservation
+                </h3>
+                <p class="text-stone-500 text-[11px]">
+                  Fill details to request availability
+                </p>
+              </div>
+              <button
+                type="button"
+                id="mobile-close-booking-btn"
+                class="w-8 h-8 flex items-center justify-center rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 transition-colors cursor-pointer"
+                aria-label="Close form"
+              >
+                <svg
+                  class="h-4 w-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2.5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+              </button>
+            </div>
 
-<script>
-  function initBookingDrawer() {
-    const openBtn = document.getElementById("mobile-open-booking-btn");
-    const closeBtn = document.getElementById("mobile-close-booking-btn");
-    const form = document.getElementById("beach-club-booking-form") as HTMLFormElement;
-    const backdrop = document.getElementById("booking-form-backdrop");
-    const submitBtn = document.getElementById("submit-booking-btn") as HTMLButtonElement;
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                >Select Date</label
+              >
+              <input
+                type="date"
+                name="date"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+              />
+            </div>
 
-    if (!form || !submitBtn) return;
+            <div class="grid grid-cols-2 gap-4">
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                  >Adults</label
+                >
+                <select
+                  name="adults"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+                >
+                  <option value="1">1 Adult</option>
+                  <option value="2" selected>2 Adults</option>
+                  <option value="3">3 Adults</option>
+                  <option value="4">4 Adults</option>
+                  <option value="5">5 Adults</option>
+                </select>
+              </div>
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                  >Children</label
+                >
+                <select
+                  name="children"
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+                >
+                  <option value="0" selected>0 Children</option>
+                  <option value="1">1 Child</option>
+                  <option value="2">2 Children</option>
+                  <option value="3">3 Children</option>
+                </select>
+              </div>
+            </div>
 
-    // --- Lógica del Drawer Móvil ---
-    function openMobileBooking() {
-      if (!backdrop || !form) return;
-      backdrop.classList.remove("hidden");
-      void backdrop.offsetWidth; // Force Reflow
-      backdrop.classList.add("opacity-100");
-      form.classList.remove("translate-y-full");
-      document.body.style.overflow = "hidden";
-    }
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                >Full name</label
+              >
+              <input
+                type="text"
+                name="fullName"
+                placeholder="Enter your full name"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+              />
+            </div>
 
-    function closeMobileBooking() {
-      if (!backdrop || !form) return;
-      backdrop.classList.remove("opacity-100");
-      form.classList.add("translate-y-full");
-      document.body.style.overflow = "";
-      setTimeout(() => {
-        if (form.classList.contains("translate-y-full")) {
-          backdrop.classList.add("hidden");
-        }
-      }, 300);
-    }
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                >Phone</label
+              >
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Enter your phone number"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+              />
+            </div>
 
-    openBtn?.addEventListener("click", openMobileBooking);
-    closeBtn?.addEventListener("click", closeMobileBooking);
-    backdrop?.addEventListener("click", closeMobileBooking);
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                >Email</label
+              >
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+              />
+            </div>
 
-    // --- Lógica del Submit del Formulario ---
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-      const originalText = submitBtn.innerText;
-      submitBtn.innerText = "SENDING...";
-      submitBtn.disabled = true;
-      const formData = new FormData(form);
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                >Message</label
+              >
+              <textarea
+                name="message"
+                rows="3"
+                placeholder="Any special requests?..."
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
+              ></textarea>
+            </div>
 
-      try {
-        const response = await fetch("/api/booking", {
-          method: "POST",
-          body: formData,
-        });
-        if (response.ok) {
-          alert("¡Reservation request sent successfully!");
-          form.reset();
-          if (window.innerWidth < 1024) closeMobileBooking();
-        } else {
-          alert("Error sending request. Please try again.");
-        }
-      } catch (error) {
-        console.error(error);
-        alert("Connection error.");
-      } finally {
-        submitBtn.innerText = originalText;
-        submitBtn.disabled = false;
-      }
-    });
-  }
+            <button
+              type="submit"
+              id="submit-booking-btn"
+              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
+            >
+              Request Reservation
+            </button>
+          </form>
+        </div>
+        <script>
+          function initBookingDrawer() {
+            const openBtn = document.getElementById("mobile-open-booking-btn");
+            const closeBtn = document.getElementById(
+              "mobile-close-booking-btn",
+            );
+            const form = document.getElementById(
+              "beach-club-booking-form",
+            ) as HTMLFormElement;
+            const backdrop = document.getElementById("booking-form-backdrop");
+            const submitBtn = document.getElementById(
+              "submit-booking-btn",
+            ) as HTMLButtonElement;
 
-  // Ejecución segura inicial y con transiciones de página de Astro
-  initBookingDrawer();
-  document.addEventListener("astro:page-load", initBookingDrawer);
-</script>
+            if (!form || !submitBtn) return;
+
+            function openMobileBooking() {
+              if (!backdrop || !form) return;
+              backdrop.classList.remove("hidden");
+              void backdrop.offsetWidth;
+              backdrop.classList.add("opacity-100");
+              form.classList.remove("translate-y-full");
+              document.body.style.overflow = "hidden";
+            }
+
+            function closeMobileBooking() {
+              if (!backdrop || !form) return;
+              backdrop.classList.remove("opacity-100");
+              form.classList.add("translate-y-full");
+              document.body.style.overflow = "";
+              setTimeout(() => {
+                if (form.classList.contains("translate-y-full")) {
+                  backdrop.classList.add("hidden");
+                }
+              }, 300);
+            }
+
+            openBtn?.addEventListener("click", openMobileBooking);
+            closeBtn?.addEventListener("click", closeMobileBooking);
+            backdrop?.addEventListener("click", closeMobileBooking);
+
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault();
+              const originalText = submitBtn.innerText;
+              submitBtn.innerText = "SENDING...";
+              submitBtn.disabled = true;
+              const formData = new FormData(form);
+
+              try {
+                const response = await fetch("/api/booking", {
+                  method: "POST",
+                  body: formData,
+                });
+                if (response.ok) {
+                  alert("¡Reservation request sent successfully!");
+                  form.reset();
+                  if (window.innerWidth < 1024) closeMobileBooking();
+                } else {
+                  alert("Error sending request. Please try again.");
+                }
+              } catch (error) {
+                console.error(error);
+                alert("Connection error.");
+              } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+              }
+            });
+          }
+          initBookingDrawer();
+          document.addEventListener("astro:page-load", initBookingDrawer);
+        </script>
       </div>
     </section>
-
-    {/* CONTENEDOR DE LA LÍNEA AZUL / WAVE SVG */}
     <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
       <svg
         viewBox="0 0 1440 40"
@@ -542,7 +611,6 @@ const dishImages = [
 </Layout>
 
 <style>
-  /* Ocultar barra de desplazamiento manteniendo la funcionalidad nativa de scroll */
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
