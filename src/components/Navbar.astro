@@ -239,8 +239,6 @@ const navigation = [
       link.removeEventListener("click", closeMenu);
       link.addEventListener("click", closeMenu);
     });
-
-    // Control del scroll para cambiar el diseño del header
     const handleScroll = () => {
       if (window.scrollY > 50) {
         header?.classList.add("shadow-md", "bg-[#fcfbf7]");
