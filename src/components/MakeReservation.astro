@@ -3,16 +3,13 @@ import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 import Layout from "@/layouts/BaseLayout.astro";
 import { useTranslatedPath } from "../i18n/utils";
+
 const { currentLocale } = Astro;
 const lang = (currentLocale || "en") as Lang;
 const i18n = getI18N({ currentLocale }) as any;
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
-const menuPdfUrl =
-  lang === "en"
-    ? "/docs/menu-beach-club-en.pdf"
-    : "/docs/menu-beach-club-es.pdf";
 
 const menuCategories = [
   {
@@ -56,30 +53,25 @@ const menuCategories = [
     ],
   },
 ];
+
 const dishImages = [
   {
     src: "/img-beach-club/mex-beach-club-signature-drinks.webp",
-    alt: "Coctelería Premium",
   },
   {
     src: "/img-beach-club/mex-beach-club-lifestyle.webp",
-    alt: "Mariscos Frescos",
   },
   {
     src: "/img-beach-club/mex-beach-club-sunset-horizon.webp",
-    alt: "Snacks junto al mar",
   },
   {
     src: "/img-beach-club/mex-beach-club-relaxation.webp",
-    alt: "Snacks junto al mar",
   },
   {
     src: "/img-beach-club/mex-beach-club-lounge-depth.webp",
-    alt: "Mariscos Frescos",
   },
   {
     src: "/img-beach-club/mex-beach-club-sunset.webp",
-    alt: "Snacks junto al mar",
   },
 ];
 ---
@@ -87,47 +79,29 @@ const dishImages = [
 <Layout>
   <div class="relative">
     {/* HERO SECTION */}
-    <section
-      class="relative h-[80vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
-    >
-      <div
-        class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none"
-      >
+    <section class="relative h-[85vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center">
+      <div class="absolute inset-0 z-0 overflow-hidden select-none pointer-events-none">
         <img
           src="/img-beach-club/mex-beach-club-lifestyle.webp"
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
         <div class="absolute inset-0 bg-black/15 z-10"></div>
-        <div
-          class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"
-        >
-        </div>
-        <div
-          class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"
-        >
-        </div>
+        <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/40 to-transparent z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10 md:hidden"></div>
         <div
           class="absolute inset-x-0 bottom-0 h-1/4 z-20"
           style={{
-            background:
-              "linear-gradient(to top, rgba(254, 251, 247, 1) 0%, rgba(254, 251, 247, 0) 100%)",
+            background: "linear-gradient(to top, rgba(254, 251, 247, 1) 0%, rgba(254, 251, 247, 0) 100%)",
           }}
-        >
-        </div>
+        ></div>
       </div>
-      <div
-        class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0"
-      >
+      <div class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-8 md:mt-0">
         <div class="max-w-2xl space-y-5 md:space-y-6 animate-fade-in">
-          <h1
-            class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]"
-          >
+          <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold text-white leading-[1.12] drop-shadow-[0_4px_12px_rgba(0,0,0,0.35)]">
             {i18n.MAKE_YOU_RESERVATION.HERO.title}
           </h1>
-          <p
-            class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl"
-          >
+          <p class="text-white/90 font-normal text-sm md:text-lg leading-relaxed drop-shadow-[0_2px_6px_rgba(0,0,0,0.3)] max-w-xl">
             {i18n.MAKE_YOU_RESERVATION.HERO.description}
           </p>
           <div class="pt-3">
@@ -141,237 +115,136 @@ const dishImages = [
         </div>
       </div>
     </section>
+
     {/* SECCIÓN PRINCIPAL */}
-    <section
-      id="booking"
-      class="max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-24 md:pt-12 md:pb-40"
-    >
+    <section id="booking" class="max-w-7xl mx-auto px-4 md:px-8 pt-8 pb-24 md:pt-12 md:pb-40">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+        
         {/* COLUMNA IZQUIERDA: MENÚ Y GALERÍA */}
         <div class="lg:col-span-2 space-y-12 md:space-y-16">
-          {/* SECCIÓN GALERÍA DE FOTOS */}
+          
+          {/* SECCIÓN GALERÍA DE FOTOS (CARRUSEL EN MÓVIL) */}
           <div class="space-y-6">
             <div class="border-b border-stone-200 pb-4">
-              <h2
-                class="font-serif text-2xl md:text-3xl font-bold text-stone-800"
-              >
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-800">
                 {i18n.GALLERY.title}
               </h2>
-              <p
-                class="mt-2 font-sans text-sm md:text-base text-stone-600 max-w-2xl leading-relaxed"
-              >
+              <p class="mt-2 font-sans text-sm md:text-base text-stone-600 max-w-2xl leading-relaxed">
                 {i18n.GALLERY.subtitle}
               </p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {
-                dishImages.map((img) => (
-                  <div class="group relative h-48 sm:h-60 rounded-2xl overflow-hidden shadow-sm bg-stone-100">
-                    <img
-                      src={img.src}
-                      alt={img.alt}
-                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                      loading="lazy"
-                    />
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                      <span class="text-white text-xs md:text-sm font-bold tracking-wider uppercase drop-shadow-sm">
-                        {img.label}
-                      </span>
-                    </div>
+            
+            {/* Contenedor optimizado: Flex-carrusel en móvil y Grid estable en desktop */}
+            <div class="flex sm:grid overflow-x-auto sm:overflow-x-visible snap-x snap-mandatory sm:snap-none gap-4 pb-4 sm:pb-0 sm:grid-cols-3 scrollbar-none">
+              {dishImages.map((img) => (
+                <div class="group relative min-w-[75vw] sm:min-w-0 h-56 sm:h-60 rounded-2xl overflow-hidden shadow-sm bg-stone-100 snap-center flex-shrink-0 sm:flex-shrink">
+                  <img
+                    src={img.src}
+                    alt={img.alt}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                    <span class="text-white text-xs md:text-sm font-bold tracking-wider uppercase drop-shadow-sm">
+                      {img.alt}
+                    </span>
                   </div>
-                ))
-              }
+                </div>
+              ))}
             </div>
           </div>
+
           {/* SECCIÓN MENÚ DE ALIMENTOS Y BEBIDAS */}
           <div class="space-y-12">
             <!-- ENCABEZADO PRINCIPAL DE LA SECCIÓN -->
             <div class="border-b border-stone-200 pb-4">
-              <h2
-                class="font-serif text-2xl md:text-3xl font-bold text-stone-800"
-              >
+              <h2 class="font-serif text-2xl md:text-3xl font-bold text-stone-800">
                 {i18n.FAVORITIES.title}
               </h2>
               <p class="text-stone-500 text-xs md:text-sm mt-1">
                 {i18n.FAVORITIES.description}
               </p>
             </div>
+
             <!-- CONTENEDOR DE SECCIONES ESTÁTICAS -->
             <div class="space-y-12">
               {/* ================= SECCIÓN 1: ALIMENTOS ================= */}
-              {
-                menuCategories[0] && (
-                  <div class="space-y-6">
-                    {/* Encabezado de la categoría con botón integrado */}
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-l-4 border-[#4e8782] pl-3">
-                      <h3 class="font-serif text-lg md:text-xl font-semibold text-[#4e8782] tracking-wide">
-                        {i18n.FAVORITIES.food_title}
-                      </h3>
-                      <a
-                        href={translatePath("/menu-food")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-1.5 bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-stone-200/60 transition-colors shadow-sm self-start sm:self-auto"
-                      >
-                        {i18n.FAVORITIES.view_menu}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="2.5"
-                          stroke="currentColor"
-                          class="w-3.5 h-3.5 text-[#4e8782]"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {menuCategories[0].items.map((item) => (
-                        <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
-                          <div class="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-stone-200 shadow-sm">
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              class="w-full h-full object-cover"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div class="flex-1 min-w-0 space-y-1">
-                            <h4 class="font-sans font-bold text-stone-800 text-sm md:text-base leading-tight">
-                              {item.name}
-                            </h4>
-                            <p class="text-stone-600 text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-3">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+              {menuCategories[0] && (
+                <div class="space-y-6">
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-l-4 border-[#4e8782] pl-3">
+                    <h3 class="font-serif text-lg md:text-xl font-semibold text-[#4e8782] tracking-wide">
+                      {i18n.FAVORITIES.food_title}
+                    </h3>
+                    <a
+                      href={translatePath("/menu")}
+                      class="inline-flex items-center justify-center gap-1.5 bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-stone-200/60 transition-colors shadow-sm self-start sm:self-auto"
+                    >
+                      {i18n.FAVORITIES.view_menu}
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
                   </div>
-                )
-              }
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {menuCategories[0].items.map((item) => (
+                      <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-stone-200 shadow-sm">
+                          <img src={item.image} alt={item.name} class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="flex-1 min-w-0 space-y-1">
+                          <h4 class="font-sans font-bold text-stone-800 text-sm md:text-base leading-tight">
+                            {item.name}
+                          </h4>
+                          <p class="text-stone-600 text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-3">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
 
               {/* ================= SECCIÓN 2: BEBIDAS ================= */}
-              {
-                menuCategories[1] && (
-                  <div class="space-y-6">
-                    {/* Encabezado de la categoría con botón integrado */}
-                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-l-4 border-[#4e8782] pl-3">
-                      <h3 class="font-serif text-lg md:text-xl font-semibold text-[#4e8782] tracking-wide">
-                        {i18n.FAVORITIES.drinks_title}
-                      </h3>
-                      <a
-                        href={translatePath("/menu-drinks")}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="inline-flex items-center justify-center gap-1.5 bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-stone-200/60 transition-colors shadow-sm self-start sm:self-auto"
-                      >
-                        {i18n.FAVORITIES.view_menu}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="2.5"
-                          stroke="currentColor"
-                          class="w-3.5 h-3.5 text-[#4e8782]"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3"
-                          />
-                        </svg>
-                      </a>
-                    </div>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {menuCategories[1].items.map((item) => (
-                        <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
-                          <div class="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-stone-200 shadow-sm">
-                            <img
-                              src={item.image}
-                              alt={item.name}
-                              class="w-full h-full object-cover"
-                              loading="lazy"
-                            />
-                          </div>
-                          <div class="flex-1 min-w-0 space-y-1">
-                            <h4 class="font-sans font-bold text-stone-800 text-sm md:text-base leading-tight">
-                              {item.name}
-                            </h4>
-                            <p class="text-stone-600 text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-3">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
+              {menuCategories[1] && (
+                <div class="space-y-6">
+                  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 border-l-4 border-[#4e8782] pl-3">
+                    <h3 class="font-serif text-lg md:text-xl font-semibold text-[#4e8782] tracking-wide">
+                      {i18n.FAVORITIES.drinks_title}
+                    </h3>
+                    <a
+                      href={translatePath("/menu")}
+                      class="inline-flex items-center justify-center gap-1.5 bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold uppercase tracking-wider px-3 py-1.5 rounded-full border border-stone-200/60 transition-colors shadow-sm self-start sm:self-auto"
+                    >
+                      {i18n.FAVORITIES.view_menu}
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5 text-white">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3" />
+                      </svg>
+                    </a>
                   </div>
-                )
-              }
+
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {menuCategories[1].items.map((item) => (
+                      <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
+                        <div class="w-20 h-20 md:w-24 md:h-24 rounded-lg overflow-hidden flex-shrink-0 bg-stone-200 shadow-sm">
+                          <img src={item.image} alt={item.name} class="w-full h-full object-cover" loading="lazy" />
+                        </div>
+                        <div class="flex-1 min-w-0 space-y-1">
+                          <h4 class="font-sans font-bold text-stone-800 text-sm md:text-base leading-tight">
+                            {item.name}
+                          </h4>
+                          <p class="text-stone-600 text-xs md:text-sm leading-relaxed line-clamp-2 md:line-clamp-3">
+                            {item.desc}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
-          <script>
-            function initMenuTabs() {
-              const tabButtons = document.querySelectorAll(".tab-btn");
-              const tabPanels = document.querySelectorAll(".tab-panel");
-
-              if (tabButtons.length === 0 || tabPanels.length === 0) return;
-
-              function switchTab(e: Event) {
-                const clickedBtn = e.currentTarget as HTMLButtonElement;
-                const targetTab = clickedBtn.getAttribute("data-tab");
-
-                // 1. Actualizar estilos de los botones
-                tabButtons.forEach((btn) => {
-                  btn.classList.remove(
-                    "bg-white",
-                    "text-[#4e8782]",
-                    "shadow-sm",
-                  );
-                  btn.classList.add("text-stone-600", "hover:text-stone-800");
-                });
-                clickedBtn.classList.add(
-                  "bg-white",
-                  "text-[#4e8782]",
-                  "shadow-sm",
-                );
-                clickedBtn.classList.remove(
-                  "text-stone-600",
-                  "hover:text-stone-800",
-                );
-
-                // 2. Mostrar/Ocultar los paneles correspondientes
-                tabPanels.forEach((panel) => {
-                  panel.classList.add("hidden", "opacity-0");
-                });
-
-                const activePanel = document.getElementById(
-                  `panel-tab-${targetTab}`,
-                );
-                if (activePanel) {
-                  activePanel.classList.remove("hidden");
-                  // Pequeño delay para forzar el reflow y aplicar la transición suave de opacidad
-                  void activePanel.offsetWidth;
-                  activePanel.classList.remove("opacity-0");
-                }
-              }
-
-              tabButtons.forEach((btn) => {
-                btn.removeEventListener("click", switchTab);
-                btn.addEventListener("click", switchTab);
-              });
-            }
-
-            // Inicializa en carga limpia y navegaciones SPA de Astro
-            initMenuTabs();
-            document.addEventListener("astro:page-load", initMenuTabs);
-          </script>
         </div>
 
         {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
@@ -381,10 +254,7 @@ const dishImages = [
             class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
           >
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Select Date</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Select Date</label>
               <input
                 type="date"
                 name="date"
@@ -394,10 +264,7 @@ const dishImages = [
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Adults</label
-                >
+                <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Adults</label>
                 <select
                   name="adults"
                   required
@@ -411,10 +278,7 @@ const dishImages = [
                 </select>
               </div>
               <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Children</label
-                >
+                <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Children</label>
                 <select
                   name="children"
                   class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
@@ -427,10 +291,7 @@ const dishImages = [
               </div>
             </div>
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Full name</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Full name</label>
               <input
                 type="text"
                 name="fullName"
@@ -440,10 +301,7 @@ const dishImages = [
               />
             </div>
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Phone</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Phone</label>
               <input
                 type="tel"
                 name="phone"
@@ -453,10 +311,7 @@ const dishImages = [
               />
             </div>
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Email</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Email</label>
               <input
                 type="email"
                 name="email"
@@ -466,10 +321,7 @@ const dishImages = [
               />
             </div>
             <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Message</label
-              >
+              <label class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700">Message</label>
               <textarea
                 name="message"
                 rows="3"
@@ -486,13 +338,10 @@ const dishImages = [
             </button>
           </form>
         </div>
+
         <script>
-          const form = document.getElementById(
-            "beach-club-booking-form",
-          ) as HTMLFormElement;
-          const submitBtn = document.getElementById(
-            "submit-booking-btn",
-          ) as HTMLButtonElement;
+          const form = document.getElementById("beach-club-booking-form") as HTMLFormElement;
+          const submitBtn = document.getElementById("submit-booking-btn") as HTMLButtonElement;
 
           if (form && submitBtn) {
             form.addEventListener("submit", async (e) => {
@@ -525,23 +374,24 @@ const dishImages = [
         </script>
       </div>
     </section>
-    {/* CONTENEDOR DE LA LÍNEA AZÚL / WAVE SVG */}
+
+    {/* CONTENEDOR DE LA LÍNEA AZUL / WAVE SVG */}
     <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-      <svg
-        viewBox="0 0 1440 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-auto"
-      >
-        <path
-          d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
-          fill="#ffffff"></path>
-        <path
-          d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
-          stroke="var(--color-secondary)"
-          stroke-width="2"
-          fill="none"></path>
+      <svg viewBox="0 0 1440 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+        <path d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z" fill="#ffffff"></path>
+        <path d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25" stroke="var(--color-secondary)" stroke-width="2" fill="none"></path>
       </svg>
     </div>
   </div>
 </Layout>
+
+<style>
+  /* Ocultar barra de desplazamiento manteniendo la funcionalidad nativa de scroll */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+</style>
