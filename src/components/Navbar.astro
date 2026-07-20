@@ -163,7 +163,6 @@ const navigation = [
       ))
     }
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
-    
     <!-- Idiomas en Mobile -->
     {!offI18n && (
       <div class="text-center w-full">
@@ -176,9 +175,7 @@ const navigation = [
         />
       </div>
     )}
-    
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
-    
     <a
       href={bookingUrl}
       class="nav-drawer-link bg-primary hover:bg-primary-hover text-white text-center py-4 px-8 rounded-full font-bold text-xs tracking-widest uppercase shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-[200px]"
@@ -186,11 +183,11 @@ const navigation = [
       {i18n.NAV.bookNow}
     </a>
   </nav>
-  
   <div class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-dark/5 bg-dark/1">
     &copy; {new Date().getFullYear()} Mex on the Beach.
   </div>
 </div>
+<!-- scrip para las acciones -->
 <script>
   function initHeader() {
     const menuToggleBtn = document.getElementById("menu-toggle-btn");
