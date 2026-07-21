@@ -170,112 +170,118 @@ const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
   </section>
   {/* 3. EXPERIENCIAS Mex (GRID DE TARJETAS) */}
   <section class="w-full bg-[#fcfbf7] py-20 px-4 md:px-8">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto mb-16">
-        <h2 class="font-serif text-3xl font-bold text-[#4e8782] leading-tight">
-          {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.title}
-        </h2>
-        <p
-          class="text-[#5C5549] font-light text-sm md:text-base leading-relaxed"
-        >
-          {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.subtitle}
-        </p>
+  <div class="max-w-6xl mx-auto">
+    <!-- Encabezado de Sección -->
+    <div class="text-center max-w-2xl mx-auto mb-16 space-y-3">
+      <h2 class="font-serif text-3xl font-bold text-[#4e8782] leading-tight">
+        {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.title}
+      </h2>
+      <p class="text-[#5C5549] font-light text-sm md:text-base leading-relaxed">
+        {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.subtitle}
+      </p>
+    </div>
+
+    <!-- Grid de Tarjetas Alineadas -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      
+      <!-- Card 1 -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-1"
+      >
+        <div class="flex flex-col h-full">
+          <div
+            class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#4e8782] mb-6 shrink-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="font-bold text-sm text-gray-700 tracking-wide">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.title}
+          </h3>
+          <p class="text-sm text-gray-500 font-light mt-2 leading-relaxed">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.description}
+          </p>
+        </div>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"></div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-        <div
-          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
-        >
-          <div>
-            <div
-              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#4e8782] mb-6"
+
+      <!-- Card 2 -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-1"
+      >
+        <div class="flex flex-col h-full">
+          <div
+            class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#4e8782] mb-6 shrink-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M15.362 5.214A8.252 8.252 0 0 1 12 21 8.25 8.25 0 0 1 6.038 7.047 8.287 8.287 0 0 0 9 9.601a8.983 8.983 0 0 1 3.361-6.867 8.21 8.21 0 0 0 3 2.48Z"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-sm text-gray-700 tracking-wide">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.title}
-            </h3>
-            <p class="text-sm text-gray-500 font-light mt-1 leading-relaxed">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_1.description}
-            </p>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.433-2.14-.356-2.755.432a2.25 2.25 0 0 0 0 2.97c.616.788 1.865.865 2.755.432"
+              ></path>
+            </svg>
           </div>
+          <h3 class="font-bold text-sm text-gray-700 tracking-wide">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.title}
+          </h3>
+          <p class="text-sm text-gray-500 font-light mt-2 leading-relaxed">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.description}
+          </p>
         </div>
-        <div
-          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
-        >
-          <div>
-            <div
-              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#4e8782] mb-6"
+      </div>
+
+      <!-- Card 3 -->
+      <div
+        class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between h-full transition-transform duration-300 hover:-translate-y-1"
+      >
+        <div class="flex flex-col h-full">
+          <div
+            class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#4e8782] mb-6 shrink-0"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-5 h-5"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm11.378-3.917c-.89-.433-2.14-.356-2.755.432a2.25 2.25 0 0 0 0 2.97c.616.788 1.865.865 2.755.432"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-sm text-gray-700 tracking-wide">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.title}
-            </h3>
-            <p class="text-sm text-gray-500 font-light mt-1 leading-relaxed">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_2.description}
-            </p>
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3-3.75h6M12 3v3m0 0a3 3 0 0 1-3 3v2.25M12 6a3 3 0 0 0 3 3v2.25"
+              ></path>
+            </svg>
           </div>
-        </div>
-        <div
-          class="bg-white rounded-2xl p-8 shadow-[0_4px_20px_rgba(0,0,0,0.03)] border border-black/[0.02] flex flex-col justify-between min-h-[320px] transition-transform duration-300 hover:-translate-y-1"
-        >
-          <div>
-            <div
-              class="w-12 h-12 rounded-full bg-[#1E6B65]/10 flex items-center justify-center text-[#1E6B65] mb-6"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M12 18.75a6 6 0 0 0 6-6v-1.5m-6 7.5a6 6 0 0 1-6-6v-1.5m6 7.5v3.75m-3-3.75h6M12 3v3m0 0a3 3 0 0 1-3 3v2.25M12 6a3 3 0 0 0 3 3v2.25"
-                ></path>
-              </svg>
-            </div>
-            <h3 class="font-bold text-sm text-gray-700 tracking-wide">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.title}
-            </h3>
-            <p class="text-sm text-gray-500 font-light mt-1 leading-relaxed">
-              {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.description}
-            </p>
-          </div>
+          <h3 class="font-bold text-sm text-gray-700 tracking-wide">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.title}
+          </h3>
+          <p class="text-sm text-gray-500 font-light mt-2 leading-relaxed">
+            {i18n.PUERTO_MORELOS.EXPERIENCES_SECTION.cards.card_3.description}
+          </p>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <!-- QUESTIONS  -->
   <section class="w-full pb-24 pt-4 px-4 md:px-8 mt-20">
     <div class="max-w-3xl mx-auto">
