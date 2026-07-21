@@ -75,7 +75,6 @@ const dishImages = [
   },
 ];
 ---
-
 <Layout>
   <div class="relative">
     {/* HERO SECTION */}
@@ -133,10 +132,8 @@ const dishImages = [
         </div>
       </div>
     </section>
-
     {/* ANCLA PARA ACTIVAR EL STICKY EN MÓVIL AL PASAR EL HERO */}
     <div id="sticky-anchor" class="h-px w-full"></div>
-
     {/* SECCIÓN PRINCIPAL */}
     <section
       id="booking"
@@ -182,7 +179,6 @@ const dishImages = [
               }
             </div>
           </div>
-
           {/* SECCIÓN MENÚ DE ALIMENTOS Y BEBIDAS */}
           <div class="space-y-12">
             <!-- ENCABEZADO PRINCIPAL DE LA SECCIÓN -->
@@ -196,7 +192,6 @@ const dishImages = [
                 {i18n.FAVORITIES.description}
               </p>
             </div>
-
             <!-- CONTENEDOR DE SECCIONES ESTÁTICAS -->
             <div class="space-y-12">
               {/* ================= SECCIÓN 1: ALIMENTOS ================= */}
@@ -228,7 +223,6 @@ const dishImages = [
                         </svg>
                       </a>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {menuCategories[0].items.map((item) => (
                         <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
@@ -254,7 +248,6 @@ const dishImages = [
                   </div>
                 )
               }
-
               {/* ================= SECCIÓN 2: BEBIDAS ================= */}
               {
                 menuCategories[1] && (
@@ -284,7 +277,6 @@ const dishImages = [
                         </svg>
                       </a>
                     </div>
-
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                       {menuCategories[1].items.map((item) => (
                         <div class="bg-stone-50/60 p-4 rounded-xl border border-stone-100 flex items-start gap-4 hover:shadow-sm transition-shadow">
@@ -377,7 +369,6 @@ const dishImages = [
                 </select>
               </div>
             </div>
-
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -391,7 +382,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -419,7 +409,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -443,7 +432,6 @@ const dishImages = [
           </form>
         </div>
         <script>
-          // Escuchamos directamente cuando el DOM/Astro esté listo
           document.addEventListener("astro:page-load", () => {
             const form = document.getElementById(
               "beach-club-booking-form",
@@ -453,11 +441,8 @@ const dishImages = [
             ) as HTMLButtonElement | null;
 
             if (!form || !submitBtn) return;
-
-            // Quitamos cualquier listener previo clonando el form o manejándolo directamente
             form.onsubmit = async (e) => {
-              e.preventDefault(); // Detiene la recarga y el envío nativo HTML
-
+              e.preventDefault(); 
               const originalText = submitBtn.innerText;
               submitBtn.innerText = "SENDING...";
               submitBtn.disabled = true;
@@ -486,8 +471,6 @@ const dishImages = [
                 submitBtn.disabled = false;
               }
             };
-
-            // Lógica del Intersection Observer para el sticky card
             const anchor = document.getElementById("sticky-anchor");
             const stickyCard = document.getElementById("sticky-product-card");
 
@@ -512,7 +495,6 @@ const dishImages = [
                 },
                 { threshold: 0 },
               );
-
               observer.observe(anchor);
             }
           });
