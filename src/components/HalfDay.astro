@@ -504,131 +504,50 @@ const carouselImages = [
           </details>
         </div>
       </div>
-      {/* COLUMNA DERECHA: STICKY FORM RESERVATION */}
-      <div class="lg:col-span-1 lg:sticky lg:top-24">
-          {
-            /* BARRA STICKY INFERIOR EN MÓVIL: Con foto, descripción corta y botón */
-          }
-          <div
-            class="fixed bottom-0 left-0 right-0 z-40 p-3 bg-white/90 backdrop-blur-md border-t border-stone-200/80 shadow-[0_-4px_20px_rgba(0,0,0,0.08)] flex items-center justify-between gap-3 lg:hidden animate-fade-in"
-          >
-            <div class="flex items-center gap-3 min-w-0">
-              {/* Miniatura de la foto del producto */}
-              <img
-                src="/img-beach-club/make_you_reservation.webp"
-                alt="Mex on the Beach"
-                class="w-12 h-12 object-cover rounded-xl border border-stone-200/60 flex-shrink-0"
-              />
-              {/* Texto descriptivo resumido */}
-              <div class="flex flex-col min-w-0">
-                <span
-                  class="text-[10px] font-bold uppercase tracking-wider text-[#4e8782]"
-                  >Beach Club</span
-                >
-                <h4
-                  class="text-xs font-serif font-bold text-stone-800 truncate"
-                >
-                  Mex on the Beach
-                </h4>
-                <p class="text-[10px] text-stone-500 truncate">
-                  Premium coastal dining & ocean vistas
-                </p>
-              </div>
-            </div>
-            <button
-              type="button"
-              id="mobile-open-booking-btn"
-              class="bg-[#E77543] hover:bg-[#d66332] text-white text-[11px] font-bold tracking-wider uppercase py-2.5 px-4 rounded-xl transition-all shadow-md flex-shrink-0 cursor-pointer"
-            >
-              Book Now
-            </button>
-          </div>
+      {/* ANCLA PARA ACTIVAR EL STICKY EN MÓVIL AL PASAR EL HERO */}
+        <div id="sticky-anchor" class="h-px w-full"></div>
 
-          {
-            /* Backdrop de fondo oscuro para el formulario desplegable en móvil */
-          }
-          <div
-            id="booking-form-backdrop"
-            class="fixed inset-0 bg-black/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 lg:hidden"
-          >
-          </div>
-
-          {
-            /* Formulario limpio (vuelve a su estado original sin cargar fotos dentro) */
-          }
+        {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
+        <div
+          id="booking-section"
+          class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
+        >
           <form
-            id="beach-club-booking-form"
-            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5
-    fixed bottom-0 left-0 right-0 z-50 max-h-[90vh] overflow-y-auto rounded-t-3xl border-t transform translate-y-full transition-transform duration-300 ease-in-out
-    lg:relative lg:bottom-auto lg:left-auto lg:right-auto lg:z-0 lg:max-h-none lg:overflow-y-visible lg:rounded-2xl lg:border-none lg:translate-y-0"
+            id="beach-club-booking-form-desktop"
+            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
           >
-            {/* Encabezado del Formulario en Móvil */}
-            <div
-              class="flex items-center justify-between pb-2 border-b border-stone-100 lg:hidden"
-            >
-              <div class="space-y-0.5">
-                <h3 class="font-serif font-bold text-stone-800 text-base">
-                  New Reservation
-                </h3>
-                <p class="text-stone-500 text-[11px]">
-                  Fill details to request availability
-                </p>
-              </div>
-              <button
-                type="button"
-                id="mobile-close-booking-btn"
-                class="w-8 h-8 flex items-center justify-center rounded-full bg-stone-100 text-stone-500 hover:bg-stone-200 transition-colors cursor-pointer"
-                aria-label="Close form"
+            <div class="space-y-0.5 pb-2 border-b border-stone-100">
+              <h3
+                class="font-serif font-bold text-stone-800 text-base md:text-lg"
               >
-                <svg
-                  class="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  stroke-width="2.5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-              </button>
+                New Reservation
+              </h3>
+              <p class="text-stone-500 text-xs">
+                Fill details to request availability
+              </p>
             </div>
 
-            {/* GRID DE FECHA Y HORA */}
-            <div class="grid grid-cols-2 gap-4">
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Select Date</label
-                >
-                <input
-                  type="date"
-                  name="date"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-                />
-              </div>
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Select Time</label
-                >
-                <input
-                  type="time"
-                  name="time"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-                />
-              </div>
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+              >
+                Select Date
+              </label>
+              <input
+                type="date"
+                name="date"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+              />
             </div>
 
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Adults</label
                 >
+                  Adults
+                </label>
                 <select
                   name="adults"
                   required
@@ -641,11 +560,13 @@ const carouselImages = [
                   <option value="5">5 Adults</option>
                 </select>
               </div>
+
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                  >Children</label
                 >
+                  Children
+                </label>
                 <select
                   name="children"
                   class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
@@ -661,8 +582,9 @@ const carouselImages = [
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Full name</label
               >
+                Full name
+              </label>
               <input
                 type="text"
                 name="fullName"
@@ -675,8 +597,9 @@ const carouselImages = [
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Phone</label
               >
+                Phone
+              </label>
               <input
                 type="tel"
                 name="phone"
@@ -689,8 +612,9 @@ const carouselImages = [
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Email</label
               >
+                Email
+              </label>
               <input
                 type="email"
                 name="email"
@@ -703,8 +627,9 @@ const carouselImages = [
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-                >Message</label
               >
+                Message
+              </label>
               <textarea
                 name="message"
                 rows="3"
@@ -715,83 +640,317 @@ const carouselImages = [
 
             <button
               type="submit"
-              id="submit-booking-btn"
-              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
+              class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
             >
               Request Reservation
             </button>
           </form>
         </div>
-      <script>
-        function initBookingDrawer() {
-          const openBtn = document.getElementById("mobile-open-booking-btn");
-          const closeBtn = document.getElementById("mobile-close-booking-btn");
-          const form = document.getElementById(
-            "beach-club-booking-form",
-          ) as HTMLFormElement;
-          const backdrop = document.getElementById("booking-form-backdrop");
-          const submitBtn = document.getElementById(
-            "submit-booking-btn",
-          ) as HTMLButtonElement;
 
-          if (!form || !submitBtn) return;
+        {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
+        <div
+          id="sticky-product-card"
+          class="fixed bottom-4 left-4 right-4 lg:hidden z-40 transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none"
+        >
+          <div
+            class="bg-[#EFF5F9] rounded-[28px] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-stone-200/60 flex flex-col gap-4"
+          >
+            {/* CABECERA: LOGO + TITULO Y DESCRIPCIÓN */}
+            <div class="flex items-center gap-3.5">
+              <div
+                class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
+              >
+                <img
+                  src="/img-beach-club/mex-beach-club-lifestyle.webp"
+                  alt="Mex on the Beach"
+                  class="w-full h-full object-contain rounded-lg"
+                />
+              </div>
 
-          function openMobileBooking() {
-            if (!backdrop || !form) return;
-            backdrop.classList.remove("hidden");
-            void backdrop.offsetWidth;
-            backdrop.classList.add("opacity-100");
-            form.classList.remove("translate-y-full");
-            document.body.style.overflow = "hidden";
-          }
+              <div class="flex flex-col min-w-0">
+                <h4
+                  class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
+                >
+                  {i18n.MAKE_YOU_RESERVATION.title}
+                </h4>
+                <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
+                  Booking 30 days before.
+                </p>
+              </div>
+            </div>
 
-          function closeMobileBooking() {
-            if (!backdrop || !form) return;
-            backdrop.classList.remove("opacity-100");
-            form.classList.add("translate-y-full");
-            document.body.style.overflow = "";
-            setTimeout(() => {
-              if (form.classList.contains("translate-y-full")) {
-                backdrop.classList.add("hidden");
-              }
-            }, 300);
-          }
+            {/* BOTÓN QUE ABRE EL MODAL DE RESERVA EN MÓVIL */}
+            <button
+              id="open-mobile-modal-btn"
+              type="button"
+              class="w-full bg-[#E77543] hover:bg-[#d66332] active:scale-[0.98] text-white text-sm font-bold text-center py-3.5 rounded-full shadow-sm transition-all duration-200 cursor-pointer"
+            >
+              Check Availability
+            </button>
+          </div>
+        </div>
 
-          openBtn?.addEventListener("click", openMobileBooking);
-          closeBtn?.addEventListener("click", closeMobileBooking);
-          backdrop?.addEventListener("click", closeMobileBooking);
-
-          form.addEventListener("submit", async (e) => {
-            e.preventDefault();
-            const originalText = submitBtn.innerText;
-            submitBtn.innerText = "SENDING...";
-            submitBtn.disabled = true;
-            const formData = new FormData(form);
-
-            try {
-              const response = await fetch("/api/booking", {
-                method: "POST",
-                body: formData,
-              });
-              if (response.ok) {
-                alert("¡Reservation request sent successfully!");
-                form.reset();
-                if (window.innerWidth < 1024) closeMobileBooking();
-              } else {
-                alert("Error sending request. Please try again.");
-              }
-            } catch (error) {
-              console.error(error);
-              alert("Connection error.");
-            } finally {
-              submitBtn.innerText = originalText;
-              submitBtn.disabled = false;
-            }
-          });
+        {
+          /* MODAL MÓVIL DE RESERVA (SE DESPLIEGA AL DAR CLIC EN EL BOTÓN FLOTANTE) */
         }
-        initBookingDrawer();
-        document.addEventListener("astro:page-load", initBookingDrawer);
-      </script>
+        <div
+          id="mobile-booking-modal"
+          class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
+        >
+          <div
+            class="bg-white w-full max-h-[90vh] overflow-y-auto rounded-t-3xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-300"
+          >
+            <div
+              class="flex items-center justify-between pb-3 border-b border-stone-100"
+            >
+              <div>
+                <h3 class="font-serif font-bold text-stone-800 text-lg">
+                  New Reservation
+                </h3>
+                <p class="text-stone-500 text-xs">
+                  Fill details to request availability
+                </p>
+              </div>
+              <button
+                id="close-mobile-modal-btn"
+                type="button"
+                class="text-stone-400 hover:text-stone-700 text-2xl font-bold px-2 py-1"
+              >
+                &times;
+              </button>
+            </div>
+
+            <form id="beach-club-booking-form-mobile" class="space-y-4">
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Select Date</label
+                >
+                <input
+                  type="date"
+                  name="date"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="space-y-1.5">
+                  <label
+                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                    >Adults</label
+                  >
+                  <select
+                    name="adults"
+                    required
+                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                  >
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                    <option value="5">5 Adults</option>
+                  </select>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label
+                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                    >Children</label
+                  >
+                  <select
+                    name="children"
+                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                  >
+                    <option value="0" selected>0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                    <option value="3">3 Children</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Full name</label
+                >
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Phone</label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Message</label
+                >
+                <textarea
+                  name="message"
+                  rows="2"
+                  placeholder="Any special requests?..."
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md active:scale-[0.99] cursor-pointer"
+              >
+                Request Reservation
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <script>
+          function initBookingForm() {
+            // Manejo de envíos de formularios (Desktop y Móvil)
+            const forms = [
+              document.getElementById("beach-club-booking-form-desktop"),
+              document.getElementById("beach-club-booking-form-mobile"),
+            ];
+
+            forms.forEach((form) => {
+              if (!form) return;
+
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector(
+                  ".submit-booking-btn",
+                ) as HTMLButtonElement;
+                const originalText = submitBtn
+                  ? submitBtn.innerText
+                  : "REQUEST RESERVATION";
+
+                if (submitBtn) {
+                  submitBtn.innerText = "SENDING...";
+                  submitBtn.disabled = true;
+                }
+
+                const formData = new FormData(form as HTMLFormElement);
+
+                try {
+                  const response = await fetch("/api/booking", {
+                    method: "POST",
+                    body: formData,
+                  });
+                  if (response.ok) {
+                    alert("¡Reservation request sent successfully!");
+                    (form as HTMLFormElement).reset();
+                    // Cerrar modal si fue enviado desde el modal móvil
+                    document
+                      .getElementById("mobile-booking-modal")
+                      ?.classList.add("hidden");
+                  } else {
+                    alert("Error sending request. Please try again.");
+                  }
+                } catch (error) {
+                  console.error(error);
+                  alert("Connection error.");
+                } finally {
+                  if (submitBtn) {
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                  }
+                }
+              });
+            });
+
+            // Control del Modal Móvil
+            const openModalBtn = document.getElementById(
+              "open-mobile-modal-btn",
+            );
+            const closeModalBtn = document.getElementById(
+              "close-mobile-modal-btn",
+            );
+            const mobileModal = document.getElementById("mobile-booking-modal");
+
+            if (openModalBtn && closeModalBtn && mobileModal) {
+              openModalBtn.addEventListener("click", () => {
+                mobileModal.classList.remove("hidden");
+                mobileModal.classList.add("flex");
+              });
+
+              closeModalBtn.addEventListener("click", () => {
+                mobileModal.classList.add("hidden");
+                mobileModal.classList.remove("flex");
+              });
+
+              // Cerrar al dar clic fuera del contenedor
+              mobileModal.addEventListener("click", (e) => {
+                if (e.target === mobileModal) {
+                  mobileModal.classList.add("hidden");
+                  mobileModal.classList.remove("flex");
+                }
+              });
+            }
+
+            // Intersection Observer para el sticky flotante móvil
+            const anchor = document.getElementById("sticky-anchor");
+            const stickyCard = document.getElementById("sticky-product-card");
+
+            if (anchor && stickyCard) {
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  if (!entry.isIntersecting) {
+                    stickyCard.classList.remove(
+                      "translate-y-[150%]",
+                      "opacity-0",
+                      "pointer-events-none",
+                    );
+                    stickyCard.classList.add("translate-y-0", "opacity-100");
+                  } else {
+                    stickyCard.classList.add(
+                      "translate-y-[150%]",
+                      "opacity-0",
+                      "pointer-events-none",
+                    );
+                    stickyCard.classList.remove("translate-y-0", "opacity-100");
+                  }
+                },
+                { threshold: 0 },
+              );
+
+              observer.observe(anchor);
+            }
+          }
+
+          initBookingForm();
+          document.addEventListener("astro:page-load", initBookingForm);
+        </script>
     </div>
   </section>
   {/* SECCIÓN SUGERENCIAS / BACKLINKS */}
