@@ -306,12 +306,17 @@ const dishImages = [
             </div>
           </div>
         </div>
-        {/* COLUMNA DERECHA: FORMULARIO DE RESERVACIÓN */}
-        <div class="lg:col-span-1">
+        {
+          /* CONTENEDOR DEL FORMULARIO DE RESERVACIÓN: VISIBLE EN MÓVIL Y DESKTOP */
+        }
+        <div
+          id="booking-section"
+          class="w-full lg:col-span-1 lg:sticky lg:top-24"
+        >
+          <div id="sticky-anchor" class="h-px w-full"></div>
+
           <form
-            id="beach-club-booking-form"
-            method="POST"
-            action="/api/booking"
+            id="beach-club-booking-form-desktop"
             class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
           >
             <div class="space-y-0.5 pb-2 border-b border-stone-100">
@@ -358,6 +363,7 @@ const dishImages = [
                   <option value="5">5 Adults</option>
                 </select>
               </div>
+
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -437,61 +443,58 @@ const dishImages = [
 
             <button
               type="submit"
-              id="submit-booking-btn"
-              class="w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer disabled:opacity-50"
+              class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
             >
               Request Reservation
             </button>
           </form>
         </div>
+
         <script>
           function initBookingForm() {
             const form = document.getElementById(
-              "beach-club-booking-form",
-            ) as HTMLFormElement | null;
+              "beach-club-booking-form-desktop",
+            );
+
             if (!form) return;
 
-            form.onsubmit = async (e) => {
-              e.preventDefault(); // Stop al GET nativo
-              e.stopPropagation();
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault();
+              const submitBtn = form.querySelector(
+                ".submit-booking-btn",
+              ) as HTMLButtonElement;
+              const originalText = submitBtn
+                ? submitBtn.innerText
+                : "REQUEST RESERVATION";
 
-              const submitBtn = document.getElementById(
-                "submit-booking-btn",
-              ) as HTMLButtonElement | null;
-              if (!submitBtn) return;
+              if (submitBtn) {
+                submitBtn.innerText = "SENDING...";
+                submitBtn.disabled = true;
+              }
 
-              const originalText = submitBtn.innerText;
-              submitBtn.innerText = "SENDING...";
-              submitBtn.disabled = true;
-
-              const formData = new FormData(form);
-              const data = Object.fromEntries(formData.entries());
+              const formData = new FormData(form as HTMLFormElement);
 
               try {
                 const response = await fetch("/api/booking", {
                   method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body: JSON.stringify(data),
+                  body: formData,
                 });
-
                 if (response.ok) {
                   alert("¡Reservation request sent successfully!");
-                  form.reset();
+                  (form as HTMLFormElement).reset();
                 } else {
-                  const errorData = await response.json().catch(() => ({}));
-                  console.error("Server error response:", errorData);
-                  alert("Error sending request. Please check form data.");
+                  alert("Error sending request. Please try again.");
                 }
               } catch (error) {
-                console.error("Fetch network error:", error);
+                console.error(error);
                 alert("Connection error.");
               } finally {
-                submitBtn.innerText = originalText;
-                submitBtn.disabled = false;
+                if (submitBtn) {
+                  submitBtn.innerText = originalText;
+                  submitBtn.disabled = false;
+                }
               }
-            };
+            });
           }
 
           initBookingForm();
