@@ -442,53 +442,58 @@ const dishImages = [
             </button>
           </form>
         </div>
-
         <script>
-          function initBookingForm() {
+          // Escuchamos directamente cuando el DOM/Astro esté listo
+          document.addEventListener("astro:page-load", () => {
             const form = document.getElementById(
               "beach-club-booking-form",
-            ) as HTMLFormElement;
+            ) as HTMLFormElement | null;
             const submitBtn = document.getElementById(
               "submit-booking-btn",
-            ) as HTMLButtonElement;
+            ) as HTMLButtonElement | null;
 
-            if (form && submitBtn) {
-              form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                const originalText = submitBtn.innerText;
-                submitBtn.innerText = "SENDING...";
-                submitBtn.disabled = true;
-                const formData = new FormData(form);
+            if (!form || !submitBtn) return;
 
-                try {
-                  const response = await fetch("/api/booking", {
-                    method: "POST",
-                    body: formData,
-                  });
-                  if (response.ok) {
-                    alert("¡Reservation request sent successfully!");
-                    form.reset();
-                  } else {
-                    alert("Error sending request. Please try again.");
-                  }
-                } catch (error) {
-                  console.error(error);
-                  alert("Connection error.");
-                } finally {
-                  submitBtn.innerText = originalText;
-                  submitBtn.disabled = false;
+            // Quitamos cualquier listener previo clonando el form o manejándolo directamente
+            form.onsubmit = async (e) => {
+              e.preventDefault(); // Detiene la recarga y el envío nativo HTML
+
+              const originalText = submitBtn.innerText;
+              submitBtn.innerText = "SENDING...";
+              submitBtn.disabled = true;
+
+              const formData = new FormData(form);
+
+              try {
+                const response = await fetch("/api/booking", {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (response.ok) {
+                  alert("¡Reservation request sent successfully!");
+                  form.reset();
+                } else {
+                  const errorData = await response.json().catch(() => ({}));
+                  console.error("Server error response:", errorData);
+                  alert("Error sending request. Please check form data.");
                 }
-              });
-            }
+              } catch (error) {
+                console.error("Fetch network error:", error);
+                alert("Connection error.");
+              } finally {
+                submitBtn.innerText = originalText;
+                submitBtn.disabled = false;
+              }
+            };
 
-            // Lógica para mostrar/ocultar la tarjeta sticky en móvil
+            // Lógica del Intersection Observer para el sticky card
             const anchor = document.getElementById("sticky-anchor");
             const stickyCard = document.getElementById("sticky-product-card");
 
             if (anchor && stickyCard) {
               const observer = new IntersectionObserver(
                 ([entry]) => {
-                  // Muestra el card cuando el ancla deja de ser visible (se scrolleó hacia abajo)
                   if (!entry.isIntersecting) {
                     stickyCard.classList.remove(
                       "translate-y-[150%]",
@@ -510,10 +515,7 @@ const dishImages = [
 
               observer.observe(anchor);
             }
-          }
-
-          initBookingForm();
-          document.addEventListener("astro:page-load", initBookingForm);
+          });
         </script>
       </div>
     </section>
