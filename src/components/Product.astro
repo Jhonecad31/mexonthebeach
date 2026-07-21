@@ -38,6 +38,8 @@ const highlights = [
 ---
 
 <Layout>
+  <!-- Añadimos 'relative' aquí para que cualquier cálculo de posición absoluta se acople correctamente al contenedor principal -->
+  <div class="relative">
     <section
       class="relative h-[80vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
     >
@@ -526,14 +528,14 @@ const highlights = [
             </details>
           </div>
         </div>
-        {/* ANCLA PARA ACTIVAR EL STICKY EN MÓVIL AL PASAR EL HERO */}
-        <div id="sticky-anchor" class="h-px w-full"></div>
-
+        
         {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
         <div
           id="booking-section"
           class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
         >
+        <div id="sticky-anchor" class="h-px w-full"></div>
+
           <form
             id="beach-club-booking-form-desktop"
             class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
@@ -683,7 +685,7 @@ const highlights = [
                 class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
               >
                 <img
-                  src="/img-beach-club/mex-beach-club-lifestyle.webp"
+                  src="/img-beach-club/half-day-beach-pass.webp"
                   alt="Mex on the Beach"
                   class="w-full h-full object-contain rounded-lg"
                 />
@@ -693,7 +695,7 @@ const highlights = [
                 <h4
                   class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
                 >
-                   {i18n.FULL_DAY_BEACH_EXPERIENCE.title}
+                  {i18n.HALF_DAY_PRODUCT.title}
                 </h4>
                 <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
                   Booking 30 days before.
