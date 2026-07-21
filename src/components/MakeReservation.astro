@@ -314,7 +314,6 @@ const dishImages = [
           class="w-full lg:col-span-1 lg:sticky lg:top-24"
         >
           <div id="sticky-anchor" class="h-px w-full"></div>
-
           <form
             id="beach-club-booking-form-desktop"
             class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
@@ -329,7 +328,6 @@ const dishImages = [
                 Fill details to request availability
               </p>
             </div>
-
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
@@ -343,7 +341,6 @@ const dishImages = [
                 class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
               />
             </div>
-
             <div class="grid grid-cols-2 gap-4">
               <div class="space-y-1.5">
                 <label
@@ -452,39 +449,41 @@ const dishImages = [
           function initBookingForm() {
             const form = document.getElementById(
               "beach-club-booking-form-desktop",
-            );
+            ) as HTMLFormElement | null;
 
             if (!form) return;
 
-            form.addEventListener("submit", async (e) => {
+            // Removemos cualquier listener previo asignando directamente para evitar duplicados si hay re-renders
+            form.onsubmit = async (e) => {
               e.preventDefault();
+
               const submitBtn = form.querySelector(
                 ".submit-booking-btn",
-              ) as HTMLButtonElement;
-              const originalText = submitBtn
-                ? submitBtn.innerText
-                : "REQUEST RESERVATION";
+              ) as HTMLButtonElement | null;
+              const originalText =
+                submitBtn?.innerText || "REQUEST RESERVATION";
 
               if (submitBtn) {
                 submitBtn.innerText = "SENDING...";
                 submitBtn.disabled = true;
               }
 
-              const formData = new FormData(form as HTMLFormElement);
+              const formData = new FormData(form);
 
               try {
                 const response = await fetch("/api/booking", {
                   method: "POST",
                   body: formData,
                 });
+
                 if (response.ok) {
                   alert("¡Reservation request sent successfully!");
-                  (form as HTMLFormElement).reset();
+                  form.reset();
                 } else {
                   alert("Error sending request. Please try again.");
                 }
               } catch (error) {
-                console.error(error);
+                console.error("Booking submit error:", error);
                 alert("Connection error.");
               } finally {
                 if (submitBtn) {
@@ -492,11 +491,16 @@ const dishImages = [
                   submitBtn.disabled = false;
                 }
               }
-            });
+            };
           }
 
-          initBookingForm();
+          // Inicialización al cargar la página o navegar con Astro View Transitions
           document.addEventListener("astro:page-load", initBookingForm);
+          if (document.readyState !== "loading") {
+            initBookingForm();
+          } else {
+            document.addEventListener("DOMContentLoaded", initBookingForm);
+          }
         </script>
       </div>
     </section>
