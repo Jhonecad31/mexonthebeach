@@ -729,9 +729,11 @@
       "title": "CONTÁCTANOS",
       "name": "Nombre Completo",
       "email": "Correo Electrónico",
+      "phone": "Telefone",
       "message": "Mensaje",
       "placeholderName": "Nombre",
       "placeholderEmail": "correo@ejemplo.com",
+      "placeholderPhone": "Adicionar um número de telefone",
       "placeholderMessage": "¿Cómo podemos ayudarte?",
       "send": "Enviar Mensaje",
       "successAlert": "¡Gracias! Tu mensaje ha sido enviado con éxito. Nos pondremos en contacto contigo muy pronto."

@@ -6,15 +6,18 @@ export default function FormContact({ i18n }: { i18n: any }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "", // 1. Agregado al estado
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -33,7 +36,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
         return;
       }
       setIsOpen(true);
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error de red al enviar el formulario:", error);
       alert("Ocurrió un problema de conexión al enviar el formulario.");
@@ -41,6 +44,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
       setIsSubmitting(false);
     }
   };
+
   return (
     <>
       {/* Form Container */}
@@ -65,6 +69,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
                 className="w-full bg-white text-zinc-700 placeholder:text-zinc-400/60 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
               />
             </div>
+
             {/* Email Field */}
             <div>
               <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5">
@@ -80,6 +85,22 @@ export default function FormContact({ i18n }: { i18n: any }) {
                 className="w-full bg-white text-zinc-700 placeholder:text-zinc-400/60 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
               />
             </div>
+
+            {/* Phone Field */}
+            <div>
+              <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5">
+                {i18n.CONTACT.FORM.phone || "Teléfono"}
+              </label>
+              <input
+                type="tel"
+                name="phone"
+                value={formData.phone}
+                onChange={handleChange}
+                placeholder={i18n.CONTACT.FORM.placeholderPhone || "+52 998 ..."}
+                className="w-full bg-white text-zinc-700 placeholder:text-zinc-400/60 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)]"
+              />
+            </div>
+
             {/* Message Field */}
             <div>
               <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1.5">
@@ -95,6 +116,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
                 className="w-full bg-white text-zinc-700 placeholder:text-zinc-400/60 rounded-2xl px-4 py-3 text-xs font-normal focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all border-none shadow-[0_2px_8px_rgba(0,0,0,0.03)] resize-none"
               ></textarea>
             </div>
+
             {/* Submit Button */}
             <Button
               type="submit"
@@ -106,12 +128,13 @@ export default function FormContact({ i18n }: { i18n: any }) {
           </form>
         </div>
       </div>
+
+      {/* Modal / Toast de estado */}
       <div
         id="status-modal"
         className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
       >
         <div className="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95">
-          {/* Ícono dinámico */}
           <div
             id="status-icon-container"
             className="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl"
@@ -130,8 +153,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
               id="status-message"
               className="text-stone-500 text-xs md:text-sm"
             >
-              We have received your reservation request. We will contact you
-              soon!
+              We have received your request. We will contact you soon!
             </p>
           </div>
 

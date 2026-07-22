@@ -63,14 +63,11 @@ const navigation = [
 ];
 ---
 
-<!-- 
-  Añadimos 'group/header' y aislamos el borde/fondo explícitamente. 
-  La transición se limita a 'colors' y 'shadow' para evitar artefactos.
--->
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out bg-transparent text-white border-b border-transparent group/header data-[scrolled=true]:bg-[#fcfbf7] data-[scrolled=true]:text-dark data-[scrolled=true]:shadow-sm data-[scrolled=true]:border-transparent"
   id="main-header"
-  data-scrolled="false"
+  data-scrolled={isContactPage ? "true" : "false"}
+  data-always-scrolled={isContactPage ? "true" : "false"}
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div
@@ -301,13 +298,14 @@ const navigation = [
       link.addEventListener("click", closeMenu);
     });
 
-    // Control de scroll delegando la lógica visual a Tailwind mediante 'data-scrolled'
     let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
-          const isScrolled = window.scrollY > 20;
+          const isAlwaysScrolled = header.getAttribute("data-always-scrolled") === "true";
+          const isScrolled = isAlwaysScrolled || window.scrollY > 20;
+
           header.setAttribute("data-scrolled", isScrolled ? "true" : "false");
           ticking = false;
         });
