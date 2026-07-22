@@ -97,7 +97,7 @@ const carouselImages = [
   <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
       <div class="lg:col-span-2 space-y-8 md:space-y-12">
-        <!-- seccion de información de features -->
+        {/* ICONOS DE INCLUD DE ENTRADA */}
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 md:gap-4">
           {
             [
@@ -201,8 +201,7 @@ const carouselImages = [
             ))
           }
         </div>
-        <!-- Aqui empienza la información del producto -->
-        <!-- Overview -->
+        {/* OVERVIEW */}
         <div
           class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
         >
@@ -217,22 +216,23 @@ const carouselImages = [
           <p>{i18n.HALF_DAY_PRODUCT.OVERVIEW.p3}</p>
           <p>{i18n.HALF_DAY_PRODUCT.OVERVIEW.p4}</p>
         </div>
-        <!-- Aqui empieza la información con acordeon -->
+        {/* DETAILS ACORDIONS INFO */}
         <div class="divide-y divide-gray-200">
-          {}
+          <!-- Acordeón 1: Qué incluye -->
           <details class="group py-6" name="tour-info" open>
             <summary
-              class="flex justify-between items-center cursor-pointer list-none"
+              class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
                 {i18n.HALF_DAY_PRODUCT.WHAT_INCLUDED.title}
-              </span>
+              </h2>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
+
             <div class="mt-8">
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                 {
@@ -259,24 +259,22 @@ const carouselImages = [
               </ul>
             </div>
           </details>
-          {}
-          <details
-            class="group py-6 border-b border-gray-200"
-            name="tour-info"
-            open
-          >
+
+          <!-- Acordeón 2: Vive la Experiencia -->
+          <details class="group py-6" name="tour-info" open>
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
                 {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.title}
-              </span>
+              </h2>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
+
             <div
               class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
             >
@@ -284,6 +282,7 @@ const carouselImages = [
                 {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.description}
               </p>
             </div>
+
             <!-- Contenedor de Filas Informativas -->
             <div class="space-y-12">
               <!-- Bloque 2: Tu Día Junto al Mar -->
@@ -291,9 +290,8 @@ const carouselImages = [
                 class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
               >
                 <div class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3">
-                  <!-- Icono de Olas / Relajación -->
                   <div
-                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -310,30 +308,28 @@ const carouselImages = [
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    <span
-                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}</span
-                    >
+                  <h3
+                    class="font-bold text-black/70 tracking-tight text-base md:text-lg"
+                  >
+                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}
                   </h3>
                 </div>
                 <div class="md:col-span-2">
                   <div
                     class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
                   >
-                    <p>
-                      {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p1}
-                    </p>
+                    <p>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p1}</p>
                   </div>
                 </div>
               </div>
+
               <!-- Bloque 3: Naturaleza y Cultura Local -->
               <div
                 class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
               >
                 <div class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3">
-                  <!-- Icono de Palmera / Entorno Natural -->
                   <div
-                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -350,30 +346,28 @@ const carouselImages = [
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    <span
-                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}</span
-                    >
+                  <h3
+                    class="font-bold text-black/70 tracking-tight text-base md:text-lg"
+                  >
+                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}
                   </h3>
                 </div>
                 <div class="md:col-span-2">
                   <div
                     class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
                   >
-                    <p>
-                      {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p2}
-                    </p>
+                    <p>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p2}</p>
                   </div>
                 </div>
               </div>
+
               <!-- Bloque 4: El Corazón de tu Viaje -->
               <div
                 class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
               >
                 <div class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3">
-                  <!-- Icono de Mapa / Ubicación -->
                   <div
-                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center flex-shrink-0"
+                    class="w-10 h-10 bg-[#FAF6EE] rounded-lg flex items-center justify-center shrink-0"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -394,49 +388,38 @@ const carouselImages = [
                       ></path>
                     </svg>
                   </div>
-
-                  {
-                    /* H3 encapsulado en span para lectura correcta de parsers SEO */
-                  }
                   <h3
                     class="font-bold text-black/70 tracking-tight text-base md:text-lg"
                   >
-                    <span
-                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}</span
-                    >
+                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}
                   </h3>
                 </div>
-
                 <div class="md:col-span-2">
                   <div
                     class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
                   >
-                    <p>
-                      {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p3}
-                    </p>
+                    <p>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.p3}</p>
                   </div>
                 </div>
               </div>
             </div>
           </details>
-          {}
-          <details
-            class="group py-6 border-b border-gray-200"
-            name="tour-info"
-            open
-          >
+
+          <!-- Acordeón 3: Love Spending -->
+          <details class="group py-6" name="tour-info" open>
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <span class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
                 {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.title}
-              </span>
+              </h2>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
+
             <div
               class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
             >
@@ -444,6 +427,7 @@ const carouselImages = [
                 {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.description}
               </p>
             </div>
+
             <div
               class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
             >
@@ -451,14 +435,11 @@ const carouselImages = [
                 <div
                   class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
                 >
-                  <p>
-                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p1}
-                  </p>
-                  <p>
-                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p2}
-                  </p>
+                  <p>{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p1}</p>
+                  <p>{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p2}</p>
                 </div>
               </div>
+
               <div
                 class="grid grid-cols-2 gap-4 bg-slate-50 p-6 rounded-2xl border border-slate-100"
               >
@@ -466,51 +447,48 @@ const carouselImages = [
                   class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
                 >
                   <span class="text-xl">🏖️</span>
-                  <span class="font-semibold text-slate-800 text-sm"
-                    >{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.access}</span
-                  >
+                  <span class="font-semibold text-slate-800 text-sm">
+                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.access}
+                  </span>
                 </div>
                 <div
                   class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
                 >
                   <span class="text-xl">🏊</span>
-                  <span class="font-semibold text-slate-800 text-sm"
-                    >{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.pool}</span
-                  >
+                  <span class="font-semibold text-slate-800 text-sm">
+                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.pool}
+                  </span>
                 </div>
                 <div
                   class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
                 >
                   <span class="text-xl">🍹</span>
-                  <span class="font-semibold text-slate-800 text-sm"
-                    >{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.food}</span
-                  >
+                  <span class="font-semibold text-slate-800 text-sm">
+                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.food}
+                  </span>
                 </div>
                 <div
                   class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3"
                 >
                   <span class="text-xl">🥃</span>
-                  <span class="font-semibold text-slate-800 text-sm"
-                    >{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.tequila}</span
-                  >
+                  <span class="font-semibold text-slate-800 text-sm">
+                    {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.icons.tequila}
+                  </span>
                 </div>
               </div>
             </div>
-            <!-- Bloque 3 & 4: Entorno y Cierre con un toque de fondo suave -->
+
+            <!-- Bloque Entorno y Cierre -->
             <div
               class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
             >
               <div
                 class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
               >
-                <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                   <span class="font-semibold text-slate-800 text-sm"
-                    >{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.title_h3}</span
-                  >
+                <h3 class="font-bold text-slate-800 text-sm tracking-tight">
+                  {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.title_h3}
                 </h3>
-                <p>
-                  {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p1_h3}
-                </p>
+                <p>{i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p1_h3}</p>
                 <div class="border-t border-sky-100/80 pt-6">
                   <p class="text-slate-800 font-medium text-base italic">
                     {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.p2_h3}
@@ -521,7 +499,6 @@ const carouselImages = [
           </details>
         </div>
       </div>
-      {/* ANCLA PARA ACTIVAR EL STICKY EN MÓVIL AL PASAR EL HERO */}
       {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
       <div
         id="booking-section"
@@ -663,7 +640,6 @@ const carouselImages = [
           </button>
         </form>
       </div>
-
       {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
       <div
         id="sticky-product-card"
@@ -704,8 +680,7 @@ const carouselImages = [
           </button>
         </div>
       </div>
-
-      {/* MODAL MÓVIL DE RESERVA */}
+      {/* MODAL MÓVIL DE RESERVA FORMULARIO */}
       <div
         id="mobile-booking-modal"
         class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
@@ -847,7 +822,6 @@ const carouselImages = [
           </form>
         </div>
       </div>
-
       {/* VISTA EMERGENTE / MODAL DE CONFIRMACIÓN DE ENVÍO */}
       <div
         id="status-modal"
@@ -886,7 +860,7 @@ const carouselImages = [
           </button>
         </div>
       </div>
-
+      {/* SCRIPT DE FUNCIONALIDAD PARA FORMULARIO RESERVAS */}
       <script>
         function initBookingForm() {
           const statusModal = document.getElementById("status-modal");
@@ -1250,6 +1224,7 @@ const carouselImages = [
       </div>
     </div>
   </section>
+  {/* SECCIÓN DE PREGUNTAS */}
   <section class="w-full py-16 px-4 md:px-8 bg-white relative">
     <div class="max-w-3xl mx-auto">
       <div class="text-center mb-12">
@@ -1393,6 +1368,7 @@ const carouselImages = [
       </div>
     </div>
   </section>
+  {/* lINEA DECORATIVA COLOR VERDE */}
   <section class="py-24 pb-40 relative overflow-hidden text-dark -mt-30">
     <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
       <svg
