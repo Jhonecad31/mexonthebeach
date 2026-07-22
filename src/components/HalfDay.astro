@@ -8,14 +8,12 @@ const lang = (currentLocale || "en") as Lang;
 const i18n = getI18N({ currentLocale }) as any;
 const t = useTranslations(lang);
 const bookingUrl = lang === "en" ? "/#booking" : `/${lang}#booking`;
-
 const carouselImages = [
   "/img-beach-club/half-day-beach-pass.webp",
   "/img-food/food-in-the-beach.webp",
   "/img-food/mex-tour-coffee-break-snacks.webp",
 ];
 ---
-
 <Layout>
   <div>
     <section
@@ -312,7 +310,7 @@ const carouselImages = [
                     </svg>
                   </div>
                   <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}
+                    <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}</span>
                   </h3>
                 </div>
                 <div class="md:col-span-2">
@@ -350,7 +348,7 @@ const carouselImages = [
                     </svg>
                   </div>
                   <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}
+                    <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}</span>
                   </h3>
                 </div>
                 <div class="md:col-span-2">
@@ -390,7 +388,7 @@ const carouselImages = [
                     </svg>
                   </div>
                   <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}
+                   <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}</span>
                   </h3>
                 </div>
                 <div class="md:col-span-2">
