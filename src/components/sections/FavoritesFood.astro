@@ -1,82 +1,111 @@
 ---
-import { useTranslations } from '../../i18n/utils';
-import { getI18N } from '../../i18n/index';
+import { useTranslations } from "../../i18n/utils";
+import { getI18N } from "../../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
-  lang?: 'en' | 'es' | 'pt';
+  lang?: "en" | "es" | "pt";
 }
-const { lang = 'en' } = Astro.props as Props;
+const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
 ---
+
 <section id="menu" class="py-12 relative overflow-hidden w-full">
   <div class="w-full max-w-7xl mx-auto px-6 md:px-12">
-    {/* Contenedor responsivo: Scroll en móvil/tablet, 3 columnas amplias en escritorio */}
-    <div class="flex flex-nowrap lg:grid lg:grid-cols-3 gap-8 md:gap-10 overflow-x-auto pb-6 lg:pb-0 scrollbar-none snap-x snap-mandatory">
+    {
+      /* Contenedor responsivo: Scroll en móvil/tablet, 3 columnas amplias en escritorio */
+    }
+    <div
+      class="flex flex-nowrap lg:grid lg:grid-cols-3 gap-8 md:gap-10 overflow-x-auto pb-6 lg:pb-0 scrollbar-none snap-x snap-mandatory"
+    >
       <!-- Card 1 -->
-      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+      <div
+        class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start"
+      >
         <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
-          <img 
-            src="/img-food/mex-beach-club-guacamole-chips.webp" 
-            alt="Tequila Tropical" 
+          <img
+            src="/img-food/mex-beach-club-guacamole-chips.webp"
+            alt="Tequila Tropical"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div class="p-8 flex flex-col flex-grow justify-between">
           <div>
-            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
-              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+            <div
+              class="flex justify-between items-start gap-4 min-h-[48px] mb-4"
+            >
+              <h3
+                class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight"
+              >
                 {i18n.FAVORITIES.items_food.tequila.title}
               </h3>
               <span class="text-[#E77543] font-bold text-xl shrink-0">$16</span>
             </div>
-            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+            <p
+              class="text-stone-500 text-sm md:text-base font-light leading-relaxed"
+            >
               {i18n.FAVORITIES.items_food.tequila.description}
             </p>
           </div>
         </div>
       </div>
       <!-- Card 2 -->
-      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+      <div
+        class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start"
+      >
         <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
-          <img 
-            src="/img-food/mex-beach-club-seafood-tostadas.webp" 
-            alt="Caribbean Tiki" 
+          <img
+            src="/img-food/mex-beach-club-seafood-tostadas.webp"
+            alt="Caribbean Tiki"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div class="p-8 flex flex-col flex-grow justify-between">
           <div>
-            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
-              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+            <div
+              class="flex justify-between items-start gap-4 min-h-[48px] mb-4"
+            >
+              <h3
+                class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight"
+              >
                 {i18n.FAVORITIES.items_food.tiki.title}
               </h3>
               <span class="text-[#E77543] font-bold text-xl shrink-0">$22</span>
             </div>
-            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+            <p
+              class="text-stone-500 text-sm md:text-base font-light leading-relaxed"
+            >
               {i18n.FAVORITIES.items_food.tiki.description}
             </p>
           </div>
         </div>
       </div>
       <!-- Card 3 -->
-      <div class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start">
+      <div
+        class="min-w-[300px] sm:min-w-[360px] lg:min-w-0 bg-white rounded-3xl overflow-hidden shadow-[0_8px_30px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_50px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 group border border-black/5 flex flex-col justify-between snap-start"
+      >
         <div class="h-64 sm:h-72 md:h-80 overflow-hidden relative">
-          <img 
-            src="/img-food/mex-beach-club-seafood-skewers.webp" 
-            alt="Mex on the Beach Cocktail" 
+          <img
+            src="/img-food/mex-beach-club-seafood-skewers.webp"
+            alt="Mex on the Beach Cocktail"
             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           />
         </div>
         <div class="p-8 flex flex-col flex-grow justify-between">
           <div>
-            <div class="flex justify-between items-start gap-4 min-h-[48px] mb-4">
-              <h3 class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight">
+            <div
+              class="flex justify-between items-start gap-4 min-h-[48px] mb-4"
+            >
+              <h3
+                class="font-serif font-bold text-xl md:text-2xl text-stone-800 leading-tight"
+              >
                 {i18n.FAVORITIES.items_food.mex.title}
               </h3>
               <span class="text-[#E77543] font-bold text-xl shrink-0">$20</span>
             </div>
-            <p class="text-stone-500 text-sm md:text-base font-light leading-relaxed">
+            <p
+              class="text-stone-500 text-sm md:text-base font-light leading-relaxed"
+            >
               {i18n.FAVORITIES.items_food.mex.description}
             </p>
           </div>

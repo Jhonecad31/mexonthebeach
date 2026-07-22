@@ -1,12 +1,12 @@
 ---
 import { getI18N } from "../../i18n/index";
-import { useTranslations, type Lang } from '../../i18n/utils';
+import { useTranslations, type Lang } from "../../i18n/utils";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 
 const blocks = [
@@ -37,6 +37,7 @@ const blocks = [
   },
 ];
 ---
+
 <section class="py-20 px-6 md:px-12 lg:px-24 selection:bg-stone-200">
   <div class="max-w-5xl mx-auto flex flex-col gap-20 md:gap-24">
     {

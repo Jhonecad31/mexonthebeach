@@ -3,28 +3,22 @@ import { Modal, Button } from "@heroui/react";
 
 export default function FormContact({ i18n }: { i18n: any }) {
   const [isOpen, setIsOpen] = useState(false);
-
-  // Estados originales para los campos del formulario
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
-      // 1. Realizamos la petición HTTP POST real hacia tu API Route de Astro
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -47,7 +41,6 @@ export default function FormContact({ i18n }: { i18n: any }) {
       setIsSubmitting(false);
     }
   };
-
   return (
     <>
       {/* Form Container */}
@@ -117,9 +110,7 @@ export default function FormContact({ i18n }: { i18n: any }) {
         id="status-modal"
         className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
       >
-        <div
-          className="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95"
-        >
+        <div className="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95">
           {/* Ícono dinámico */}
           <div
             id="status-icon-container"
@@ -135,7 +126,10 @@ export default function FormContact({ i18n }: { i18n: any }) {
             >
               Request Sent!
             </h3>
-            <p id="status-message" className="text-stone-500 text-xs md:text-sm">
+            <p
+              id="status-message"
+              className="text-stone-500 text-xs md:text-sm"
+            >
               We have received your reservation request. We will contact you
               soon!
             </p>

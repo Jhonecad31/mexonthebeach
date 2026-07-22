@@ -7,20 +7,20 @@ import { getLangFromUrl } from "@/i18n/utils";
 import { siteName } from "@/utils/dataSchema";
 
 const { currentLocale } = Astro;
-const i18n = getI18N({currentLocale});
+const i18n = getI18N({ currentLocale });
 const lang = getLangFromUrl(Astro.url);
 const currentPath = Astro.url.pathname.replace(new RegExp(`^/${lang}`), "");
 
 interface Props {
-    offI18n?: boolean;
-    title?: string;
-    metaTitle?: string;
-    description?: string;
-    metaDescription?: string;
-    keywords?: string;
-    image?: string;
-    metaType?: string;
-    robots?: string;
+  offI18n?: boolean;
+  title?: string;
+  metaTitle?: string;
+  description?: string;
+  metaDescription?: string;
+  keywords?: string;
+  image?: string;
+  metaType?: string;
+  robots?: string;
 }
 
 const { offI18n } = Astro.props;
@@ -30,23 +30,41 @@ const metaTitle = Astro.props.metaTitle || title;
 const metaDescription = Astro.props.metaDescription || description;
 const keywords = Astro.props.keywords || "";
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
-const image = new URL(Astro.props.image || "/assets/favicons/apple-touch-icon.png", Astro.site);
+const image = new URL(
+  Astro.props.image || "/assets/favicons/apple-touch-icon.png",
+  Astro.site,
+);
 const metaType = Astro.props.metaType || "website";
-const robots = Astro.props.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const robots =
+  Astro.props.robots ||
+  "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
 ---
+
 <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<meta name="author" content={siteName}>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+/>
+<meta name="author" content={siteName} />
 <!-- Google tag (gtag.js) -->
 <!-- Google Tag Manager -->
 <!-- Meta Pixel Code -->
 <!-- End Meta Pixel Code -->
 <!-- Favicon -->
-<link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96" />
+<link
+  rel="icon"
+  type="image/png"
+  href="/assets/favicons/favicon-96x96.png"
+  sizes="96x96"
+/>
 <link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
 <link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/assets/favicons/apple-touch-icon.png"
+/>
 <meta name="apple-mobile-web-app-title" content={siteName} />
 <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -69,9 +87,27 @@ const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
 <meta property="og:image:alt" content={metaTitle} />
 <meta property="og:site_name" content={siteName} />
 <!-- Preload Fonts -->
-<link rel="preload" href="/fonts/Poppins-Light.ttf" as="font" type="font/ttf" crossorigin />
-<link rel="preload" href="/fonts/Poppins-SemiBold.ttf" as="font" type="font/ttf" crossorigin />
-<link rel="preload" href="/fonts/Poppins-ExtraBold.ttf" as="font" type="font/ttf" crossorigin />
+<link
+  rel="preload"
+  href="/fonts/Poppins-Light.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/Poppins-SemiBold.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
+<link
+  rel="preload"
+  href="/fonts/Poppins-ExtraBold.ttf"
+  as="font"
+  type="font/ttf"
+  crossorigin
+/>
 <!-- Sitemap -->
 <link rel="sitemap" href="/sitemap-index.xml" />
 <!-- clarity.ms -->

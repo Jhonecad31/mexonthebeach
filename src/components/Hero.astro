@@ -1,5 +1,5 @@
 ---
-import { useTranslations, type Lang } from '../i18n/utils';
+import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
@@ -7,14 +7,18 @@ const i18n = getI18N({ currentLocale }) as any;
 interface Props {
   lang?: Lang;
 }
-const { lang = 'en' } = Astro.props;
+const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-<section id="home" class="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden pt-20">
-  <div class="absolute inset-0 z-0 bg-neutral-900"> 
-    <img 
-      src="/img-beach-club/mex-beach-club-drinks.webp" 
-      alt="Mex on the Beach views" 
+
+<section
+  id="home"
+  class="relative min-h-[90vh] md:min-h-[100vh] flex items-center justify-center overflow-hidden pt-20"
+>
+  <div class="absolute inset-0 z-0 bg-neutral-900">
+    <img
+      src="/img-beach-club/mex-beach-club-drinks.webp"
+      alt="Mex on the Beach views"
       class="w-full h-full object-cover scale-100 animate-[kenburns_25s_ease_infinite_alternate] will-change-transform"
       loading="eager"
       fetchpriority="high"
@@ -22,45 +26,69 @@ const t = useTranslations(lang);
     />
     <div class="absolute inset-0 bg-black/40 pointer-events-none z-[1]"></div>
   </div>
-  <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white mt-12 md:mt-20 flex flex-col items-center gap-8">
-    <h1 class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-wider leading-tight drop-shadow-xl max-w-3xl">
+  <div
+    class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white mt-12 md:mt-20 flex flex-col items-center gap-8"
+  >
+    <h1
+      class="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-wider leading-tight drop-shadow-xl max-w-3xl"
+    >
       {i18n.HOME.HERO.title}
     </h1>
-    <a 
-      href="#experience" 
+    <a
+      href="#experience"
       class="inline-block p-4 bg-white/10 hover:bg-white/20 backdrop-blur-sm border border-white/30 rounded-full transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-white animate-bounce mt-4"
       aria-label="Scroll down to experience"
     >
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down">
-        <path d="m6 9 6 6 6-6"/>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="lucide lucide-chevron-down"
+      >
+        <path d="m6 9 6 6 6-6"></path>
       </svg>
     </a>
   </div>
-  <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none translate-y-[1px] scale-y-105 origin-bottom h-[65px] md:h-auto">
-    <svg 
-      viewBox="0 0 1440 130" 
-      fill="none" 
-      xmlns="http://www.w3.org/2000/svg" 
+  <div
+    class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none translate-y-[1px] scale-y-105 origin-bottom h-[65px] md:h-auto"
+  >
+    <svg
+      viewBox="0 0 1440 130"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
       class="w-full h-full md:h-auto"
       preserveAspectRatio="none"
     >
-      <path d="M0,60 C360,100 720,100 1080,60 L1440,40 L1440,130 L0,130 Z" fill="#fbf7f4"></path>
-      <path d="M0,96 C240,112 480,128 720,112 C960,96 1200,48 1440,80 L1440,130 L0,130 Z" fill="#fcfbf7"></path>
-      <path 
-        d="M0,86 C240,102 480,118 720,102 C960,86 1200,38 1440,70" 
-        stroke="var(--color-primary)" 
-        class="stroke-[4.5] md:stroke-[2] opacity-95" 
+      <path
+        d="M0,60 C360,100 720,100 1080,60 L1440,40 L1440,130 L0,130 Z"
+        fill="#fbf7f4"></path>
+      <path
+        d="M0,96 C240,112 480,128 720,112 C960,96 1200,48 1440,80 L1440,130 L0,130 Z"
+        fill="#fcfbf7"></path>
+      <path
+        d="M0,86 C240,102 480,118 720,102 C960,86 1200,38 1440,70"
+        stroke="var(--color-primary)"
+        class="stroke-[4.5] md:stroke-[2] opacity-95"
         stroke-linecap="round"
         stroke-linejoin="round"
-        fill="none"
-      ></path>
+        fill="none"></path>
     </svg>
   </div>
 </section>
 <style>
   @keyframes kenburns {
-    0% { transform: scale(1); }
-    100% { transform: scale(1.07); }
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.07);
+    }
   }
   .animate-\[kenburns_25s_ease_infinite_alternate\] {
     animation: kenburns 25s ease infinite alternate;

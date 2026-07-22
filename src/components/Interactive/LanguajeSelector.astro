@@ -10,8 +10,6 @@ const { class: className = "", isMobileDrawer = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url) || "en";
 const pathname = Astro.url.pathname;
 
-// NORMALIZACIÓN SEGURA: Asegura remover el prefijo EXACTO seguido de una barra o el final de la línea
-// Evita dejar strings vacíos usando "|| '/'"
 const cleanPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
 
 const urlEn = useTranslatedPath("en")(cleanPath);
@@ -19,11 +17,27 @@ const urlEs = useTranslatedPath("es")(cleanPath);
 const urlPt = useTranslatedPath("pt")(cleanPath);
 
 const languages = [
-  { code: "en", label: "English", flag: "https://flagcdn.com/w40/us.png", url: urlEn },
-  { code: "es", label: "Español", flag: "https://flagcdn.com/w40/mx.png", url: urlEs },
-  { code: "pt", label: "Português", flag: "https://flagcdn.com/w40/pt.png", url: urlPt }
+  {
+    code: "en",
+    label: "English",
+    flag: "https://flagcdn.com/w40/us.png",
+    url: urlEn,
+  },
+  {
+    code: "es",
+    label: "Español",
+    flag: "https://flagcdn.com/w40/mx.png",
+    url: urlEs,
+  },
+  {
+    code: "pt",
+    label: "Português",
+    flag: "https://flagcdn.com/w40/pt.png",
+    url: urlPt,
+  },
 ];
 ---
+
 {
   isMobileDrawer ? (
     /* Renderizado simple de botones circulares para el Drawer Móvil */
@@ -47,14 +61,14 @@ const languages = [
       ))}
     </div>
   ) : (
-    /* Renderizado de Dropdown flotante elegante para Escritorio */
+    /* Renderizado de Dropdown flotante para Escritorio */
     <div class={`relative group ${className}`}>
       <button
         type="button"
-        class="flex items-center text-sm font-semibold text-dark/70 hover:text-[#4e8782] transition-colors cursor-pointer gap-2 focus:outline-none"
+        class="flex items-center text-sm font-semibold transition-colors duration-300 cursor-pointer gap-2 focus:outline-none text-white/80 hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/80 group-data-[scrolled=true]/header:hover:text-[#4e8782]"
       >
         <svg
-          class="h-5 w-5 text-gray-400 group-hover:text-[#4e8782] transition-colors"
+          class="h-5 w-5 transition-colors duration-300 text-white/80 group-hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/70 group-data-[scrolled=true]/header:group-hover:text-[#4e8782]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -66,7 +80,7 @@ const languages = [
         </svg>
         <span class="tracking-wide uppercase font-bold">{lang}</span>
         <svg
-          class="h-4 w-4 text-gray-400 group-hover:text-[#4e8782] transition-colors"
+          class="h-4 w-4 transition-colors duration-300 text-white/80 group-hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/70 group-data-[scrolled=true]/header:group-hover:text-[#4e8782]"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -78,10 +92,8 @@ const languages = [
         </svg>
       </button>
 
-      {/* Dropdown Menu */}
-      <div
-        class="absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200"
-      >
+      {/* Dropdown Menu (mantiene sus colores claros para que resalte siempre sobre el menú flotante) */}
+      <div class="absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
         {languages.map((item) => (
           <a
             href={item.url}
@@ -97,7 +109,9 @@ const languages = [
               class="w-[20px] h-[14px] object-cover rounded-sm shadow-sm border border-slate-200/80"
             />
             {item.label}
-            {lang === item.code && <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />}
+            {lang === item.code && (
+              <span class="ml-auto inline-flex size-1.5 rounded-full bg-[#4e8782]" />
+            )}
           </a>
         ))}
       </div>

@@ -1,11 +1,11 @@
 ---
-import Layout from '../layouts/BaseLayout.astro';
+import Layout from "../layouts/BaseLayout.astro";
 
 const menuImages = [
-  '/menu-folder/menu-food1.webp',
-  '/menu-folder/menu-foodp2.webp',
-  '/menu-folder/menu-foodp3.webp',
-  '/menu-folder/menu-foodp4.webp',
+  "/menu-folder/menu-food1.webp",
+  "/menu-folder/menu-foodp2.webp",
+  "/menu-folder/menu-foodp3.webp",
+  "/menu-folder/menu-foodp4.webp",
 ];
 
 const labels = {
@@ -13,34 +13,45 @@ const labels = {
   heroTitle: "Our Menus",
   breadcrumb: "The Mex-Caribbean Palate / Menus",
   sectionTitle: "Explore our menus",
-  sectionDesc: "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
+  sectionDesc:
+    "Rooted in the Puerto Morelos waterfront setting, Mex On The Beach places mixology and gastronomy at its core, with creations crafted live using premium spirits, fresh local ingredients, and refined techniques.",
 };
 ---
+
 <Layout title="Menu - Mex On The Beach">
   <div class="bg-[#fcfbf7] min-h-screen text-[#1a1a1a]">
-    
     {/* HERO SECTION */}
-    <section 
+    <section
       class="relative h-[40vh] flex flex-col justify-center items-center text-white bg-cover bg-center"
       style="background-image: url('/img-beach-club/mex-beach-drinks.webp');"
     >
       <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
-      
+
       <div class="relative z-10 text-center">
-        <span class="text-xs tracking-[0.2em] uppercase opacity-90 block mb-2">{labels.heroTag}</span>
-        <h1 class="text-4xl md:text-5xl font-serif tracking-wide uppercase">{labels.heroTitle}</h1>
+        <span class="text-xs tracking-[0.2em] uppercase opacity-90 block mb-2"
+          >{labels.heroTag}</span
+        >
+        <h1 class="text-4xl md:text-5xl font-serif tracking-wide uppercase">
+          {labels.heroTitle}
+        </h1>
       </div>
     </section>
 
     {/* BREADCRUMB */}
-    <div class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200">
+    <div
+      class="bg-[#f3ede4] py-3 text-center text-[10px] tracking-[0.15em] uppercase text-gray-600 border-b border-gray-200"
+    >
       {labels.breadcrumb}
     </div>
 
     {/* INTRO SECTION */}
     <section class="max-w-3xl mx-auto text-center px-6 py-16">
-      <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">{labels.sectionTitle}</h2>
-      <p class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl mx-auto font-light">
+      <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#2c4e4b]">
+        {labels.sectionTitle}
+      </h2>
+      <p
+        class="text-xs md:text-sm text-gray-600 leading-relaxed max-w-2xl mx-auto font-light"
+      >
         {labels.sectionDesc}
       </p>
     </section>
@@ -48,17 +59,19 @@ const labels = {
     {/* MENU IMAGES GRID (Cambio clave aquí) */}
     <main class="max-w-6xl mx-auto px-4 pb-24">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-        {menuImages.map((src, index) => (
-          <div class="bg-white shadow-md hover:shadow-xl border border-black/5 overflow-hidden rounded-sm transition-shadow duration-300">
-            <img 
-              src={src} 
-              alt={`Menu page ${index + 1}`} 
-              class="w-full h-auto block select-none"
-              loading={index < 2 ? "eager" : "lazy"} 
-              decoding="async"
-            />
-          </div>
-        ))}
+        {
+          menuImages.map((src, index) => (
+            <div class="bg-white shadow-md hover:shadow-xl border border-black/5 overflow-hidden rounded-sm transition-shadow duration-300">
+              <img
+                src={src}
+                alt={`Menu page ${index + 1}`}
+                class="w-full h-auto block select-none"
+                loading={index < 2 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
+          ))
+        }
       </div>
     </main>
     <section class="w-full bg-[#fcfbf7] text-center pb-24 px-6">

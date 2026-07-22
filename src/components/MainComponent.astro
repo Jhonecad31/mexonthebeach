@@ -11,9 +11,9 @@ const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale });
 const lang = getLangFromUrl(Astro.url);
 const seoMetaData = {
-    title: i18n.SEO.HOME_PAGE.TITLE,
-    description: i18n.SEO.HOME_PAGE.DESCRIPTION,
-    metaTitle: i18n.SEO.HOME_PAGE.META_TITLE
+  title: i18n.SEO.HOME_PAGE.TITLE,
+  description: i18n.SEO.HOME_PAGE.DESCRIPTION,
+  metaTitle: i18n.SEO.HOME_PAGE.META_TITLE,
 };
 interface SeoProps {
   title: string;
@@ -22,13 +22,14 @@ interface SeoProps {
 }
 export interface Props {
   seo: SeoProps;
-  offI18n?: boolean; 
+  offI18n?: boolean;
 }
 const { seo, offI18n } = Astro.props;
 ---
+
 <BaseLayout seo={seoMetaData}>
-    <Hero />
-    <Experience />
-    <BookingSection />
-    <Gallery />
+  <Hero />
+  <Experience />
+  <BookingSection />
+  <Gallery />
 </BaseLayout>

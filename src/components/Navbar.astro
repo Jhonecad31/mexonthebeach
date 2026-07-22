@@ -1,7 +1,12 @@
 ---
-import logoMex from "../assets/logos/logo_notb.svg";
+import logoMex from "@/assets/logos/logo_notb.svg";
+import logoMexNegativo from "@/assets/logos/logo-mex-negativo.svg";
 import { getI18N } from "../i18n/index";
-import { getLangFromUrl, useTranslations, useTranslatedPath } from "../i18n/utils";
+import {
+  getLangFromUrl,
+  useTranslations,
+  useTranslatedPath,
+} from "../i18n/utils";
 import LanguajeSelectorAstroComponent from "./Interactive/LanguajeSelector.astro";
 
 const { currentLocale } = Astro;
@@ -10,7 +15,6 @@ const lang = getLangFromUrl(Astro.url) || "en";
 const t = useTranslations(lang);
 const translatePath = useTranslatedPath(lang);
 
-// Usamos de forma reactiva y exacta el pathname provisto por el contexto de Astro en cada ciclo
 const pathname = Astro.url.pathname;
 
 interface Props {
@@ -18,23 +22,21 @@ interface Props {
 }
 const { offI18n } = Astro.props;
 
-// 1. NORMALIZACIÓN DE RUTA: Removemos el prefijo de idioma (ej: /es/contacto -> /contacto)
 const cleanPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
 
 const isMenuPage = cleanPath.includes("/the-mex");
-const isContactPage = cleanPath.includes("/contacto") || cleanPath.includes("/contact") || cleanPath.includes("/contato");
+const isContactPage =
+  cleanPath.includes("/contacto") ||
+  cleanPath.includes("/contact") ||
+  cleanPath.includes("/contato");
 const isPuertoMorelos = cleanPath.includes("/puerto-morelos");
 
-// Evaluamos de forma exacta si estamos en la raíz limpia
 const isHomePage = cleanPath === "/";
 
-// 2. GENERACIÓN DE RUTAS INTERNACIONALIZADAS
 const homeUrl = translatePath("/");
 const menuUrl = translatePath("/the-mex");
 const pmUrl = translatePath("/puerto-morelos");
 const contactUrl = translatePath("/contact");
-
-// Mantenemos la consistencia del hash de reserva anexando el idioma actual de manera transparente
 const bookingUrl = `${translatePath("/")}#booking`;
 
 const navigation = [
@@ -60,46 +62,76 @@ const navigation = [
   },
 ];
 ---
+
+<!-- 
+  Añadimos 'group/header' y aislamos el borde/fondo explícitamente. 
+  La transición se limita a 'colors' y 'shadow' para evitar artefactos.
+-->
 <header
-  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#ede9df] glassmorphism shadow-sm"
+  class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out bg-transparent text-white border-b border-transparent group/header data-[scrolled=true]:bg-[#fcfbf7] data-[scrolled=true]:text-dark data-[scrolled=true]:shadow-sm data-[scrolled=true]:border-transparent"
   id="main-header"
+  data-scrolled="false"
 >
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex justify-between items-center h-20" id="header-container-desktop">
-      
+    <div
+      class="flex justify-between items-center h-20"
+      id="header-container-desktop"
+    >
       <!-- Logo Section -->
       <a href={homeUrl} class="flex items-center space-x-2 group">
+        <!-- Logo Normal -->
         <img
           src={logoMex.src}
           alt="Mex on the Beach Logo"
-          class="h-15 w-auto object-contain group-hover:scale-105 transition-all duration-300"
-          id="nav-logo-desktop"
+          class="h-15 w-auto object-contain group-hover:scale-105 transition-all duration-300 hidden group-data-[scrolled=true]/header:block"
+          id="nav-logo-default"
+        />
+        <!-- Logo Negativo -->
+        <img
+          src={logoMexNegativo.src}
+          alt="Mex on the Beach Logo"
+          class="h-15 w-auto object-contain group-hover:scale-105 transition-all duration-300 group-data-[scrolled=true]/header:hidden"
+          id="nav-logo-negative"
         />
       </a>
+
       <!-- Actions Group & Nav -->
       <div class="flex items-center space-x-8">
         <!-- Desktop Nav Menu -->
-        <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-dark/70">
+        <nav
+          class="hidden md:flex items-center space-x-6 text-sm font-semibold transition-colors duration-300"
+        >
           {
             navigation.map((item) => (
               <a
                 href={item.link}
-                class={`transition-colors hover:text-[#4e8782] ${item.active ? "text-[#4e8782] font-bold" : ""}`}
+                data-active={item.active ? "true" : "false"}
+                class={`nav-link transition-colors duration-300 ${
+                  item.active
+                    ? "text-white group-data-[scrolled=true]/header:text-[#4e8782] group-data-[scrolled=true]/header:hover:text-primary"
+                    : "text-white/80 hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/80 group-data-[scrolled=true]/header:hover:text-[#4e8782]"
+                }`}
               >
                 {item.title}
               </a>
             ))
           }
         </nav>
-        <div class="hidden md:block h-4 w-[1px] bg-gray-200"></div>
+        <div
+          class="hidden md:block h-4 w-[1px] bg-current opacity-30 transition-colors duration-300"
+          id="nav-divider"
+        >
+        </div>
 
         <!-- Selector de Idiomas Desktop -->
-        {!offI18n && (
-          <LanguajeSelectorAstroComponent 
-            class="hidden md:block" 
-            currentPath={pathname} 
-          />
-        )}
+        {
+          !offI18n && (
+            <LanguajeSelectorAstroComponent
+              class="hidden md:block"
+              currentPath={pathname}
+            />
+          )
+        }
         <!-- Botón CTA -->
         <a
           href={bookingUrl}
@@ -111,53 +143,83 @@ const navigation = [
         <button
           type="button"
           id="menu-toggle-btn"
-          class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-[#4e8782] hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200 md:hidden"
+          class="flex items-center justify-center w-10 h-10 rounded-xl text-current hover:text-[#4e8782] hover:bg-white/10 focus:outline-none cursor-pointer transition-all duration-200 md:hidden"
           aria-label="Open menu"
         >
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
-
     </div>
   </div>
 </header>
+
 <!-- Drawer Mobile Backdrop -->
 <div
   id="menu-backdrop"
   class="fixed inset-0 bg-dark/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"
 >
 </div>
-<!-- Navigation Drawer Mobile -->
+
 <!-- Navigation Drawer Mobile -->
 <div
   id="menu-drawer"
-  class="fixed inset-0 w-full h-full bg-[#fcfbf7] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden"
+  class="fixed inset-0 w-full h-full bg-[#fcfbf7] z-50 transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col md:hidden text-dark"
 >
-  <!-- Drawer Header: X colocada a la derecha y logo centrado -->
-  <div class="px-5 h-[4.5rem] flex items-center justify-between border-b border-dark/5">
+  <!-- Drawer Header -->
+  <div
+    class="px-5 h-[4.5rem] flex items-center justify-between border-b border-dark/5"
+  >
     <div class="w-10"></div>
-    <img src={logoMex.src} alt="Mex on the Beach Logo" class="h-12 w-auto object-contain" />
+    <img
+      src={logoMex.src}
+      alt="Mex on the Beach Logo"
+      class="h-12 w-auto object-contain"
+    />
     <button
       type="button"
       id="menu-close-btn"
       class="flex items-center justify-center w-10 h-10 rounded-xl text-dark hover:text-primary hover:bg-dark/5 focus:outline-none cursor-pointer transition-all duration-200"
       aria-label="Close menu"
     >
-      <svg class="h-6 w-6 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      <svg
+        class="h-6 w-6 text-gray-500"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        stroke-width="2.2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
   </div>
 
-  <!-- Drawer Body Links: Tipografía grande original y espaciados de siempre -->
-  <nav class="flex-grow flex flex-col items-center justify-center gap-7 px-6 py-6 overflow-y-auto">
+  <!-- Drawer Body Links -->
+  <nav
+    class="flex-grow flex flex-col items-center justify-center gap-7 px-6 py-6 overflow-y-auto"
+  >
     {
       navigation.map((item) => (
         <a
           href={item.link}
-          class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${item.active ? "text-primary" : "text-dark/80 hover:text-primary"}`}
+          class={`nav-drawer-link font-serif text-3xl font-bold tracking-wide transition-all duration-200 ${
+            item.active
+              ? "text-[#4e8782] hover:text-primary"
+              : "text-dark/80 hover:text-[#4e8782]"
+          }`}
         >
           {item.title}
         </a>
@@ -165,17 +227,19 @@ const navigation = [
     }
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     <!-- Idiomas en Mobile -->
-    {!offI18n && (
-      <div class="text-center w-full">
-        <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
-          {lang === "en" ? "Language" : "Idioma"}
-        </span>
-        <LanguajeSelectorAstroComponent 
-          isMobileDrawer={true} 
-          currentPath={pathname} 
-        />
-      </div>
-    )}
+    {
+      !offI18n && (
+        <div class="text-center w-full">
+          <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
+            {lang === "en" ? "Language" : "Idioma"}
+          </span>
+          <LanguajeSelectorAstroComponent
+            isMobileDrawer={true}
+            currentPath={pathname}
+          />
+        </div>
+      )
+    }
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     <a
       href={bookingUrl}
@@ -184,13 +248,15 @@ const navigation = [
       {i18n.NAV.bookNow}
     </a>
   </nav>
-  
+
   <!-- Drawer Footer -->
-  <div class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-dark/5 bg-dark/1">
+  <div
+    class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-dark/5 bg-dark/1"
+  >
     &copy; {new Date().getFullYear()} Mex on the Beach.
   </div>
 </div>
-<!-- scrip para las acciones -->
+
 <script>
   function initHeader() {
     const menuToggleBtn = document.getElementById("menu-toggle-btn");
@@ -200,32 +266,27 @@ const navigation = [
     const drawerLinks = document.querySelectorAll(".nav-drawer-link");
     const header = document.getElementById("main-header");
 
-    // Validamos que los elementos críticos existan para evitar errores en consola
-    if (!menuToggleBtn || !menuDrawer || !menuBackdrop) return;
+    if (!menuToggleBtn || !menuDrawer || !menuBackdrop || !header) return;
 
     function openMenu() {
-      menuBackdrop.classList.remove("hidden");
-      // Forzamos un reflow antes de añadir la opacidad para que la transición CSS funcione perfectamente
-      void menuBackdrop.offsetWidth; 
-      
-      menuBackdrop.classList.add("opacity-100");
-      menuDrawer.classList.remove("-translate-x-full");
+      menuBackdrop?.classList.remove("hidden");
+      void menuBackdrop?.offsetWidth;
+      menuBackdrop?.classList.add("opacity-100");
+      menuDrawer?.classList.remove("-translate-x-full");
       document.body.style.overflow = "hidden";
     }
 
     function closeMenu() {
-      menuBackdrop.classList.remove("opacity-100");
-      menuDrawer.classList.add("-translate-x-full");
+      menuBackdrop?.classList.remove("opacity-100");
+      menuDrawer?.classList.add("-translate-x-full");
       document.body.style.overflow = "";
-      
-      // Esperamos a que termine la animación de opacidad antes de ocultar el fondo por completo
+
       setTimeout(() => {
-        if (!menuDrawer.classList.contains("-translate-x-full")) return; // Previene conflictos si se reabre rápido
-        menuBackdrop.classList.add("hidden");
+        if (!menuDrawer?.classList.contains("-translate-x-full")) return;
+        menuBackdrop?.classList.add("hidden");
       }, 300);
     }
 
-    // Removemos listeners previos por si el script se vuelve a ejecutar en transiciones de página
     menuToggleBtn.removeEventListener("click", openMenu);
     menuToggleBtn.addEventListener("click", openMenu);
 
@@ -235,25 +296,31 @@ const navigation = [
     menuBackdrop.removeEventListener("click", closeMenu);
     menuBackdrop.addEventListener("click", closeMenu);
 
-    drawerLinks.forEach(link => {
+    drawerLinks.forEach((link) => {
       link.removeEventListener("click", closeMenu);
       link.addEventListener("click", closeMenu);
     });
+
+    // Control de scroll delegando la lógica visual a Tailwind mediante 'data-scrolled'
+    let ticking = false;
+
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        header?.classList.add("shadow-md", "bg-[#fcfbf7]");
-        header?.classList.remove("bg-[#ede9df]");
-      } else {
-        header?.classList.remove("shadow-md", "bg-[#fcfbf7]");
-        header?.classList.add("bg-[#ede9df]");
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          header.setAttribute("data-scrolled", isScrolled ? "true" : "false");
+          ticking = false;
+        });
+        ticking = true;
       }
     };
+
+    handleScroll();
 
     window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll, { passive: true });
   }
 
-  // Asegura la ejecución inmediata tanto en la carga inicial limpia como con ViewTransitions
   initHeader();
   document.addEventListener("astro:page-load", initHeader);
 </script>
