@@ -14,6 +14,7 @@ const carouselImages = [
   "/img-food/mex-tour-coffee-break-snacks.webp",
 ];
 ---
+
 <Layout>
   <div>
     <section
@@ -310,7 +311,9 @@ const carouselImages = [
                     </svg>
                   </div>
                   <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}</span>
+                    <span
+                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep1}</span
+                    >
                   </h3>
                 </div>
                 <div class="md:col-span-2">
@@ -348,7 +351,9 @@ const carouselImages = [
                     </svg>
                   </div>
                   <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                    <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}</span>
+                    <span
+                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep2}</span
+                    >
                   </h3>
                 </div>
                 <div class="md:col-span-2">
@@ -362,7 +367,9 @@ const carouselImages = [
                 </div>
               </div>
               <!-- Bloque 4: El Corazón de tu Viaje -->
-              <div class="md:grid md:grid-cols-3 md:gap-8 md:items-start">
+              <div
+                class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
+              >
                 <div class="md:col-span-1 mb-4 md:mb-0 flex items-center gap-3">
                   <!-- Icono de Mapa / Ubicación -->
                   <div
@@ -387,10 +394,19 @@ const carouselImages = [
                       ></path>
                     </svg>
                   </div>
-                  <h3 class="font-bold text-[#000000]/70 tracking-tight">
-                   <span>{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}</span>
+
+                  {
+                    /* H3 encapsulado en span para lectura correcta de parsers SEO */
+                  }
+                  <h3
+                    class="font-bold text-black/70 tracking-tight text-base md:text-lg"
+                  >
+                    <span
+                      >{i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.titlep3}</span
+                    >
                   </h3>
                 </div>
+
                 <div class="md:col-span-2">
                   <div
                     class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
