@@ -1,6 +1,5 @@
 export const defaultLang = 'en';
 export const showDefaultLang = false;
-
 export const ui = {
     en: {
         'nav.home': 'Home',

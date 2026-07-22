@@ -1,52 +1,66 @@
+---
+import "@/styles/global.css";
+import { getI18N } from "@/i18n";
+import { Languages, defaultlang } from "@/i18n/ui";
+import { getAbsoluteLocaleUrl } from "astro:i18n";
+import { getLangFromUrl } from "@/i18n/utils";
+import { siteName } from "@/utils/dataSchema";
 
-<!-- <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<meta name="author" content={siteName}/> -->
+const { currentLocale } = Astro;
+const i18n = getI18N({currentLocale});
+const lang = getLangFromUrl(Astro.url);
+const currentPath = Astro.url.pathname.replace(new RegExp(`^/${lang}`), "");
+
+interface Props {
+    offI18n?: boolean;
+    title?: string;
+    metaTitle?: string;
+    description?: string;
+    metaDescription?: string;
+    keywords?: string;
+    image?: string;
+    metaType?: string;
+    robots?: string;
+}
+
+const { offI18n } = Astro.props;
+const title = Astro.props.title || i18n.SEO.HOME_PAGE.TITLE;
+const description = Astro.props.description || i18n.SEO.HOME_PAGE.DESCRIPTION;
+const metaTitle = Astro.props.metaTitle || title;
+const metaDescription = Astro.props.metaDescription || description;
+const keywords = Astro.props.keywords || "";
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const image = new URL(Astro.props.image || "/assets/favicons/apple-touch-icon.png", Astro.site);
+const metaType = Astro.props.metaType || "website";
+const robots = Astro.props.robots || "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
+const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="author" content={siteName}>
 <!-- Google tag (gtag.js) -->
-<!-- <script type="text/partytown" src="https://www.googletagmanager.com/gtag/js?id=G-79QKX306QY"
-></script> -->
-<!-- <script type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
-
-    gtag("config", "G-79QKX306QY");
-</script> -->
+<!-- Google Tag Manager -->
+<!-- Meta Pixel Code -->
+<!-- End Meta Pixel Code -->
 <!-- Favicon -->
-<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.svg" />
-<link rel="apple-touch-icon" href="/favicon.svg" />
+<link rel="icon" type="image/png" href="/assets/favicons/favicon-96x96.png" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png" />
 <meta name="apple-mobile-web-app-title" content={siteName} />
+<link rel="manifest" href="/assets/favicons/site.webmanifest" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="referrer" content="strict-origin-when-cross-origin" /> -->
+<meta name="referrer" content="strict-origin-when-cross-origin" />
 <!-- Primary Meta Tags -->
-<!-- <title>{title}</title>
+<title>{title}</title>
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonicalURL} />
 <meta name="robots" content={robots} />
 <!-- Generator Astro -->
-<!-- <meta name="generator" content={Astro.generator} /> -->
-<!-- Hreflang -->
- <!-- {
-    !offI18n &&
-        languageList.map((locale) => (
-            <link
-                rel="alternate"
-                hreflang={locale.code}
-                href={getAbsoluteLocaleUrl(locale.code, currentPath)}
-            />
-        ))
-} -->
-<!-- <link
-    rel="alternate"
-    hreflang="x-default"
-    href={getAbsoluteLocaleUrl(defaultLang, currentPath)}
-/> -->
+<meta name="generator" content={Astro.generator} />
 <!-- Open Graph / Facebook -->
-<!-- <meta property="og:locale" content={ogLocale} />
+<meta property="og:locale" content={ogLocale} />
 <meta property="og:type" content={metaType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />
@@ -54,36 +68,10 @@
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={metaTitle} />
 <meta property="og:site_name" content={siteName} />
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:url" content={canonicalURL} />
-<meta name="twitter:title" content={metaTitle} />
-<meta name="twitter:description" content={metaDescription} />
-<meta name="twitter:image" content={image} />
-<meta name="twitter:image:alt" content={metaTitle} /> -->
+<!-- Preload Fonts -->
+<link rel="preload" href="/fonts/Poppins-Light.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/Poppins-SemiBold.ttf" as="font" type="font/ttf" crossorigin />
+<link rel="preload" href="/fonts/Poppins-ExtraBold.ttf" as="font" type="font/ttf" crossorigin />
 <!-- Sitemap -->
-<!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
-<!-- <script type="text/javascript">
-    // Defer Clarity loading to idle time to minimize main thread blocking
-    window.addEventListener('load', () => {
-        const loadClarity = () => {
-            (function (c, l, a, r, i, t, y) {
-                c[a] =
-                    c[a] ||
-                    function () {
-                        (c[a].q = c[a].q || []).push(arguments);
-                    };
-                t = l.createElement(r);
-                t.async = 1;
-                t.src = "https://www.clarity.ms/tag/" + i;
-                y = l.getElementsByTagName(r)[0];
-                y.parentNode.insertBefore(t, y);
-            })(window, document, "clarity", "script", "wnhvl97qag");
-        };
-        if ('requestIdleCallback' in window) {
-            requestIdleCallback(loadClarity);
-        } else {
-            setTimeout(loadClarity, 2000);
-        }
-    });
-</script>  -->
+<link rel="sitemap" href="/sitemap-index.xml" />
+<!-- clarity.ms -->
