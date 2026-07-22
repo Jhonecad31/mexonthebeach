@@ -167,7 +167,8 @@ const carouselImages = [
               {
                 label: "Schedules",
                 value:
-                  i18n.HALF_DAY_BEACH_EXPERIENCE?.schedules || "10:00 AM - 2:00 PM",
+                  i18n.HALF_DAY_BEACH_EXPERIENCE?.schedules ||
+                  "10:00 AM - 2:00 PM",
                 icon: (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -505,53 +506,241 @@ const carouselImages = [
         </div>
       </div>
       {/* ANCLA PARA ACTIVAR EL STICKY EN MÓVIL AL PASAR EL HERO */}
-        {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
-        <div
-          id="booking-section"
-          class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
-        >
+      {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
+      <div
+        id="booking-section"
+        class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
+      >
         <div id="sticky-anchor" class="h-px w-full"></div>
 
-          <form
-            id="beach-club-booking-form-desktop"
-            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
-          >
-            <div class="space-y-0.5 pb-2 border-b border-stone-100">
-              <h3
-                class="font-serif font-bold text-stone-800 text-base md:text-lg"
+        <form
+          id="beach-club-booking-form-desktop"
+          class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
+        >
+          <div class="space-y-0.5 pb-2 border-b border-stone-100">
+            <h3
+              class="font-serif font-bold text-stone-800 text-base md:text-lg"
+            >
+              New Reservation
+            </h3>
+            <p class="text-stone-500 text-xs">
+              Fill details to request availability
+            </p>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+            >
+              Select Date
+            </label>
+            <input
+              type="date"
+              name="date"
+              required
+              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+            />
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
               >
-                New Reservation
-              </h3>
-              <p class="text-stone-500 text-xs">
-                Fill details to request availability
-              </p>
+                Adults
+              </label>
+              <select
+                name="adults"
+                required
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+              >
+                <option value="1">1 Adult</option>
+                <option value="2" selected>2 Adults</option>
+                <option value="3">3 Adults</option>
+                <option value="4">4 Adults</option>
+                <option value="5">5 Adults</option>
+              </select>
             </div>
 
             <div class="space-y-1.5">
               <label
                 class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
               >
-                Select Date
+                Children
               </label>
+              <select
+                name="children"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+              >
+                <option value="0" selected>0 Children</option>
+                <option value="1">1 Child</option>
+                <option value="2">2 Children</option>
+                <option value="3">3 Children</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+            >
+              Full name
+            </label>
+            <input
+              type="text"
+              name="fullName"
+              placeholder="Enter your full name"
+              required
+              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+            >
+              Phone
+            </label>
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Enter your phone number"
+              required
+              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+            >
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              required
+              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+            />
+          </div>
+
+          <div class="space-y-1.5">
+            <label
+              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+            >
+              Message
+            </label>
+            <textarea
+              name="message"
+              rows="3"
+              placeholder="Any special requests?..."
+              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
+          >
+            Request Reservation
+          </button>
+        </form>
+      </div>
+
+      {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
+      <div
+        id="sticky-product-card"
+        class="fixed bottom-4 left-4 right-4 lg:hidden z-40 transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none"
+      >
+        <div
+          class="bg-[#EFF5F9] rounded-[28px] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-stone-200/60 flex flex-col gap-4"
+        >
+          <div class="flex items-center gap-3.5">
+            <div
+              class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
+            >
+              <img
+                src="/img-beach-club/half-day-beach-pass.webp"
+                alt="Mex on the Beach"
+                class="w-full h-full object-contain rounded-lg"
+              />
+            </div>
+
+            <div class="flex flex-col min-w-0">
+              <h4
+                class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
+              >
+                {i18n.HALF_DAY_PRODUCT.title}
+              </h4>
+              <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
+                Booking 30 days before.
+              </p>
+            </div>
+          </div>
+
+          <button
+            id="open-mobile-modal-btn"
+            type="button"
+            class="w-full bg-[#E77543] hover:bg-[#d66332] active:scale-[0.98] text-white text-sm font-bold text-center py-3.5 rounded-full shadow-sm transition-all duration-200 cursor-pointer"
+          >
+            Check Availability
+          </button>
+        </div>
+      </div>
+
+      {/* MODAL MÓVIL DE RESERVA */}
+      <div
+        id="mobile-booking-modal"
+        class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
+      >
+        <div
+          class="bg-white w-full max-h-[90vh] overflow-y-auto rounded-t-3xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-300"
+        >
+          <div
+            class="flex items-center justify-between pb-3 border-b border-stone-100"
+          >
+            <div>
+              <h3 class="font-serif font-bold text-stone-800 text-lg">
+                New Reservation
+              </h3>
+              <p class="text-stone-500 text-xs">
+                Fill details to request availability
+              </p>
+            </div>
+            <button
+              id="close-mobile-modal-btn"
+              type="button"
+              class="text-stone-400 hover:text-stone-700 text-2xl font-bold px-2 py-1"
+            >
+              &times;
+            </button>
+          </div>
+
+          <form id="beach-club-booking-form-mobile" class="space-y-4">
+            <div class="space-y-1.5">
+              <label
+                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                >Select Date</label
+              >
               <input
                 type="date"
                 name="date"
                 required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
               />
             </div>
 
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-3">
               <div class="space-y-1.5">
                 <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Adults</label
                 >
-                  Adults
-                </label>
                 <select
                   name="adults"
                   required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
                 >
                   <option value="1">1 Adult</option>
                   <option value="2" selected>2 Adults</option>
@@ -563,13 +752,12 @@ const carouselImages = [
 
               <div class="space-y-1.5">
                 <label
-                  class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Children</label
                 >
-                  Children
-                </label>
                 <select
                   name="children"
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
                 >
                   <option value="0" selected>0 Children</option>
                   <option value="1">1 Child</option>
@@ -581,376 +769,286 @@ const carouselImages = [
 
             <div class="space-y-1.5">
               <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                >Full name</label
               >
-                Full name
-              </label>
               <input
                 type="text"
                 name="fullName"
                 placeholder="Enter your full name"
                 required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
               />
             </div>
 
             <div class="space-y-1.5">
               <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                >Phone</label
               >
-                Phone
-              </label>
               <input
                 type="tel"
                 name="phone"
                 placeholder="Enter your phone number"
                 required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
               />
             </div>
 
             <div class="space-y-1.5">
               <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                >Email</label
               >
-                Email
-              </label>
               <input
                 type="email"
                 name="email"
                 placeholder="Enter your email"
                 required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
               />
             </div>
 
             <div class="space-y-1.5">
               <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
+                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                >Message</label
               >
-                Message
-              </label>
               <textarea
                 name="message"
-                rows="3"
+                rows="2"
                 placeholder="Any special requests?..."
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
+                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] resize-none"
               ></textarea>
             </div>
 
             <button
               type="submit"
-              class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
+              class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md active:scale-[0.99] cursor-pointer"
             >
               Request Reservation
             </button>
           </form>
         </div>
+      </div>
 
-        {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
+      {/* VISTA EMERGENTE / MODAL DE CONFIRMACIÓN DE ENVÍO */}
+      <div
+        id="status-modal"
+        class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
+      >
         <div
-          id="sticky-product-card"
-          class="fixed bottom-4 left-4 right-4 lg:hidden z-40 transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none"
+          class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95"
         >
+          {/* Ícono dinámico */}
           <div
-            class="bg-[#EFF5F9] rounded-[28px] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-stone-200/60 flex flex-col gap-4"
+            id="status-icon-container"
+            class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl"
           >
-            {/* CABECERA: LOGO + TITULO Y DESCRIPCIÓN */}
-            <div class="flex items-center gap-3.5">
-              <div
-                class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
-              >
-                <img
-                  src="/img-beach-club/half-day-beach-pass.webp"
-                  alt="Mex on the Beach"
-                  class="w-full h-full object-contain rounded-lg"
-                />
-              </div>
-
-              <div class="flex flex-col min-w-0">
-                <h4
-                  class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
-                >
-                  {i18n.HALF_DAY_PRODUCT.title}
-                </h4>
-                <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
-                  Booking 30 days before.
-                </p>
-              </div>
-            </div>
-
-            {/* BOTÓN QUE ABRE EL MODAL DE RESERVA EN MÓVIL */}
-            <button
-              id="open-mobile-modal-btn"
-              type="button"
-              class="w-full bg-[#E77543] hover:bg-[#d66332] active:scale-[0.98] text-white text-sm font-bold text-center py-3.5 rounded-full shadow-sm transition-all duration-200 cursor-pointer"
-            >
-              Check Availability
-            </button>
+            <span id="status-icon">✓</span>
           </div>
-        </div>
 
-        {
-          /* MODAL MÓVIL DE RESERVA (SE DESPLIEGA AL DAR CLIC EN EL BOTÓN FLOTANTE) */
-        }
-        <div
-          id="mobile-booking-modal"
-          class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
-        >
-          <div
-            class="bg-white w-full max-h-[90vh] overflow-y-auto rounded-t-3xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-300"
+          <div class="space-y-1">
+            <h3
+              id="status-title"
+              class="font-serif font-bold text-stone-800 text-xl"
+            >
+              Request Sent!
+            </h3>
+            <p id="status-message" class="text-stone-500 text-xs md:text-sm">
+              We have received your reservation request. We will contact you
+              soon!
+            </p>
+          </div>
+
+          <button
+            id="close-status-modal-btn"
+            type="button"
+            class="w-full bg-primary hover:bg-primary-hover text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3 rounded-xl transition-colors cursor-pointer"
           >
-            <div
-              class="flex items-center justify-between pb-3 border-b border-stone-100"
-            >
-              <div>
-                <h3 class="font-serif font-bold text-stone-800 text-lg">
-                  New Reservation
-                </h3>
-                <p class="text-stone-500 text-xs">
-                  Fill details to request availability
-                </p>
-              </div>
-              <button
-                id="close-mobile-modal-btn"
-                type="button"
-                class="text-stone-400 hover:text-stone-700 text-2xl font-bold px-2 py-1"
-              >
-                &times;
-              </button>
-            </div>
-
-            <form id="beach-club-booking-form-mobile" class="space-y-4">
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Select Date</label
-                >
-                <input
-                  type="date"
-                  name="date"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                />
-              </div>
-
-              <div class="grid grid-cols-2 gap-3">
-                <div class="space-y-1.5">
-                  <label
-                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                    >Adults</label
-                  >
-                  <select
-                    name="adults"
-                    required
-                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                  >
-                    <option value="1">1 Adult</option>
-                    <option value="2" selected>2 Adults</option>
-                    <option value="3">3 Adults</option>
-                    <option value="4">4 Adults</option>
-                    <option value="5">5 Adults</option>
-                  </select>
-                </div>
-
-                <div class="space-y-1.5">
-                  <label
-                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                    >Children</label
-                  >
-                  <select
-                    name="children"
-                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                  >
-                    <option value="0" selected>0 Children</option>
-                    <option value="1">1 Child</option>
-                    <option value="2">2 Children</option>
-                    <option value="3">3 Children</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Full name</label
-                >
-                <input
-                  type="text"
-                  name="fullName"
-                  placeholder="Enter your full name"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                />
-              </div>
-
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Phone</label
-                >
-                <input
-                  type="tel"
-                  name="phone"
-                  placeholder="Enter your phone number"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                />
-              </div>
-
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Email</label
-                >
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  required
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                />
-              </div>
-
-              <div class="space-y-1.5">
-                <label
-                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Message</label
-                >
-                <textarea
-                  name="message"
-                  rows="2"
-                  placeholder="Any special requests?..."
-                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] resize-none"
-                ></textarea>
-              </div>
-
-              <button
-                type="submit"
-                class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md active:scale-[0.99] cursor-pointer"
-              >
-                Request Reservation
-              </button>
-            </form>
-          </div>
+            Great!
+          </button>
         </div>
+      </div>
 
-        <script>
-          function initBookingForm() {
-            // Manejo de envíos de formularios (Desktop y Móvil)
-            const forms = [
-              document.getElementById("beach-club-booking-form-desktop"),
-              document.getElementById("beach-club-booking-form-mobile"),
-            ];
+      <script>
+        function initBookingForm() {
+          const statusModal = document.getElementById("status-modal");
+          const statusTitle = document.getElementById("status-title");
+          const statusMessage = document.getElementById("status-message");
+          const statusIcon = document.getElementById("status-icon");
+          const statusIconContainer = document.getElementById(
+            "status-icon-container",
+          );
+          const closeStatusBtn = document.getElementById(
+            "close-status-modal-btn",
+          );
 
-            forms.forEach((form) => {
-              if (!form) return;
+          function showStatusModal(isSuccess: boolean, message?: string) {
+            if (
+              !statusModal ||
+              !statusTitle ||
+              !statusMessage ||
+              !statusIcon ||
+              !statusIconContainer
+            )
+              return;
 
-              form.addEventListener("submit", async (e) => {
-                e.preventDefault();
-                const submitBtn = form.querySelector(
-                  ".submit-booking-btn",
-                ) as HTMLButtonElement;
-                const originalText = submitBtn
-                  ? submitBtn.innerText
-                  : "REQUEST RESERVATION";
-
-                if (submitBtn) {
-                  submitBtn.innerText = "SENDING...";
-                  submitBtn.disabled = true;
-                }
-
-                const formData = new FormData(form as HTMLFormElement);
-
-                try {
-                  const response = await fetch("/api/booking", {
-                    method: "POST",
-                    body: formData,
-                  });
-                  if (response.ok) {
-                    alert("¡Reservation request sent successfully!");
-                    (form as HTMLFormElement).reset();
-                    // Cerrar modal si fue enviado desde el modal móvil
-                    document
-                      .getElementById("mobile-booking-modal")
-                      ?.classList.add("hidden");
-                  } else {
-                    alert("Error sending request. Please try again.");
-                  }
-                } catch (error) {
-                  console.error(error);
-                  alert("Connection error.");
-                } finally {
-                  if (submitBtn) {
-                    submitBtn.innerText = originalText;
-                    submitBtn.disabled = false;
-                  }
-                }
-              });
-            });
-
-            // Control del Modal Móvil
-            const openModalBtn = document.getElementById(
-              "open-mobile-modal-btn",
-            );
-            const closeModalBtn = document.getElementById(
-              "close-mobile-modal-btn",
-            );
-            const mobileModal = document.getElementById("mobile-booking-modal");
-
-            if (openModalBtn && closeModalBtn && mobileModal) {
-              openModalBtn.addEventListener("click", () => {
-                mobileModal.classList.remove("hidden");
-                mobileModal.classList.add("flex");
-              });
-
-              closeModalBtn.addEventListener("click", () => {
-                mobileModal.classList.add("hidden");
-                mobileModal.classList.remove("flex");
-              });
-
-              // Cerrar al dar clic fuera del contenedor
-              mobileModal.addEventListener("click", (e) => {
-                if (e.target === mobileModal) {
-                  mobileModal.classList.add("hidden");
-                  mobileModal.classList.remove("flex");
-                }
-              });
+            if (isSuccess) {
+              statusIconContainer.className =
+                "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-emerald-100 text-emerald-600";
+              statusIcon.textContent = "✓";
+              statusTitle.textContent = "Request Sent!";
+              statusMessage.textContent =
+                message ||
+                "We have received your reservation request. We will contact you soon!";
+            } else {
+              statusIconContainer.className =
+                "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-rose-100 text-rose-600";
+              statusIcon.textContent = "✕";
+              statusTitle.textContent = "Something went wrong";
+              statusMessage.textContent =
+                message || "Error sending request. Please try again.";
             }
 
-            // Intersection Observer para el sticky flotante móvil
-            const anchor = document.getElementById("sticky-anchor");
-            const stickyCard = document.getElementById("sticky-product-card");
-
-            if (anchor && stickyCard) {
-              const observer = new IntersectionObserver(
-                ([entry]) => {
-                  if (!entry.isIntersecting) {
-                    stickyCard.classList.remove(
-                      "translate-y-[150%]",
-                      "opacity-0",
-                      "pointer-events-none",
-                    );
-                    stickyCard.classList.add("translate-y-0", "opacity-100");
-                  } else {
-                    stickyCard.classList.add(
-                      "translate-y-[150%]",
-                      "opacity-0",
-                      "pointer-events-none",
-                    );
-                    stickyCard.classList.remove("translate-y-0", "opacity-100");
-                  }
-                },
-                { threshold: 0 },
-              );
-
-              observer.observe(anchor);
-            }
+            statusModal.classList.remove("hidden");
+            statusModal.classList.add("flex");
           }
 
-          initBookingForm();
-          document.addEventListener("astro:page-load", initBookingForm);
-        </script>
+          if (closeStatusBtn && statusModal) {
+            closeStatusBtn.addEventListener("click", () => {
+              statusModal.classList.add("hidden");
+              statusModal.classList.remove("flex");
+            });
+
+            statusModal.addEventListener("click", (e) => {
+              if (e.target === statusModal) {
+                statusModal.classList.add("hidden");
+                statusModal.classList.remove("flex");
+              }
+            });
+          }
+
+          // Manejo de envíos de formularios (Desktop y Móvil)
+          const forms = [
+            document.getElementById("beach-club-booking-form-desktop"),
+            document.getElementById("beach-club-booking-form-mobile"),
+          ];
+
+          forms.forEach((form) => {
+            if (!form) return;
+
+            form.addEventListener("submit", async (e) => {
+              e.preventDefault();
+              const submitBtn = form.querySelector(
+                ".submit-booking-btn",
+              ) as HTMLButtonElement;
+              const originalText = submitBtn
+                ? submitBtn.innerText
+                : "REQUEST RESERVATION";
+
+              if (submitBtn) {
+                submitBtn.innerText = "SENDING...";
+                submitBtn.disabled = true;
+              }
+
+              const formData = new FormData(form as HTMLFormElement);
+
+              try {
+                const response = await fetch("/api/booking", {
+                  method: "POST",
+                  body: formData,
+                });
+
+                if (response.ok) {
+                  (form as HTMLFormElement).reset();
+                  // Cerrar modal móvil si está abierto
+                  document
+                    .getElementById("mobile-booking-modal")
+                    ?.classList.add("hidden");
+
+                  showStatusModal(true);
+                } else {
+                  showStatusModal(
+                    false,
+                    "Could not submit your request. Please check your data and try again.",
+                  );
+                }
+              } catch (error) {
+                console.error(error);
+                showStatusModal(
+                  false,
+                  "Connection error. Please check your internet connection.",
+                );
+              } finally {
+                if (submitBtn) {
+                  submitBtn.innerText = originalText;
+                  submitBtn.disabled = false;
+                }
+              }
+            });
+          });
+
+          // Control del Modal Móvil
+          const openModalBtn = document.getElementById("open-mobile-modal-btn");
+          const closeModalBtn = document.getElementById(
+            "close-mobile-modal-btn",
+          );
+          const mobileModal = document.getElementById("mobile-booking-modal");
+
+          if (openModalBtn && closeModalBtn && mobileModal) {
+            openModalBtn.addEventListener("click", () => {
+              mobileModal.classList.remove("hidden");
+              mobileModal.classList.add("flex");
+            });
+
+            closeModalBtn.addEventListener("click", () => {
+              mobileModal.classList.add("hidden");
+              mobileModal.classList.remove("flex");
+            });
+
+            // Cerrar al dar clic fuera del contenedor
+            mobileModal.addEventListener("click", (e) => {
+              if (e.target === mobileModal) {
+                mobileModal.classList.add("hidden");
+                mobileModal.classList.remove("flex");
+              }
+            });
+          }
+
+          // Intersection Observer para el sticky flotante móvil
+          const anchor = document.getElementById("sticky-anchor");
+          const stickyCard = document.getElementById("sticky-product-card");
+
+          if (anchor && stickyCard) {
+            const observer = new IntersectionObserver(
+              ([entry]) => {
+                if (!entry.isIntersecting) {
+                  stickyCard.classList.remove(
+                    "translate-y-[150%]",
+                    "opacity-0",
+                    "pointer-events-none",
+                  );
+                  stickyCard.classList.add("translate-y-0", "opacity-100");
+                } else {
+                  stickyCard.classList.add(
+                    "translate-y-[150%]",
+                    "opacity-0",
+                    "pointer-events-none",
+                  );
+                  stickyCard.classList.remove("translate-y-0", "opacity-100");
+                }
+              },
+              { threshold: 0 },
+            );
+
+            observer.observe(anchor);
+          }
+        }
+
+        initBookingForm();
+        document.addEventListener("astro:page-load", initBookingForm);
+      </script>
     </div>
   </section>
   {/* SECCIÓN SUGERENCIAS / BACKLINKS */}
@@ -1299,7 +1397,6 @@ const carouselImages = [
     </div>
   </section>
 </Layout>
-
 {/* --- CAROUSEL FUNCTIONALITY --- */}
 <script>
   const carousel = document.getElementById("hero-carousel");

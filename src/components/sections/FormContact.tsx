@@ -113,59 +113,43 @@ export default function FormContact({ i18n }: { i18n: any }) {
           </form>
         </div>
       </div>
-      {/* VENTANA EMERGENTE (MODAL) CORREGIDA PARA HEROUI V3 */}
-      <Modal isOpen={isOpen} onOpenChange={setIsOpen}>
-        <Modal.Backdrop className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[9998]" />
-        <Modal.Container className="fixed inset-0 flex items-center justify-center z-[9999] p-4">
-          <Modal.Dialog className="bg-white border border-black/5 rounded-3xl p-6 shadow-2xl max-w-sm w-full relative z-[10000] animate-fade-in">
-            <Modal.CloseTrigger className="absolute right-4 top-4 text-zinc-400 hover:text-zinc-600 cursor-pointer" />
-            <Modal.Header className="flex flex-col gap-1 font-serif text-primary uppercase tracking-wider text-center pt-4">
-              <Modal.Heading>¡Confirmación!</Modal.Heading>
-            </Modal.Header>
-            <Modal.Body className="text-zinc-600 text-sm text-center py-4 flex flex-col items-center gap-3">
-              <div className="w-12 h-12 bg-emerald-50 rounded-full flex items-center justify-center text-emerald-500">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="2.5"
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.5 12.75l6 6 9-13.5"
-                  />
-                </svg>
-              </div>
-              <div>
-                <p className="font-bold text-zinc-800 text-base mb-1">
-                  El correo fue enviado con éxito
-                </p>
-                <p className="text-xs text-zinc-500">
-                  {i18n.CONTACT.FORM.successAlert}
-                </p>
-              </div>
-            </Modal.Body>
-            <Modal.Footer className="justify-center pb-2">
-              <Button
-                slot="close"
-                color="primary"
-                onPress={() => {
-                  setIsOpen(false);
-                  setTimeout(() => {
-                    window.location.href = "/";
-                  }, 100);
-                }}
-                className="font-bold uppercase tracking-widest text-xs bg-primary hover:bg-primary-hover text-white px-8 py-2 rounded-full cursor-pointer transition-all"
-              >
-                Cerrar
-              </Button>
-            </Modal.Footer>
-          </Modal.Dialog>
-        </Modal.Container>
-      </Modal>
+      <div
+        id="status-modal"
+        className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
+      >
+        <div
+          className="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95"
+        >
+          {/* Ícono dinámico */}
+          <div
+            id="status-icon-container"
+            className="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl"
+          >
+            <span id="status-icon">✓</span>
+          </div>
+
+          <div className="space-y-1">
+            <h3
+              id="status-title"
+              className="font-serif font-bold text-stone-800 text-xl"
+            >
+              Request Sent!
+            </h3>
+            <p id="status-message" className="text-stone-500 text-xs md:text-sm">
+              We have received your reservation request. We will contact you
+              soon!
+            </p>
+          </div>
+
+          <button
+            id="close-status-modal-btn"
+            type="button"
+            className="w-full bg-primary hover:bg-primary-hover text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3 rounded-xl transition-colors cursor-pointer"
+          >
+            Great!
+          </button>
+        </div>
+      </div>
     </>
   );
 }
