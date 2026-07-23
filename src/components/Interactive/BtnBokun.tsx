@@ -21,7 +21,7 @@ export default function BtnAccordionBokun({
       <>
         <button
           onClick={() => setIsOpen(true)}
-          className="w-full bg-[#006083] text-white py-4 rounded-full font-bold text-base shadow-md active:scale-95 transition-all mt-4"
+          className="w-full bg-[#E77543] text-white py-4 rounded-full font-bold text-base shadow-md active:scale-95 transition-all mt-4"
         >
           {data.btnBook}
         </button>
@@ -50,7 +50,7 @@ export default function BtnAccordionBokun({
               <Suspense
                 fallback={
                   <div className="flex justify-center py-20">
-                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#006083]"></div>
+                    <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-[#E77543]"></div>
                   </div>
                 }
               >
@@ -87,7 +87,7 @@ export default function BtnAccordionBokun({
             {showCalendar && (
               <Suspense
                 fallback={
-                  <div className="animate-spin h-5 w-5 border-b-2 border-[#006083] mx-auto"></div>
+                  <div className="animate-spin h-5 w-5 border-b-2 border-[#E77543] mx-auto"></div>
                 }
               >
                 <LazyLoadBokunScript BookingChannel={data.bookingChannel} />
