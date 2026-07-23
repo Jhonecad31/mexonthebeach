@@ -203,10 +203,15 @@
     },
     "OVERVIEW": {
       "title": "Overview",
-      "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
-      "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
-      "p3": "Unlike many busy tourist destinations, Puerto Morelos maintains its authentic charm as a fishing village surrounded by natural treasures. From the world's second-largest barrier reef to the famous Ruta de los Cenotes, visitors can experience a more tranquil side of the Riviera Maya while enjoying comfort, excellent service, and unforgettable ocean views.",
-      "p4": "At Mex On The Beach, every moment is designed to help travelers slow down, reconnect with nature, and enjoy everything that makes Puerto Morelos Mexico beach so special."
+      "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at",
+      "p1_txt1": "Mex On The Beach",
+      "p1_txt2": "a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
+      "p2": "Prime Location",
+      "p2_txt": "Nestled along one of the most beautiful stretches of Puerto Morelos beach",
+      "p3": "Relax & Refresh",
+      "p3_txt": "Soft white sand, turquoise waters, a refreshing pool, and laid-back Caribbean vibes.",
+      "p4": "Authentic Charm",
+      "p4_txt": "Close to the world's 2nd largest barrier reef and the famous Ruta de los Cenotes."
     },
     "title": "Half-Day Beach Pass- Your Relaxing Beach Club Experience In Puerto Morelos",
     "tag": "HALF DAY",
@@ -461,6 +466,7 @@
     },
     "OVERVIEW": {
       "title": "Overview",
+      "description": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
       "p1": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya. ",
       "p2": "Nestled along one of the most beautiful stretches of Puerto Morelos beach, this peaceful destination combines soft white sand, turquoise waters, a refreshing pool, and the laid-back atmosphere that has made Puerto Morelos one of the region’s best-kept secrets. Whether you are planning a day trip from Cancun or looking for relaxing activities in Puerto Morelos, this beach club offers the perfect setting to enjoy nature, local culture, and the beauty of the Caribbean coast.",
       "p3": "Unlike many busy tourist destinations, Puerto Morelos maintains its authentic charm as a fishing village surrounded by natural treasures. From the world's second-largest barrier reef to the famous Ruta de los Cenotes, visitors can experience a more tranquil side of the Riviera Maya while enjoying comfort, excellent service, and unforgettable ocean views.",
