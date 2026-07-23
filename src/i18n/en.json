@@ -319,6 +319,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "3 cenote boutique Experience, Mayan Show with Snack"
       }
+    },
+    "FORM": {
+      "BOKUN": "Book your experience",
+      "BUTTON": "Check Availability"
     }
   },
   "FULL_DAY_BEACH_EXPERIENCE": {
@@ -444,6 +448,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "3 cenote boutique Experience, Mayan Show with Snack"
       }
+    },
+    "FORM": {
+      "BOKUN": "Book your experience",
+      "BUTTON": "Check Availability"
     }
   },
   "MAKE_YOU_RESERVATION": {

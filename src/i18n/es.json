@@ -336,6 +336,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "Experiencia boutique en 3 cenotes, show maya con snack"
       }
+    },
+    "FORM": {
+      "BOKUN": "Reserva tu experiencia",
+      "BUTTON": "Consultar disponibilidad"
     }
   },
   "FULL_DAY_BEACH_EXPERIENCE": {
@@ -461,6 +465,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "Experiencia boutique en 3 cenotes, show maya con snack"
       }
+    },
+    "FORM": {
+      "BOKUN": "Reserva tu experiencia",
+      "BUTTON": "Consultar disponibilidad"
     }
   },
   "MAKE_YOU_RESERVATION": {
@@ -779,7 +787,7 @@
       "explore": "Explorar más",
       "menu": "Ver menú"
     },
-    "BUTTON":"Explorar Experiencias",
+    "BUTTON": "Explorar Experiencias",
     "TITLE_H2": {
       "title": "Las Playas de Puerto Morelos y la Belleza Natural del Caribe",
       "p1": "Las playas de Puerto Morelos se cuentan entre los tesoros más grandes del destino. A diferencia de las playas más concurridas de otras partes de la Riviera Maya, la playa de Puerto Morelos ofrece un rincón de paz donde los visitantes pueden apreciar verdaderamente la inmensidad del Mar Caribe.",

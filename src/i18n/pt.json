@@ -336,6 +336,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "Experiência boutique em 3 cenotes, show maia com lanche"
       }
+    },
+    "FORM": {
+      "BOKUN": "Reserve sua experiência",
+      "BUTTON": "Verificar disponibilidade"
     }
   },
   "FULL_DAY_BEACH_EXPERIENCE": {
@@ -461,6 +465,10 @@
         "title": "Cenote Adventuring",
         "subtitle": "Experiência boutique em 3 cenotes, show maia com lanche"
       }
+    },
+    "FORM": {
+      "BOKUN": "Reserve sua experiência",
+      "BUTTON": "Verificar disponibilidade"
     }
   },
   "MAKE_YOU_RESERVATION": {

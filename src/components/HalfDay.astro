@@ -3,6 +3,7 @@ import { useTranslations, type Lang } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 import { Check, ChevronRight, Info, X } from "lucide-react";
 import Layout from "@/layouts/BaseLayout.astro";
+import Bokun from "@/components/Interactive/BtnBokun";
 const { currentLocale } = Astro;
 const lang = (currentLocale || "en") as Lang;
 const i18n = getI18N({ currentLocale }) as any;
@@ -13,9 +14,18 @@ const carouselImages = [
   "/img-food/food-in-the-beach.webp",
   "/img-food/mex-tour-coffee-break-snacks.webp",
 ];
+
+const dataForm = {
+  bookingChannel: "e17819cf-e2f5-4ea6-83ab-c37adaf3faa1",
+  idCalendar: "1258165",
+  title: i18n.HALF_DAY_PRODUCT.FORM.BOKUN,
+  btnBook: i18n.HALF_DAY_PRODUCT.FORM.BUTTON,
+  btnCloseText: "Close",
+};
 ---
 
 <Layout>
+  {/* INFORMACIÓN DEL HERO */}
   <div>
     <section
       class="relative h-[85vh] md:h-[90vh] w-full bg-[#FAF6EE] overflow-hidden flex items-center"
@@ -28,10 +38,8 @@ const carouselImages = [
           alt="Puerto Morelos Aerial View"
           class="w-full h-full object-cover scale-105"
         />
-
         {/* Capa 1: Oscurecimiento general sutil para unificar tonos */}
         <div class="absolute inset-0 bg-black/20 z-10"></div>
-
         {
           /* Capa 2: Gradiente direccional (Scrim) pesado desde la izquierda/abajo hacia la derecha (Protege el texto) */
         }
@@ -43,7 +51,6 @@ const carouselImages = [
           class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent z-10 md:hidden"
         >
         </div>
-
         {/* Capa 3: Difuminado elegante hacia el fondo crema de la página */}
         <div
           class="absolute inset-x-0 bottom-0 h-1/4 z-20"
@@ -54,7 +61,6 @@ const carouselImages = [
         >
         </div>
       </div>
-
       {/* TEXTO Y CONTENIDO (Z-INDEX SUPERIOR) */}
       <div
         class="relative z-30 w-full max-w-6xl mx-auto px-6 md:px-12 flex flex-col items-start text-left mt-12 md:mt-0"
@@ -94,6 +100,7 @@ const carouselImages = [
     </section>
     {/* CONTENIDO PRINCIPAL */}
   </div>
+  {/* FORM DE RESERVA E INFO GENERAL DEL PRODUCTO */}
   <section class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12 mt-12 md:mt-20">
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
       <div class="lg:col-span-2 space-y-8 md:space-y-12">
@@ -259,7 +266,6 @@ const carouselImages = [
               </ul>
             </div>
           </details>
-
           <!-- Acordeón 2: Vive la Experiencia -->
           <details class="group py-6" name="tour-info" open>
             <summary
@@ -274,7 +280,6 @@ const carouselImages = [
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
-
             <div
               class="mb-16 bg-[#FAF6EE] border-l-4 border-[#E77543] p-6 md:p-8 rounded-r-2xl relative mt-10"
             >
@@ -282,7 +287,6 @@ const carouselImages = [
                 {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.description}
               </p>
             </div>
-
             <!-- Contenedor de Filas Informativas -->
             <div class="space-y-12">
               <!-- Bloque 2: Tu Día Junto al Mar -->
@@ -322,7 +326,6 @@ const carouselImages = [
                   </div>
                 </div>
               </div>
-
               <!-- Bloque 3: Naturaleza y Cultura Local -->
               <div
                 class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
@@ -360,7 +363,6 @@ const carouselImages = [
                   </div>
                 </div>
               </div>
-
               <!-- Bloque 4: El Corazón de tu Viaje -->
               <div
                 class="border-b border-slate-100 pb-8 md:grid md:grid-cols-3 md:gap-8 md:items-start"
@@ -404,7 +406,6 @@ const carouselImages = [
               </div>
             </div>
           </details>
-
           <!-- Acordeón 3: Love Spending -->
           <details class="group py-6" name="tour-info" open>
             <summary
@@ -477,7 +478,6 @@ const carouselImages = [
                 </div>
               </div>
             </div>
-
             <!-- Bloque Entorno y Cierre -->
             <div
               class="bg-[#4e8782]/10 rounded-3xl p-8 md:p-12 text-center max-w-4xl mx-auto"
@@ -499,989 +499,900 @@ const carouselImages = [
           </details>
         </div>
       </div>
-      {/* FORMULARIO DE RESERVACIÓN: SOLO VISIBLE EN DESKTOP (lg:block) */}
+      {/* SECCIÓN PRINCIPAL DE RESERVA: SOLO VISIBLE EN DESKTOP (lg:block) */}
       <div
         id="booking-section"
         class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
       >
         <div id="sticky-anchor" class="h-px w-full"></div>
-
-        <form
-          id="beach-club-booking-form-desktop"
-          class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-4 md:space-y-5"
-        >
-          <div class="space-y-0.5 pb-2 border-b border-stone-100">
-            <h3
-              class="font-serif font-bold text-stone-800 text-base md:text-lg"
-            >
-              New Reservation
-            </h3>
-            <p class="text-stone-500 text-xs">
-              Fill details to request availability
-            </p>
-          </div>
-
-          <div class="space-y-1.5">
-            <label
-              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-            >
-              Select Date
-            </label>
-            <input
-              type="date"
-              name="date"
-              required
-              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-            />
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-              >
-                Adults
-              </label>
-              <select
-                name="adults"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-              >
-                <option value="1">1 Adult</option>
-                <option value="2" selected>2 Adults</option>
-                <option value="3">3 Adults</option>
-                <option value="4">4 Adults</option>
-                <option value="5">5 Adults</option>
-              </select>
-            </div>
-
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-              >
-                Children
-              </label>
-              <select
-                name="children"
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors appearance-none"
-              >
-                <option value="0" selected>0 Children</option>
-                <option value="1">1 Child</option>
-                <option value="2">2 Children</option>
-                <option value="3">3 Children</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="space-y-1.5">
-            <label
-              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-            >
-              Full name
-            </label>
-            <input
-              type="text"
-              name="fullName"
-              placeholder="Enter your full name"
-              required
-              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-            />
-          </div>
-
-          <div class="space-y-1.5">
-            <label
-              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-            >
-              Phone
-            </label>
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Enter your phone number"
-              required
-              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-            />
-          </div>
-
-          <div class="space-y-1.5">
-            <label
-              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-            >
-              Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="Enter your email"
-              required
-              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors"
-            />
-          </div>
-
-          <div class="space-y-1.5">
-            <label
-              class="text-[10px] md:text-xs font-semibold uppercase tracking-wider text-stone-700"
-            >
-              Message
-            </label>
-            <textarea
-              name="message"
-              rows="3"
-              placeholder="Any special requests?..."
-              class="w-full bg-[#FAF6EE] text-stone-700 text-xs md:text-sm rounded-xl px-3 py-2.5 md:px-4 md:py-3 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] focus:ring-1 focus:ring-[#4e8782] transition-colors resize-none"
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md shadow-orange-700/10 active:scale-[0.99] mt-2 cursor-pointer"
-          >
-            Request Reservation
-          </button>
-        </form>
-      </div>
-      {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
-      <div
-        id="sticky-product-card"
-        class="fixed bottom-4 left-4 right-4 lg:hidden z-40 transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none"
-      >
         <div
-          class="bg-[#EFF5F9] rounded-[28px] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-stone-200/60 flex flex-col gap-4"
+          id="booking-section"
+          class="hidden lg:block lg:col-span-1 lg:sticky lg:top-24"
         >
-          <div class="flex items-center gap-3.5">
-            <div
-              class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
-            >
-              <img
-                src="/img-beach-club/half-day-beach-pass.webp"
-                alt="Mex on the Beach"
-                class="w-full h-full object-contain rounded-lg"
-              />
+          <div id="sticky-anchor" class="h-px w-full"></div>
+          <div
+            class="bg-white rounded-2xl p-5 md:p-6 shadow-[0_4px_25px_rgba(0,0,0,0.06)] border border-stone-100 space-y-5"
+          >
+            {/* TARJETA INFORMATIVA DEL TOUR */}
+            <div class="space-y-4">
+              {/* Imagen destacada del Tour */}
+              <div
+                class="relative w-full h-48 rounded-xl overflow-hidden shadow-inner bg-stone-100"
+              >
+                <img
+                  src="/img-beach-club/mex-beach-club-relaxation.webp"
+                  alt="Tour Preview"
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                />
+              </div>
+
+              {/* Título Resaltado */}
+              <div class="space-y-1.5 border-b border-stone-100 pb-4">
+                <h3
+                  class="font-serif font-black text-stone-900 text-xl md:text-2xl leading-tight tracking-tight"
+                >
+                  {i18n.HALF_DAY_PRODUCT.title}
+                </h3>
+              </div>
+
+              {/* PRECIO RESALTADO (ALINEADO A LA DERECHA) */}
+              <div class="flex justify-end pt-1">
+                <div class="text-right flex flex-col items-end">
+                  <span
+                    class="text-[10px] font-semibold text-stone-400 uppercase tracking-wider -mb-1"
+                  >
+                    From
+                  </span>
+                  <span
+                    class="text-2xl md:text-3xl font-black text-stone-900 font-serif"
+                  >
+                    $39 USD
+                  </span>
+                </div>
+              </div>
             </div>
 
-            <div class="flex flex-col min-w-0">
-              <h4
-                class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
-              >
-                {i18n.HALF_DAY_PRODUCT.title}
-              </h4>
-              <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
-                Booking 30 days before.
-              </p>
+            {/* COMPONENTE BOKUN DESKTOP */}
+            <div class="w-full pt-1">
+              <Bokun client:load data={dataForm} variant="accordion" />
             </div>
           </div>
-
-          <button
-            id="open-mobile-modal-btn"
-            type="button"
-            class="w-full bg-[#E77543] hover:bg-[#d66332] active:scale-[0.98] text-white text-sm font-bold text-center py-3.5 rounded-full shadow-sm transition-all duration-200 cursor-pointer"
-          >
-            Check Availability
-          </button>
         </div>
-      </div>
-      {/* MODAL MÓVIL DE RESERVA FORMULARIO */}
-      <div
-        id="mobile-booking-modal"
-        class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
-      >
+        {/* TARJETA FLOATING / STICKY: SOLO VISIBLE EN MÓVIL (lg:hidden) */}
         <div
-          class="bg-white w-full max-h-[90vh] overflow-y-auto rounded-t-3xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-300"
+          id="sticky-product-card"
+          class="fixed bottom-4 left-4 right-4 lg:hidden z-40 transition-all duration-500 ease-in-out translate-y-[150%] opacity-0 pointer-events-none"
         >
           <div
-            class="flex items-center justify-between pb-3 border-b border-stone-100"
+            class="bg-[#EFF5F9] rounded-[28px] p-5 shadow-[0_12px_40px_rgba(0,0,0,0.18)] border border-stone-200/60 flex flex-col gap-3"
           >
-            <div>
-              <h3 class="font-serif font-bold text-stone-800 text-lg">
-                New Reservation
-              </h3>
-              <p class="text-stone-500 text-xs">
-                Fill details to request availability
-              </p>
-            </div>
-            <button
-              id="close-mobile-modal-btn"
-              type="button"
-              class="text-stone-400 hover:text-stone-700 text-2xl font-bold px-2 py-1"
-            >
-              &times;
-            </button>
-          </div>
-
-          <form id="beach-club-booking-form-mobile" class="space-y-4">
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                >Select Date</label
+            <div class="flex items-center gap-3.5">
+              <div
+                class="flex-shrink-0 w-20 h-20 bg-white rounded-2xl p-2.5 flex items-center justify-center shadow-sm border border-stone-100"
               >
-              <input
-                type="date"
-                name="date"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-              />
+                <img
+                  src="/img-beach-club/half-day-beach-pass.webp"
+                  alt="Mex on the Beach"
+                  class="w-full h-full object-contain rounded-lg"
+                />
+              </div>
+              <div class="flex flex-col min-w-0">
+                <h4
+                  class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
+                >
+                  {i18n.HALF_DAY_PRODUCT.title}
+                </h4>
+                <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
+                  Booking 30 days before.
+                </p>
+              </div>
             </div>
-
-            <div class="grid grid-cols-2 gap-3">
+            {/* Botón directo Bokun Móvil Sticky */}
+            <Bokun client:load data={dataForm} variant="sticky" />
+          </div>
+        </div>
+        {/* MODAL MÓVIL DE RESERVA FORMULARIO */}
+        <div
+          id="mobile-booking-modal"
+          class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm lg:hidden hidden items-end justify-center p-0 transition-opacity duration-300"
+        >
+          <div
+            class="bg-white w-full max-h-[90vh] overflow-y-auto rounded-t-3xl p-6 space-y-4 shadow-2xl animate-in slide-in-from-bottom duration-300"
+          >
+            <div
+              class="flex items-center justify-between pb-3 border-b border-stone-100"
+            >
+              <div>
+                <h3 class="font-serif font-bold text-stone-800 text-lg">
+                  New Reservation
+                </h3>
+                <p class="text-stone-500 text-xs">
+                  Fill details to request availability
+                </p>
+              </div>
+              <button
+                id="close-mobile-modal-btn"
+                type="button"
+                class="text-stone-400 hover:text-stone-700 text-2xl font-bold px-2 py-1"
+              >
+                &times;
+              </button>
+            </div>
+            <form id="beach-club-booking-form-mobile" class="space-y-4">
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Adults</label
+                  >Select Date</label
                 >
-                <select
-                  name="adults"
+                <input
+                  type="date"
+                  name="date"
                   required
                   class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                >
-                  <option value="1">1 Adult</option>
-                  <option value="2" selected>2 Adults</option>
-                  <option value="3">3 Adults</option>
-                  <option value="4">4 Adults</option>
-                  <option value="5">5 Adults</option>
-                </select>
+                />
+              </div>
+
+              <div class="grid grid-cols-2 gap-3">
+                <div class="space-y-1.5">
+                  <label
+                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                    >Adults</label
+                  >
+                  <select
+                    name="adults"
+                    required
+                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                  >
+                    <option value="1">1 Adult</option>
+                    <option value="2" selected>2 Adults</option>
+                    <option value="3">3 Adults</option>
+                    <option value="4">4 Adults</option>
+                    <option value="5">5 Adults</option>
+                  </select>
+                </div>
+
+                <div class="space-y-1.5">
+                  <label
+                    class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                    >Children</label
+                  >
+                  <select
+                    name="children"
+                    class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                  >
+                    <option value="0" selected>0 Children</option>
+                    <option value="1">1 Child</option>
+                    <option value="2">2 Children</option>
+                    <option value="3">3 Children</option>
+                  </select>
+                </div>
               </div>
 
               <div class="space-y-1.5">
                 <label
                   class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                  >Children</label
+                  >Full name</label
                 >
-                <select
-                  name="children"
+                <input
+                  type="text"
+                  name="fullName"
+                  placeholder="Enter your full name"
+                  required
                   class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-                >
-                  <option value="0" selected>0 Children</option>
-                  <option value="1">1 Child</option>
-                  <option value="2">2 Children</option>
-                  <option value="3">3 Children</option>
-                </select>
+                />
               </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Phone</label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  required
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
+                />
+              </div>
+
+              <div class="space-y-1.5">
+                <label
+                  class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
+                  >Message</label
+                >
+                <textarea
+                  name="message"
+                  rows="2"
+                  placeholder="Any special requests?..."
+                  class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] resize-none"
+                ></textarea>
+              </div>
+
+              <button
+                type="submit"
+                class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md active:scale-[0.99] cursor-pointer"
+              >
+                Request Reservation
+              </button>
+            </form>
+          </div>
+        </div>
+        {/* VISTA EMERGENTE / MODAL DE CONFIRMACIÓN DE ENVÍO */}
+        <div
+          id="status-modal"
+          class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
+        >
+          <div
+            class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95"
+          >
+            {/* Ícono dinámico */}
+            <div
+              id="status-icon-container"
+              class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl"
+            >
+              <span id="status-icon">✓</span>
             </div>
 
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                >Full name</label
+            <div class="space-y-1">
+              <h3
+                id="status-title"
+                class="font-serif font-bold text-stone-800 text-xl"
               >
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Enter your full name"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-              />
-            </div>
-
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                >Phone</label
-              >
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Enter your phone number"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-              />
-            </div>
-
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                >Email</label
-              >
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782]"
-              />
-            </div>
-
-            <div class="space-y-1.5">
-              <label
-                class="text-[10px] font-semibold uppercase tracking-wider text-stone-700"
-                >Message</label
-              >
-              <textarea
-                name="message"
-                rows="2"
-                placeholder="Any special requests?..."
-                class="w-full bg-[#FAF6EE] text-stone-700 text-xs rounded-xl px-3 py-2.5 border border-stone-200/60 focus:outline-none focus:border-[#4e8782] resize-none"
-              ></textarea>
+                Request Sent!
+              </h3>
+              <p id="status-message" class="text-stone-500 text-xs md:text-sm">
+                We have received your reservation request. We will contact you
+                soon!
+              </p>
             </div>
 
             <button
-              type="submit"
-              class="submit-booking-btn w-full bg-[#E77543] hover:bg-[#d66332] text-white text-xs font-bold tracking-wider uppercase py-3.5 rounded-xl transition-all shadow-md active:scale-[0.99] cursor-pointer"
+              id="close-status-modal-btn"
+              type="button"
+              class="w-full bg-primary hover:bg-primary-hover text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3 rounded-xl transition-colors cursor-pointer"
             >
-              Request Reservation
+              Great!
             </button>
-          </form>
-        </div>
-      </div>
-      {/* VISTA EMERGENTE / MODAL DE CONFIRMACIÓN DE ENVÍO */}
-      <div
-        id="status-modal"
-        class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300"
-      >
-        <div
-          class="bg-white rounded-3xl p-6 md:p-8 max-w-sm w-full text-center space-y-4 shadow-2xl transition-all scale-95"
-        >
-          {/* Ícono dinámico */}
-          <div
-            id="status-icon-container"
-            class="w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl"
-          >
-            <span id="status-icon">✓</span>
           </div>
-
-          <div class="space-y-1">
-            <h3
-              id="status-title"
-              class="font-serif font-bold text-stone-800 text-xl"
-            >
-              Request Sent!
-            </h3>
-            <p id="status-message" class="text-stone-500 text-xs md:text-sm">
-              We have received your reservation request. We will contact you
-              soon!
-            </p>
-          </div>
-
-          <button
-            id="close-status-modal-btn"
-            type="button"
-            class="w-full bg-primary hover:bg-primary-hover text-white text-xs md:text-sm font-bold tracking-wider uppercase py-3 rounded-xl transition-colors cursor-pointer"
-          >
-            Great!
-          </button>
         </div>
-      </div>
-      {/* SCRIPT DE FUNCIONALIDAD PARA FORMULARIO RESERVAS */}
-      <script>
-        function initBookingForm() {
-          const statusModal = document.getElementById("status-modal");
-          const statusTitle = document.getElementById("status-title");
-          const statusMessage = document.getElementById("status-message");
-          const statusIcon = document.getElementById("status-icon");
-          const statusIconContainer = document.getElementById(
-            "status-icon-container",
-          );
-          const closeStatusBtn = document.getElementById(
-            "close-status-modal-btn",
-          );
+        {/* SCRIPT DE FUNCIONALIDAD PARA FORMULARIO RESERVAS */}
+        <script>
+          function initBookingForm() {
+            const statusModal = document.getElementById("status-modal");
+            const statusTitle = document.getElementById("status-title");
+            const statusMessage = document.getElementById("status-message");
+            const statusIcon = document.getElementById("status-icon");
+            const statusIconContainer = document.getElementById(
+              "status-icon-container",
+            );
+            const closeStatusBtn = document.getElementById(
+              "close-status-modal-btn",
+            );
 
-          function showStatusModal(isSuccess: boolean, message?: string) {
-            if (
-              !statusModal ||
-              !statusTitle ||
-              !statusMessage ||
-              !statusIcon ||
-              !statusIconContainer
-            )
-              return;
+            function showStatusModal(isSuccess: boolean, message?: string) {
+              if (
+                !statusModal ||
+                !statusTitle ||
+                !statusMessage ||
+                !statusIcon ||
+                !statusIconContainer
+              )
+                return;
 
-            if (isSuccess) {
-              statusIconContainer.className =
-                "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-emerald-100 text-emerald-600";
-              statusIcon.textContent = "✓";
-              statusTitle.textContent = "Request Sent!";
-              statusMessage.textContent =
-                message ||
-                "We have received your reservation request. We will contact you soon!";
-            } else {
-              statusIconContainer.className =
-                "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-rose-100 text-rose-600";
-              statusIcon.textContent = "✕";
-              statusTitle.textContent = "Something went wrong";
-              statusMessage.textContent =
-                message || "Error sending request. Please try again.";
+              if (isSuccess) {
+                statusIconContainer.className =
+                  "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-emerald-100 text-emerald-600";
+                statusIcon.textContent = "✓";
+                statusTitle.textContent = "Request Sent!";
+                statusMessage.textContent =
+                  message ||
+                  "We have received your reservation request. We will contact you soon!";
+              } else {
+                statusIconContainer.className =
+                  "w-16 h-16 rounded-full flex items-center justify-center mx-auto text-2xl bg-rose-100 text-rose-600";
+                statusIcon.textContent = "✕";
+                statusTitle.textContent = "Something went wrong";
+                statusMessage.textContent =
+                  message || "Error sending request. Please try again.";
+              }
+
+              statusModal.classList.remove("hidden");
+              statusModal.classList.add("flex");
             }
 
-            statusModal.classList.remove("hidden");
-            statusModal.classList.add("flex");
-          }
-
-          if (closeStatusBtn && statusModal) {
-            closeStatusBtn.addEventListener("click", () => {
-              statusModal.classList.add("hidden");
-              statusModal.classList.remove("flex");
-            });
-
-            statusModal.addEventListener("click", (e) => {
-              if (e.target === statusModal) {
+            if (closeStatusBtn && statusModal) {
+              closeStatusBtn.addEventListener("click", () => {
                 statusModal.classList.add("hidden");
                 statusModal.classList.remove("flex");
-              }
-            });
-          }
+              });
 
-          // Manejo de envíos de formularios (Desktop y Móvil)
-          const forms = [
-            document.getElementById("beach-club-booking-form-desktop"),
-            document.getElementById("beach-club-booking-form-mobile"),
-          ];
+              statusModal.addEventListener("click", (e) => {
+                if (e.target === statusModal) {
+                  statusModal.classList.add("hidden");
+                  statusModal.classList.remove("flex");
+                }
+              });
+            }
+            // Manejo de envíos de formularios (Desktop y Móvil)
+            const forms = [
+              document.getElementById("beach-club-booking-form-desktop"),
+              document.getElementById("beach-club-booking-form-mobile"),
+            ];
 
-          forms.forEach((form) => {
-            if (!form) return;
+            forms.forEach((form) => {
+              if (!form) return;
 
-            form.addEventListener("submit", async (e) => {
-              e.preventDefault();
-              const submitBtn = form.querySelector(
-                ".submit-booking-btn",
-              ) as HTMLButtonElement;
-              const originalText = submitBtn
-                ? submitBtn.innerText
-                : "REQUEST RESERVATION";
+              form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const submitBtn = form.querySelector(
+                  ".submit-booking-btn",
+                ) as HTMLButtonElement;
+                const originalText = submitBtn
+                  ? submitBtn.innerText
+                  : "REQUEST RESERVATION";
 
-              if (submitBtn) {
-                submitBtn.innerText = "SENDING...";
-                submitBtn.disabled = true;
-              }
+                if (submitBtn) {
+                  submitBtn.innerText = "SENDING...";
+                  submitBtn.disabled = true;
+                }
 
-              const formData = new FormData(form as HTMLFormElement);
+                const formData = new FormData(form as HTMLFormElement);
 
-              try {
-                const response = await fetch("/api/booking", {
-                  method: "POST",
-                  body: formData,
-                });
+                try {
+                  const response = await fetch("/api/booking", {
+                    method: "POST",
+                    body: formData,
+                  });
 
-                if (response.ok) {
-                  (form as HTMLFormElement).reset();
-                  // Cerrar modal móvil si está abierto
-                  document
-                    .getElementById("mobile-booking-modal")
-                    ?.classList.add("hidden");
+                  if (response.ok) {
+                    (form as HTMLFormElement).reset();
+                    // Cerrar modal móvil si está abierto
+                    document
+                      .getElementById("mobile-booking-modal")
+                      ?.classList.add("hidden");
 
-                  showStatusModal(true);
-                } else {
+                    showStatusModal(true);
+                  } else {
+                    showStatusModal(
+                      false,
+                      "Could not submit your request. Please check your data and try again.",
+                    );
+                  }
+                } catch (error) {
+                  console.error(error);
                   showStatusModal(
                     false,
-                    "Could not submit your request. Please check your data and try again.",
+                    "Connection error. Please check your internet connection.",
                   );
+                } finally {
+                  if (submitBtn) {
+                    submitBtn.innerText = originalText;
+                    submitBtn.disabled = false;
+                  }
                 }
-              } catch (error) {
-                console.error(error);
-                showStatusModal(
-                  false,
-                  "Connection error. Please check your internet connection.",
-                );
-              } finally {
-                if (submitBtn) {
-                  submitBtn.innerText = originalText;
-                  submitBtn.disabled = false;
-                }
-              }
-            });
-          });
-
-          // Control del Modal Móvil
-          const openModalBtn = document.getElementById("open-mobile-modal-btn");
-          const closeModalBtn = document.getElementById(
-            "close-mobile-modal-btn",
-          );
-          const mobileModal = document.getElementById("mobile-booking-modal");
-
-          if (openModalBtn && closeModalBtn && mobileModal) {
-            openModalBtn.addEventListener("click", () => {
-              mobileModal.classList.remove("hidden");
-              mobileModal.classList.add("flex");
+              });
             });
 
-            closeModalBtn.addEventListener("click", () => {
-              mobileModal.classList.add("hidden");
-              mobileModal.classList.remove("flex");
-            });
+            // Control del Modal Móvil
+            const openModalBtn = document.getElementById(
+              "open-mobile-modal-btn",
+            );
+            const closeModalBtn = document.getElementById(
+              "close-mobile-modal-btn",
+            );
+            const mobileModal = document.getElementById("mobile-booking-modal");
 
-            // Cerrar al dar clic fuera del contenedor
-            mobileModal.addEventListener("click", (e) => {
-              if (e.target === mobileModal) {
+            if (openModalBtn && closeModalBtn && mobileModal) {
+              openModalBtn.addEventListener("click", () => {
+                mobileModal.classList.remove("hidden");
+                mobileModal.classList.add("flex");
+              });
+
+              closeModalBtn.addEventListener("click", () => {
                 mobileModal.classList.add("hidden");
                 mobileModal.classList.remove("flex");
-              }
-            });
-          }
-
-          // Intersection Observer para el sticky flotante móvil
-          const anchor = document.getElementById("sticky-anchor");
-          const stickyCard = document.getElementById("sticky-product-card");
-
-          if (anchor && stickyCard) {
-            const observer = new IntersectionObserver(
-              ([entry]) => {
-                if (!entry.isIntersecting) {
-                  stickyCard.classList.remove(
-                    "translate-y-[150%]",
-                    "opacity-0",
-                    "pointer-events-none",
-                  );
-                  stickyCard.classList.add("translate-y-0", "opacity-100");
-                } else {
-                  stickyCard.classList.add(
-                    "translate-y-[150%]",
-                    "opacity-0",
-                    "pointer-events-none",
-                  );
-                  stickyCard.classList.remove("translate-y-0", "opacity-100");
-                }
-              },
-              { threshold: 0 },
-            );
-
-            observer.observe(anchor);
-          }
-        }
-
-        initBookingForm();
-        document.addEventListener("astro:page-load", initBookingForm);
-      </script>
-    </div>
-  </section>
-  {/* SECCIÓN SUGERENCIAS / BACKLINKS */}
-  <section class="pb-16 md:pb-24 pt-4 bg-white text-neutral-900 mt-20">
-    <div class="max-w-7xl mx-auto px-4 md:px-6">
-      <div class="text-center mb-10 md:mb-16">
-        {/* Optimizado: text-xl en móvil, md:text-3xl en escritorio */}
-        <h2
-          class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
-        >
-          {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
-        </h2>
-        <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
-        <p
-          class="text-[11px] md:text-sm text-neutral-500 max-w-xl mx-auto leading-relaxed mt-2"
-        >
-          {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}
-        </p>
-      </div>
-
-      {/* Grid de Actividades */}
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {/* Bloque 1: Beach Taco Tour */}
-        <a
-          href="https://extremeadventurecancun.com/city-taco-tour-puerto-morelos/"
-          class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-        >
-          <img
-            src="images/baklinks/beach-taco-tour.webp"
-            alt="The Shoreline Experience"
-            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-            loading="lazy"
-            disabled-decoding="async"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-          >
-          </div>
-          <div
-            class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-          >
-            <span
-              class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-              >01</span
-            >
-            <h3
-              class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.title}
-            </h3>
-            <p
-              class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.subtitle}
-            </p>
-            <div
-              class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-            >
-              Explore Location
-            </div>
-          </div>
-        </a>
-        {/* Bloque 2: Extreme Adventure */}
-        <a
-          href="https://extremeadventurecancun.com/extreme-adventuring-atv-in-cancun/"
-          class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-        >
-          <img
-            src="images/baklinks/extreme-adventuring.webp"
-            alt="A Perfect Day Trip"
-            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-            loading="lazy"
-            disabled-decoding="async"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-          >
-          </div>
-          <div
-            class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-          >
-            <span
-              class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-              >02</span
-            >
-            <h3
-              class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.title}
-            </h3>
-            <p
-              class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.subtitle}
-            </p>
-            <div
-              class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-            >
-              Explore Location
-            </div>
-          </div>
-        </a>
-        {/* Bloque 3: Snorkeling Adventure */}
-        <a
-          href="https://snorkelingadventure.com/snorkel-adventuring-details/"
-          class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-        >
-          <img
-            src="images/baklinks/snorkeling-adventuring.webp"
-            alt="Coastal Adventures"
-            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-            loading="lazy"
-            disabled-decoding="async"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-          >
-          </div>
-          <div
-            class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-          >
-            <span
-              class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-              >03</span
-            >
-            <h3
-              class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.title}
-            </h3>
-            <p
-              class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.subtitle}
-            </p>
-            <div
-              class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-            >
-              Explore Location
-            </div>
-          </div>
-        </a>
-        {/* Bloque 4: Cenote Adventuring */}
-        <a
-          href="https://cenoteadventuring.com/pricing-regular-page/"
-          class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
-        >
-          <img
-            src="images/baklinks/cenote-adventuring-cancun.webp"
-            alt="Coastal Adventures"
-            class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
-            loading="lazy"
-            disabled-decoding="async"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
-          >
-          </div>
-          <div
-            class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
-          >
-            <span
-              class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
-              >04</span
-            >
-            <h3
-              class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.title}
-            </h3>
-            <p
-              class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
-            >
-              {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.subtitle}
-            </p>
-            <div
-              class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
-            >
-              Explore Location
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </section>
-  {/* SECCIÓN DE PREGUNTAS */}
-  <section class="w-full py-16 px-4 md:px-8 bg-white relative">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
-        <h2
-          class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
-        >
-          {i18n.HALF_DAY_PRODUCT.QUESTIONS.title}
-        </h2>
-        <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
-      </div>
-      <div class="space-y-4 pb-20 md:pb-28">
-        {
-          (() => {
-            const icons = {
-              q1: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M16.5 18.75h-9m9 0a3 3 0 0 0 3-3V13.5a3 3 0 0 0-3-3h-9a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3m9 0v1.5a2.25 2.25 0 0 1-2.25 2.25h-4.5A2.25 2.25 0 0 1 7.5 20.25v-1.5M12 3v1.5m4.436-.084-1.06 1.06m-6.752 0-1.06-1.06M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
-                  />
-                </svg>
-              ),
-              q2: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 6.75V15m6-6v8.25m.503-3.46 3.66-1.077a.75.75 0 0 1 .957.728v4.97a.75.75 0 0 1-.563.727l-3.921 1.079a.75.75 0 0 1-.503 0l-5.14-1.414a.75.75 0 0 0-.503 0L3.563 19.97a.75.75 0 0 1-.957-.728V14.27a.75.75 0 0 1 .563-.727l4.004-1.101a.75.75 0 0 1 .503 0l5.14 1.414a.75.75 0 0 0 .503 0Zm-4.943-4.09A4.498 4.498 0 0 1 12 2.25c2.13 0 3.908 1.474 4.343 3.468M10.5 7.5h3v3h-3v-3Z"
-                  />
-                </svg>
-              ),
-              q3: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.042 9.152c.582.448 1.148.89 1.676 1.345m-7.408-.347c.533-.455 1.1-.897 1.682-1.345m7.408 1.347c-.528.455-1.095.897-1.676 1.345m-5.732-2.692c-.582-.448-1.149-.89-1.682-1.345m0 0a14.223 14.223 0 0 1 3.532-1.294M3.204 12A10.445 10.445 0 0 0 12 20.796 10.444 10.444 0 0 0 20.796 12 10.444 10.444 0 0 0 12 3.204 10.446 10.446 0 0 0 3.204 12Zm11.332-2.102L12 12l-2.536-2.102L12 6l2.536 3.898Z"
-                  />
-                </svg>
-              ),
-              q4: (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-5 h-5"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
-                  />
-                </svg>
-              ),
-            };
-            const fallbackIcon = (
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke-width="1.5"
-                stroke="currentColor"
-                class="w-5 h-5"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
-                />
-              </svg>
-            );
-            return Object.keys(i18n.HALF_DAY_PRODUCT.QUESTIONS)
-              .filter((key) => key.startsWith("q"))
-              .map((key, index) => {
-                const item = i18n.HALF_DAY_PRODUCT.QUESTIONS[key];
-                return (
-                  <details
-                    name="faq-accordion"
-                    open={index === 0}
-                    class="group bg-white rounded-xl border border-black/[0.03] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
-                    data-key={key}
-                  >
-                    <summary class="flex items-center justify-between p-6 text-left cursor-pointer select-none list-none group">
-                      <div class="flex items-center space-x-4">
-                        <div class="text-[#1E6B65] shrink-0">
-                          {icons[key] || fallbackIcon}
-                        </div>
-                        <span class="font-sans font-semibold text-base text-[#2C2519] tracking-wide group-hover:text-[#1E6B65] transition-colors duration-200">
-                          {item.question}
-                        </span>
-                      </div>
-                      <div class="text-[#6B6355] transition-transform duration-300 group-open:rotate-180 group-open:text-[#1E6B65]">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke-width="2"
-                          stroke="currentColor"
-                          class="w-4 h-4"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            d="m19.5 8.25-7.5 7.5-7.5-7.5"
-                          />
-                        </svg>
-                      </div>
-                    </summary>
-                    <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-t-black/[0.02]">
-                      {item.answer}
-                    </div>
-                  </details>
-                );
               });
-          })()
-        }
+
+              // Cerrar al dar clic fuera del contenedor
+              mobileModal.addEventListener("click", (e) => {
+                if (e.target === mobileModal) {
+                  mobileModal.classList.add("hidden");
+                  mobileModal.classList.remove("flex");
+                }
+              });
+            }
+
+            // Intersection Observer para el sticky flotante móvil
+            const anchor = document.getElementById("sticky-anchor");
+            const stickyCard = document.getElementById("sticky-product-card");
+
+            if (anchor && stickyCard) {
+              const observer = new IntersectionObserver(
+                ([entry]) => {
+                  if (!entry.isIntersecting) {
+                    stickyCard.classList.remove(
+                      "translate-y-[150%]",
+                      "opacity-0",
+                      "pointer-events-none",
+                    );
+                    stickyCard.classList.add("translate-y-0", "opacity-100");
+                  } else {
+                    stickyCard.classList.add(
+                      "translate-y-[150%]",
+                      "opacity-0",
+                      "pointer-events-none",
+                    );
+                    stickyCard.classList.remove("translate-y-0", "opacity-100");
+                  }
+                },
+                { threshold: 0 },
+              );
+
+              observer.observe(anchor);
+            }
+          }
+
+          initBookingForm();
+          document.addEventListener("astro:page-load", initBookingForm);
+        </script>
       </div>
     </div>
+    {/* SECCIÓN SUGERENCIAS / BACKLINKS */}
+    <section class="pb-16 md:pb-24 pt-4 bg-white text-neutral-900 mt-20">
+      <div class="max-w-7xl mx-auto px-4 md:px-6">
+        <div class="text-center mb-10 md:mb-16">
+          {/* Optimizado: text-xl en móvil, md:text-3xl en escritorio */}
+          <h2
+            class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
+          >
+            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
+          </h2>
+          <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
+          <p
+            class="text-[11px] md:text-sm text-neutral-500 max-w-xl mx-auto leading-relaxed mt-2"
+          >
+            {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}
+          </p>
+        </div>
+
+        {/* Grid de Actividades */}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Bloque 1: Beach Taco Tour */}
+          <a
+            href="https://extremeadventurecancun.com/city-taco-tour-puerto-morelos/"
+            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+          >
+            <img
+              src="images/baklinks/beach-taco-tour.webp"
+              alt="The Shoreline Experience"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+              loading="lazy"
+              disabled-decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
+            >
+            </div>
+            <div
+              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
+            >
+              <span
+                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
+                >01</span
+              >
+              <h3
+                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.title}
+              </h3>
+              <p
+                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.TACO_TOUR.subtitle}
+              </p>
+              <div
+                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+              >
+                Explore Location
+              </div>
+            </div>
+          </a>
+          {/* Bloque 2: Extreme Adventure */}
+          <a
+            href="https://extremeadventurecancun.com/extreme-adventuring-atv-in-cancun/"
+            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+          >
+            <img
+              src="images/baklinks/extreme-adventuring.webp"
+              alt="A Perfect Day Trip"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+              loading="lazy"
+              disabled-decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
+            >
+            </div>
+            <div
+              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
+            >
+              <span
+                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
+                >02</span
+              >
+              <h3
+                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.title}
+              </h3>
+              <p
+                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.EXTREME.subtitle}
+              </p>
+              <div
+                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+              >
+                Explore Location
+              </div>
+            </div>
+          </a>
+          {/* Bloque 3: Snorkeling Adventure */}
+          <a
+            href="https://snorkelingadventure.com/snorkel-adventuring-details/"
+            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+          >
+            <img
+              src="images/baklinks/snorkeling-adventuring.webp"
+              alt="Coastal Adventures"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+              loading="lazy"
+              disabled-decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
+            >
+            </div>
+            <div
+              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
+            >
+              <span
+                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
+                >03</span
+              >
+              <h3
+                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.title}
+              </h3>
+              <p
+                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.SNORKELING.subtitle}
+              </p>
+              <div
+                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+              >
+                Explore Location
+              </div>
+            </div>
+          </a>
+          {/* Bloque 4: Cenote Adventuring */}
+          <a
+            href="https://cenoteadventuring.com/pricing-regular-page/"
+            class="group relative flex flex-col justify-end h-[420px] sm:h-[560px] w-full overflow-hidden bg-neutral-100 cursor-pointer"
+          >
+            <img
+              src="images/baklinks/cenote-adventuring-cancun.webp"
+              alt="Coastal Adventures"
+              class="absolute inset-0 h-full w-full object-cover opacity-90 transition-all duration-[1200ms] ease-out group-hover:scale-105 group-hover:opacity-100"
+              loading="lazy"
+              disabled-decoding="async"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent transition-opacity duration-500 group-hover:from-black/90"
+            >
+            </div>
+            <div
+              class="absolute inset-0 flex flex-col justify-end p-5 md:p-6 text-white z-10"
+            >
+              <span
+                class="text-[10px] uppercase tracking-[0.2em] text-[#4e8782] font-semibold mb-1"
+                >04</span
+              >
+              <h3
+                class="font-serif text-lg md:text-xl tracking-wider uppercase mb-2"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.title}
+              </h3>
+              <p
+                class="text-xs text-neutral-200 font-light leading-relaxed mb-4 max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out group-hover:max-h-24 group-hover:opacity-100"
+              >
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.CENOTE.subtitle}
+              </p>
+              <div
+                class="border border-white/30 backdrop-blur-sm bg-white/10 text-center py-2.5 px-4 text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium transition-all duration-300 group-hover:bg-white group-hover:text-black group-hover:border-white"
+              >
+                Explore Location
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
+    {/* SECCIÓN DE PREGUNTAS */}
+    <section class="w-full py-16 px-4 md:px-8 bg-white relative">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-12">
+          <h2
+            class="font-serif text-2xl md:text-3xl font-extrabold text-dark/85 mb-3 tracking-wide uppercase"
+          >
+            {i18n.HALF_DAY_PRODUCT.QUESTIONS.title}
+          </h2>
+          <div class="w-16 h-[2px] bg-[#4e8782] mx-auto"></div>
+        </div>
+        <div class="space-y-4 pb-20 md:pb-28">
+          {
+            (() => {
+              const icons = {
+                q1: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M16.5 18.75h-9m9 0a3 3 0 0 0 3-3V13.5a3 3 0 0 0-3-3h-9a3 3 0 0 0-3 3v2.25a3 3 0 0 0 3 3m9 0v1.5a2.25 2.25 0 0 1-2.25 2.25h-4.5A2.25 2.25 0 0 1 7.5 20.25v-1.5M12 3v1.5m4.436-.084-1.06 1.06m-6.752 0-1.06-1.06M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                    />
+                  </svg>
+                ),
+                q2: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9 6.75V15m6-6v8.25m.503-3.46 3.66-1.077a.75.75 0 0 1 .957.728v4.97a.75.75 0 0 1-.563.727l-3.921 1.079a.75.75 0 0 1-.503 0l-5.14-1.414a.75.75 0 0 0-.503 0L3.563 19.97a.75.75 0 0 1-.957-.728V14.27a.75.75 0 0 1 .563-.727l4.004-1.101a.75.75 0 0 1 .503 0l5.14 1.414a.75.75 0 0 0 .503 0Zm-4.943-4.09A4.498 4.498 0 0 1 12 2.25c2.13 0 3.908 1.474 4.343 3.468M10.5 7.5h3v3h-3v-3Z"
+                    />
+                  </svg>
+                ),
+                q3: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.042 9.152c.582.448 1.148.89 1.676 1.345m-7.408-.347c.533-.455 1.1-.897 1.682-1.345m7.408 1.347c-.528.455-1.095.897-1.676 1.345m-5.732-2.692c-.582-.448-1.149-.89-1.682-1.345m0 0a14.223 14.223 0 0 1 3.532-1.294M3.204 12A10.445 10.445 0 0 0 12 20.796 10.444 10.444 0 0 0 20.796 12 10.444 10.444 0 0 0 12 3.204 10.446 10.446 0 0 0 3.204 12Zm11.332-2.102L12 12l-2.536-2.102L12 6l2.536 3.898Z"
+                    />
+                  </svg>
+                ),
+                q4: (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="w-5 h-5"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                    />
+                  </svg>
+                ),
+              };
+              const fallbackIcon = (
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-5 h-5"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+                  />
+                </svg>
+              );
+              return Object.keys(i18n.HALF_DAY_PRODUCT.QUESTIONS)
+                .filter((key) => key.startsWith("q"))
+                .map((key, index) => {
+                  const item = i18n.HALF_DAY_PRODUCT.QUESTIONS[key];
+                  return (
+                    <details
+                      name="faq-accordion"
+                      open={index === 0}
+                      class="group bg-white rounded-xl border border-black/[0.03] shadow-[0_2px_12px_rgba(0,0,0,0.02)] overflow-hidden [&_summary::-webkit-details-marker]:hidden"
+                      data-key={key}
+                    >
+                      <summary class="flex items-center justify-between p-6 text-left cursor-pointer select-none list-none group">
+                        <div class="flex items-center space-x-4">
+                          <div class="text-[#1E6B65] shrink-0">
+                            {icons[key] || fallbackIcon}
+                          </div>
+                          <span class="font-sans font-semibold text-base text-[#2C2519] tracking-wide group-hover:text-[#1E6B65] transition-colors duration-200">
+                            {item.question}
+                          </span>
+                        </div>
+                        <div class="text-[#6B6355] transition-transform duration-300 group-open:rotate-180 group-open:text-[#1E6B65]">
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="w-4 h-4"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m19.5 8.25-7.5 7.5-7.5-7.5"
+                            />
+                          </svg>
+                        </div>
+                      </summary>
+                      <div class="px-6 pb-6 pl-14 text-[#6B6355] font-light text-sm leading-relaxed border-t border-t-black/[0.02]">
+                        {item.answer}
+                      </div>
+                    </details>
+                  );
+                });
+            })()
+          }
+        </div>
+      </div>
+    </section>
+    {/* lINEA DECORATIVA COLOR VERDE */}
+    <section class="py-24 pb-40 relative overflow-hidden text-dark -mt-30">
+      <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
+        <svg
+          viewBox="0 0 1440 40"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-full h-auto"
+        >
+          <path
+            d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
+            fill="#ffffff"></path>
+          <path
+            d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
+            stroke="var(--color-secondary)"
+            stroke-width="2"
+            fill="none"></path>
+        </svg>
+      </div>
+    </section>
   </section>
-  {/* lINEA DECORATIVA COLOR VERDE */}
-  <section class="py-24 pb-40 relative overflow-hidden text-dark -mt-30">
-    <div class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none">
-      <svg
-        viewBox="0 0 1440 40"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="w-full h-auto"
-      >
-        <path
-          d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
-          fill="#ffffff"></path>
-        <path
-          d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
-          stroke="var(--color-secondary)"
-          stroke-width="2"
-          fill="none"></path>
-      </svg>
-    </div>
-  </section>
-</Layout>
-{/* --- CAROUSEL FUNCTIONALITY --- */}
-<script>
-  const carousel = document.getElementById("hero-carousel");
-  const prevBtn = document.getElementById("prev-slide");
-  const nextBtn = document.getElementById("next-slide");
-  const dots = document.querySelectorAll(".carousel-dot");
+  {/* --- CAROUSEL FUNCTIONALITY --- */}
+  <script>
+    const carousel = document.getElementById("hero-carousel");
+    const prevBtn = document.getElementById("prev-slide");
+    const nextBtn = document.getElementById("next-slide");
+    const dots = document.querySelectorAll(".carousel-dot");
 
-  if (carousel && prevBtn && nextBtn) {
-    const getSlideWidth = () => carousel.clientWidth;
-    let autoPlayInterval: any = null;
-    const AUTO_PLAY_TIME = 3000;
+    if (carousel && prevBtn && nextBtn) {
+      const getSlideWidth = () => carousel.clientWidth;
+      let autoPlayInterval: any = null;
+      const AUTO_PLAY_TIME = 3000;
 
-    const nextSlide = () => {
-      const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-      if (carousel.scrollLeft >= maxScroll - 5) {
-        carousel.scrollTo({ left: 0, behavior: "smooth" });
-      } else {
-        carousel.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
-      }
-    };
+      const nextSlide = () => {
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+        if (carousel.scrollLeft >= maxScroll - 5) {
+          carousel.scrollTo({ left: 0, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: getSlideWidth(), behavior: "smooth" });
+        }
+      };
 
-    const prevSlide = () => {
-      if (carousel.scrollLeft <= 5) {
-        carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
-      } else {
-        carousel.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
-      }
-    };
+      const prevSlide = () => {
+        if (carousel.scrollLeft <= 5) {
+          carousel.scrollTo({ left: carousel.scrollWidth, behavior: "smooth" });
+        } else {
+          carousel.scrollBy({ left: -getSlideWidth(), behavior: "smooth" });
+        }
+      };
 
-    const startAutoPlay = () => {
-      if (!autoPlayInterval) {
-        autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_TIME);
-      }
-    };
+      const startAutoPlay = () => {
+        if (!autoPlayInterval) {
+          autoPlayInterval = setInterval(nextSlide, AUTO_PLAY_TIME);
+        }
+      };
 
-    const stopAutoPlay = () => {
-      if (autoPlayInterval) {
-        clearInterval(autoPlayInterval);
-        autoPlayInterval = null;
-      }
-    };
+      const stopAutoPlay = () => {
+        if (autoPlayInterval) {
+          clearInterval(autoPlayInterval);
+          autoPlayInterval = null;
+        }
+      };
 
-    nextBtn.addEventListener("click", () => {
-      nextSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    prevBtn.addEventListener("click", () => {
-      prevSlide();
-      stopAutoPlay();
-      startAutoPlay();
-    });
-
-    dots.forEach((dot) => {
-      dot.addEventListener("click", (e) => {
-        const index = parseInt(
-          (e.target as HTMLElement).getAttribute("data-index") || "0",
-        );
-        carousel.scrollTo({
-          left: index * getSlideWidth(),
-          behavior: "smooth",
-        });
+      nextBtn.addEventListener("click", () => {
+        nextSlide();
         stopAutoPlay();
         startAutoPlay();
       });
-    });
 
-    carousel.addEventListener("scroll", () => {
-      const index = Math.round(carousel.scrollLeft / getSlideWidth());
-      dots.forEach((dot, idx) => {
-        dot.setAttribute("aria-selected", idx === index ? "true" : "false");
+      prevBtn.addEventListener("click", () => {
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
       });
-    });
 
-    carousel.addEventListener("mouseenter", stopAutoPlay);
-    carousel.addEventListener("mouseleave", startAutoPlay);
+      dots.forEach((dot) => {
+        dot.addEventListener("click", (e) => {
+          const index = parseInt(
+            (e.target as HTMLElement).getAttribute("data-index") || "0",
+          );
+          carousel.scrollTo({
+            left: index * getSlideWidth(),
+            behavior: "smooth",
+          });
+          stopAutoPlay();
+          startAutoPlay();
+        });
+      });
 
-    carousel.addEventListener("touchstart", stopAutoPlay);
-    carousel.addEventListener("touchend", () => {
-      stopAutoPlay();
+      carousel.addEventListener("scroll", () => {
+        const index = Math.round(carousel.scrollLeft / getSlideWidth());
+        dots.forEach((dot, idx) => {
+          dot.setAttribute("aria-selected", idx === index ? "true" : "false");
+        });
+      });
+
+      carousel.addEventListener("mouseenter", stopAutoPlay);
+      carousel.addEventListener("mouseleave", startAutoPlay);
+
+      carousel.addEventListener("touchstart", stopAutoPlay);
+      carousel.addEventListener("touchend", () => {
+        stopAutoPlay();
+        startAutoPlay();
+      });
+
       startAutoPlay();
-    });
-
-    startAutoPlay();
-  }
-</script>
-<style>
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
+    }
+  </script>
+  <style>
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</Layout>
