@@ -93,7 +93,7 @@ const navigation = [
       </a>
 
       <!-- Actions Group & Nav -->
-      <div class="flex items-center space-x-8">
+      <div class="flex items-center space-x-3 sm:space-x-6 md:space-x-8">
         <!-- Desktop Nav Menu -->
         <nav
           class="hidden md:flex items-center space-x-6 text-sm font-semibold transition-colors duration-300"
@@ -120,15 +120,16 @@ const navigation = [
         >
         </div>
 
-        <!-- Selector de Idiomas Desktop -->
+        <!-- Selector de Idiomas (Desktop y Móvil) -->
         {
           !offI18n && (
             <LanguajeSelectorAstroComponent
-              class="hidden md:block"
+              class="block"
               currentPath={pathname}
             />
           )
         }
+
         <!-- Botón CTA -->
         <a
           href={bookingUrl}
@@ -136,6 +137,7 @@ const navigation = [
         >
           {i18n.NAV.bookNow}
         </a>
+
         <!-- Button Open Menu Mobile -->
         <button
           type="button"
@@ -223,21 +225,6 @@ const navigation = [
       ))
     }
     <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
-    <!-- Idiomas en Mobile -->
-    {
-      !offI18n && (
-        <div class="text-center w-full">
-          <span class="text-[10px] uppercase tracking-widest font-bold text-gray-400 block mb-3">
-            {lang === "en" ? "Language" : "Idioma"}
-          </span>
-          <LanguajeSelectorAstroComponent
-            isMobileDrawer={true}
-            currentPath={pathname}
-          />
-        </div>
-      )
-    }
-    <div class="w-16 h-[1px] bg-gray-200 my-2"></div>
     <a
       href={bookingUrl}
       class="nav-drawer-link bg-primary hover:bg-primary-hover text-white text-center py-4 px-8 rounded-full font-bold text-xs tracking-widest uppercase shadow-md hover:shadow-lg transition-all duration-300 w-full max-w-[200px]"
@@ -262,9 +249,7 @@ const navigation = [
     const menuBackdrop = document.getElementById("menu-backdrop");
     const drawerLinks = document.querySelectorAll(".nav-drawer-link");
     const header = document.getElementById("main-header");
-
     if (!menuToggleBtn || !menuDrawer || !menuBackdrop || !header) return;
-
     function openMenu() {
       menuBackdrop?.classList.remove("hidden");
       void menuBackdrop?.offsetWidth;
@@ -272,7 +257,6 @@ const navigation = [
       menuDrawer?.classList.remove("-translate-x-full");
       document.body.style.overflow = "hidden";
     }
-
     function closeMenu() {
       menuBackdrop?.classList.remove("opacity-100");
       menuDrawer?.classList.add("-translate-x-full");
@@ -283,23 +267,17 @@ const navigation = [
         menuBackdrop?.classList.add("hidden");
       }, 300);
     }
-
     menuToggleBtn.removeEventListener("click", openMenu);
     menuToggleBtn.addEventListener("click", openMenu);
-
     menuCloseBtn?.removeEventListener("click", closeMenu);
     menuCloseBtn?.addEventListener("click", closeMenu);
-
     menuBackdrop.removeEventListener("click", closeMenu);
     menuBackdrop.addEventListener("click", closeMenu);
-
     drawerLinks.forEach((link) => {
       link.removeEventListener("click", closeMenu);
       link.addEventListener("click", closeMenu);
     });
-
     let ticking = false;
-
     const handleScroll = () => {
       if (!ticking) {
         window.requestAnimationFrame(() => {
