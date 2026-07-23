@@ -1,17 +1,13 @@
 ---
 import { getLangFromUrl, useTranslatedPath } from "../../i18n/utils";
-
 interface Props {
   class?: string;
   isMobileDrawer?: boolean;
 }
-
 const { class: className = "", isMobileDrawer = false } = Astro.props;
 const lang = getLangFromUrl(Astro.url) || "en";
 const pathname = Astro.url.pathname;
-
 const cleanPath = pathname.replace(new RegExp(`^/${lang}(/|$)`), "/") || "/";
-
 const urlEn = useTranslatedPath("en")(cleanPath);
 const urlEs = useTranslatedPath("es")(cleanPath);
 const urlPt = useTranslatedPath("pt")(cleanPath);
@@ -40,7 +36,6 @@ const languages = [
 
 {
   isMobileDrawer ? (
-    /* Renderizado simple de botones circulares para el Drawer Móvil */
     <div class="flex justify-center gap-3">
       {languages.map((item) => (
         <a
@@ -61,11 +56,12 @@ const languages = [
       ))}
     </div>
   ) : (
-    /* Renderizado de Dropdown flotante para Escritorio */
-    <div class={`relative group ${className}`}>
+    <div class={`relative lang-dropdown-container ${className}`}>
       <button
         type="button"
-        class="flex items-center text-sm font-semibold transition-colors duration-300 cursor-pointer gap-2 focus:outline-none text-white/80 hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/80 group-data-[scrolled=true]/header:hover:text-[#4e8782]"
+        class="lang-dropdown-btn flex items-center text-sm font-semibold transition-colors duration-300 cursor-pointer gap-2 focus:outline-none text-white/80 hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/80 group-data-[scrolled=true]/header:hover:text-[#4e8782]"
+        aria-expanded="false"
+        aria-label="Select Language"
       >
         <svg
           class="h-5 w-5 transition-colors duration-300 text-white/80 group-hover:text-[#4e8782] group-data-[scrolled=true]/header:text-dark/70 group-data-[scrolled=true]/header:group-hover:text-[#4e8782]"
@@ -91,9 +87,7 @@ const languages = [
           />
         </svg>
       </button>
-
-      {/* Dropdown Menu (mantiene sus colores claros para que resalte siempre sobre el menú flotante) */}
-      <div class="absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+      <div class="lang-dropdown-menu absolute right-0 mt-2 w-36 bg-[#fcfbf7] rounded-xl shadow-lg border border-gray-100 py-1.5 z-50 opacity-0 invisible transition-all duration-200">
         {languages.map((item) => (
           <a
             href={item.url}
@@ -118,3 +112,52 @@ const languages = [
     </div>
   )
 }
+<script>
+  function setupLangDropdown() {
+    const containers = document.querySelectorAll(".lang-dropdown-container");
+    containers.forEach((container) => {
+      const btn = container.querySelector(".lang-dropdown-btn");
+      const menu = container.querySelector(".lang-dropdown-menu");
+      if (!btn || !menu) return;
+      const toggleMenu = (e: Event) => {
+        e.stopPropagation();
+        const isOpen = menu.classList.contains("opacity-100");
+        document.querySelectorAll(".lang-dropdown-menu").forEach((m) => {
+          m.classList.remove("opacity-100", "visible");
+          m.classList.add("opacity-0", "invisible");
+        });
+        if (!isOpen) {
+          menu.classList.remove("opacity-0", "invisible");
+          menu.classList.add("opacity-100", "visible");
+          btn.setAttribute("aria-expanded", "true");
+        } else {
+          btn.setAttribute("aria-expanded", "false");
+        }
+      };
+      container.addEventListener("mouseenter", () => {
+        if (window.innerWidth >= 768) {
+          menu.classList.remove("opacity-0", "invisible");
+          menu.classList.add("opacity-100", "visible");
+        }
+      });
+      container.addEventListener("mouseleave", () => {
+        if (window.innerWidth >= 768) {
+          menu.classList.remove("opacity-100", "visible");
+          menu.classList.add("opacity-0", "invisible");
+        }
+      });
+      btn.addEventListener("click", toggleMenu);
+    });
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest(".lang-dropdown-container")) {
+        document.querySelectorAll(".lang-dropdown-menu").forEach((m) => {
+          m.classList.remove("opacity-100", "visible");
+          m.classList.add("opacity-0", "invisible");
+        });
+      }
+    });
+  }
+  setupLangDropdown();
+  document.addEventListener("astro:page-load", setupLangDropdown);
+</script>

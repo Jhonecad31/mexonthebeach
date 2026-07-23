@@ -62,7 +62,6 @@ const navigation = [
   },
 ];
 ---
-
 <header
   class="fixed top-0 left-0 right-0 z-50 transition-colors duration-300 ease-in-out bg-transparent text-white border-b border-transparent group/header data-[scrolled=true]:bg-[#fcfbf7] data-[scrolled=true]:text-dark data-[scrolled=true]:shadow-sm data-[scrolled=true]:border-transparent"
   id="main-header"
@@ -91,7 +90,6 @@ const navigation = [
           id="nav-logo-negative"
         />
       </a>
-
       <!-- Actions Group & Nav -->
       <div class="flex items-center space-x-3 sm:space-x-6 md:space-x-8">
         <!-- Desktop Nav Menu -->
@@ -119,7 +117,6 @@ const navigation = [
           id="nav-divider"
         >
         </div>
-
         <!-- Selector de Idiomas (Desktop y Móvil) -->
         {
           !offI18n && (
@@ -129,7 +126,6 @@ const navigation = [
             />
           )
         }
-
         <!-- Botón CTA -->
         <a
           href={bookingUrl}
@@ -137,7 +133,6 @@ const navigation = [
         >
           {i18n.NAV.bookNow}
         </a>
-
         <!-- Button Open Menu Mobile -->
         <button
           type="button"
@@ -162,14 +157,12 @@ const navigation = [
     </div>
   </div>
 </header>
-
 <!-- Drawer Mobile Backdrop -->
 <div
   id="menu-backdrop"
   class="fixed inset-0 bg-dark/45 backdrop-blur-xs z-40 hidden opacity-0 transition-opacity duration-300 md:hidden"
 >
 </div>
-
 <!-- Navigation Drawer Mobile -->
 <div
   id="menu-drawer"
@@ -205,7 +198,6 @@ const navigation = [
       </svg>
     </button>
   </div>
-
   <!-- Drawer Body Links -->
   <nav
     class="flex-grow flex flex-col items-center justify-center gap-7 px-6 py-6 overflow-y-auto"
@@ -232,7 +224,6 @@ const navigation = [
       {i18n.NAV.bookNow}
     </a>
   </nav>
-
   <!-- Drawer Footer -->
   <div
     class="p-6 text-center text-[10px] text-gray-400 uppercase tracking-widest border-t border-dark/5 bg-dark/1"
@@ -240,7 +231,6 @@ const navigation = [
     &copy; {new Date().getFullYear()} Mex on the Beach.
   </div>
 </div>
-
 <script>
   function initHeader() {
     const menuToggleBtn = document.getElementById("menu-toggle-btn");
@@ -290,13 +280,10 @@ const navigation = [
         ticking = true;
       }
     };
-
     handleScroll();
-
     window.removeEventListener("scroll", handleScroll);
     window.addEventListener("scroll", handleScroll, { passive: true });
   }
-
   initHeader();
   document.addEventListener("astro:page-load", initHeader);
 </script>
