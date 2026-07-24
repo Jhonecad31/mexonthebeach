@@ -271,34 +271,12 @@ const slides = [
       }
     </div>
   </div>
-
-  <div
-    class="absolute bottom-0 left-0 right-0 z-20 pointer-events-none w-full translate-y-[1px]"
-  >
-    <svg
-      viewBox="0 0 1440 40"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-auto block"
-    >
-      <path
-        d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
-        fill="#ffffff"></path>
-      <path
-        d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
-        stroke="#1E6B65"
-        stroke-width="2"
-        fill="none"></path>
-    </svg>
-  </div>
 </section>
-
 <style>
   div::-webkit-scrollbar {
     display: none;
   }
 </style>
-
 <script>
   const track = document.getElementById("carousel-track") as HTMLDivElement;
   const prevBtn = document.getElementById("prev-slide");
@@ -308,7 +286,6 @@ const slides = [
     let isDown = false;
     let startX: number;
     let scrollLeft: number;
-
     // --- Efecto Drag Mejorado ---
     track.addEventListener("mousedown", (e) => {
       isDown = true;
@@ -317,17 +294,14 @@ const slides = [
       startX = e.pageX - track.offsetLeft;
       scrollLeft = track.scrollLeft;
     });
-
     const stopDragging = () => {
       if (!isDown) return;
       isDown = false;
       track.classList.remove("scroll-auto");
       track.classList.add("snap-x", "snap-mandatory"); // Devolvemos el efecto imán de forma limpia
     };
-
     track.addEventListener("mouseleave", stopDragging);
     track.addEventListener("mouseup", stopDragging);
-
     track.addEventListener("mousemove", (e) => {
       if (!isDown) return;
       e.preventDefault();
@@ -335,7 +309,6 @@ const slides = [
       const walk = (x - startX) * 1.5; // Ajuste fino de la sensibilidad del arrastre
       track.scrollLeft = scrollLeft - walk;
     });
-
     // --- Botones de navegación (Flechas) ---
     if (prevBtn && nextBtn) {
       const getScrollAmount = () => (window.innerWidth < 768 ? 300 : 450);

@@ -58,12 +58,12 @@ const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
   href="/assets/favicons/favicon-96x96.png"
   sizes="96x96"
 />
-<link rel="icon" type="image/svg+xml" href="/assets/favicons/favicon.svg" />
-<link rel="shortcut icon" href="/assets/favicons/favicon.ico" />
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+<link rel="shortcut icon" href="/assets/favicon.svg" />
 <link
   rel="apple-touch-icon"
   sizes="180x180"
-  href="/assets/favicons/apple-touch-icon.png"
+  href="/assets/favicon.svg"
 />
 <meta name="apple-mobile-web-app-title" content={siteName} />
 <link rel="manifest" href="/assets/favicons/site.webmanifest" />
@@ -86,6 +86,13 @@ const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={metaTitle} />
 <meta property="og:site_name" content={siteName} />
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalURL} />
+<meta name="twitter:title" content={metaTitle} />
+<meta name="twitter:description" content={metaDescription} />
+<meta name="twitter:image" content={image} />
+<meta name="twitter:image:alt" content={metaTitle} />
 <!-- Preload Fonts -->
 <link
   rel="preload"

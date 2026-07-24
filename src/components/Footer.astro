@@ -9,10 +9,30 @@ const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
 
-<footer id="footer" class="bg-white text-dark/70 py-16 relat">
+<footer id="footer" class="bg-[#fcfbf7] text-dark/70 py-16 relative mt-12 md:mt-20">
+  {/* LÍNEA DECORATIVA SUPERIOR */}
+  <div class="w-full absolute -top-[39px] left-0 right-0 overflow-hidden leading-none pointer-events-none z-10">
+    <svg
+      viewBox="0 0 1440 40"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      class="w-full h-auto block"
+      preserveAspectRatio="none"
+    >
+      <path
+        d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
+        fill="#ffffff"
+      ></path>
+      <path
+        d="M0,15 C360,35 720,-5 1080,15 C1260,25 1350,35 1440,25"
+        stroke="var(--color-secondary)"
+        stroke-width="2"
+        fill="none"
+      ></path>
+    </svg>
+  </div>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex flex-col items-center text-center">
-      <!-- Logo -->
       <a
         href={lang === "es" ? "/es" : "/"}
         class="flex items-center justify-center mb-8 group"
@@ -42,7 +62,7 @@ const t = useTranslations(lang);
         <a
           href="https://www.facebook.com/mexonthebeachmx"
           aria-label="Facebook"
-          class="w-12 h-12 rounded-full border border-primary/20 hover:border-primary bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300"
+          class="w-12 h-12 rounded-full border border-primary/20 hover:border-primary bg-[#fcfbf7] flex items-center justify-center text-primary hover:bg-primary hover:text-[#fcfbf7] hover:shadow-md transition-all duration-300"
         >
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path
@@ -54,7 +74,7 @@ const t = useTranslations(lang);
         <a
           href="https://www.instagram.com/mexonthebeachmx/"
           aria-label="Instagram"
-          class="w-12 h-12 rounded-full border border-primary/20 hover:border-primary bg-white flex items-center justify-center text-primary hover:bg-primary hover:text-white hover:shadow-md transition-all duration-300"
+          class="w-12 h-12 rounded-full border border-primary/20 hover:border-primary bg-[#fcfbf7] flex items-center justify-center text-primary hover:bg-primary hover:text-[#fcfbf7] hover:shadow-md transition-all duration-300"
         >
           <svg
             class="w-5 h-5"

@@ -15,7 +15,7 @@ const seoMetaData = {
   description: i18n.SEO.HOME_PAGE.DESCRIPTION,
   metaTitle: i18n.SEO.HOME_PAGE.META_TITLE,
 };
-interface SeoProps {
+interface SeoProps { 
   title: string;
   description: string;
   metaTitle: string;
@@ -26,7 +26,6 @@ export interface Props {
 }
 const { seo, offI18n } = Astro.props;
 ---
-
 <BaseLayout seo={seoMetaData}>
   <Hero />
   <Experience />
