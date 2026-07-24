@@ -658,7 +658,7 @@ const dataForm = {
           </div>
           {/* COMPONENTE BOKUN DESKTOP */}
           <div class="w-full pt-2">
-            <Bokun client:load data={dataForm} variant="accordion" />
+            <Bokun client:load data={dataForm} lang={lang} variant="accordion" />
           </div>
         </div>
       </div>
@@ -693,7 +693,7 @@ const dataForm = {
             </div>
           </div>
           {/* Botón directo Bokun Móvil Sticky */}
-          <Bokun client:load data={dataForm} variant="sticky" />
+          <Bokun client:load data={dataForm} lang={lang} variant="sticky" />
         </div>
       </div>
       {/* MODAL MÓVIL DE RESERVA */}

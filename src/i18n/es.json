@@ -344,7 +344,8 @@
     },
     "FORM": {
       "BOKUN": "Reserva tu experiencia",
-      "BUTTON": "Consultar disponibilidad"
+      "BUTTON": "Consultar disponibilidad",
+      "CALENDAR": "Cerrar calendario"
     }
   },
   "FULL_DAY_BEACH_EXPERIENCE": {
@@ -473,7 +474,8 @@
     },
     "FORM": {
       "BOKUN": "Reserva tu experiencia",
-      "BUTTON": "Consultar disponibilidad"
+      "BUTTON": "Consultar disponibilidad",
+      "CALENDAR": "Cerrar calendario"
     }
   },
   "MAKE_YOU_RESERVATION": {
