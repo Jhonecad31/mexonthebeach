@@ -98,7 +98,7 @@
         "answer": "Mex On The Beach is located in Puerto Morelos, a beautiful coastal town in the Riviera Maya situated between Cancun and Playa del Carmen. Its location makes it easily accessible for visitors staying throughout the region."
       },
       "q2": {
-        "question": ". How far is Puerto Morelos from Cancun?",
+        "question": "How far is Puerto Morelos from Cancun?",
         "answer": "The drive from Cancun to Puerto Morelos typically takes about 25 to 30 minutes, making itone of the most convenient beach destinations for day trips and weekend getaways."
       },
       "q3": {
@@ -213,7 +213,7 @@
       "p4": "Authentic Charm",
       "p4_txt": "Close to the world's 2nd largest barrier reef and the famous Ruta de los Cenotes."
     },
-    "title": "Half-Day Beach Pass- Your Relaxing Beach Club Experience In Puerto Morelos",
+    "title": "Half-Day Beach Pass",
     "tag": "HALF DAY",
     "clock": "10:00 AM - 2:00 AM",
     "button": "Check Availability - In Menu",
@@ -245,6 +245,12 @@
         "Tips and gratuities",
         "Any additional services or amenities not explicitly mentioned above"
       ]
+    },
+    "PRICE": {
+      "price": "$39",
+      "from": "From",
+      "currency": "USD",
+      "perPerson": "person"
     },
     "LIVE_THE_EXPERIENCE": {
       "title": "Live the Experience at Mex On The Beach",
@@ -345,7 +351,7 @@
       "p3": "Unlike many busy tourist destinations, Puerto Morelos maintains its authentic charm as a fishing village surrounded by natural treasures. From the world's second-largest barrier reef to the famous Ruta de los Cenotes, visitors can experience a more tranquil side of the Riviera Maya while enjoying comfort, excellent service, and unforgettable ocean views.",
       "p4": "At Mex On The Beach, every moment is designed to help travelers slow down, reconnect with nature, and enjoy everything that makes Puerto Morelos Mexico beach so special."
     },
-    "title": "Full-Day Beach Experience Your Relaxing Beach Club Experience In Puerto Morelos",
+    "title": "Full-Day Beach Experience",
     "tag": "Full day",
     "clock": "2:00 PM - 6:00 PM",
     "button": "Check Availability - In Menu",
@@ -377,6 +383,12 @@
         "Tips and gratuities",
         "Any additional services or amenities not explicitly mentioned above"
       ]
+    },
+    "PRICE": {
+      "price": "$70",
+      "from": "From",
+      "currency": "USD",
+      "perPerson": "person"
     },
     "LIVE_THE_EXPERIENCE": {
       "title": "Live the Experience at Mex On The Beach",
@@ -439,7 +451,7 @@
       }
     },
     "BAKLINKS": {
-      "tag":"Discover more products",
+      "tag": "Discover more products",
       "title": "More Activities for you to enjoy",
       "subtitle": "Discover more exciting activities and tours to enhance your experience in Puerto Morelos and the Rivera Maya.",
       "TACO_TOUR": {

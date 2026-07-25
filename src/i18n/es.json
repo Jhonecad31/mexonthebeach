@@ -263,6 +263,12 @@
         "Cualquier servicio o amenidad adicional no mencionado explícitamente arriba"
       ]
     },
+    "PRICE": {
+      "price": "$39",
+      "from": "Desde",
+      "currency": "USD",
+      "perPerson": "persona"
+    },
     "LIVE_THE_EXPERIENCE": {
       "title": "Vive la experiencia en Mex On The Beach",
       "description": "Una visita a Mex On The Beach es mucho más que pasar unas pocas horas junto al océano. Es la oportunidad perfecta para experimentar el ritmo tranquilo de Puerto Morelos mientras contemplas uno de los entornos playeros más hermosos de la Riviera Maya.",
@@ -394,6 +400,12 @@
         "Propinas",
         "Cualquier servicio o amenidad adicional no mencionado explícitamente arriba"
       ]
+    },
+    "PRICE": {
+      "price": "$70",
+      "from": "Desde",
+      "currency": "USD",
+      "perPerson": "persona"
     },
     "LIVE_THE_EXPERIENCE": {
       "title": "Vive la experiencia en Mex On The Beach",

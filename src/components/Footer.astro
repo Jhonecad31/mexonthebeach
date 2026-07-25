@@ -4,22 +4,18 @@ import { useTranslations } from "../i18n/utils";
 import { getI18N } from "../i18n/index";
 const { currentLocale } = Astro;
 const i18n = getI18N({ currentLocale }) as any;
-
 const { lang = "en" } = Astro.props;
 const t = useTranslations(lang);
 ---
-
 <footer id="footer" class="bg-[#fcfbf7] text-dark/70 py-16 relative mt-12 md:mt-20">
-  {/* LÍNEA DECORATIVA SUPERIOR */}
-  <div class="w-full absolute -top-[39px] left-0 right-0 overflow-hidden leading-none pointer-events-none z-10">
+  <div class="w-full absolute -top-[40px] left-0 right-0 overflow-hidden leading-none pointer-events-none z-10 translate-y-[1px]">
     <svg
       viewBox="0 0 1440 40"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      class="w-full h-auto block"
+      class="w-full h-[40px] block"
       preserveAspectRatio="none"
     >
-      {/* CAMBIO: fill="#ffffff" por fill="#fcfbf7" */}
       <path
         d="M0,20 C360,40 720,0 1080,20 C1260,30 1350,40 1440,30 L1440,40 L0,40 Z"
         fill="#fcfbf7"

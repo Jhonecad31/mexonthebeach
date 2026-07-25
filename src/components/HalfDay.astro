@@ -208,11 +208,11 @@ const dataForm = {
         </div>
         {/* Encabezado e Introducción Breve */}
         <div class="space-y-4 max-w-3xl">
-          <h2
-            class="text-3xl md:text-4xl font-serif font-bold text-stone-900 tracking-tight"
+          <h3
+            class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight"
           >
             {i18n.HALF_DAY_PRODUCT.OVERVIEW.title}
-          </h2>
+          </h3>
           <div
                 class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
               >
@@ -234,13 +234,8 @@ const dataForm = {
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
           {/* Item 1 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              📍
-            </div>
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p2}
@@ -254,13 +249,9 @@ const dataForm = {
           </div>
           {/* Item 2 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              🌊
-            </div>
+            
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p3}
@@ -272,16 +263,11 @@ const dataForm = {
               </div>
             </div>
           </div>
-
           {/* Item 3 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              🐠
-            </div>
+            
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p4}
@@ -312,9 +298,9 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.HALF_DAY_PRODUCT.WHAT_INCLUDED.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
@@ -353,9 +339,9 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.HALF_DAY_PRODUCT.LIVE_THE_EXPERIENCE.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
@@ -493,9 +479,9 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
@@ -510,7 +496,6 @@ const dataForm = {
                 {i18n.HALF_DAY_PRODUCT.LOVE_SPENDING.description}
               </p>
             </div>
-
             <div
               class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-20"
             >
@@ -597,7 +582,7 @@ const dataForm = {
             class="relative w-full h-52 rounded-2xl overflow-hidden shadow-sm bg-stone-100 group"
           >
             <img
-              src="/img-beach-club/mex-beach-club-relaxation.webp"
+              src="/img-beach-club/half-day-beach-pass.webp"
               alt="Tour Preview"
               class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
             />
@@ -605,7 +590,6 @@ const dataForm = {
               class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"
             >
             </div>
-
             {/* Badge flotante opcional */}
             <span
               class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-stone-800 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full shadow-xs"
@@ -615,11 +599,11 @@ const dataForm = {
           </div>
           {/* Título & Detalle */}
           <div class="space-y-2">
-            <h3
-              class="font-serif font-black text-stone-900 text-xl md:text-2xl leading-snug tracking-tight"
-            >
-              {i18n.HALF_DAY_PRODUCT.title}
-            </h3>
+          <h3
+            class="font-serif font-bold text-lg md:text-xl text-[#000000]/70 mb-2 md:mb-3"
+          >
+            {i18n.HALF_DAY_PRODUCT.title}
+          </h3>
 
             {/* Chips de características rápidas */}
             <div class="flex flex-wrap gap-2 pt-1">
@@ -636,24 +620,20 @@ const dataForm = {
             </div>
           </div>
           <hr class="border-stone-100" />
-          {/* SECCIÓN PRECIO: Formato alineado y agrupado */}
-          <div class="flex items-baseline justify-between pt-1">
-            <span
-              class="text-xs font-bold text-stone-400 uppercase tracking-wider"
-            >
-              Price per person
-            </span>
-            <div class="text-right flex items-baseline gap-1.5">
-              <span class="text-xs font-semibold text-stone-400">from</span>
-              <span
-                class="text-3xl font-normal text-stone-900 tracking-tight"
-              >
-                $39 <span class="text-sm font-sans font-normal text-stone-500"
-                  >USD</span
-                >
-              </span>
-            </div>
-          </div>
+          {/* SECCIÓN PRECIO: Adaptado al estilo destacado */}
+<div class="my-3 py-2 border-y border-stone-100 flex flex-col justify-center">
+  <span class="text-[10px] md:text-xs font-semibold text-gray-400 uppercase tracking-widest">
+    {i18n.HALF_DAY_PRODUCT.PRICE.from || "from"}
+  </span>
+  <div class="flex items-baseline gap-1.5">
+    <span class="text-3xl md:text-4xl font-black text-[#1E6B65] tracking-tight">
+      {i18n.HALF_DAY_PRODUCT.PRICE.price || "$69"}
+    </span>
+    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      {i18n.HALF_DAY_PRODUCT.PRICE.currency || "USD"} / {i18n.FULL_DAY_BEACH_EXPERIENCE.PRICE.perPerson || "per person"}
+    </span>
+  </div>
+</div>
           {/* COMPONENTE BOKUN DESKTOP */}
           <div class="w-full pt-2">
             <Bokun client:load data={dataForm} lang={lang} variant="accordion" />
@@ -1056,9 +1036,9 @@ const dataForm = {
       <span class="text-xs uppercase tracking-[0.25em] text-primary font-medium block mb-3">
         {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.tag}
       </span>
-      <h2 class="font-serif text-2xl md:text-4xl font-bold text-neutral-900 mb-4 tracking-tight">
-        {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
-      </h2>
+      <h2 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
+              </h2>
       <div class="w-12 h-[2px] bg-primary mx-auto opacity-80"></div>
       <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mt-4 font-light">
         {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}

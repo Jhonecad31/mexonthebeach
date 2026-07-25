@@ -72,7 +72,6 @@ const dataForm = {
           >
             {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.title}
           </h1>
-
           {
             /* Descripción: Se cambia a text-white/90 y font-normal para evitar que las letras delgadas "desaparezcan" con la luz */
           }
@@ -81,7 +80,6 @@ const dataForm = {
           >
             {i18n.FULL_DAY_BEACH_EXPERIENCE.HERO.description}
           </p>
-
           {
             /* Botón CTA: Cambiado a un color con mejor contraste sobre el fondo oscuro y un hover pulido */
           }
@@ -208,11 +206,11 @@ const dataForm = {
         </div>
         {/* Encabezado e Introducción Breve */}
         <div class="space-y-4 max-w-3xl">
-          <h2
-            class="text-3xl md:text-4xl font-serif font-bold text-stone-900 tracking-tight"
+          <h3
+            class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight"
           >
             {i18n.HALF_DAY_PRODUCT.OVERVIEW.title}
-          </h2>
+          </h3>
           <div
                 class="prose max-w-none text-stone-600 font-light space-y-4 md:space-y-6 text-sm md:text-base leading-relaxed"
               >
@@ -234,13 +232,8 @@ const dataForm = {
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-5 pt-4">
           {/* Item 1 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              📍
-            </div>
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p2}
@@ -254,13 +247,8 @@ const dataForm = {
           </div>
           {/* Item 2 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              🌊
-            </div>
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p3}
@@ -275,13 +263,8 @@ const dataForm = {
 
           {/* Item 3 */}
           <div
-            class="group bg-[#fcfbf7] p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
+            class="group p-5 rounded-2xl border border-stone-200/60 space-y-3 transition-all duration-300 hover:border-primary/40 hover:shadow-sm"
           >
-            <div
-              class="w-10 h-10 rounded-xl bg-primary/10 text-primary flex items-center justify-center text-lg transition-transform group-hover:scale-110 duration-300"
-            >
-              🐠
-            </div>
             <div class="space-y-1">
               <h3 class="font-serif font-bold text-stone-900 text-base">
                 {i18n.HALF_DAY_PRODUCT.OVERVIEW.p4}
@@ -312,16 +295,15 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.FULL_DAY_BEACH_EXPERIENCE.WHAT_INCLUDED.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
-
             <div class="mt-8">
               <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                 {
@@ -355,9 +337,9 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.FULL_DAY_BEACH_EXPERIENCE.LIVE_THE_EXPERIENCE.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
@@ -501,16 +483,15 @@ const dataForm = {
             <summary
               class="flex justify-between items-center cursor-pointer list-none select-none"
             >
-              <h2 class="text-2xl md:text-3xl font-serif text-[#001524]">
+              <h3 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
                 {i18n.FULL_DAY_BEACH_EXPERIENCE.LOVE_SPENDING.title}
-              </h2>
+              </h3>
               <div
                 class="w-8 h-8 rounded-full bg-gray-100 flex items-center justify-center group-open:rotate-180 transition-transform duration-300"
               >
                 <ChevronRight className="rotate-90 text-gray-500" size={20} />
               </div>
             </summary>
-
             <div
               class="mb-16 bg-[#1E6B65]/10 border-l-4 border-[#4e8782] p-6 md:p-8 rounded-r-2xl relative mt-10"
             >
@@ -613,7 +594,6 @@ const dataForm = {
               class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent opacity-60"
             >
             </div>
-
             {/* Badge flotante opcional */}
             <span
               class="absolute top-3 left-3 bg-white/90 backdrop-blur-md text-stone-800 text-[10px] font-bold tracking-wider uppercase px-3 py-1 rounded-full shadow-xs"
@@ -624,11 +604,11 @@ const dataForm = {
           {/* Título & Detalle */}
           <div class="space-y-2">
             <h3
-              class="font-serif font-black text-stone-900 text-xl md:text-2xl leading-snug tracking-tight"
-            >
-              {i18n.FULL_DAY_BEACH_EXPERIENCE.title}
-            </h3>
-
+            class="font-serif font-bold text-lg md:text-xl text-[#000000]/70 mb-2 md:mb-3"
+          >
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.title}
+          </h3>
+            
             {/* Chips de características rápidas */}
             <div class="flex flex-wrap gap-2 pt-1">
               <span
@@ -645,24 +625,20 @@ const dataForm = {
           </div>
           <hr class="border-stone-100" />
 
-          {/* SECCIÓN PRECIO: Formato alineado y agrupado */}
-          <div class="flex items-baseline justify-between pt-1">
-            <span
-              class="text-xs font-bold text-stone-400 uppercase tracking-wider"
-            >
-              Price per person
-            </span>
-            <div class="text-right flex items-baseline gap-1.5">
-              <span class="text-xs font-semibold text-stone-400">from</span>
-              <span
-                class="text-3xl font-normal text-stone-900 tracking-tight"
-              >
-                $69 <span class="text-sm font-sans font-normal text-stone-500"
-                  >USD</span
-                >
-              </span>
-            </div>
-          </div>
+          {/* SECCIÓN PRECIO: Adaptado al estilo destacado */}
+<div class="my-3 py-2 border-y border-stone-100 flex flex-col justify-center">
+  <span class="text-[10px] md:text-xs font-semibold text-gray-400 uppercase tracking-widest">
+    {i18n.FULL_DAY_BEACH_EXPERIENCE.PRICE.from || "from"}
+  </span>
+  <div class="flex items-baseline gap-1.5">
+    <span class="text-3xl md:text-4xl font-black text-[#1E6B65] tracking-tight">
+      {i18n.FULL_DAY_BEACH_EXPERIENCE.PRICE.price || "$69"}
+    </span>
+    <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">
+      {i18n.FULL_DAY_BEACH_EXPERIENCE.PRICE.currency || "USD"} / {i18n.FULL_DAY_BEACH_EXPERIENCE.PRICE.perPerson || "per person"}
+    </span>
+  </div>
+</div>
 
           {/* COMPONENTE BOKUN DESKTOP */}
           <div class="w-full pt-2">
@@ -690,11 +666,11 @@ const dataForm = {
             </div>
 
             <div class="flex flex-col min-w-0">
-              <h4
-                class="text-stone-700 font-extrabold text-xs tracking-wider uppercase truncate"
-              >
-                {i18n.FULL_DAY_BEACH_EXPERIENCE.title}
-              </h4>
+               <h4
+            class="font-serif font-bold text-lg md:text-xl text-[#000000]/70 mb-2 md:mb-3"
+          >
+            {i18n.FULL_DAY_BEACH_EXPERIENCE.title}
+          </h4>
               <p class="text-stone-400 text-[10px] italic mt-1 font-sans">
                 Booking 30 days before.
               </p>
@@ -1065,9 +1041,9 @@ const dataForm = {
       <span class="text-xs uppercase tracking-[0.25em] text-primary font-medium block mb-3">
         {i18n.FULL_DAY_BEACH_EXPERIENCE.BAKLINKS.tag}
       </span>
-      <h2 class="font-serif text-4xl font-bold text-neutral-900 mb-3 md:mb-4 leading-tight capitalize">
-        {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
-      </h2>
+      <h2 class="text-3xl md:text-3xl font-serif font-bold text-stone-600 tracking-tight">
+                {i18n.MAKE_YOU_RESERVATION.BAKLINKS.title}
+              </h2>
       <div class="w-12 h-[2px] bg-primary mx-auto opacity-80"></div>
       <p class="text-xs md:text-sm text-neutral-600 leading-relaxed mt-4 font-light">
         {i18n.MAKE_YOU_RESERVATION.BAKLINKS.subtitle}

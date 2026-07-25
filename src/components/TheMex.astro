@@ -9,11 +9,7 @@ interface Props {
 }
 const { lang = "en" } = Astro.props as Props;
 const t = useTranslations(lang);
-
-// FAQ Questions
 const questionsList = i18n.THE_MEX.QUESTIONS.list || [];
-
-// FAQ Icons mapping
 const icons: any = {};
 const fallbackIcon = null;
 
@@ -37,11 +33,10 @@ const tickerImages = [
   {
     src: "/img-food/mex-beach-club-octopus-ceviche.webp",
     alt: "Signature mixology cocktail",
-  }
+  },
 ];
 const doubleTickerImages = [...tickerImages, ...tickerImages];
 ---
-
 <Layout>
   <section
     class="relative h-[65vh] flex items-center justify-center overflow-hidden"
@@ -61,7 +56,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
     >
       <h1
         class="font-serif text-3xl md:text-5xl lg:text-6xl font-bold tracking-[0.2em] leading-tight max-w-2xl"
-        >
+      >
         {i18n.THE_MEX.HERO.title1}
         <br class="hidden md:block" />
         {i18n.THE_MEX.HERO.title2}
@@ -74,7 +69,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
   >
     <div class="max-w-5xl mx-auto text-center">
       <h2
-         class="font-serif text-3xl md:text-5xl font-bold text-[#4e8782] mb-3 md:mb-4 leading-tight capitalize"
+        class="font-serif text-3xl md:text-5xl font-bold text-[#4e8782] mb-3 md:mb-4 leading-tight capitalize"
       >
         {i18n.THE_MEX.title}
       </h2>
@@ -95,7 +90,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       <div class="flex flex-col gap-8">
         <div class="block md:hidden space-y-6">
           <h2
-            class="font-serif text-3xl font-bold tracking-wide text-stone-800 mb-4"
+            class="font-serif text-3xl font-bold tracking-wide text-stone-800/80 mb-4"
           >
             {i18n.THE_MEX.TITLE_H2.title}
           </h2>
@@ -132,7 +127,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       <div class="flex flex-col gap-8 md:mt-0">
         <div class="hidden md:block space-y-6">
           <h2
-            class="font-serif text-3xl md:text-4xl font-bold tracking-wide text-stone-800 mb-4"
+            class="font-serif text-3xl md:text-4xl font-bold tracking-wide text-stone-800/80 mb-4"
           >
             {i18n.THE_MEX.TITLE_H2.title}
           </h2>
@@ -158,7 +153,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       <div class="flex flex-col gap-8">
         <div class="block md:hidden space-y-6">
           <h2
-            class="font-serif text-3xl tracking-wide font-bold text-stone-800 mb-4"
+            class="font-serif text-3xl tracking-wide font-bold text-stone-800/80 mb-4"
           >
             {i18n.THE_MEX.TITLE_H3.title}
           </h2>
@@ -195,7 +190,7 @@ const doubleTickerImages = [...tickerImages, ...tickerImages];
       <div class="flex flex-col gap-8 md:mt-0">
         <div class="hidden md:block space-y-6">
           <h2
-            class="font-serif text-3xl md:text-4xl font-bold tracking-wide text-stone-800 mb-4"
+            class="font-serif text-3xl md:text-4xl font-bold tracking-wide text-stone-800/80 mb-4"
           >
             {i18n.THE_MEX.TITLE_H3.title}
           </h2>
