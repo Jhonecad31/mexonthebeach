@@ -1,21 +1,39 @@
 {
   "SEO": {
     "HOME_PAGE": {
-      "TITLE": "The perfect natural setting to connect with paradise.",
-      "DESCRIPTION": "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly. Premium sunbeds, mixology heaven, and curated culinary experiences.",
+      "TITLE": "The perfect natural stage to connect with paradise.",
+      "DESCRIPTION": "Experience the ultimate beach getaway, where sun, sand, and good vibes blend seamlessly. Premium sunbeds, heavenly cocktails, and exclusive culinary experiences.",
       "META_TITLE": "Mex on the Beach | Premium Beach Club & Lounge"
     },
     "DETAIL_PAGE": {
       "HALF_DAY_PRODUCT": {
-        "TITLE": "Beach club experience in puerto morelos",
-        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
+        "TITLE": "Beach Club Experience in Puerto Morelos",
+        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a cozy beach club in Puerto Morelos located between Cancun and Playa del Carmen, in the heart of the Riviera Maya.",
         "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
       },
       "FULL_DAY_PRODUCT": {
-        "TITLE": "Beach club experience in puerto morelos",
-        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a welcoming Puerto Morelos beach club located between Cancun and Playa del Carmen in the heart of the Riviera Maya.",
+        "TITLE": "Beach Club Experience in Puerto Morelos",
+        "DESCRIPTION": "Escape the crowds and discover a different side of the Mexican Caribbean at Mex On The Beach, a cozy beach club in Puerto Morelos located between Cancun and Playa del Carmen, in the heart of the Riviera Maya.",
         "META_TITLE": "Mex On The Beach | Beach Club in Puerto Morelos Riviera Maya"
       }
+    },
+    "PUERTO_MORELOS_PAGE": {
+      "TITLE": "Puerto Morelos",
+      "DESCRIPTION": "Located between Cancun and Playa del Carmen, Puerto Morelos is one of the most charming coastal destinations in the Riviera Maya. While many travelers head straight to larger resorts, those who visit Puerto Morelos often discover a quieter side of the Mexican Caribbean, full of natural beauty, authentic local culture, and breathtaking ocean views.",
+      "META_TITLE": "Puerto Morelos: The Charming Coastal Town in the Riviera Maya"
+    },
+    "CONTACT_PAGE": {
+      "TITLE": "Get in touch with us",
+      "DESCRIPTION": "We love hearing from you! Whether you want to book the best sunbed by the water or simply have a question about our offerings, our team is here to help. Drop us a message and start planning your perfect day under the sun.",
+      "META_TITLE": "Contact Us | Reserve Your Spot Under the Sun"
+    },
+    "NOT_FOUND_PAGE": {
+      "TITLE": "Page Not Found",
+      "DESCRIPTION": "The page you are looking for does not exist. Please return to the home page."
+    },
+    "ERROR_SERVER_PAGE": {
+      "TITLE": "Error 500 - Server Error",
+      "DESCRIPTION": "A server error occurred. Please try again later."
     }
   },
   "NAV": {
