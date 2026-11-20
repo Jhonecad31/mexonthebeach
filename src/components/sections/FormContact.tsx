@@ -1,23 +1,20 @@
 import { useState } from "react";
 import { Modal, Button } from "@heroui/react";
-
 export default function FormContact({ i18n }: { i18n: any }) {
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: "", // 1. Agregado al estado
+    phone: "", 
     message: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -44,7 +41,6 @@ export default function FormContact({ i18n }: { i18n: any }) {
       setIsSubmitting(false);
     }
   };
-
   return (
     <>
       {/* Form Container */}
