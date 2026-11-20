@@ -1,2 +1,2 @@
 export const siteName = "Mex on the Beach";
-export const siteURL= "https://www.mexonthebeach.com";
+export const siteURL= "https://mexonthebeach.vercel.app";

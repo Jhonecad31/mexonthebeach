@@ -1,4 +1,4 @@
-<!-- ---
+---
 import "@/styles/global.css";
 import { getI18N } from "@/i18n";
 import { Languages, defaultlang } from "@/i18n/ui";
@@ -21,9 +21,9 @@ interface Props {
   image?: string;
   metaType?: string;
   robots?: string;
-} -->
+}
 
-<!-- const { offI18n } = Astro.props;
+const { offI18n } = Astro.props;
 const title = Astro.props.title || i18n.SEO.HOME_PAGE.TITLE;
 const description = Astro.props.description || i18n.SEO.HOME_PAGE.DESCRIPTION;
 const metaTitle = Astro.props.metaTitle || title;
@@ -39,69 +39,65 @@ const robots =
   Astro.props.robots ||
   "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1";
 const ogLocale = currentLocale === "en" ? "en_US" : "es_ES";
---- -->
+---
 
-<!-- <meta charset="utf-8" />
+<meta charset="utf-8" />
 <meta
   name="viewport"
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 />
 <meta name="author" content={siteName} />
-<!-- Google tag (gtag.js) -->
-<!-- Google Tag Manager -->
-<!-- Meta Pixel Code -->
-<!-- End Meta Pixel Code -->
 <!-- Favicon -->
-<!-- <link
+<link
   rel="icon"
   type="image/png"
   href="/assets/favicons/favicon-96x96.png"
   sizes="96x96"
-/>  -->
-<!-- <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+/>
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
 <link rel="shortcut icon" href="/assets/favicon.svg" />
 <link
   rel="apple-touch-icon"
   sizes="180x180"
   href="/assets/favicon.svg"
-/> -->
-<!-- <meta name="apple-mobile-web-app-title" content={siteName} />
+/>
+<meta name="apple-mobile-web-app-title" content={siteName} />
 <link rel="manifest" href="/assets/favicons/site.webmanifest" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="referrer" content="strict-origin-when-cross-origin" />
-Primary Meta Tags -->
-<!-- <title>{title}</title>
+<!-- Primary Meta Tags -->
+<title>{title}</title>
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <link rel="canonical" href={canonicalURL} />
-<meta name="robots" content={robots} /> -->
+<meta name="robots" content={robots} />
 <!-- Generator Astro -->
-<!-- <meta name="generator" content={Astro.generator} /> -->
+<meta name="generator" content={Astro.generator} />
 <!-- Open Graph / Facebook -->
-<!-- <meta property="og:locale" content={ogLocale} />
+<meta property="og:locale" content={ogLocale} />
 <meta property="og:type" content={metaType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:title" content={metaTitle} />
 <meta property="og:description" content={metaDescription} />
 <meta property="og:image" content={image} />
 <meta property="og:image:alt" content={metaTitle} />
-<meta property="og:site_name" content={siteName} /> -->
+<meta property="og:site_name" content={siteName} />
 <!-- Twitter -->
-<!-- <meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:url" content={canonicalURL} />
 <meta name="twitter:title" content={metaTitle} />
 <meta name="twitter:description" content={metaDescription} />
 <meta name="twitter:image" content={image} />
-<meta name="twitter:image:alt" content={metaTitle} /> -->
+<meta name="twitter:image:alt" content={metaTitle} />
 <!-- Preload Fonts -->
-<!-- <link
+<link
   rel="preload"
   href="/fonts/Poppins-Light.ttf"
   as="font"
   type="font/ttf"
   crossorigin
-/> -->
-<!-- <link
+/>
+<link
   rel="preload"
   href="/fonts/Poppins-SemiBold.ttf"
   as="font"
@@ -114,7 +110,6 @@ Primary Meta Tags -->
   as="font"
   type="font/ttf"
   crossorigin
-/> -->
+/>
 <!-- Sitemap -->
-<!-- <link rel="sitemap" href="/sitemap-index.xml" /> -->
-<!-- clarity.ms -->
+<link rel="sitemap" href="/sitemap-index.xml" />
