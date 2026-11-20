@@ -5,6 +5,7 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 
 export default defineConfig({
+  site: 'https://mexonthebeach.vercel.app',
   output: 'server',
   adapter: vercel(),
 
